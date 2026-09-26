@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>재외국민 One Stop 서비스</title>
+<title>중국대학 One Stop 서비스</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700;800&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Noto Sans KR', sans-serif; background: #f5f5f5; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
+body { font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; background: #f5f5f5; color: #333; display: flex; flex-direction: column; min-height: 100vh; }
 .page-content { flex: 1; }
 a { text-decoration: none; color: inherit; cursor: pointer; }
 
@@ -41,7 +41,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border-radius: 30px;
   font-size: 15px;
   outline: none;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .search-box input::placeholder { color: #aaa; }
 .search-box .search-icon {
@@ -215,7 +215,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-weight: 700;
   cursor: pointer;
   border: none;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 
 /* Slide-specific text colors */
@@ -368,7 +368,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .login-btn:hover { background: #26a69a; }
 .login-links {
@@ -454,7 +454,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 13px;
   color: #666;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .logout-btn:hover { border-color: #2db4a8; color: #2db4a8; }
 
@@ -654,7 +654,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-weight: 600;
   color: #333;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .eval-btn:hover { border-color: #1976d2; color: #1976d2; }
 .eval-illustration {
@@ -946,7 +946,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   color: #555;
   background: #fff;
   appearance: auto;
@@ -1141,9 +1141,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 <!-- TOP HEADER -->
 <div class="page-content">
 <header class="top-header">
-  <div class="logo">재외국민 <span>One Stop</span> 서비스</div>
+  <div class="logo">중국대학 <span>One Stop</span> 서비스</div>
   <div class="search-box">
-    <input type="text" placeholder="검색어를 입력해주세요">
+    <input type="text" placeholder="대학명·전공·키워드 검색 (예: 北京大学, HSK)">
     <i class="fas fa-search search-icon"></i>
   </div>
   <div class="top-links">
@@ -1178,23 +1178,23 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   </div>
   <div class="icon-nav-item" onclick="openPage('univGradeOverlay')" style="cursor:pointer;">
     <div class="icon-circle"><i class="fas fa-chart-pie"></i></div>
-    <span class="nav-label">대학성적분석</span>
+    <span class="nav-label">합격분석</span>
   </div>
   <div class="icon-nav-item" onclick="openPage('gradeOverlay')" style="cursor:pointer;">
     <div class="icon-circle"><i class="fas fa-chart-bar"></i></div>
-    <span class="nav-label">학생부입력</span>
+    <span class="nav-label">성적입력</span>
   </div>
   <div class="icon-nav-item" onclick="openPage('dataOverlay')" style="cursor:pointer;">
     <div class="icon-circle"><i class="fas fa-database"></i></div>
-    <span class="nav-label">대입정보자료</span>
+    <span class="nav-label">유학자료실</span>
   </div>
   <div class="icon-nav-item" onclick="openPage('compOverlay')" style="cursor:pointer;">
     <div class="icon-circle"><i class="fas fa-comments"></i></div>
-    <span class="nav-label">종합전형상담</span>
+    <span class="nav-label">서류·면접상담</span>
   </div>
   <div class="icon-nav-item" onclick="openPage('consultOverlay')" style="cursor:pointer;">
     <div class="icon-circle"><i class="fas fa-clipboard-list"></i></div>
-    <span class="nav-label">대입상담</span>
+    <span class="nav-label">유학상담</span>
   </div>
   <div class="icon-nav-item">
     <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
@@ -1217,18 +1217,18 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <div class="banner-row">
     <div class="banner-slider" id="bannerSlider">
 
-      <!-- Slide 1: 대학입학정보박람회 -->
+      <!-- Slide 1: 중국 명문대 입학설명회 -->
       <div class="banner-slide slide-1 active">
         <div class="banner-content">
           <div class="banner-title">
-            2027학년도 재외국민
-            <em>입학정보박람회</em>
+            2027학년도 중국 명문대
+            <em>입학설명회</em>
           </div>
           <div class="banner-desc">
-            <strong>2026. 8. 20.(목) ~ 22.(토)</strong> 매일 10:00 ~ 17:00 코엑스 3층 D홀<br>
-            신청기간 : 2026. 7. 15.(수) 09:00 ~ 8. 14.(금) 18:00<br>
-            신청방법 : 재외국민 One Stop 서비스 홈페이지 선착순 접수<br>
-            대입정보센터 ▶ 박람회/설명회 ▶ 1:1 상담관
+            <strong>2026. 11. 14.(토) ~ 15.(일)</strong> 매일 10:00 ~ 17:00 서울 코엑스 · 온라인 동시 진행<br>
+            신청기간 : 2026. 10. 15.(목) 09:00 ~ 11. 6.(금) 18:00<br>
+            신청방법 : 중국대학 One Stop 서비스 홈페이지 선착순 접수<br>
+            입시정보센터 ▶ 설명회/박람회 ▶ 1:1 상담관
           </div>
         </div>
         <div class="banner-illustration"><i class="fas fa-bullhorn main-icon"></i></div>
@@ -1238,15 +1238,15 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="banner-slide slide-2">
         <div class="banner-content">
           <div class="banner-title">
-            재외국민 표준 공통원서접수
+            중국 대학 유학생 원서접수
             <em>서비스 가이드!</em>
           </div>
           <div class="banner-desc">
-            한 번의 가입으로 여러 대학에 원서접수가 가능합니다.<br>
+            대학마다 다른 온라인 지원시스템, 한 곳에서 준비하세요.<br>
             지원 절차와 필요서류를 쉽게 안내해 드립니다.
           </div>
           <div class="banner-btns">
-            <button class="banner-btn" style="background:#2196f3;color:#fff;">가이드 보기 ›</button>
+            <button class="banner-btn" style="background:#2196f3;color:#fff;" onclick="openNoviceGuide()">가이드 보기 ›</button>
           </div>
         </div>
         <div class="banner-illustration"><i class="fas fa-book-open main-icon"></i></div>
@@ -1256,23 +1256,23 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="banner-slide slide-3">
         <div class="banner-content">
           <div class="banner-title">
-            새로워진 차세대 재외국민 포털!
+            새로워진 차세대 중국대학 포털!
           </div>
           <div class="feature-row">
             <div class="feature-card">
               <div class="feature-icon">🗺️</div>
-              <div class="feature-title">국가별 검색</div>
+              <div class="feature-title">도시별 대학 검색</div>
               <div class="feature-desc">서비스 제공</div>
             </div>
             <div class="feature-card">
               <div class="feature-icon">📄</div>
-              <div class="feature-title">사진 및 파일로</div>
-              <div class="feature-desc">서류 입력 간편</div>
+              <div class="feature-title">서류 체크리스트</div>
+              <div class="feature-desc">한 번에 준비</div>
             </div>
             <div class="feature-card">
-              <div class="feature-icon">💻</div>
-              <div class="feature-title">UI/UX 개선</div>
-              <div class="feature-desc">사용 편의성 강화</div>
+              <div class="feature-icon">🀄</div>
+              <div class="feature-title">HSK 기준</div>
+              <div class="feature-desc">대학별 비교</div>
             </div>
           </div>
         </div>
@@ -1283,8 +1283,8 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="banner-slide slide-4">
         <div class="banner-content">
           <div class="banner-title">
-            재외국민 One Stop 유튜브 채널
-            <em>재외국민 전형 TV</em>
+            중국대학 One Stop 유튜브 채널
+            <em>중국 유학 TV</em>
           </div>
           <div class="pill-row">
             <span class="pill">구독!</span>
@@ -1300,11 +1300,11 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="banner-content">
           <div class="banner-title">
             알아두면 쓸데있는
-            <em>재외국민 용어사전</em>
+            <em>중국 유학 용어사전</em>
           </div>
           <div class="banner-desc">
             아는만큼 보인다!<br>
-            복잡하고 헷갈렸던 재외국민 입시 용어를 한번에 확인하세요
+            본과·预科·HSK·招生简章·JW202 등 헷갈리는 중국 입시 용어를 한번에 확인하세요
           </div>
         </div>
         <div class="banner-illustration"><i class="fas fa-star main-icon"></i></div>
@@ -1315,9 +1315,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="banner-content">
           <div class="banner-title">
             <span style="font-size:18px;color:#888;display:block;font-weight:500;">대학정보를 보다, 미래를 보다</span>
-            대학정보가 필요할때 <em>재외국민 알리미</em>
+            대학정보가 필요할때 <em>중국대학 알리미</em>
           </div>
-          <div class="banner-desc">전국 대학의 재외국민 전형 정보를 한눈에 확인하세요.</div>
+          <div class="banner-desc">985·211·双一流 대학의 유학생 전형 정보를 한눈에 확인하세요.</div>
         </div>
         <div class="banner-illustration"><i class="fas fa-university main-icon"></i></div>
       </div>
@@ -1330,7 +1330,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           </div>
           <div class="banner-desc">
             검색부터 비교, 선택까지 한 번에<br>
-            재외국민 학생들을 위한 기숙사 정보 플랫폼
+            중국 유학생을 위한 기숙사(留学生公寓) 정보 플랫폼
           </div>
           <div class="app-badges">
             <span class="app-badge"><i class="fab fa-google-play"></i> Google Play</span>
@@ -1412,23 +1412,23 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <span class="section-title">자격분석</span>
         <span class="section-tab">전형정보</span>
       </div>
-      <div class="section-desc">재외국민 특별전형 지원 자격 및 대학별 전형을 분석해 드립니다.</div>
+      <div class="section-desc">중국 대학 외국인 유학생(본과) 지원 자격과 대학별 전형을 분석해 드립니다.</div>
       <div class="steps-grid">
         <div class="step-card">
           <span class="step-badge s1">STEP1</span>
-          <div class="step-sub">해외거주기간/학력</div>
+          <div class="step-sub">국적·학력·HSK</div>
           <div class="step-name">자격확인</div>
           <div class="step-links">
-            <a href="#">자격요건 입력</a>
+            <a href="#" onclick="openGuideModal();return false;">자격요건 입력</a>
           </div>
         </div>
         <div class="step-card">
           <span class="step-badge s2">STEP2</span>
           <div class="step-sub">지원 가능한</div>
-          <div class="step-name">대학/전형선택</div>
+          <div class="step-name">대학/전공선택</div>
           <div class="step-links">
-            <a href="#">대학검색</a>
-            <a href="#">학과검색</a>
+            <a href="#" onclick="openUnivModal();return false;">대학검색</a>
+            <a href="#" onclick="openDeptModal();return false;">전공검색</a>
           </div>
         </div>
         <div class="step-card">
@@ -1436,15 +1436,15 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <div class="step-sub">자격분석</div>
           <div class="step-name">결과분석</div>
           <div class="step-links">
-            <a href="#">분석 결과확인</a>
+            <a href="#" onclick="openPage('univGradeOverlay');return false;">분석 결과확인</a>
           </div>
         </div>
         <div class="step-card">
           <span class="step-badge s4">STEP4</span>
           <div class="step-sub">전문상담</div>
-          <div class="step-name">입시상담</div>
+          <div class="step-name">유학상담</div>
           <div class="step-links">
-            <a href="#">온라인 상담</a>
+            <a href="#" onclick="openPage('consultOverlay');return false;">온라인 상담</a>
           </div>
         </div>
       </div>
@@ -1452,13 +1452,13 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <div class="section-side">
       <div class="side-title">입시 정보</div>
       <div class="side-subtitle">
-        재외국민전형 매거진
+        중국유학 매거진
         <span class="more">더보기 ‹ ›</span>
       </div>
       <div class="magazine-card">
-        <div class="magazine-label">2026 Spring</div>
-        <div class="magazine-title">재외국민전형<br>입시매거진</div>
-        <div class="magazine-vol">vol. 136</div>
+        <div class="magazine-label">2026 Autumn</div>
+        <div class="magazine-title">중국대학<br>입시매거진</div>
+        <div class="magazine-vol">vol. 24</div>
       </div>
     </div>
   </div>
@@ -1466,42 +1466,42 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <!-- EVALUATION BANNER + NEWS SIDE -->
   <div class="eval-row">
     <div class="eval-banner">
-      <div class="eval-tag">재외국민 전형 평가기준 및 전년도 결과 공개</div>
-      <div class="eval-title">전형 유형에 따른 대학별 전형 평가기준을 확인하세요.</div>
+      <div class="eval-tag">중국 대학 유학생 전형 평가기준 및 모집요강 비교</div>
+      <div class="eval-title">대학별 선발방식과 평가기준을 확인하세요.</div>
       <div class="eval-desc">
-        전년 대비 주요 변경사항, 전형별 주요사항 및 전형결과(지원자수, 경쟁률),<br>
-        전형별 특성 및 전형요소 등의 입시정보를 각 대학별로 확인 및 비교할 수 있습니다.
+        전년 대비 주요 변경사항, 선발방식(서류·필기시험·면접), HSK 등 어학 기준,<br>
+        학비·장학금 등 유학생 입시정보를 각 대학별로 확인 및 비교할 수 있습니다.
       </div>
-      <div class="eval-note">* 각 대학별 양식이 상이할 수 있습니다.</div>
-      <button class="eval-btn">전형 평가기준 확인 <i class="fas fa-arrow-right"></i></button>
+      <div class="eval-note">* 각 대학별 모집요강(招生简章) 양식이 상이할 수 있습니다.</div>
+      <button class="eval-btn" onclick="openPage('admOverlay')">전형 평가기준 확인 <i class="fas fa-arrow-right"></i></button>
       <div class="eval-illustration"><i class="fas fa-search"></i></div>
     </div>
     <div class="eval-side">
       <div class="news-panel">
-        <div class="side-subtitle" style="margin-bottom:0;">대입 주요자료 <span class="more">더보기</span></div>
+        <div class="side-subtitle" style="margin-bottom:0;">유학 주요자료 <span class="more">더보기</span></div>
         <div class="news-tabs">
-          <span class="news-tab active">재외국민뉴스</span>
+          <span class="news-tab active">중국유학뉴스</span>
           <span class="news-tab">입시자료실</span>
           <span class="news-tab">주요일정</span>
         </div>
         <div class="news-item">
           <div class="news-thumb"><i class="fas fa-newspaper"></i></div>
           <div class="news-text">
-            <div class="title">2027학년도 재외국민 전형 주요 변경사항 총정리</div>
-            <div class="meta">2027 재외국민</div>
+            <div class="title">2027년 9월 입학 중국 주요대학 모집요강 발표 일정 총정리</div>
+            <div class="meta">2027 중국대학</div>
           </div>
         </div>
         <div class="news-item">
           <div class="news-thumb"><i class="fas fa-file-signature"></i></div>
           <div class="news-text">
-            <div class="title">[단독] 서울 주요대 재외국민 전형 모집인원 변동 안내</div>
-            <div class="meta">2027 재외국민</div>
+            <div class="title">영사확인 대신 아포스티유로! 중국 대학 제출서류 인증 절차</div>
+            <div class="meta">서류준비</div>
           </div>
         </div>
         <div class="news-item">
           <div class="news-thumb"><i class="fas fa-question-circle"></i></div>
           <div class="news-text">
-            <div class="title">해외체류기간 산정 기준, 꼭 알아야 할 핵심 포인트</div>
+            <div class="title">외국 국적 4년·해외거주 2년 요건, 꼭 알아야 할 핵심 포인트</div>
             <div class="meta">2027 공통</div>
           </div>
         </div>
@@ -1513,21 +1513,21 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <div class="search-section-row">
     <div class="search-section-main">
       <div class="search-section-title">대학/학과/전형 검색</div>
-      <div class="search-section-desc">나에게 적합한 입시전략을 세우기 위하여 대학, 학과, 전형 검색을 통하여 다양한 입시정보를 찾을 수 있도록 도와드립니다.</div>
+      <div class="search-section-desc">나에게 적합한 유학 전략을 세우기 위하여 대학, 학과, 전형 검색을 통하여 다양한 중국 대학 입시정보를 찾을 수 있도록 도와드립니다.</div>
       <div class="color-cards">
-        <div class="color-card yellow">
+        <div class="color-card yellow" onclick="openUnivModal()" style="cursor:pointer;">
           <div class="card-title">대학정보</div>
-          <div class="card-desc">재외국민 전형 실시 대학의 교육여건, 설치학과 등의 기본 정보 및 모집요강, 입시 소식 등의 정보</div>
+          <div class="card-desc">외국인 유학생을 모집하는 중국 대학의 위치, 985·211 여부, 강점 분야, 모집요강 등의 기본 정보</div>
           <div class="card-icon"><i class="fas fa-university"></i></div>
         </div>
-        <div class="color-card green">
+        <div class="color-card green" onclick="openDeptModal()" style="cursor:pointer;">
           <div class="card-title">학과정보</div>
-          <div class="card-desc">교육목표, 교육과정, 진로취업분야, 등록금, 취업률 등 학생들이 궁금해 하는 학과의 주요정보</div>
+          <div class="card-desc">수업언어(중국어/영어), 학제, 교육과정, 진로 분야 등 학생들이 궁금해 하는 전공의 주요정보</div>
           <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
         </div>
-        <div class="color-card orange">
+        <div class="color-card orange" onclick="openPage('admOverlay')" style="cursor:pointer;">
           <div class="card-title">전형정보</div>
-          <div class="card-desc">전형일정이나 방법, 그리고 어떤 기준으로 학생을 선발하는지, 자격요건 등 전형에 대한 정보</div>
+          <div class="card-desc">원서접수 시기, 선발방식(서류·필기·면접), HSK 기준 등 어떤 기준으로 유학생을 선발하는지에 대한 정보</div>
           <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
         </div>
       </div>
@@ -1540,27 +1540,27 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
         <div class="notice-item">
           <span class="notice-badge">일반</span>
-          <span class="notice-text">재외국민전형 포털 추천 및 대화형AI 챗…</span>
+          <span class="notice-text">중국대학 포털 대화형 AI 유학상담 서비스 오픈 안내</span>
         </div>
         <div class="notice-item">
           <span class="notice-badge general">일반</span>
-          <span class="notice-text">재외국민전형 포털 서비스 점검 안내</span>
+          <span class="notice-text">2027년 9월 입학 모집요강 업데이트 일정 안내</span>
         </div>
         <div class="notice-item">
           <span class="notice-badge general">일반</span>
-          <span class="notice-text">재외국민전형 포털 일부 서비스 일시중…</span>
+          <span class="notice-text">중국대학 포털 서비스 점검 안내</span>
         </div>
       </div>
       <div class="phone-box">
-        <div class="phone-label">입시상담전화</div>
+        <div class="phone-label">유학상담전화</div>
         <div class="phone-number">
-          1600-1615
+          02-000-0000
           <span class="ph-icon"><i class="fas fa-headset"></i></span>
         </div>
         <div class="phone-hours">
-          월 ~ 금 09:00 ~ 22:00<br>
-          토요일 09:00 ~ 13:00<br>
-          ※일요일,공휴일 미운영
+          월 ~ 금 10:00 ~ 19:00 (한국시간)<br>
+          중국시간 09:00 ~ 18:00<br>
+          ※주말, 공휴일 미운영
         </div>
       </div>
     </div>
@@ -1572,7 +1572,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 <div class="side-floating">
   <div class="side-float-btn" onclick="openGuideModal()">자격요건<br>가이드</div>
   <div class="side-float-btn" onclick="openNoviceGuide()">초보자<br>가이드</div>
-  <div class="side-float-btn" onclick="window.open('https://www.youtube.com/results?search_query=재외국민+전형+TV','_blank')">표준공통<br>원점수<br>가이드</div>
+  <div class="side-float-btn" onclick="window.open('https://www.youtube.com/results?search_query=HSK+시험+준비','_blank')">HSK<br>준비<br>가이드</div>
   <div class="side-float-btn" onclick="openDocsGuide()">서류준비<br>가이드</div>
 </div>
 
@@ -1616,7 +1616,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   color: #2db4a8;
   cursor: pointer;
   padding: 5px 14px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .job-modal-close-btn:hover { background: #2db4a8; color: #fff; }
 
@@ -1658,7 +1658,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border: none;
   outline: none;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .job-filter-panel .filter-search button {
   padding: 0 14px;
@@ -1688,7 +1688,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   color: #555;
   appearance: auto;
   background: #fafafa;
@@ -1703,7 +1703,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   margin-top: 4px;
 }
 .filter-search-btn:hover { background: #2db4a8; color: #fff; }
@@ -1820,6 +1820,20 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <!-- 아코디언 목록 -->
       <div class="job-acc-list">
         <div class="source-note">[ 정보제공 : 한국고용정보원 고용24(구 워크넷) ]</div>
+
+        <div class="job-acc-item">
+          <div class="job-acc-header" onclick="toggleAccordion(this)">
+            중국어·한중 교류 특화 직업
+            <i class="fas fa-chevron-down acc-icon"></i>
+          </div>
+          <div class="job-acc-body">
+            <div class="job-tags">
+              <span class="job-tag">한중 통번역사</span><span class="job-tag">국제중국어교사</span><span class="job-tag">중국 전문 무역인</span>
+              <span class="job-tag">해외영업(중국)</span><span class="job-tag">중국 현지법인 주재원</span><span class="job-tag">중국시장 애널리스트</span>
+              <span class="job-tag">크로스보더 이커머스 MD</span><span class="job-tag">외교관·국제기구 직원</span><span class="job-tag">한중 관광·문화 기획자</span>
+            </div>
+          </div>
+        </div>
 
         <div class="job-acc-item">
           <div class="job-acc-header" onclick="toggleAccordion(this)">
@@ -1996,7 +2010,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   color: #2db4a8;
   cursor: pointer;
   padding: 5px 14px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .info-close-btn:hover { background: #2db4a8; color: #fff; }
 
@@ -2039,7 +2053,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-weight: 600;
   color: #2db4a8;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   transition: background 0.15s;
 }
 .tab-btn.active { background: #2db4a8; color: #fff; }
@@ -2058,7 +2072,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border-radius: 6px;
   padding: 8px 10px;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   color: #555;
   background: #fafafa;
   appearance: auto;
@@ -2078,7 +2092,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border: none;
   outline: none;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .filter-input-row button {
   padding: 0 13px;
@@ -2115,7 +2129,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-weight: 600;
   cursor: pointer;
   margin-bottom: 10px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .filter-action-row {
   display: flex;
@@ -2129,7 +2143,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .btn-reset { background: #fff; border: 1px solid #2db4a8; color: #2db4a8; }
 .btn-save  { background: #2db4a8; border: 1px solid #2db4a8; color: #fff; }
@@ -2142,7 +2156,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 12px;
   color: #666;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 
 /* ---- Right table area ---- */
@@ -2219,11 +2233,20 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 12px;
   color: #555;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .compare-btn:hover { border-color: #2db4a8; color: #2db4a8; }
 .star-btn { background: none; border: none; color: #ddd; font-size: 16px; cursor: pointer; }
 .star-btn:hover { color: #ffc107; }
+.univ-cn { font-size: 11px; color: #999; margin-top: 2px; font-family: 'Noto Sans SC', sans-serif; }
+.tier-badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+.tier-badge.t985 { background: #ffebee; color: #c62828; }
+.tier-badge.t211 { background: #e3f2fd; color: #1565c0; }
+.tier-badge.tdbl { background: #e8f5e9; color: #2e7d32; }
+.tier-badge.tetc { background: #f5f5f5; color: #666; }
+.lang-badge { display: inline-block; padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; background: #fff3e0; color: #e65100; white-space: nowrap; }
+.lang-badge.en { background: #e3f2fd; color: #1565c0; }
+.table-note { font-size: 12px; color: #e65100; background: #fff8e1; border-radius: 6px; padding: 10px 14px; margin-bottom: 14px; }
 
 /* table header dropdown row */
 .table-top-row {
@@ -2237,7 +2260,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border: 1px solid #ddd;
   border-radius: 6px;
   font-size: 13px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   color: #555;
   appearance: auto;
 }
@@ -2259,7 +2282,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   color: #555;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .page-btn.active { background: #2db4a8; color: #fff; border-color: #2db4a8; font-weight: 700; }
 .page-btn:hover:not(.active) { border-color: #2db4a8; color: #2db4a8; }
@@ -2273,7 +2296,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 11px;
   color: #555;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   margin-right: 4px;
 }
 .result-btn:hover { border-color: #2db4a8; color: #2db4a8; }
@@ -2298,7 +2321,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 }
 .dept-keyword-input input {
   flex:1; padding: 8px 10px; border: none; outline: none;
-  font-size: 13px; font-family: 'Noto Sans KR', sans-serif;
+  font-size: 13px; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .dept-keyword-input button {
   padding: 0 11px; background: #333; border: none; color: #fff; cursor: pointer;
@@ -2311,7 +2334,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#" onclick="showHome()">대학/학과/전형</a>
     <span class="bc-sep">›</span><a href="#">대학정보</a>
-    <span class="bc-sep">›</span><span class="bc-cur">일반대학</span>
+    <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
   <div class="info-hero"><h1>대학정보</h1></div>
@@ -2320,18 +2343,18 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <!-- 필터 -->
     <div class="info-filter">
       <div class="tab-row">
-        <button class="tab-btn active">일반대학</button>
-        <button class="tab-btn">전문대학</button>
+        <button class="tab-btn active">본과(학부)</button>
+        <button class="tab-btn">预科·어학연수</button>
       </div>
       <div class="filter-select-box">
         <select>
-          <option>2027학년도(현재 고3)</option>
-          <option>2026학년도(현재 고2)</option>
+          <option>2027년 9월 입학(고3)</option>
+          <option>2028년 9월 입학(고2)</option>
         </select>
       </div>
       <div class="filter-input-row">
-        <input type="text" placeholder="대학명을 입력해주세요.">
-        <button><i class="fas fa-search"></i></button>
+        <input type="text" id="univSearchInput" placeholder="대학명 (한글/中文)" oninput="renderUnivTable(1)">
+        <button onclick="renderUnivTable(1)"><i class="fas fa-search"></i></button>
       </div>
       <div class="filter-apply-row">
         적용필터 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:13px;"></i>
@@ -2348,18 +2371,18 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <!-- 테이블 -->
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>220건</strong></div>
+        <div class="table-summary">총 <strong id="univCount">0건</strong></div>
         <select class="table-view-select"><option>대학목록 ∨</option></select>
       </div>
+      <div class="table-note"><i class="fas fa-info-circle"></i> 985·211·双一流은 중국 정부의 중점 대학 지정 구분입니다. 유학생 모집 여부와 조건은 매년 각 대학 모집요강(招生简章)에서 확인하세요.</div>
       <table class="info-table">
         <thead>
           <tr>
             <th>대학명 <span class="sort-icon">▾</span></th>
             <th>지역 <span class="sort-icon">▾</span></th>
-            <th>2026<br>경쟁률</th>
-            <th>입학정원 <span class="sort-icon">▾</span></th>
-            <th>설치학과 <span class="sort-icon">▾</span></th>
-            <th>전형정보 <span class="sort-icon">▾</span></th>
+            <th>구분 <span class="sort-icon">▾</span></th>
+            <th>강점 분야</th>
+            <th>유학생 모집요강</th>
             <th>비교</th>
             <th>★</th>
           </tr>
@@ -2377,7 +2400,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#" onclick="showHome()">대학/학과/전형</a>
     <span class="bc-sep">›</span><a href="#">학과정보</a>
-    <span class="bc-sep">›</span><span class="bc-cur">일반대학</span>
+    <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
   <div class="info-hero"><h1>학과정보</h1></div>
@@ -2386,24 +2409,24 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <!-- 필터 -->
     <div class="info-filter">
       <div class="tab-row">
-        <button class="tab-btn active">일반대학</button>
-        <button class="tab-btn">전문대학</button>
+        <button class="tab-btn active">본과(학부)</button>
+        <button class="tab-btn">预科·어학연수</button>
       </div>
       <div class="filter-select-box">
         <select>
-          <option>2027학년도(현재 고3)</option>
-          <option>2026학년도(현재 고2)</option>
+          <option>2027년 9월 입학(고3)</option>
+          <option>2028년 9월 입학(고2)</option>
         </select>
       </div>
       <div class="filter-input-row">
-        <input type="text" placeholder="대학명을 입력해주세요.">
-        <button><i class="fas fa-search"></i></button>
+        <input type="text" id="deptUnivInput" placeholder="대학명 (한글/中文)" oninput="renderDeptTable(1)">
+        <button onclick="renderDeptTable(1)"><i class="fas fa-search"></i></button>
       </div>
       <div class="dept-keyword-row">
         <label>학과 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:11px;"></i></label>
         <div class="dept-keyword-input">
-          <input type="text" placeholder="학과관련 키워드">
-          <button><i class="fas fa-search"></i></button>
+          <input type="text" id="deptKeywordInput" placeholder="전공 키워드 (예: 의학, 金融)" oninput="renderDeptTable(1)">
+          <button onclick="renderDeptTable(1)"><i class="fas fa-search"></i></button>
         </div>
       </div>
       <div class="filter-apply-row">
@@ -2420,8 +2443,8 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <!-- 테이블 -->
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>7,493건</strong></div>
-        <select class="table-view-select"><option>대학목록 ∨</option></select>
+        <div class="table-summary">총 <strong id="deptCount">0건</strong></div>
+        <select class="table-view-select"><option>학과목록 ∨</option></select>
       </div>
       <table class="info-table">
         <thead>
@@ -2429,9 +2452,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
             <th>학과명 <span class="sort-icon">▾</span></th>
             <th>대학명 <span class="sort-icon">▾</span></th>
             <th>지역 <span class="sort-icon">▾</span></th>
-            <th>2026<br>경쟁률 <span class="sort-icon">▾</span></th>
-            <th>입학정원 <span class="sort-icon">▾</span></th>
-            <th>2026<br>입시결과</th>
+            <th>계열 <span class="sort-icon">▾</span></th>
+            <th>수업언어</th>
+            <th>학제</th>
             <th>비교</th>
           </tr>
         </thead>
@@ -2453,7 +2476,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 12px;
   color: #555;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   white-space: nowrap;
 }
 .adm-result-btn:hover { border-color: #2db4a8; color: #2db4a8; }
@@ -2474,7 +2497,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 13px;
   color: #555;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   text-align: center;
   margin-bottom: 8px;
 }
@@ -2518,7 +2541,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 .consult-banner { background: linear-gradient(90deg, #2db4a8, #00897b); color: #fff; border-radius: 10px; padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; font-size: 14px; font-weight: 600; }
 .consult-banner a { color: #fff; background: rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 6px; font-size: 13px; }
 
-.consult-filter-select { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; font-family: 'Noto Sans KR', sans-serif; color: #555; background: #fff; appearance: auto; margin-bottom: 10px; }
+.consult-filter-select { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; color: #555; background: #fff; appearance: auto; margin-bottom: 10px; }
 .consult-filter-chevron { width: 100%; padding: 10px 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 13px; color: #555; background: #fff; cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
 .consult-filter-chevron:hover { border-color: #2db4a8; }
 
@@ -2537,20 +2560,20 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#" onclick="showHome()">대학/학과/전형</a>
     <span class="bc-sep">›</span><a href="#">전형정보</a>
-    <span class="bc-sep">›</span><span class="bc-cur">일반대학</span>
+    <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
   <div class="info-hero"><h1>전형정보</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div class="tab-row">
-        <button class="tab-btn active">일반대학</button>
-        <button class="tab-btn">전문대학</button>
+        <button class="tab-btn active">본과(학부)</button>
+        <button class="tab-btn">预科·어학연수</button>
       </div>
-      <div class="filter-select-box"><select><option>2027학년도(현재 고3)</option></select></div>
-      <div class="filter-input-row"><input type="text" placeholder="대학명을 입력해주세요."><button><i class="fas fa-search"></i></button></div>
-      <div class="dept-keyword-row"><label>학과 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:11px;"></i></label><div class="dept-keyword-input"><input type="text" placeholder="학과관련 키워드"><button><i class="fas fa-search"></i></button></div></div>
-      <div class="dept-keyword-row"><label>전형 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:11px;"></i></label><div class="dept-keyword-input"><input type="text" placeholder="전형관련 키워드"><button><i class="fas fa-search"></i></button></div></div>
+      <div class="filter-select-box"><select><option>2027년 9월 입학(고3)</option></select></div>
+      <div class="filter-input-row"><input type="text" placeholder="대학명 (한글/中文)"><button><i class="fas fa-search"></i></button></div>
+      <div class="dept-keyword-row"><label>학과 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:11px;"></i></label><div class="dept-keyword-input"><input type="text" placeholder="전공 키워드"><button><i class="fas fa-search"></i></button></div></div>
+      <div class="dept-keyword-row"><label>전형 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:11px;"></i></label><div class="dept-keyword-input"><input type="text" placeholder="서류·필기·면접, HSK 등"><button><i class="fas fa-search"></i></button></div></div>
       <div class="filter-apply-row">적용필터 <i class="fas fa-sync-alt" style="color:#2db4a8;font-size:13px;"></i><i class="fas fa-chevron-right" style="color:#aaa;font-size:12px;"></i></div>
       <button class="bookmark-btn">관심전형보기</button>
       <div class="filter-action-row"><button class="btn-reset">검색조건 초기화</button><button class="btn-save">검색조건 저장</button></div>
@@ -2558,54 +2581,56 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>70,827건</strong></div>
+        <div class="table-summary">총 <strong>10건</strong></div>
         <select class="table-view-select"><option>대학목록 ∨</option></select>
       </div>
+      <div class="table-note"><i class="fas fa-exclamation-circle"></i> 선발방식·어학기준·접수시기는 최근 모집요강을 바탕으로 한 참고 정보이며 매년 바뀔 수 있습니다. 지원 전 반드시 각 대학의 国际学生本科招生简章(유학생 본과 모집요강)을 확인하세요.</div>
       <table class="info-table">
         <thead><tr>
           <th>대학명 <span class="sort-icon">▾</span></th>
-          <th>학과명 <span class="sort-icon">▾</span></th>
+          <th>모집과정 <span class="sort-icon">▾</span></th>
           <th>지역 <span class="sort-icon">▾</span></th>
-          <th>2026<br>경쟁률</th>
-          <th>모집인원 <span class="sort-icon">▾</span></th>
-          <th>전년도 입시결과(등급)</th>
+          <th>선발방식</th>
+          <th>어학기준(참고)</th>
+          <th>원서접수(참고)</th>
           <th>분석 · 비교</th>
           <th>★</th>
         </tr></thead>
         <tbody>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>간호학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">6.78</span></div><div>정시 <span class="comp-jeong">6.77</span></div></div></td><td><a class="num-link">185</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>물리치료학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">7.35</span></div><div>정시 <span class="comp-jeong">6.25</span></div></div></td><td><a class="num-link">56</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>방사선학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">7.61</span></div><div>정시 <span class="comp-jeong">11.33</span></div></div></td><td><a class="num-link">45</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>사회복지상담학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">1.03</span></div><div>정시 <span class="comp-jeong">1</span></div></div></td><td><a class="num-link">40</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>스포츠재활복지학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">4.95</span></div><div>정시 <span class="comp-jeong">3</span></div></div></td><td><a class="num-link">40</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>자유전공학부(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">0.64</span></div><div>정시 <span class="comp-jeong">1</span></div></div></td><td><a class="num-link">14</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>치유웰니스학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">1.21</span></div><div>정시 <span class="comp-jeong">0.25</span></div></div></td><td><a class="num-link">19</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가야대학교[본교]</span></div></td><td>특수교육과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경남</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">2.04</span></div><div>정시 <span class="comp-jeong">2</span></div></div></td><td><a class="num-link">26</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가천대학교[본교]</span></div></td><td>AI인문대학(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경기</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">36.7</span></div><div>정시 <span class="comp-jeong">12.48</span></div></div></td><td><a class="num-link">290</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">가</div><span class="univ-name-text">가천대학교[본교]</span></div></td><td>간호학과(주간)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>경기</div></td><td><div class="competition-cell"><div>수시 <span class="comp-su">35.11</span></div><div>정시 <span class="comp-jeong">4.45</span></div></div></td><td><a class="num-link">337</a></td><td><button class="adm-result-btn">전형평가기준 및 결과공개</button></td><td><button class="expand-btn">∨</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징대학교</span><div class="univ-cn">北京大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·필기·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">清</div><div><span class="univ-name-text">칭화대학교</span><div class="univ-cn">清华大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·필기·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">复</div><div><span class="univ-name-text">푸단대학교</span><div class="univ-cn">复旦大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·필기·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">上</div><div><span class="univ-name-text">상하이자오퉁대학교</span><div class="univ-cn">上海交通大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·필기·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">浙</div><div><span class="univ-name-text">저장대학교</span><div class="univ-cn">浙江大学</div></div></div></td><td>본과(영어·의학)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>항저우</div></td><td>서류·면접</td><td><span class="lang-badge en">IELTS·TOEFL</span></td><td>1월~4월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">中</div><div><span class="univ-name-text">중국런민대학교</span><div class="univ-cn">中国人民大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">对</div><div><span class="univ-name-text">대외경제무역대학교</span><div class="univ-cn">对外经济贸易大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·면접</td><td><span class="lang-badge">HSK 5급 이상</span></td><td>1월~4월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징중의약대학교</span><div class="univ-cn">北京中医药大学</div></div></div></td><td>본과(중국어·중의학)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·면접</td><td><span class="lang-badge">HSK 4~5급 이상</span></td><td>1월~5월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">中</div><div><span class="univ-name-text">중국해양대학교</span><div class="univ-cn">中国海洋大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>칭다오</div></td><td>서류·면접</td><td><span class="lang-badge">HSK 4급 이상</span></td><td>1월~5월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
+          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징어언대학교</span><div class="univ-cn">北京语言大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류</td><td><span class="lang-badge">HSK 3~4급 이상</span></td><td>1월~6월경</td><td><button class="adm-result-btn">모집요강·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
         </tbody>
       </table>
-      <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><button class="page-btn">4</button><button class="page-btn">5</button><button class="page-btn">6</button><button class="page-btn">7</button><button class="page-btn">8</button><button class="page-btn">9</button><button class="page-btn">10</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
+      <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
     </div>
   </div>
 </div>
 
-<!-- ===== 학생부 성적 페이지 ===== -->
+<!-- ===== 고교 성적 · HSK 입력 페이지 ===== -->
 <div class="info-overlay" id="gradeOverlay">
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#">마이페이지</a>
     <span class="bc-sep">›</span><a href="#">성적관리</a>
-    <span class="bc-sep">›</span><span class="bc-cur">학생부 성적</span>
+    <span class="bc-sep">›</span><span class="bc-cur">고교 성적 · HSK</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>학생부 성적</h1></div>
+  <div class="info-hero"><h1>고교 성적 · HSK 입력</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div style="border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:14px;background:#fff;">
         <div style="font-size:14px;font-weight:600;margin-bottom:12px;">성적유형</div>
-        <button class="grade-input-btn primary">학생부</button>
-        <button class="grade-input-btn">수능/모의고사</button>
+        <button class="grade-input-btn primary">고교 내신</button>
+        <button class="grade-input-btn">HSK · 어학성적</button>
+        <button class="grade-input-btn">수능 · SAT · IB</button>
         <button class="grade-input-btn">분석 내역</button>
       </div>
       <div style="border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:14px;background:#fff;">
@@ -2619,23 +2644,23 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">3학년</div>
         <button class="grade-input-btn">3학년 1학기 입력</button>
         <button class="grade-input-btn">3학년 2학기 입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">비교과</div>
+        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">HSK · 어학성적</div>
         <button class="grade-input-btn">입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">학생부 성적 업로드</div>
+        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">성적증명서 업로드</div>
         <button class="grade-input-btn">입력</button>
       </div>
-      <button class="bookmark-btn">성적분석</button>
+      <button class="bookmark-btn" onclick="openPage('univGradeOverlay')">합격분석</button>
     </div>
     <div class="info-table-area">
       <div style="background:#e8f5f4;padding:14px 18px;border-radius:8px;margin-bottom:18px;font-size:13px;color:#333;">
-        <strong>오병수</strong>님 반갑습니다. 학생부 성적분석을 위해서는 <a href="#" style="color:#2db4a8;font-weight:600;">학생부 성적입력</a>이 필요합니다. (입력 가이드를 참고해주세요.) →
-        <button style="float:right;padding:6px 14px;border:1px solid #ccc;border-radius:20px;background:#fff;font-size:12px;cursor:pointer;font-family:'Noto Sans KR',sans-serif;">학생부 성적 입력 가이드</button>
+        <strong>오병수</strong>님 반갑습니다. 대학별 합격분석을 위해서는 <a href="#" style="color:#2db4a8;font-weight:600;">고교 성적 · HSK 입력</a>이 필요합니다. (입력 가이드를 참고해주세요.) →
+        <button style="float:right;padding:6px 14px;border:1px solid #ccc;border-radius:20px;background:#fff;font-size:12px;cursor:pointer;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;" onclick="openGuideModal()">성적 입력 가이드</button>
       </div>
       <div class="grade-tabs">
         <span class="grade-tab active">주요교과 분석</span>
         <span class="grade-tab">교과조합 분석</span>
         <div style="margin-left:auto;" class="radio-group">
-          이수단위 <span style="color:#ccc">?</span>
+          과목 가중치 <span style="color:#ccc">?</span>
           <label><input type="radio" name="isu" checked> 반영</label>
           <label><input type="radio" name="isu"> 미반영</label>
         </div>
@@ -2644,34 +2669,34 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <i class="fas fa-exclamation-circle"></i> 입력이 안되거나 과목수가 충분하지 않은 경우 다른 성적을 참조하게 되므로 정확도가 떨어집니다.
       </div>
       <div style="text-align:right;margin-bottom:12px;" class="radio-group">
-        <label><input type="radio" name="view" checked> 석차 등급 및 성취도</label>
-        <label><input type="radio" name="view"> 표준점수</label>
+        <label><input type="radio" name="view" checked> 등급 (1~9등급)</label>
+        <label><input type="radio" name="view"> 100점 환산</label>
       </div>
       <table class="grade-table">
-        <thead><tr><th>구분</th><th>국어</th><th>수학</th><th>영어</th><th>사회</th><th>과학</th><th>평균</th></tr></thead>
+        <thead><tr><th colspan="2">구분</th><th>국어(어문)</th><th>수학</th><th>영어</th><th>중국어</th><th>사회</th><th>과학</th></tr></thead>
         <tbody>
-          <tr><td class="row-label" rowspan="3">1학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
-          <tr><td class="row-label" rowspan="3">2학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
-          <tr><td class="row-label" rowspan="3">3학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
+          <tr><td class="row-label" rowspan="3">1학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
+          <tr><td class="row-label" rowspan="3">2학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
+          <tr><td class="row-label" rowspan="3">3학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
         </tbody>
       </table>
       <br>
       <table class="grade-table">
-        <thead><tr><th>구분</th><th>성취도-A</th><th>성취도-B</th><th>성취도-C</th><th>합계</th></tr></thead>
+        <thead><tr><th>어학 · 공인시험</th><th>급수 / 종류</th><th>점수</th><th>응시일</th><th>유효기간</th></tr></thead>
         <tbody>
-          <tr><td class="row-label">1학년</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td class="row-label">2학년</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td class="row-label">3학년</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td class="row-label">전학년</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td class="row-label">HSK</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
+          <tr><td class="row-label">HSKK (회화)</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
+          <tr><td class="row-label">영어 (IELTS·TOEFL)</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
+          <tr><td class="row-label">수능 · SAT · IB 등</td><td>-</td><td>-</td><td>-</td><td>대학별 상이</td></tr>
         </tbody>
       </table>
-      <div style="font-size:12px;color:#888;margin-top:10px;">※ 재학생은 3학년 1학기까지, 졸업생은 3학년 2학기까지의 성적을 기준으로 제공됩니다.</div>
+      <div style="font-size:12px;color:#888;margin-top:10px;">※ 졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지의 성적을 기준으로 제공됩니다. 대부분의 중국 대학은 응시일로부터 2년 이내의 HSK 성적만 인정합니다.</div>
       <h3 style="margin-top:30px;font-size:18px;font-weight:800;">학년별 교과추이</h3>
       <div class="chart-placeholder"><i class="fas fa-chart-line" style="font-size:40px;margin-right:10px;"></i> 성적 입력 후 그래프가 표시됩니다</div>
       <h3 style="font-size:18px;font-weight:800;">전학년 교과비교</h3>
@@ -2680,58 +2705,58 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   </div>
 </div>
 
-<!-- ===== 대입정보자료실 페이지 ===== -->
+<!-- ===== 유학자료실 페이지 ===== -->
 <div class="info-overlay" id="dataOverlay">
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
-    <span class="bc-sep">›</span><a href="#">대입정보센터</a>
-    <span class="bc-sep">›</span><span class="bc-cur">대입정보자료실</span>
+    <span class="bc-sep">›</span><a href="#">입시정보센터</a>
+    <span class="bc-sep">›</span><span class="bc-cur">유학자료실</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>대입정보자료실</h1></div>
+  <div class="info-hero"><h1>유학자료실</h1></div>
   <div class="info-body">
     <div class="info-filter">
-      <div class="filter-box"><label>모집학년도</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;"><option>전체</option><option>2027</option><option>2028</option></select></div>
-      <div class="filter-box"><label>제목</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;"><option>제목</option></select></div>
+      <div class="filter-box"><label>입학연도</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>전체</option><option>2027년 9월 입학</option><option>2028년 9월 입학</option></select></div>
+      <div class="filter-box"><label>제목</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>제목</option></select></div>
       <div class="filter-input-row"><input type="text" placeholder="검색어를 입력해주세요."><button><i class="fas fa-search"></i></button></div>
       <div class="filter-apply-row" style="margin-top:12px;">카테고리 <i class="fas fa-chevron-down" style="color:#aaa;font-size:12px;"></i></div>
     </div>
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>2,427건</strong></div>
+        <div class="table-summary">총 <strong>8건</strong></div>
         <select class="table-view-select"><option>10개씩 보기</option></select>
       </div>
       <div class="data-grid">
-        <div class="data-card"><div class="data-thumb">2027학년도<br>대입정보<br>119</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>학생부(교과), 학생부(종합)</span></div><div class="data-title">2027학년도 지역인재 특별전형</div><div class="data-file">2027학년도 지역인재 특별전형.pdf <i class="fas fa-download"></i></div><div class="data-meta">대입상담센터 · 2026-05-19</div></div></div>
-        <div class="data-card"><div class="data-thumb green">2027학년도<br>지역의사<br>선발전형</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>특별전형(농어촌,특성화등), 자료집(공통)</span></div><div class="data-title">2027학년도 지역의사선발전형 안내</div><div class="data-file">2027학년도 지역의사선발전형 안내(수정).pdf <i class="fas fa-download"></i></div><div class="data-meta">입학기획팀 · 2026-05-19</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">2028<br>기본사항</div><div class="data-info"><div class="data-tags"><span>2028</span> <span>기본사항, 자료집(공통)</span></div><div class="data-title">2028학년도 대학입학전형시행계획 모음집 (4)</div><div class="data-file">2028학년도 대학입학전형시행계획(이~하).zip <i class="fas fa-download"></i></div><div class="data-meta">정보화지원팀 · 2026-05-15</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">2028<br>기본사항</div><div class="data-info"><div class="data-tags"><span>2028</span> <span>기본사항, 자료집(공통)</span></div><div class="data-title">2028학년도 대학입학전형시행계획 모음집 (3)</div><div class="data-file">2028학년도 대학입학전형시행계획(ㅂ~을).zip <i class="fas fa-download"></i></div><div class="data-meta">정보화지원팀 · 2026-05-15</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">2028<br>기본사항</div><div class="data-info"><div class="data-tags"><span>2028</span> <span>기본사항, 자료집(공통)</span></div><div class="data-title">2028학년도 대학입학전형시행계획 모음집 (2)</div><div class="data-file">2028학년도 대학입학전형시행계획(ㄱ~ㄷ).zip <i class="fas fa-download"></i></div><div class="data-meta">정보화지원팀 · 2026-05-15</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">2028<br>기본사항</div><div class="data-info"><div class="data-tags"><span>2028</span> <span>기본사항, 자료집(공통)</span></div><div class="data-title">2028학년도 대학입학전형시행계획 모음집 (1)</div><div class="data-file">2028학년도 대학입학전형시행계획(가~깐).zip <i class="fas fa-download"></i></div><div class="data-meta">정보화지원팀 · 2026-05-15</div></div></div>
-        <div class="data-card"><div class="data-thumb">자료집<br>(공통)</div><div class="data-info"><div class="data-tags"><span>2028</span> <span>자료집(공통)</span></div><div class="data-title">2028학년도 대학입학전형시행계획 주요사항…</div><div class="data-file">2028학년도 대학입학전형시행계획 주요사항 안내(4… <i class="fas fa-download"></i></div><div class="data-meta">입학기획팀 · 2026-04-30</div></div></div>
-        <div class="data-card"><div class="data-thumb green">2027학년도<br>대입정보<br>119</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>학생부(교과), 학생부(종합)</span></div><div class="data-title">2027학년도 장애인 등 대상자 특별전형</div><div class="data-file">2027학년도 장애인 등 대상자 특별전형.pdf <i class="fas fa-download"></i></div><div class="data-meta">대입상담센터 · 2026-04-30</div></div></div>
+        <div class="data-card"><div class="data-thumb">2027<br>모집요강<br>모음</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>모집요강</span></div><div class="data-title">2027년 9월 입학 중국 주요대학 유학생 본과 모집요강 모음</div><div class="data-file">2027_중국주요대학_본과_모집요강.zip <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-09-15</div></div></div>
+        <div class="data-card"><div class="data-thumb green">HSK<br>급수별<br>가이드</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>어학(HSK)</span></div><div class="data-title">HSK 급수별 준비 전략과 대학별 요구 수준 정리</div><div class="data-file">HSK_급수별_준비가이드.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-09-08</div></div></div>
+        <div class="data-card"><div class="data-thumb orange">비자<br>X1</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>비자 · 출국</span></div><div class="data-title">중국 유학 비자(X1) 발급 및 입국 후 거류허가 안내</div><div class="data-file">중국유학_X1비자_거류허가_안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-08-28</div></div></div>
+        <div class="data-card"><div class="data-thumb">장학금</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>장학금</span></div><div class="data-title">중국정부장학금(CSC)·지방정부·대학 장학금 신청 안내</div><div class="data-file">2027_중국유학_장학금_안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-08-20</div></div></div>
+        <div class="data-card"><div class="data-thumb green">서류<br>인증</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>서류준비</span></div><div class="data-title">아포스티유로 준비하는 중국 대학 제출서류 (발급·번역·공증)</div><div class="data-file">중국대학_제출서류_아포스티유_가이드.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-08-12</div></div></div>
+        <div class="data-card"><div class="data-thumb orange">국적<br>요건</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>자격요건</span></div><div class="data-title">외국 국적 4년·해외거주 2년 요건 Q&amp;A (귀화·이민 가정 필독)</div><div class="data-file">유학생_국적요건_QnA.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-07-30</div></div></div>
+        <div class="data-card"><div class="data-thumb">전공<br>가이드</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>전공 · 진로</span></div><div class="data-title">중의학·임상의학 전공 유학 안내 (학제·수업언어·진로)</div><div class="data-file">중국_의학계열_유학안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-07-18</div></div></div>
+        <div class="data-card"><div class="data-thumb green">기숙사<br>생활비</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>유학생활</span></div><div class="data-title">도시별 유학생 기숙사(留学生公寓)·생활비 가이드</div><div class="data-file">중국_도시별_기숙사_생활비.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-07-05</div></div></div>
       </div>
-      <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button><button class="page-btn">4</button><button class="page-btn">5</button><button class="page-btn">6</button><button class="page-btn">7</button><button class="page-btn">8</button><button class="page-btn">9</button><button class="page-btn">10</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
+      <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
     </div>
   </div>
 </div>
 
-<!-- ===== 종합전형상담 페이지 ===== -->
+<!-- ===== 서류·면접 상담 페이지 ===== -->
 <div class="info-overlay" id="compOverlay">
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
-    <span class="bc-sep">›</span><a href="#">대입상담</a>
-    <span class="bc-sep">›</span><span class="bc-cur">학생부종합전형 상담</span>
+    <span class="bc-sep">›</span><a href="#">유학상담</a>
+    <span class="bc-sep">›</span><span class="bc-cur">서류·면접 상담</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>학생부종합전형 상담</h1></div>
+  <div class="info-hero"><h1>서류·면접 상담</h1></div>
   <div class="info-body">
     <div class="info-filter">
-      <select class="consult-filter-select"><option>지원동기</option></select>
+      <select class="consult-filter-select"><option>학업계획서</option><option>추천서</option><option>면접 준비</option><option>필기시험</option></select>
       <div class="filter-input-row"><input type="text" placeholder="검색어를 입력해주세요."><button><i class="fas fa-search"></i></button></div>
       <div style="display:flex;border:1px solid #e0e0e0;border-radius:6px;overflow:hidden;margin-bottom:12px;">
-        <button style="flex:1;padding:10px;border:none;background:#fff;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;">전체</button>
-        <button style="flex:1;padding:10px;border:none;background:#2db4a8;color:#fff;font-size:13px;font-weight:600;font-family:'Noto Sans KR',sans-serif;cursor:pointer;">내가 쓴 글</button>
+        <button style="flex:1;padding:10px;border:none;background:#fff;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;cursor:pointer;">전체</button>
+        <button style="flex:1;padding:10px;border:none;background:#2db4a8;color:#fff;font-size:13px;font-weight:600;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;cursor:pointer;">내가 쓴 글</button>
       </div>
       <select class="consult-filter-select"><option>계열</option></select>
       <select class="consult-filter-select"><option>구분</option></select>
@@ -2740,17 +2765,17 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
     <div class="info-table-area">
       <div class="consult-stats">
-        <div class="consult-stat"><div class="stat-label">시·도교육청 추천</div><div class="stat-value">17개</div></div>
-        <div class="consult-stat"><div class="stat-label">경력 10년 이상</div><div class="stat-value black">10년</div></div>
-        <div class="consult-stat"><div class="stat-label">진로진학 교사</div><div class="stat-value">현직 교사</div></div>
+        <div class="consult-stat"><div class="stat-label">중국 명문대 출신</div><div class="stat-value">멘토 상담</div></div>
+        <div class="consult-stat"><div class="stat-label">학업계획서 · 추천서</div><div class="stat-value black">1:1 첨삭</div></div>
+        <div class="consult-stat"><div class="stat-label">면접 대비</div><div class="stat-value">한·中 모의면접</div></div>
         <div class="consult-stat"><div class="stat-label">상담비용</div><div class="stat-value black">무료</div></div>
       </div>
-      <div class="consult-banner"><span>대입상담교사단의 상담을 받아보세요!</span><a href="#">학생부종합전형 상담 신청하기 ›</a></div>
+      <div class="consult-banner"><span>중국 명문대 출신 멘토에게 서류·면접 상담을 받아보세요!</span><a href="#">서류·면접 상담 신청하기 ›</a></div>
       <div class="usage-accordion">
         <div class="usage-acc-header">이용안내 <i class="fas fa-chevron-down"></i></div>
       </div>
-      <div style="background:#fff8e1;padding:10px 14px;border-radius:6px;margin:16px 0;font-size:12px;color:#e65100;">
-        <i class="fas fa-exclamation-circle"></i> [정부24]에서 <a href="#" style="color:#2db4a8;">학교생활기록부(초중고)</a> 로 발급 후 PDF로 저장한 파일을 첨부 해주세요.
+      <div style="background:#fff8e1;padding:10px 14px;border-radius:6px;margin:16px 0;font-size:12px;color:#e65100;line-height:1.8;">
+        <i class="fas fa-exclamation-circle"></i> 국내 고교 재학·졸업생은 [정부24]에서 <a href="#" style="color:#2db4a8;">학교생활기록부(초중고)</a>로 발급 후 PDF로 저장한 파일을 첨부해 주세요. 중국·해외 고교 재학생은 학교에서 발급한 성적증명서 스캔본(PDF)을 첨부해 주세요.
         <button style="padding:4px 10px;border:1px solid #2db4a8;border-radius:4px;background:#fff;font-size:11px;color:#2db4a8;margin-left:8px;cursor:pointer;">정부24 바로가기</button>
         <button style="padding:4px 10px;border:1px solid #ccc;border-radius:4px;background:#fff;font-size:11px;color:#555;margin-left:4px;cursor:pointer;">발급 가이드</button>
       </div>
@@ -2761,22 +2786,22 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   </div>
 </div>
 
-<!-- ===== 온라인대입상담 페이지 ===== -->
+<!-- ===== 온라인 유학상담 페이지 ===== -->
 <div class="info-overlay" id="consultOverlay">
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
-    <span class="bc-sep">›</span><a href="#">대입상담</a>
-    <span class="bc-sep">›</span><span class="bc-cur">온라인대입상담</span>
+    <span class="bc-sep">›</span><a href="#">유학상담</a>
+    <span class="bc-sep">›</span><span class="bc-cur">온라인 유학상담</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>온라인대입상담</h1></div>
+  <div class="info-hero"><h1>온라인 유학상담</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <select class="consult-filter-select"><option>제목</option></select>
       <div class="filter-input-row"><input type="text" placeholder="검색어를 입력해주세요."><button><i class="fas fa-search"></i></button></div>
       <div style="display:flex;border:1px solid #e0e0e0;border-radius:6px;overflow:hidden;margin-bottom:12px;">
-        <button style="flex:1;padding:10px;border:none;background:#fff;font-size:13px;font-family:'Noto Sans KR',sans-serif;cursor:pointer;">전체</button>
-        <button style="flex:1;padding:10px;border:none;background:#2db4a8;color:#fff;font-size:13px;font-weight:600;font-family:'Noto Sans KR',sans-serif;cursor:pointer;">내가 쓴 글</button>
+        <button style="flex:1;padding:10px;border:none;background:#fff;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;cursor:pointer;">전체</button>
+        <button style="flex:1;padding:10px;border:none;background:#2db4a8;color:#fff;font-size:13px;font-weight:600;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;cursor:pointer;">내가 쓴 글</button>
       </div>
       <select class="consult-filter-select"><option>계열</option></select>
       <div class="consult-filter-chevron">구분 <i class="fas fa-chevron-right"></i></div>
@@ -2786,15 +2811,15 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
     <div class="info-table-area">
       <div class="consult-stats">
-        <div class="consult-stat"><div class="stat-label">시·도교육청 추천</div><div class="stat-value">17개</div></div>
-        <div class="consult-stat"><div class="stat-label">경력 10년 이상</div><div class="stat-value black">10년</div></div>
-        <div class="consult-stat"><div class="stat-label">현직 진로진학 교사</div><div class="stat-value">500명</div></div>
+        <div class="consult-stat"><div class="stat-label">중국 현지 입시</div><div class="stat-value">전문 상담</div></div>
+        <div class="consult-stat"><div class="stat-label">상담 언어</div><div class="stat-value black">한국어·中文</div></div>
+        <div class="consult-stat"><div class="stat-label">상담 분야</div><div class="stat-value">자격·서류·비자</div></div>
         <div class="consult-stat"><div class="stat-label">상담비용</div><div class="stat-value black">무료</div></div>
       </div>
-      <div class="consult-banner"><span>대입상담교사단의 상담을 받아보세요!</span><a href="#">온라인대입상담 신청하기 ›</a></div>
+      <div class="consult-banner"><span>중국 대학 입시 전문가의 유학상담을 받아보세요!</span><a href="#">온라인 유학상담 신청하기 ›</a></div>
       <div class="warning-text">
-        ※ 수시모집 기간 상담량 증가로 인하여, 온라인대입상담 답변이 늦어지고 있습니다.<br>
-        상담 신청 시 많은 질문을 포함하기 보다는 나눠 질문 할 경우 빠른 답변을 받을 수 있으니 참고하여 작성 부탁 드립니다.
+        ※ 원서접수가 몰리는 시기(12월~3월)에는 상담량 증가로 답변이 늦어질 수 있습니다.<br>
+        상담 신청 시 많은 질문을 한 번에 포함하기보다는 나눠 질문할 경우 빠른 답변을 받을 수 있으니 참고하여 작성 부탁 드립니다.
       </div>
       <div style="font-size:15px;font-weight:700;margin-bottom:20px;">검색결과 0건</div>
       <div class="empty-state"><i class="fas fa-exclamation-circle"></i>작성하신 게시글이 없어요.</div>
@@ -2808,7 +2833,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 
 
 
-<!-- ===== 대학성적분석 페이지 ===== -->
+<!-- ===== 대학별 합격분석 페이지 ===== -->
 <style>
 .univ-grade-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
 .univ-grade-tag { padding: 8px 16px; background: #fff; border: 1px solid #ddd; border-radius: 20px; font-size: 13px; color: #555; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
@@ -2837,82 +2862,76 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#" onclick="showHome()">성적분석</a>
-    <span class="bc-sep">›</span><a href="#">대학별성적분석</a>
-    <span class="bc-sep">›</span><span class="bc-cur">수시</span>
+    <span class="bc-sep">›</span><a href="#">대학별 합격분석</a>
+    <span class="bc-sep">›</span><span class="bc-cur">중국어 과정</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>대학별성적분석</h1></div>
+  <div class="info-hero"><h1>대학별 합격분석</h1></div>
   <div class="info-body">
     <div class="info-filter">
-      <div class="filter-box"><label>학과</label><input type="text" placeholder="학과관련 키워드" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;"></div>
+      <div class="filter-box"><label>학과</label><input type="text" placeholder="전공 키워드" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"></div>
       <button class="bookmark-btn">관심정보보기</button>
-      <button class="filter-apply-row" style="text-align:left;width:100%;border:1px solid #2db4a8;color:#2db4a8;">성적입력</button>
+      <button class="filter-apply-row" style="text-align:left;width:100%;border:1px solid #2db4a8;color:#2db4a8;" onclick="openPage('gradeOverlay')">성적입력</button>
       <div style="margin:12px 0;">
         <div style="font-size:13px;font-weight:600;color:#444;margin-bottom:8px;">나의 검색조건</div>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>지역</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>전형유형</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>입학전형</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>특별전형(입학내)</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>특별전형(입원비)</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>지역</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;margin-bottom:8px;"><option>전형요소</option></select>
-        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR',sans-serif;"><option>최저학력기준</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>지역(도시)</option><option>베이징</option><option>상하이</option><option>톈진</option><option>칭다오·산둥</option><option>동북3성</option><option>광저우·남부</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>대학구분</option><option>985</option><option>211</option><option>双一流</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>모집과정</option><option>본과(학부)</option><option>预科</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>수업언어</option><option>중국어</option><option>영어</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>선발방식</option><option>서류</option><option>서류·면접</option><option>서류·필기·면접</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>계열</option><option>인문·사회</option><option>상경</option><option>이공</option><option>의학</option><option>예체능</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;margin-bottom:8px;"><option>장학금</option><option>중국정부장학금(CSC)</option><option>지방정부 장학금</option><option>대학 자체 장학금</option></select>
+        <select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>HSK 기준</option><option>HSK 3급 이상</option><option>HSK 4급 이상</option><option>HSK 5급 이상</option><option>HSK 6급 이상</option></select>
       </div>
       <button class="filter-apply-row" style="text-align:left;width:100%;margin-top:8px;">적용필터</button>
       <button class="filter-link-btn" style="margin-top:8px;">검색조건설정 바로가기</button>
     </div>
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>213건</strong></div>
+        <div class="table-summary">총 <strong>10개 대학</strong></div>
       </div>
       <div class="grade-tabs-univ">
-        <span class="grade-tab-univ active">수시</span>
-        <span class="grade-tab-univ">정시</span>
+        <span class="grade-tab-univ active">중국어 과정</span>
+        <span class="grade-tab-univ">영어 과정</span>
       </div>
       <div class="univ-grade-tags">
-        <span class="univ-grade-tag">강원대학교[본교] <strong>573건</strong></span>
-        <span class="univ-grade-tag">강원대학교[제2캠퍼스] <strong>219건</strong></span>
-        <span class="univ-grade-tag">건국대학교[본교] <strong>172건</strong></span>
-        <span class="univ-grade-tag">건국대학교[글로컬캠퍼스] <strong>152건</strong></span>
-        <span class="univ-grade-tag">건강대학교[본교] <strong>50건</strong></span>
-        <span class="univ-grade-tag">건양대학교[제2캠퍼스] <strong>62건</strong></span>
-        <span class="univ-grade-tag">경기대학교[본교] <strong>156건</strong></span>
-        <span class="univ-grade-tag">경기대학교[캠펜러스] <strong>33건</strong></span>
-        <span class="univ-grade-tag">경북대학교[본교] <strong>198건</strong></span>
-        <span class="univ-grade-tag">경동대학교[캠펜러스] <strong>36건</strong></span>
+        <span class="univ-grade-tag">베이징대 北京大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">칭화대 清华大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">푸단대 复旦大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">상하이자오퉁대 上海交通大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">저장대 浙江大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">런민대 中国人民大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">난카이대 南开大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">중국해양대 中国海洋大学 <strong>985</strong></span>
+        <span class="univ-grade-tag">대외경제무역대 对外经济贸易大学 <strong>211</strong></span>
+        <span class="univ-grade-tag">베이징어언대 北京语言大学 <strong>어학특화</strong></span>
       </div>
       <div class="know-box">
         <div class="know-title"><i class="fas fa-info-circle"></i> 알아두세요!</div>
         <div class="know-text">
           <ul>
-            <li>재정생은 3학년 1학기까지, 졸업생은 3학년 2학기까지의 성적을 기준으로 제공됩니다.<br>
-              (대학의 반영여부에 따라 3학년 1학기까지자 직접되어 신청할 수 있습니다.)</li>
-            <li>주기인비사정에 주기 인비가 있습니다. 더 자세한 사항은 지절 시 대학별 모집요강 반드시 확인하시기 바랍니다.</li>
+            <li>중국 대학의 유학생 전형은 한국의 수시·정시와 달리 <strong>각 대학이 자체 기준으로 선발</strong>합니다.<br>
+              합격 커트라인을 공개하지 않는 대학이 많아, 본 분석은 입력한 성적과 대학별 요구 기준을 비교한 <strong>참고 자료</strong>입니다.</li>
+            <li>졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지의 성적을 기준으로 분석합니다.<br>
+              대학·전공별 세부 기준은 지원 전 반드시 각 대학의 모집요강(招生简章)을 확인하시기 바랍니다.</li>
           </ul>
           <div class="score-criteria">
-            ① 전년도 입시결과 : 대학에서 제공한 정보이며, 진학설계에 참고자료로 활용하시기 바랍니다.<br>
-            ② 2026학년도 내 설정 : 2027학년도 집중 2026학년도 대학별 선출방식으로 제시된 점수이며, 나이오치 표준점수 최고점 등의 지표 반영여부 명로
-            다른 신청방식에 의해 제시된 점수이므로 봉당 다소 다소 한국대학교육협의회 대입상<br>
-            센터(전화상담 💬 1600-1615, 대입정보포털 온라인 대입상담)을 이용하시기 바랍니다.<br>
-            ③ 2027학년도 내 설정 : 2027학년도 대학 모집간에 근거하여 산출된 점수입니다.
+            ① 어학 기준 : 중국어 과정은 HSK 급수·점수(보통 4~6급), 영어 과정은 IELTS·TOEFL 성적 충족 여부를 확인합니다.<br>
+            ② 고교 내신 : 전 학년 평균과 주요 교과(국어·수학·영어·중국어)의 추이를 분석합니다.<br>
+            ③ 공인시험 : 수능, SAT·ACT, AP, IB 등 성적을 제출하는 경우 평가에 참고하는 대학이 있습니다.<br>
+            ④ 대학별 고사 : 일부 대학은 자체 필기시험(중국어·수학·영어·종합)과 면접을 실시합니다.
           </div>
           <ul style="margin-top:12px;">
-            <li>학생부 등급 선출은 3학년 1학기까지 입력해야 정상적으로 도출됩니다.<br>
-              (3학년 1학기 성적이 없을 시 2학년 1학기 성적 입사로 입력하여 사용하시지 경청합니다.)</li>
-            <li>전년도 입시결과 옛이 인내</li>
+            <li>HSK 성적은 대부분 <span class="red">응시일로부터 2년 이내</span>의 성적만 인정되므로 응시 시기를 원서접수 일정에 맞춰 계획하세요.</li>
+            <li>중국 국적을 보유했던 적이 있는 지원자는 성적과 별개로 <strong>국적·해외거주 요건</strong>을 먼저 충족해야 합니다.</li>
           </ul>
           <div class="score-criteria" style="margin-top:12px;">
-            <strong style="color:#1a5c3a;">[학생부]</strong><br>
-            1. 종합학과점 : 최초 입정 인정을 게이한 마지막 중심 합격자 수의<br>
-            2. 원샤성 : 기 모집단위별 평가에 반영된 학생부 교과목의 성정을 대역별 반영방법에 따라 환산한 점수<br>
-            3. 원샤등급 : 기 모집단위별 평가에 반영된 학생부 교과목의 평균등급<br>
-            4. 원샤점수, 원샤등급 50%, 70% cut<br>
-            &nbsp;&nbsp;- 50% cut : 최종등록자 중 학생부 교과성적 순으로 상위 50%에 해당하는 점수<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;(교과성적 100점 중 50점 점수)<br>
-            &nbsp;&nbsp;- 70% cut : 최종등록자 중 학생부 교과성적 순으로 상위 70%에 해당하는 점수<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;(교과성적 100점 중 70점 점수)<br>
-            ※ 시설평가 옛은 중점솟의 상위 50%, 70%의 교과 성정을 의미하는 것이 아님<br>
-            ※ 50%, 70% cut은 대학별 비고깅, 80%, 90%, 100% cut은 대학별 선택공개
+            <strong style="color:#1a5c3a;">[평가 요소]</strong><br>
+            1. 서류심사 : 고교 성적증명서, HSK 성적표, 학업계획서(个人陈述), 추천서<br>
+            2. 필기시험 : 일부 상위권 대학 실시 (중국어·수학·영어, 문·이과 종합 등 대학별 상이)<br>
+            3. 면접 : 중국어 구술 능력, 전공 적합성, 학업 의지 (온라인 또는 현장)<br>
+            4. 가산 요소 : 수능·SAT 등 공인시험 성적, 수상·활동 실적, 중국 내 학업 경험<br>
+            ※ 분석 결과는 참고용이며 합격을 보장하지 않습니다.
           </div>
         </div>
       </div>
@@ -2927,11 +2946,11 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 .login-page { display: flex; justify-content: center; padding: 60px 20px; }
 .login-box { width: 100%; max-width: 440px; }
 .login-box h1 { text-align: center; font-size: 32px; font-weight: 800; color: #222; margin-bottom: 36px; }
-.login-field { width: 100%; padding: 16px 18px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: 'Noto Sans KR', sans-serif; margin-bottom: 12px; outline: none; background: #fff; box-sizing: border-box; }
+.login-field { width: 100%; padding: 16px 18px; border: 1px solid #ddd; border-radius: 8px; font-size: 15px; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; margin-bottom: 12px; outline: none; background: #fff; box-sizing: border-box; }
 .login-field:focus { border-color: #2db4a8; }
 .login-field-wrap { position: relative; }
 .login-field-wrap .field-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #2db4a8; font-size: 18px; cursor: pointer; }
-.login-submit { width: 100%; padding: 16px; background: #2db4a8; color: #fff; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; margin-top: 4px; margin-bottom: 14px; }
+.login-submit { width: 100%; padding: 16px; background: #2db4a8; color: #fff; border: none; border-radius: 8px; font-size: 18px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; margin-top: 4px; margin-bottom: 14px; }
 .login-submit:hover { background: #26a69a; }
 .login-options { display: flex; align-items: center; gap: 16px; font-size: 13px; color: #666; margin-bottom: 36px; }
 .login-options label { display: flex; align-items: center; gap: 5px; cursor: pointer; }
@@ -2941,10 +2960,11 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 .login-options .sep { color: #ddd; }
 .sns-section { text-align: center; margin-top: 10px; }
 .sns-title { font-size: 15px; font-weight: 600; color: #333; margin-bottom: 18px; }
-.sns-btn { width: 100%; padding: 14px 18px; border: 1px solid #ddd; border-radius: 8px; background: #fff; font-size: 15px; font-weight: 600; color: #333; cursor: pointer; font-family: 'Noto Sans KR', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.sns-btn { width: 100%; padding: 14px 18px; border: 1px solid #ddd; border-radius: 8px; background: #fff; font-size: 15px; font-weight: 600; color: #333; cursor: pointer; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
 .sns-btn:hover { border-color: #aaa; }
 .sns-btn .naver-icon { width: 28px; height: 28px; border-radius: 50%; background: #03C75A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; }
 .sns-btn .kakao-icon { width: 28px; height: 28px; border-radius: 50%; background: #FEE500; color: #3C1E1E; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.sns-btn .wechat-icon { width: 28px; height: 28px; border-radius: 50%; background: #07C160; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 15px; }
 </style>
 
 <div class="info-overlay" id="loginOverlay">
@@ -2975,6 +2995,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="sns-title">SNS 계정으로 간편하게 로그인 하세요!</div>
         <button class="sns-btn"><span class="naver-icon">N</span> 네이버 간편로그인</button>
         <button class="sns-btn"><span class="kakao-icon"><i class="fas fa-comment"></i></span> 카카오 간편로그인</button>
+        <button class="sns-btn"><span class="wechat-icon"><i class="fab fa-weixin"></i></span> 위챗(WeChat) 간편로그인</button>
       </div>
     </div>
   </div>
@@ -3036,7 +3057,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-weight: 600;
   color: #444;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   text-align: center;
   transition: all 0.15s;
 }
@@ -3182,7 +3203,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   border-radius: 6px;
   font-size: 12px;
   background: #fff;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   cursor: pointer;
 }
 .guide-form-row button.add-btn { background: #2db4a8; color: #fff; border-color: #2db4a8; }
@@ -3193,7 +3214,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 .guide-mini-table { width: 100%; border-collapse: collapse; font-size: 12px; background: #fff; }
 .guide-mini-table th { background: #f5f5f5; padding: 8px; border: 1px solid #e0e0e0; font-weight: 600; color: #555; }
 .guide-mini-table td { padding: 8px; border: 1px solid #e0e0e0; text-align: center; color: #666; }
-.guide-mini-table input, .guide-mini-table select { width: 100%; padding: 4px; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; font-family: 'Noto Sans KR', sans-serif; }
+.guide-mini-table input, .guide-mini-table select { width: 100%; padding: 4px; border: 1px solid #ddd; border-radius: 4px; font-size: 11px; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; }
 
 .guide-action-row {
   text-align: center;
@@ -3209,7 +3230,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
 }
 .guide-cancel { background: #eee; color: #555; }
 .guide-save { background: #2db4a8; color: #fff; }
@@ -3231,20 +3252,33 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 <div class="guide-modal-overlay" id="guideModalOverlay" onclick="if(event.target===this)closeGuideModal()">
   <div class="guide-modal-box">
     <div class="guide-modal-header">
-      재외국민 자격요건 가이드
+      중국 유학생 자격요건 가이드
       <button class="guide-modal-close" onclick="closeGuideModal()"><i class="fas fa-times"></i></button>
     </div>
 
     <div class="guide-tabs-row">
-      <button class="guide-tab-btn active" onclick="switchGuideTab(this, 0)">재외국민 자격요건 입력 가이드</button>
-      <button class="guide-tab-btn" onclick="switchGuideTab(this, 1)">해외체류기간 입력 가이드</button>
+      <button class="guide-tab-btn active" onclick="switchGuideTab(this, 0)">유학생 자격요건 입력 가이드</button>
+      <button class="guide-tab-btn" onclick="switchGuideTab(this, 1)">국적·해외거주기간 입력 가이드</button>
       <button class="guide-tab-btn" onclick="switchGuideTab(this, 2)">학력증빙서류 OCR 입력 가이드</button>
-      <button class="guide-tab-btn" onclick="switchGuideTab(this, 3)">해외학교 성적 입력 가이드</button>
+      <button class="guide-tab-btn" onclick="switchGuideTab(this, 3)">고교 성적·HSK 입력 가이드</button>
       <button class="guide-tab-btn guide-tab-full" onclick="switchGuideTab(this, 4)">서류 HTML 입력 가이드</button>
     </div>
 
     <div class="guide-section" id="guideContent">
-      <h2>재외국민 자격요건 입력 가이드</h2>
+      <h2>유학생 자격요건 입력 가이드</h2>
+
+      <div class="guide-form-demo" style="background:#f0faf9;border-color:#c8ebe8;">
+        <h3>중국 대학 외국인 유학생(본과) 기본 지원자격</h3>
+        <ul style="font-size:13px;color:#444;line-height:1.9;padding-left:20px;">
+          <li><strong>국적</strong> : 유효한 외국(한국) 여권을 가진 비중국 국적자</li>
+          <li><strong>학력</strong> : 고등학교 졸업자 또는 입학 전까지 졸업 예정자</li>
+          <li><strong>어학</strong> : 중국어 과정은 HSK 성적(대학·전공별 보통 4~6급), 영어 과정은 IELTS·TOEFL 등 영어 성적</li>
+          <li><strong>국적·거주 요건</strong> : 중국 국적이었다가 외국 국적을 취득한 경우, 외국 국적(여권) 보유 <strong>4년 이상</strong> + 최근 4년 중 <strong>2년 이상 해외 실거주</strong>(1년 중 9개월 이상 체류 시 1년 인정, 출입국기록 기준)</li>
+          <li><strong>미성년자</strong> : 입학 시 만 18세 미만이면 중국 내 보호자(监护人) 관련 서류가 필요</li>
+          <li><strong>건강</strong> : 외국인 체격검사(外国人体格检查) 기준 충족</li>
+        </ul>
+        <div style="font-size:12px;color:#e53935;margin-top:8px;"><i class="fas fa-exclamation-circle"></i> 부모 중 한 명 이상이 중국 국적인 경우 등은 대학별로 추가 서류·심사가 있을 수 있으니 모집요강을 꼭 확인하세요.</div>
+      </div>
 
       <div class="guide-method-title"><i class="fas fa-play-circle"></i> 방법1) 자격요건 직접입력 방법</div>
 
@@ -3257,12 +3291,13 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <div class="guide-illust-row"><span>2학년 1학기 입력</span><span>›</span></div>
           <div class="guide-illust-row"><span>2학년 2학기 입력</span><span>›</span></div>
           <div class="guide-illust-row"><span>3학년 1학기 입력</span><span>›</span></div>
-          <div class="guide-illust-row"><span>해외체류기간 입력</span><span>›</span></div>
+          <div class="guide-illust-row"><span>국적·해외거주기간 입력</span><span>›</span></div>
+          <div class="guide-illust-row"><span>HSK 성적 입력</span><span>›</span></div>
           <div class="guide-illust-row"><span>학력증빙서류 업로드</span><span>›</span></div>
         </div>
         <div class="guide-illust-arrow"><i class="fas fa-arrow-right"></i></div>
         <div class="guide-illust-right">
-          <div class="guide-illust-header">재외국민 자격요건 입력</div>
+          <div class="guide-illust-header">유학생 자격요건 입력</div>
           <div style="font-size:11px;color:#999;margin-bottom:8px;">학기와 학년도를 선택해주세요.</div>
           <div style="display:flex;gap:6px;margin-bottom:10px;">
             <select style="flex:1;padding:6px;font-size:11px;border:1px solid #ddd;border-radius:4px;"><option>1학년 1학기</option></select>
@@ -3270,7 +3305,10 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           </div>
           <table class="guide-mini-table">
             <thead><tr><th>번호</th><th>국가</th><th>학교명</th><th>기간</th></tr></thead>
-            <tbody><tr><td>1</td><td>미국</td><td>...School</td><td>2년</td></tr></tbody>
+            <tbody>
+              <tr><td>1</td><td>한국</td><td>OO고등학교</td><td>1년</td></tr>
+              <tr><td>2</td><td>중국</td><td>OO국제학교</td><td>2년</td></tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -3278,17 +3316,17 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="guide-step">
         <span class="guide-step-num">01</span>
         <span class="guide-step-text">입력 버튼 클릭</span>
-        <div class="guide-step-desc">재외국민 전형 지원에 필요한 학기별 학력사항을 입력하기 위해 좌측 메뉴에서 해당 학기의 '입력' 버튼을 클릭합니다.</div>
+        <div class="guide-step-desc">중국 대학 유학생 전형 지원에 필요한 학기별 학력사항을 입력하기 위해 좌측 메뉴에서 해당 학기의 '입력' 버튼을 클릭합니다.</div>
       </div>
 
       <div class="guide-form-demo">
-        <h3>재외국민 자격요건 입력 <span class="close-x">✕</span></h3>
+        <h3>유학생 자격요건 입력 <span class="close-x">✕</span></h3>
         <div style="font-size:12px;color:#e53935;margin-bottom:14px;">
           <i class="fas fa-exclamation-circle"></i> 입력이 안되거나 정보가 충분하지 않은 경우 다른 자료를 참조하게 되므로 정확도가 떨어집니다.
         </div>
         <div class="guide-form-row">
           <select><option>1학년 1학기 ▾</option></select>
-          <select><option>2024학년도(현재 고3) ▾</option></select>
+          <select><option>2027년 9월 입학(현재 고3) ▾</option></select>
           <div class="right-btn">
             <button>자격요건 양식 다운로드 ⬇</button>
             <button>입력한 자격요건 업로드 ⬆</button>
@@ -3314,8 +3352,8 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
             <tr>
               <td><input type="checkbox"></td>
               <td>1</td>
-              <td><select><option>해외학교</option></select></td>
-              <td><select><option>미국</option></select></td>
+              <td><select><option>국내 고교</option><option>중국 현지학교</option><option>국제학교</option><option>재외 한국학교</option></select></td>
+              <td><select><option>한국</option><option>중국</option><option>기타</option></select></td>
               <td><input type="text" placeholder="학교명"></td>
               <td><input type="text" placeholder="YYYY-MM"></td>
               <td><input type="text" placeholder="학년"></td>
@@ -3333,20 +3371,20 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="guide-step">
         <span class="guide-step-num">02</span>
         <span class="guide-step-text">자격요건 정보 입력</span>
-        <div class="guide-step-desc">팝업창에서 해외 재학 국가, 학교명, 재학기간, 학년 등 재외국민 자격요건에 필요한 정보를 입력합니다. 여러 학교에 다닌 경우 우측 <strong>＋</strong> 버튼을 눌러 항목을 추가할 수 있습니다.</div>
+        <div class="guide-step-desc">팝업창에서 재학 국가, 학교명, 재학기간, 학년 등 학력 정보와 국적·해외거주 정보를 입력합니다. 여러 학교에 다닌 경우 우측 <strong>＋</strong> 버튼을 눌러 항목을 추가할 수 있습니다.</div>
       </div>
 
       <div class="guide-step">
         <span class="guide-step-num">03</span>
         <span class="guide-step-text">증빙서류 첨부 및 저장</span>
-        <div class="guide-step-desc">각 항목에 대한 증빙서류(재학증명서, 성적증명서 등)를 첨부한 후 <strong>저장</strong> 버튼을 클릭하면 입력이 완료됩니다.</div>
+        <div class="guide-step-desc">각 항목에 대한 증빙서류(재학증명서, 성적증명서, HSK 성적표 등)를 첨부한 후 <strong>저장</strong> 버튼을 클릭하면 입력이 완료됩니다.</div>
       </div>
 
       <div class="guide-tip">
         <i class="fas fa-lightbulb"></i>
         <div>
-          <strong>TIP.</strong> 재외국민 전형 지원자격은 대학별로 상이할 수 있습니다.<br>
-          해외체류기간 산정 기준(학생/부모 동반 등)을 반드시 확인 후 입력해주세요.<br>
+          <strong>TIP.</strong> 중국 대학 유학생 지원자격은 대학별로 상이할 수 있습니다.<br>
+          중국 국적을 보유했던 적이 있다면(귀화·이민 등) <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 반드시 확인 후 입력해주세요.<br>
           입력한 자격요건은 <strong>입력한 자격요건 다운로드</strong> 버튼으로 백업할 수 있습니다.
         </div>
       </div>
@@ -3360,7 +3398,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div class="guide-step">
         <span class="guide-step-num">02</span>
         <span class="guide-step-text">양식 작성</span>
-        <div class="guide-step-desc">Excel 파일에 학교명, 국가, 재학기간, 학년 등을 양식에 맞추어 작성합니다.</div>
+        <div class="guide-step-desc">Excel 파일에 학교명, 국가, 재학기간, 학년, HSK 성적 등을 양식에 맞추어 작성합니다.</div>
       </div>
       <div class="guide-step">
         <span class="guide-step-num">03</span>
@@ -3384,10 +3422,10 @@ function switchGuideTab(btn, idx) {
   document.querySelectorAll('.guide-tab-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   const titles = [
-    '재외국민 자격요건 입력 가이드',
-    '해외체류기간 입력 가이드',
+    '유학생 자격요건 입력 가이드',
+    '국적·해외거주기간 입력 가이드',
     '학력증빙서류 OCR 입력 가이드',
-    '해외학교 성적 입력 가이드',
+    '고교 성적·HSK 입력 가이드',
     '서류 HTML 입력 가이드'
   ];
   document.querySelector('#guideContent h2').textContent = titles[idx];
@@ -3451,7 +3489,7 @@ function switchGuideTab(btn, idx) {
   color: #444;
   cursor: pointer;
   text-align: center;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   transition: all 0.15s;
 }
 .novice-tab:hover { border-color: #2db4a8; color: #2db4a8; }
@@ -3589,47 +3627,47 @@ function switchGuideTab(btn, idx) {
 <div class="novice-modal-overlay" id="noviceModalOverlay" onclick="if(event.target===this)closeNoviceGuide()">
   <div class="novice-modal-box">
     <div class="novice-modal-header">
-      재외국민 초보자 가이드
+      중국 유학 초보자 가이드
       <button class="novice-modal-close" onclick="closeNoviceGuide()"><i class="fas fa-times"></i></button>
     </div>
 
     <div class="novice-top-tabs">
       <button class="novice-tab active">회원가입 및 로그인</button>
       <button class="novice-tab">자격요건 확인</button>
-      <button class="novice-tab">대학/학과 검색</button>
+      <button class="novice-tab">대학/전공 검색</button>
       <button class="novice-tab">서류준비 안내</button>
-      <button class="novice-tab">대입상담</button>
+      <button class="novice-tab">유학상담</button>
       <button class="novice-tab">입학도우미</button>
     </div>
 
     <div class="novice-intro">
       <div class="novice-intro-icon"><i class="fas fa-book-reader"></i></div>
       <div class="novice-intro-text">
-        재외국민 One Stop 서비스 <strong>제대로 활용하기!</strong>
-        <div class="sub">올바른 재외국민 입시정보는 검색·진단·상담을 통해 더 정확한 정보를 확인할 수 있습니다.</div>
+        중국대학 One Stop 서비스 <strong>제대로 활용하기!</strong>
+        <div class="sub">중국 대학 입시정보는 검색·진단·상담을 거치면 더 정확하게 확인할 수 있습니다.</div>
       </div>
     </div>
 
     <div class="novice-steps">
       <div class="novice-step-card active">
         <div class="novice-step-icon"><i class="fas fa-search"></i></div>
-        <div class="novice-step-title"><strong>1단계</strong> 재외국민 정보 검색</div>
+        <div class="novice-step-title"><strong>1단계</strong> 중국대학 정보 검색</div>
         <div class="novice-step-desc">
-          해외체류기간과 학력사항을 입력해 본인의 재외국민 자격요건을 확인하고, 자격에 맞는 대학·학과·전형을 검색합니다.
+          국적·학력·HSK 정보를 입력해 본인의 유학생 지원자격을 확인하고, 자격에 맞는 대학·전공·전형을 검색합니다.
         </div>
       </div>
       <div class="novice-step-card">
         <div class="novice-step-icon"><i class="fas fa-clipboard-check"></i></div>
         <div class="novice-step-title"><strong>2단계</strong> 자격 진단</div>
         <div class="novice-step-desc">
-          학생부 성적과 모의고사 성적을 입력하여 본인에게 유리한 전형과 성적조합을 분석하고, 원하는 대학·학과의 전년도 입시결과와 환산점수를 확인합니다.
+          고교 성적과 HSK·수능/SAT 등 성적을 입력하여 대학별 요구 기준 충족 여부를 분석하고, 원하는 대학·전공의 선발방식과 어학 기준을 확인합니다.
         </div>
       </div>
       <div class="novice-step-card">
         <div class="novice-step-icon"><i class="fas fa-comments"></i></div>
-        <div class="novice-step-title"><strong>3단계</strong> 대입상담</div>
+        <div class="novice-step-title"><strong>3단계</strong> 유학상담</div>
         <div class="novice-step-desc">
-          학교 내 진학상담 또는 한국대학교육협의회 대입상담센터 전화상담(1600-1615), 재외국민 One Stop 서비스의 온라인상담 등 다양한 방법을 통해 진단결과를 상담받을 수 있습니다.
+          온라인 유학상담, 학업계획서·면접을 준비하는 서류·면접 상담, 전화상담 등 다양한 방법으로 진단결과를 상담받을 수 있습니다.
         </div>
       </div>
     </div>
@@ -3637,32 +3675,38 @@ function switchGuideTab(btn, idx) {
     <div class="novice-detail">
       <div class="novice-detail-title">
         <span class="magnifier"><i class="fas fa-search"></i></span>
-        <strong>1단계</strong> 재외국민 정보 검색
+        <strong>1단계</strong> 중국대학 정보 검색
       </div>
       <div class="novice-detail-list">
         <div class="novice-detail-item">
           <span class="novice-detail-tag">자격요건</span>
           <div class="novice-detail-desc">
-            해외 체류기간, 학력사항(해외학교 재학 이력), 부모 동반 여부 등 재외국민 자격요건을 확인할 수 있습니다.<br>
-            국가별·학교별 인정 기준, 동반자 요건 등의 정보도 함께 확인할 수 있습니다.
+            국적(유효한 외국 여권), 고교 졸업 학력, HSK 등 어학 요건, 미성년자 보호자 요건 등 유학생 지원자격을 확인할 수 있습니다.<br>
+            중국 국적을 보유했던 적이 있는 경우 적용되는 <strong>외국 국적 4년·해외거주 2년</strong> 요건도 함께 확인할 수 있습니다.
           </div>
         </div>
         <div class="novice-detail-item">
           <span class="novice-detail-tag">대학정보</span>
           <div class="novice-detail-desc">
-            대학에서 직접 입력한 대학의 전년도 입시결과, 재외국민 전형 모집요강, 등록금, 장학금, 대학 특징, 교육여건 등의 정보를 확인할 수 있습니다.
+            985·211·双一流 여부, 위치, 강점 분야, 유학생 모집요강(招生简章), 학비, 장학금, 기숙사(留学生公寓) 등 대학의 기본 정보를 확인할 수 있습니다.
           </div>
         </div>
         <div class="novice-detail-item">
           <span class="novice-detail-tag">학과정보</span>
           <div class="novice-detail-desc">
-            교육목표, 교육과정, 진로·취업분야, 등록금, 취업률, 경쟁률 등 학생들이 궁금해 하는 학과의 주요정보를 확인할 수 있습니다.
+            수업언어(중국어/영어), 학제(4~6년), 교육과정, 졸업 후 진로 등 학생들이 궁금해 하는 전공의 주요정보를 확인할 수 있습니다.
           </div>
         </div>
         <div class="novice-detail-item">
           <span class="novice-detail-tag">전형정보</span>
           <div class="novice-detail-desc">
-            재외국민 특별전형 일정·방법, 그리고 어떤 기준으로 학생을 선발하는지, 어렵게만 느껴졌던 전형에 대한 정보를 한눈에 확인할 수 있습니다.
+            원서접수 일정, 선발방식(서류·필기시험·면접), HSK 기준 등 대학이 어떤 기준으로 유학생을 선발하는지, 어렵게만 느껴졌던 전형 정보를 한눈에 확인할 수 있습니다.
+          </div>
+        </div>
+        <div class="novice-detail-item">
+          <span class="novice-detail-tag">HSK</span>
+          <div class="novice-detail-desc">
+            중국어 과정 지원 시 HSK 성적은 사실상 필수입니다. 대학·전공별 요구 급수와 <strong>성적 유효기간(응시일로부터 2년)</strong>을 확인하고 원서접수 일정에 맞춰 응시하세요.
           </div>
         </div>
       </div>
@@ -3738,7 +3782,7 @@ function closeNoviceGuide() {
   font-weight: 600;
   color: #444;
   cursor: pointer;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
   text-align: center;
 }
 .docs-tab:hover { border-color: #2db4a8; color: #2db4a8; }
@@ -3901,22 +3945,23 @@ function closeNoviceGuide() {
 <div class="docs-modal-overlay" id="docsModalOverlay" onclick="if(event.target===this)closeDocsGuide()">
   <div class="docs-modal-box">
     <div class="docs-modal-header">
-      재외국민 서류준비 가이드
+      중국 유학 서류준비 가이드
       <button class="docs-modal-close" onclick="closeDocsGuide()"><i class="fas fa-times"></i></button>
     </div>
 
     <div class="docs-top-tabs">
       <button class="docs-tab active">필수 제출서류</button>
       <button class="docs-tab">학력증빙서류</button>
-      <button class="docs-tab">재외 체류증빙</button>
+      <button class="docs-tab">국적·거주 증빙</button>
       <button class="docs-tab">서류 인증·번역</button>
       <button class="docs-tab">일정 및 유의사항</button>
     </div>
 
     <div class="docs-intro">
-      재외국민 특별전형은 일반전형과 달리 <strong>재외 체류기간과 해외 학력을 증빙</strong>하는 서류가 핵심입니다.
+      중국 대학 유학생(본과) 전형은 대학별 <strong>온라인 지원시스템에 서류를 업로드</strong>하는 방식이 일반적이며,
+      <strong>고교 학력·HSK·국적</strong>을 증빙하는 서류가 핵심입니다.
       대학별로 요구 서류와 기준이 조금씩 다르므로, 본 가이드는 공통적으로 요구되는 서류를 정리한 것입니다.
-      실제 지원 시에는 반드시 <strong>각 대학의 모집요강</strong>을 확인하시기 바랍니다.
+      실제 지원 시에는 반드시 <strong>각 대학의 모집요강(招生简章)</strong>을 확인하시기 바랍니다.
     </div>
 
     <div class="docs-section">
@@ -3926,57 +3971,71 @@ function closeNoviceGuide() {
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-file-alt"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">입학원서 및 자기소개서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">각 대학별 양식에 맞춰 작성. 온라인 원서접수 후 출력 제출하는 경우가 일반적입니다.</div>
-          </div>
-        </div>
-        <div class="docs-check-item">
-          <div class="docs-check-icon"><i class="fas fa-id-card"></i></div>
-          <div class="docs-check-content">
-            <div class="docs-check-name">주민등록등본 / 가족관계증명서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">3개월 이내 발급본. 부모 동반 자격 확인용으로 가족 전원 표시본 필요.</div>
+            <div class="docs-check-name">온라인 지원서 · 학업계획서<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">대학 온라인 지원시스템에서 작성. 학업계획서(个人陈述·学习计划)는 대학이 지정한 언어(중국어/영어)와 분량에 맞춰 작성합니다.</div>
           </div>
         </div>
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-passport"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">출입국사실증명서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">본인 및 부모 전원. 정부24에서 발급, 전체 출입국 기록이 표시되어야 합니다.</div>
+            <div class="docs-check-name">여권 사본<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">사진면 사본. 입학 후 비자·거류허가 발급까지 유효기간이 충분히 남아 있어야 하므로 만료가 가까우면 미리 재발급하세요.</div>
           </div>
         </div>
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-graduation-cap"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">해외학교 재학·성적증명서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">초·중·고 전 학년 또는 대학이 정한 기간. 원본 + 한국어 번역공증본.</div>
+            <div class="docs-check-name">고교 졸업(예정)증명서<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">졸업 예정자는 재학·졸업예정증명서를 먼저 제출하고, 입학 전 졸업증명서를 추가 제출합니다. 검정고시 합격자는 합격증명서로 대체.</div>
           </div>
         </div>
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-graduation-cap"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">졸업증명서 또는 졸업예정증명서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">최종 학력에 대한 증명. 검정고시 합격자는 검정고시 합격증명서로 대체.</div>
-          </div>
-        </div>
-        <div class="docs-check-item">
-          <div class="docs-check-icon"><i class="fas fa-briefcase"></i></div>
-          <div class="docs-check-content">
-            <div class="docs-check-name">부모 재직증명서 / 재외근무확인서<span class="docs-check-badge required">필수</span></div>
-            <div class="docs-check-desc">부모 동반 재외국민(2번 자격) 지원자 필수. 발령 기간 및 근무국가 명시 필요.</div>
+            <div class="docs-check-name">고교 성적증명서<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">고1~고3 전 학년 성적. 국내 고교는 영문 성적증명서·학교생활기록부 발급 가능, 그 외는 중국어 또는 영어 번역·공증본.</div>
           </div>
         </div>
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-language"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">공인 외국어/한국어 성적<span class="docs-check-badge optional">선택</span></div>
-            <div class="docs-check-desc">TOPIK, TOEFL, SAT 등. 일부 대학에서 가점·자격기준으로 활용.</div>
+            <div class="docs-check-name">HSK 성적표 (영어 과정은 IELTS·TOEFL)<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">중국어 과정 지원 시 필수. 대부분 응시일로부터 2년 이내 성적만 인정되며, HSKK(회화) 성적을 함께 요구하는 대학도 있습니다.</div>
+          </div>
+        </div>
+        <div class="docs-check-item">
+          <div class="docs-check-icon"><i class="fas fa-id-card"></i></div>
+          <div class="docs-check-content">
+            <div class="docs-check-name">국적 증빙 (본인·부모 여권 등)<span class="docs-check-badge required">필수</span></div>
+            <div class="docs-check-desc">본인과 부모의 여권 사본, 가족관계증명서·기본증명서 등을 요구하는 대학이 많습니다. 귀화·이민자는 국적 취득 증빙과 출입국사실증명서 추가.</div>
+          </div>
+        </div>
+        <div class="docs-check-item">
+          <div class="docs-check-icon"><i class="fas fa-envelope-open-text"></i></div>
+          <div class="docs-check-content">
+            <div class="docs-check-name">추천서 (推荐信)<span class="docs-check-badge optional">대학별</span></div>
+            <div class="docs-check-desc">담임 또는 교과 교사의 추천서 1~2부. 상위권 대학일수록 요구하는 경우가 많으며 중국어 또는 영어로 작성합니다.</div>
+          </div>
+        </div>
+        <div class="docs-check-item">
+          <div class="docs-check-icon"><i class="fas fa-notes-medical"></i></div>
+          <div class="docs-check-content">
+            <div class="docs-check-name">외국인 체격검사표 (外国人体格检查表)<span class="docs-check-badge optional">합격 후</span></div>
+            <div class="docs-check-desc">6개월 과정 이상 유학(X1 비자) 시 필요. 중국 정부 지정 양식으로 검사하며, 지원 단계에서 제출을 요구하는 대학도 있습니다.</div>
+          </div>
+        </div>
+        <div class="docs-check-item">
+          <div class="docs-check-icon"><i class="fas fa-user-shield"></i></div>
+          <div class="docs-check-content">
+            <div class="docs-check-name">범죄경력회보서 · 재정보증서<span class="docs-check-badge optional">대학별</span></div>
+            <div class="docs-check-desc">무범죄증명(无犯罪记录证明)과 은행잔고증명·재정보증서(经济担保)를 요구하는 대학이 있습니다. 아포스티유가 필요할 수 있습니다.</div>
           </div>
         </div>
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-award"></i></div>
           <div class="docs-check-content">
-            <div class="docs-check-name">활동·수상 증빙자료<span class="docs-check-badge optional">선택</span></div>
-            <div class="docs-check-desc">서류평가 반영 대학 한정. 봉사·연구·수상 등 학교 외 활동 증빙.</div>
+            <div class="docs-check-name">수능·SAT·IB 성적 · 수상·활동 증빙<span class="docs-check-badge optional">선택</span></div>
+            <div class="docs-check-desc">일부 대학은 한국 수능 등 공인시험 성적과 수상·활동 실적을 평가에 참고합니다. 만 18세 미만은 중국 내 보호자 서류도 준비하세요.</div>
           </div>
         </div>
       </div>
@@ -3985,47 +4044,52 @@ function closeNoviceGuide() {
       <div class="docs-tips">
         <div class="docs-tip-card">
           <div class="docs-tip-icon"><i class="fas fa-globe"></i></div>
-          <div class="docs-tip-title">아포스티유 / 영사확인</div>
-          <div class="docs-tip-desc">아포스티유 협약국은 아포스티유 발급, 비협약국은 한국 영사관 영사확인을 받아야 합니다.</div>
+          <div class="docs-tip-title">아포스티유</div>
+          <div class="docs-tip-desc">중국은 2023년 11월부터 아포스티유 협약이 발효되어, 한국 공문서는 중국 영사확인 대신 외교부 아포스티유로 인증할 수 있습니다.</div>
         </div>
         <div class="docs-tip-card">
           <div class="docs-tip-icon"><i class="fas fa-file-signature"></i></div>
           <div class="docs-tip-title">번역공증</div>
-          <div class="docs-tip-desc">한국어 외 언어로 작성된 모든 서류는 공증된 한국어 번역본을 함께 제출합니다.</div>
+          <div class="docs-tip-desc">한국어로 된 서류는 중국어 또는 영어 번역본을 함께 제출하며, 대학에 따라 번역공증을 요구합니다.</div>
         </div>
         <div class="docs-tip-card">
           <div class="docs-tip-icon"><i class="fas fa-clock"></i></div>
           <div class="docs-tip-title">발급 시점</div>
-          <div class="docs-tip-desc">대부분의 증명서는 발급일 기준 3개월 이내본만 인정됩니다.</div>
+          <div class="docs-tip-desc">대부분의 증명서는 발급일 기준 3~6개월 이내본만 인정됩니다. 원서접수 일정에 맞춰 발급하세요.</div>
         </div>
       </div>
 
-      <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 3. 준비 일정 (권장)</div>
+      <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 3. 준비 일정 (9월 입학 기준 · 권장)</div>
       <div class="docs-timeline">
         <div class="docs-timeline-item">
-          <div class="docs-timeline-period">D-6개월 ~ D-4개월</div>
-          <div class="docs-timeline-title">자격요건 사전 확인 및 대학 리서치</div>
-          <div class="docs-timeline-desc">본인의 재외 체류기간이 어느 자격(전 교육과정/일부 교육과정/부모동반)에 해당하는지 확인하고 지원 가능 대학을 선별합니다.</div>
+          <div class="docs-timeline-period">전년 6월 ~ 10월</div>
+          <div class="docs-timeline-title">HSK 응시 및 목표 대학 리서치</div>
+          <div class="docs-timeline-desc">목표 대학·전공의 HSK 기준을 확인하고 응시합니다. 성적 발표까지 시간이 걸리고 재응시가 필요할 수 있으니 여유 있게 시작하세요.</div>
         </div>
         <div class="docs-timeline-item">
-          <div class="docs-timeline-period">D-3개월</div>
-          <div class="docs-timeline-title">해외 서류 발급 및 아포스티유 신청</div>
-          <div class="docs-timeline-desc">해외 학교 성적·재학·졸업증명서를 발급받고 현지에서 아포스티유 또는 영사확인을 신청합니다. 가장 시간이 오래 걸리는 단계.</div>
+          <div class="docs-timeline-period">전년 11월 ~ 12월</div>
+          <div class="docs-timeline-title">모집요강 확인 및 서류 발급·인증</div>
+          <div class="docs-timeline-desc">대학별 招生简章 발표를 확인하고, 성적·졸업예정증명서 발급, 아포스티유, 번역공증을 진행합니다. 가장 시간이 오래 걸리는 단계.</div>
         </div>
         <div class="docs-timeline-item">
-          <div class="docs-timeline-period">D-2개월</div>
-          <div class="docs-timeline-title">번역공증 및 국내 서류 준비</div>
-          <div class="docs-timeline-desc">해외서류 번역공증을 진행하고, 주민등록등본·가족관계증명서·출입국사실증명서를 국내에서 발급합니다.</div>
+          <div class="docs-timeline-period">12월 ~ 이듬해 4월 (대학별 상이)</div>
+          <div class="docs-timeline-title">온라인 원서접수 및 서류 업로드</div>
+          <div class="docs-timeline-desc">대학 온라인 지원시스템에서 지원서를 작성하고 서류를 업로드한 뒤 전형료를 납부합니다. 상위권 대학일수록 마감이 빠릅니다.</div>
         </div>
         <div class="docs-timeline-item">
-          <div class="docs-timeline-period">D-1개월</div>
-          <div class="docs-timeline-title">자기소개서 작성 및 최종 점검</div>
-          <div class="docs-timeline-desc">자기소개서를 완성하고 대학별 요구 서류와 누락 사항이 없는지 최종 체크합니다.</div>
+          <div class="docs-timeline-period">2월 ~ 5월</div>
+          <div class="docs-timeline-title">필기시험 · 면접</div>
+          <div class="docs-timeline-desc">대학에 따라 필기시험(중국어·수학·영어 등)과 면접을 온라인 또는 현장에서 실시합니다.</div>
         </div>
         <div class="docs-timeline-item">
-          <div class="docs-timeline-period">원서접수 기간</div>
-          <div class="docs-timeline-title">온라인 접수 및 서류 제출</div>
-          <div class="docs-timeline-desc">온라인 원서접수 후 출력본과 모든 증빙서류를 우편 또는 방문 제출합니다. 등기우편 권장.</div>
+          <div class="docs-timeline-period">4월 ~ 7월</div>
+          <div class="docs-timeline-title">합격 발표 및 입학서류 수령</div>
+          <div class="docs-timeline-desc">录取通知书(입학허가서)와 JW202표(정부장학생은 JW201표)를 받습니다. 비자 신청에 반드시 필요한 서류입니다.</div>
+        </div>
+        <div class="docs-timeline-item">
+          <div class="docs-timeline-period">7월 ~ 9월</div>
+          <div class="docs-timeline-title">X1 비자 · 출국 · 거류허가</div>
+          <div class="docs-timeline-desc">X1 학생비자를 발급받고 기숙사를 신청합니다. 입국 후 30일 이내에 체격검사 확인을 거쳐 거류허가(居留许可)를 신청해야 합니다.</div>
         </div>
       </div>
 
@@ -4034,11 +4098,11 @@ function closeNoviceGuide() {
         <div class="docs-warning-content">
           <div class="docs-warning-title">반드시 확인하세요</div>
           <div class="docs-warning-text">
-            • 대학별로 요구하는 서류 종류와 양식이 다르므로 <strong>모집요강을 반드시 확인</strong>해야 합니다.<br>
-            • 해외 발급 서류는 발급·아포스티유·번역공증에 시간이 오래 걸리므로 <strong>최소 3~6개월 전부터 준비</strong>를 시작하세요.<br>
-            • 출입국사실증명서는 가족 전원(본인·부, 모)의 기록이 필요한 경우가 많습니다.<br>
-            • 검정고시 합격자는 별도 추가서류가 요구될 수 있습니다.<br>
-            • 서류 위·변조 시 합격 취소 및 입학 후에도 학적 무효 처리되니 주의하세요.
+            • 대학별로 요구하는 서류 종류·양식·언어가 다르므로 <strong>모집요강(招生简章)을 반드시 확인</strong>해야 합니다.<br>
+            • 중국 국적을 보유했던 적이 있으면 <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 충족해야 하며, 출입국기록 증빙이 요구됩니다.<br>
+            • 부모 중 중국 국적자가 있는 경우 대학별로 추가 서류와 심사가 있을 수 있습니다.<br>
+            • 입학 시 만 18세 미만이면 중국 내 보호자(监护人) 관련 서류가 필요합니다.<br>
+            • 서류 위·변조 시 합격 취소 및 입학 후에도 학적 취소 처리되니 주의하세요.
           </div>
         </div>
       </div>
@@ -4068,27 +4132,32 @@ function closeDocsGuide() {
     <a href="#">저작권정책</a>
     <a href="#">제안 및 건의하기</a>
     <div class="footer-selects">
-      <select><option>관련기관</option></select>
+      <select onchange="if(this.value){window.open(this.value,'_blank');this.selectedIndex=0;}">
+        <option value="">관련기관</option>
+        <option value="https://www.moe.gov.cn/">중국 교육부 (教育部)</option>
+        <option value="https://www.campuschina.org/">Study in China (중국정부장학금)</option>
+        <option value="https://www.chinesetest.cn/">HSK 공식 사이트 (中文考试服务网)</option>
+      </select>
       <select><option>Family Site</option></select>
     </div>
   </div>
   <div class="footer-body">
     <div class="footer-org">
-      <div class="footer-org-logo"><i class="fas fa-building"></i></div>
+      <div class="footer-org-logo"><i class="fas fa-graduation-cap"></i></div>
       <div class="footer-org-info">
-        <div class="org-name">한국대학교육협의회</div>
-        (우)08504 서울특별시 금천구 서부샛길 606<br>
-        (가산동, 대성디폴리스 A동, 22~23층) 전화문의 : 02-6919-3960<br>
-        Copyright2023. KCUE all rights reserved
+        <div class="org-name">중국대학 One Stop 서비스</div>
+        중국 대학 진학을 준비하는 한국 학생과 학부모를 위한 입시정보 포털<br>
+        유학상담 : 02-000-0000 (평일 10:00~19:00, 한국시간)<br>
+        Copyright 2026. 중국대학 One Stop. All rights reserved.
       </div>
     </div>
     <div class="footer-org">
-      <div class="footer-org-logo"><i class="fas fa-landmark"></i></div>
+      <div class="footer-org-logo"><i class="fas fa-info-circle"></i></div>
       <div class="footer-org-info">
-        <div class="org-name">한국전문대학교육협의회</div>
-        (우)04505 서울특별시 중구 서소문로 38 (중림동 센트럴타워 7층)<br>
-        TEL : 02-3145-1200 | FAX : 02-364-1584<br>
-        Copyright2023. KCUE all rights reserved
+        <div class="org-name">이용 안내</div>
+        본 사이트의 입시 정보는 참고용입니다.<br>
+        모집요강·어학 기준·일정은 매년 바뀔 수 있으므로 지원 전 반드시<br>
+        각 대학의 공식 모집요강(招生简章)을 확인하세요.
       </div>
     </div>
   </div>
@@ -4116,12 +4185,12 @@ function closeDocsGuide() {
           <span class="menu-cat-title">대학/학과/전형</span>
         </div>
         <div class="menu-links">
-          <a href="#">대학정보</a>
-          <a href="#">학과정보</a>
-          <a href="#">전형정보</a>
-          <a href="#">지역별검색</a>
-          <a href="#">경쟁률현황</a>
-          <a href="#">합격자현황</a>
+          <a href="#" onclick="closeMenu();openUnivModal();return false;">대학정보</a>
+          <a href="#" onclick="closeMenu();openDeptModal();return false;">학과정보</a>
+          <a href="#" onclick="closeMenu();openPage('admOverlay');return false;">전형정보</a>
+          <a href="#">도시별 검색</a>
+          <a href="#">985·211 대학</a>
+          <a href="#">합격후기</a>
         </div>
       </div>
 
@@ -4132,26 +4201,26 @@ function closeDocsGuide() {
           <span class="menu-cat-title">자격요건 분석</span>
         </div>
         <div class="menu-links">
-          <a href="#">재외국민 자격확인</a>
-          <a href="#">해외체류기간 계산</a>
+          <a href="#" onclick="closeMenu();openGuideModal();return false;">유학생 자격확인</a>
+          <a href="#">국적·거주요건 계산</a>
           <a href="#">학력인정 기준</a>
-          <a href="#">특례유형 안내</a>
-          <a href="#" class="full-width">자격요건 상세안내</a>
+          <a href="#">HSK 기준 안내</a>
+          <a href="#" class="full-width" onclick="closeMenu();openDocsGuide();return false;">서류준비 가이드</a>
         </div>
       </div>
 
-      <!-- 입시상담 -->
+      <!-- 유학상담 -->
       <div class="menu-category">
         <div class="menu-cat-header">
           <i class="fas fa-comments"></i>
-          <span class="menu-cat-title">입시상담</span>
+          <span class="menu-cat-title">유학상담</span>
         </div>
         <div class="menu-links">
-          <a href="#">온라인입시상담</a>
+          <a href="#" onclick="closeMenu();openPage('consultOverlay');return false;">온라인유학상담</a>
           <a href="#">상담FAQ</a>
           <a href="#">전화상담 안내</a>
           <a href="#">1:1 맞춤상담</a>
-          <a href="#" class="full-width">재외국민 종합상담</a>
+          <a href="#" class="full-width" onclick="closeMenu();openPage('compOverlay');return false;">서류·면접 상담</a>
         </div>
       </div>
 
@@ -4162,10 +4231,10 @@ function closeDocsGuide() {
           <span class="menu-cat-title">진로정보</span>
         </div>
         <div class="menu-links">
-          <a href="#">직업정보</a>
+          <a href="#" onclick="closeMenu();openJobModal();return false;">직업정보</a>
           <a href="#">직업심리검사</a>
-          <a href="#">학과별 진로안내</a>
-          <a href="#">해외 취업정보</a>
+          <a href="#">전공별 진로안내</a>
+          <a href="#">중국 취업정보</a>
         </div>
       </div>
 
@@ -4176,12 +4245,12 @@ function closeDocsGuide() {
           <span class="menu-cat-title">입시정보센터</span>
         </div>
         <div class="menu-links">
-          <a href="#">재외국민제도안내</a>
+          <a href="#">중국유학 제도안내</a>
           <a href="#">전형일정</a>
           <a href="#">입시소식</a>
           <a href="#">설명회/박람회</a>
-          <a href="#">입시자료실</a>
-          <a href="#">대학별 입시정보</a>
+          <a href="#" onclick="closeMenu();openPage('dataOverlay');return false;">유학자료실</a>
+          <a href="#">장학금 안내</a>
         </div>
       </div>
 
@@ -4223,10 +4292,10 @@ function closeDocsGuide() {
         </div>
         <div class="menu-links">
           <a href="#">관심대학/전형</a>
-          <a href="#">어디가 알림</a>
+          <a href="#">입시 알림</a>
           <a href="#">일정관리</a>
           <a href="#">신청/접수</a>
-          <a href="#">재외국민 지원정보</a>
+          <a href="#" onclick="closeMenu();openPage('gradeOverlay');return false;">성적·HSK 관리</a>
           <a href="#">입학도우미</a>
         </div>
       </div>
@@ -4238,15 +4307,15 @@ function closeDocsGuide() {
       <div class="menu-contact">
         <i class="fas fa-phone-alt"></i>
         <div>
-          <div class="contact-label">입시상담전화</div>
-          <div class="contact-number">1600-1615</div>
+          <div class="contact-label">유학상담전화</div>
+          <div class="contact-number">02-000-0000</div>
         </div>
       </div>
       <div class="menu-contact">
-        <i class="fas fa-phone"></i>
+        <i class="fab fa-weixin"></i>
         <div>
-          <div class="contact-label">기타문의</div>
-          <div class="contact-number">02-6919-3960</div>
+          <div class="contact-label">위챗 상담 (WeChat)</div>
+          <div class="contact-number">준비 중</div>
         </div>
       </div>
     </div>
@@ -4324,93 +4393,134 @@ function searchJobs() {
 
 
 <script>
-/* ====== 대학 데이터 ====== */
+/* ====== 대학 데이터 (tier: 985 / 211 / dbl=双一流 / etc) ====== */
 const univData = [
-  { name:'가야대학교[본교]', region:'경남', su:'5.34', jeong:'3.56', capacity:405, dept:8, adm:18 },
-  { name:'가천대학교[본교]', region:'경기', su:'29.85', jeong:'9.39', capacity:3938, dept:71, adm:31 },
-  { name:'가톨릭관동대학교[본교]', region:'강원', su:'3.79', jeong:'3.59', capacity:1725, dept:36, adm:45 },
-  { name:'가톨릭꽃동네대학교[본교]', region:'충북', su:'4.59', jeong:'2.79', capacity:108, dept:2, adm:19 },
-  { name:'가톨릭대학교[본교]', region:'경기', su:'16.92', jeong:'5.73', capacity:1620, dept:49, adm:25 },
-  { name:'가톨릭대학교[제2캠퍼스]', region:'서울', su:'35.01', jeong:'3.51', capacity:173, dept:2, adm:9 },
-  { name:'가톨릭대학교[제3캠퍼스]', region:'서울', su:'1.3', jeong:'3.44', capacity:50, dept:1, adm:9 },
-  { name:'감리교신학대학교[본교]', region:'서울', su:'1.46', jeong:'2.73', capacity:192, dept:1, adm:15 },
-  { name:'강남대학교[본교]', region:'경기', su:'11.54', jeong:'6.72', capacity:1491, dept:27, adm:23 },
-  { name:'강서대학교[본교]', region:'서울', su:'12.25', jeong:'9.07', capacity:277, dept:10, adm:17 },
-  { name:'건국대학교[본교]', region:'서울', su:'22.14', jeong:'8.31', capacity:3201, dept:62, adm:38 },
-  { name:'경희대학교[본교]', region:'서울', su:'31.50', jeong:'11.22', capacity:4102, dept:84, adm:52 },
-  { name:'고려대학교[본교]', region:'서울', su:'41.20', jeong:'14.80', capacity:3580, dept:77, adm:46 },
-  { name:'서울대학교[본교]', region:'서울', su:'38.60', jeong:'12.40', capacity:3200, dept:80, adm:55 },
-  { name:'연세대학교[본교]', region:'서울', su:'36.90', jeong:'13.10', capacity:3400, dept:75, adm:48 },
+  { ko:'베이징대학교', cn:'北京大学', region:'베이징', tier:'985', strength:'인문·경제·기초과학·의학' },
+  { ko:'칭화대학교', cn:'清华大学', region:'베이징', tier:'985', strength:'공학·컴퓨터·건축·경영' },
+  { ko:'푸단대학교', cn:'复旦大学', region:'상하이', tier:'985', strength:'경제·신문방송·의학' },
+  { ko:'상하이자오퉁대학교', cn:'上海交通大学', region:'상하이', tier:'985', strength:'공학·의학·경영' },
+  { ko:'저장대학교', cn:'浙江大学', region:'항저우', tier:'985', strength:'공학·컴퓨터·농학' },
+  { ko:'중국런민대학교', cn:'中国人民大学', region:'베이징', tier:'985', strength:'경제·법학·국제관계' },
+  { ko:'난징대학교', cn:'南京大学', region:'난징', tier:'985', strength:'인문·기초과학·천문' },
+  { ko:'우한대학교', cn:'武汉大学', region:'우한', tier:'985', strength:'법학·신문방송·측량' },
+  { ko:'중산대학교', cn:'中山大学', region:'광저우', tier:'985', strength:'의학·경영·인문' },
+  { ko:'베이징사범대학교', cn:'北京师范大学', region:'베이징', tier:'985', strength:'교육·심리·중국어문' },
+  { ko:'퉁지대학교', cn:'同济大学', region:'상하이', tier:'985', strength:'건축·토목·자동차' },
+  { ko:'난카이대학교', cn:'南开大学', region:'톈진', tier:'985', strength:'경제·화학·역사' },
+  { ko:'톈진대학교', cn:'天津大学', region:'톈진', tier:'985', strength:'화공·건축·정밀기기' },
+  { ko:'샤먼대학교', cn:'厦门大学', region:'샤먼', tier:'985', strength:'경제·회계·해양' },
+  { ko:'산둥대학교', cn:'山东大学', region:'지난·웨이하이', tier:'985', strength:'중국어문·수학·의학' },
+  { ko:'중국해양대학교', cn:'中国海洋大学', region:'칭다오', tier:'985', strength:'해양·수산·환경' },
+  { ko:'지린대학교', cn:'吉林大学', region:'창춘', tier:'985', strength:'화학·법학·자동차' },
+  { ko:'다롄이공대학교', cn:'大连理工大学', region:'다롄', tier:'985', strength:'화공·기계·토목' },
+  { ko:'하얼빈공업대학교', cn:'哈尔滨工业大学', region:'하얼빈', tier:'985', strength:'항공우주·기계·재료' },
+  { ko:'시안자오퉁대학교', cn:'西安交通大学', region:'시안', tier:'985', strength:'에너지·전기·경영' },
+  { ko:'쓰촨대학교', cn:'四川大学', region:'청두', tier:'985', strength:'의학·구강의학·중국어문' },
+  { ko:'화둥사범대학교', cn:'华东师范大学', region:'상하이', tier:'985', strength:'교육·지리·중국어교육' },
+  { ko:'베이징항공항천대학교', cn:'北京航空航天大学', region:'베이징', tier:'985', strength:'항공우주·컴퓨터' },
+  { ko:'대외경제무역대학교', cn:'对外经济贸易大学', region:'베이징', tier:'211', strength:'국제무역·금융·경영' },
+  { ko:'베이징외국어대학교', cn:'北京外国语大学', region:'베이징', tier:'211', strength:'외국어·외교·국제관계' },
+  { ko:'상하이외국어대학교', cn:'上海外国语大学', region:'상하이', tier:'211', strength:'외국어·국제관계' },
+  { ko:'상하이재경대학교', cn:'上海财经大学', region:'상하이', tier:'211', strength:'재무·회계·경제' },
+  { ko:'중앙재경대학교', cn:'中央财经大学', region:'베이징', tier:'211', strength:'금융·회계·세무' },
+  { ko:'중국전매대학교', cn:'中国传媒大学', region:'베이징', tier:'211', strength:'방송·미디어·광고' },
+  { ko:'베이징중의약대학교', cn:'北京中医药大学', region:'베이징', tier:'211', strength:'중의학·침구·중약' },
+  { ko:'둥베이사범대학교', cn:'东北师范大学', region:'창춘', tier:'211', strength:'교육·중국어문' },
+  { ko:'연변대학교', cn:'延边大学', region:'옌지', tier:'211', strength:'조선어·의학·한중교류' },
+  { ko:'지난대학교(暨南)', cn:'暨南大学', region:'광저우', tier:'211', strength:'경영·미디어·화교교육' },
+  { ko:'상하이중의약대학교', cn:'上海中医药大学', region:'상하이', tier:'dbl', strength:'중의학·침구' },
+  { ko:'베이징어언대학교', cn:'北京语言大学', region:'베이징', tier:'etc', strength:'중국어·국제중국어교육 (유학생 특화)' },
 ];
+
+const TIER_LABEL = { '985':'985·211', '211':'211', 'dbl':'双一流', 'etc':'일반' };
+const TIER_CLASS = { '985':'t985', '211':'t211', 'dbl':'tdbl', 'etc':'tetc' };
 
 /* ====== 학과 데이터 ====== */
 const deptData = [
-  { dept:'(국제)관광경영학과', univ:'서울신학대학교 [본교]', region:'경기', su:'0', jeong:'0', capacity:0 },
-  { dept:'(국제)글로벌경영학과', univ:'서울신학대학교 [본교]', region:'경기', su:'0', jeong:'0', capacity:0 },
-  { dept:'(국제)글로벌한국어학과', univ:'서울신학대학교 [본교]', region:'경기', su:'0', jeong:'0', capacity:0 },
-  { dept:'(국제)컴퓨터공학과', univ:'서울신학대학교 [본교]', region:'경기', su:'0', jeong:'0', capacity:0 },
-  { dept:'AI 모빌리티학과', univ:'남서울대학교 [본교]', region:'충남', su:'0', jeong:'0', capacity:30 },
-  { dept:'AI 융합미디어학과', univ:'남서울대학교 [본교]', region:'충남', su:'4.51', jeong:'6.4', capacity:75 },
-  { dept:'AI·SW계열', univ:'한신대학교 [본교]', region:'경기', su:'4.39', jeong:'6.54', capacity:215 },
-  { dept:'AI·빅데이터학과', univ:'우송대학교 [본교]', region:'대전', su:'4.37', jeong:'0', capacity:16 },
-  { dept:'국제학부', univ:'서울대학교 [본교]', region:'서울', su:'0', jeong:'3.5', capacity:36 },
-  { dept:'글로벌인재학부', univ:'서울대학교 [본교]', region:'서울', su:'0', jeong:'0', capacity:0 },
-  { dept:'재외국민특별전형학과', univ:'연세대학교 [본교]', region:'서울', su:'12.5', jeong:'8.3', capacity:45 },
-  { dept:'국제통상학과', univ:'고려대학교 [본교]', region:'서울', su:'15.2', jeong:'9.1', capacity:60 },
-  { dept:'글로벌비즈니스학과', univ:'성균관대학교 [본교]', region:'서울', su:'11.4', jeong:'7.6', capacity:40 },
-  { dept:'한국어문학부', univ:'이화여자대학교 [본교]', region:'서울', su:'8.9', jeong:'5.2', capacity:55 },
-  { dept:'경영학과', univ:'한양대학교 [본교]', region:'서울', su:'18.7', jeong:'10.3', capacity:120 },
+  { cn:'汉语言文学', ko:'중국언어문학', univ:'北京大学', field:'인문', lang:'중국어', years:'4년' },
+  { cn:'计算机科学与技术', ko:'컴퓨터과학기술', univ:'清华大学', field:'공학', lang:'중국어', years:'4년' },
+  { cn:'临床医学', ko:'임상의학', univ:'复旦大学', field:'의학', lang:'중국어', years:'5~6년' },
+  { cn:'国际政治', ko:'국제정치', univ:'复旦大学', field:'사회', lang:'중국어', years:'4년' },
+  { cn:'工商管理', ko:'경영학', univ:'上海交通大学', field:'상경', lang:'중국어', years:'4년' },
+  { cn:'临床医学(MBBS)', ko:'임상의학 (영어과정)', univ:'浙江大学', field:'의학', lang:'영어', years:'6년' },
+  { cn:'法学', ko:'법학', univ:'中国人民大学', field:'사회', lang:'중국어', years:'4년' },
+  { cn:'心理学', ko:'심리학', univ:'北京师范大学', field:'사회', lang:'중국어', years:'4년' },
+  { cn:'建筑学', ko:'건축학', univ:'同济大学', field:'공학', lang:'중국어', years:'5년' },
+  { cn:'会计学', ko:'회계학', univ:'厦门大学', field:'상경', lang:'중국어', years:'4년' },
+  { cn:'海洋科学', ko:'해양과학', univ:'中国海洋大学', field:'자연', lang:'중국어', years:'4년' },
+  { cn:'电气工程及其自动化', ko:'전기공학', univ:'西安交通大学', field:'공학', lang:'중국어', years:'4년' },
+  { cn:'国际经济与贸易', ko:'국제경제무역', univ:'对外经济贸易大学', field:'상경', lang:'중국어', years:'4년' },
+  { cn:'外交学', ko:'외교학', univ:'北京外国语大学', field:'사회', lang:'중국어', years:'4년' },
+  { cn:'金融学', ko:'금융학', univ:'上海财经大学', field:'상경', lang:'중국어', years:'4년' },
+  { cn:'新闻学', ko:'신문학', univ:'中国传媒大学', field:'미디어', lang:'중국어', years:'4년' },
+  { cn:'中医学', ko:'중의학', univ:'北京中医药大学', field:'의학', lang:'중국어', years:'5년' },
+  { cn:'汉语言', ko:'중국어', univ:'北京语言大学', field:'인문', lang:'중국어', years:'4년' },
 ];
+
+function univKo(cn) {
+  const u = univData.find(x => x.cn === cn);
+  return u ? u.ko : cn;
+}
+function univRegion(cn) {
+  const u = univData.find(x => x.cn === cn);
+  return u ? u.region : '-';
+}
+function inputValue(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim().toLowerCase() : '';
+}
 
 const ROWS_PER_PAGE = 10;
 
 /* ====== 대학 테이블 렌더 ====== */
 function renderUnivTable(page) {
+  const kw = inputValue('univSearchInput');
+  const list = univData.filter(d => !kw || (d.ko + d.cn + d.region + d.strength).toLowerCase().includes(kw));
   const start = (page-1)*ROWS_PER_PAGE;
-  const rows = univData.slice(start, start+ROWS_PER_PAGE);
+  const rows = list.slice(start, start+ROWS_PER_PAGE);
+  document.getElementById('univCount').textContent = list.length + '건';
   const body = document.getElementById('univTableBody');
   body.innerHTML = rows.map(d => `
     <tr>
       <td><div class="univ-name-cell">
-        <div class="univ-logo">${d.name.charAt(0)}</div>
-        <span class="univ-name-text">${d.name}</span>
+        <div class="univ-logo">${d.cn.charAt(0)}</div>
+        <div><span class="univ-name-text">${d.ko}</span><div class="univ-cn">${d.cn}</div></div>
       </div></td>
       <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${d.region}</div></td>
-      <td><div class="competition-cell">
-        <div>수시 <span class="comp-su">${d.su}</span></div>
-        <div>정시 <span class="comp-jeong">${d.jeong}</span></div>
-      </div></td>
-      <td><a class="num-link" href="#">${d.capacity.toLocaleString()}</a></td>
-      <td><a class="num-link" href="#">${d.dept}</a></td>
-      <td><a class="num-link" href="#">${d.adm}</a></td>
+      <td><span class="tier-badge ${TIER_CLASS[d.tier]}">${TIER_LABEL[d.tier]}</span></td>
+      <td style="font-size:12px;color:#555;">${d.strength}</td>
+      <td><button class="result-btn">招生简章 확인</button></td>
       <td><button class="compare-btn">✓ 비교</button></td>
       <td><button class="star-btn">★</button></td>
-    </tr>`).join('');
-  renderPagination('univPagination', page, Math.ceil(univData.length/ROWS_PER_PAGE), renderUnivTable);
+    </tr>`).join('') || '<tr><td colspan="7" style="padding:40px;color:#aaa;">검색 결과가 없습니다.</td></tr>';
+  renderPagination('univPagination', page, Math.max(1, Math.ceil(list.length/ROWS_PER_PAGE)), renderUnivTable);
 }
 
 /* ====== 학과 테이블 렌더 ====== */
 function renderDeptTable(page) {
+  const ukw = inputValue('deptUnivInput');
+  const dkw = inputValue('deptKeywordInput');
+  const list = deptData.filter(d =>
+    (!ukw || (d.univ + univKo(d.univ)).toLowerCase().includes(ukw)) &&
+    (!dkw || (d.cn + d.ko + d.field).toLowerCase().includes(dkw)));
   const start = (page-1)*ROWS_PER_PAGE;
-  const rows = deptData.slice(start, start+ROWS_PER_PAGE);
+  const rows = list.slice(start, start+ROWS_PER_PAGE);
+  document.getElementById('deptCount').textContent = list.length + '건';
   const body = document.getElementById('deptTableBody');
   body.innerHTML = rows.map(d => `
     <tr>
-      <td style="text-align:left;font-weight:600;">${d.dept}</td>
+      <td style="text-align:left;"><div style="font-weight:600;">${d.ko}</div><div class="univ-cn">${d.cn}</div></td>
       <td><div class="univ-name-cell" style="justify-content:center;">
         <div class="univ-logo" style="width:28px;height:28px;font-size:11px;">${d.univ.charAt(0)}</div>
-        <span style="font-size:12px;">${d.univ}</span>
+        <span style="font-size:12px;">${univKo(d.univ)}</span>
       </div></td>
-      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${d.region}</div></td>
-      <td><div class="competition-cell">
-        <div>수시 <span class="comp-su">${d.su}</span></div>
-        <div>정시 <span class="comp-jeong">${d.jeong}</span></div>
-      </div></td>
-      <td><a class="num-link" href="#">${d.capacity}</a></td>
-      <td><button class="result-btn">입시결과</button></td>
+      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${univRegion(d.univ)}</div></td>
+      <td>${d.field}</td>
+      <td><span class="lang-badge${d.lang==='영어' ? ' en' : ''}">${d.lang}</span></td>
+      <td>${d.years}</td>
       <td><button class="compare-btn">✓ 비교</button></td>
-    </tr>`).join('');
-  renderPagination('deptPagination', page, Math.ceil(deptData.length/ROWS_PER_PAGE), renderDeptTable);
+    </tr>`).join('') || '<tr><td colspan="7" style="padding:40px;color:#aaa;">검색 결과가 없습니다.</td></tr>';
+  renderPagination('deptPagination', page, Math.max(1, Math.ceil(list.length/ROWS_PER_PAGE)), renderDeptTable);
 }
 
 /* ====== 페이지네이션 ====== */
