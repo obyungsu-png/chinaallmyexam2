@@ -1213,9 +1213,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 <!-- TOP HEADER -->
 <div class="page-content">
 <header class="top-header">
-  <div class="logo">중국대학 <span>One Stop</span> 서비스</div>
+  <div class="logo" style="cursor:pointer;" onclick="showHome()"><span data-setting="logoMain" style="color:inherit;">중국대학</span> <span data-setting="logoSub">One Stop</span> <span data-setting="logoTail" style="color:inherit;">서비스</span></div>
   <div class="search-box">
-    <input type="text" id="headerSearchInput" placeholder="대학명·전공·키워드 검색 (예: 北京大学, CSCA, 장학금)" onkeydown="if(event.key==='Enter')headerSearch()">
+    <input type="text" id="headerSearchInput" data-setting-attr="placeholder:searchPlaceholder" placeholder="대학명·전공·키워드 검색 (예: 北京大学, CSCA, 장학금)" onkeydown="if(event.key==='Enter')headerSearch()">
     <i class="fas fa-search search-icon" style="cursor:pointer;" onclick="headerSearch()"></i>
   </div>
   <div class="top-links">
@@ -1280,7 +1280,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
     <span class="nav-label">전형일정</span>
   </div>
-  <div class="icon-nav-item">
+  <div class="icon-nav-item" onclick="openCms()" style="cursor:pointer;" title="사이트 콘텐츠 관리(CMS)">
     <div class="icon-circle"><i class="fas fa-cogs"></i></div>
     <span class="nav-label">메뉴편집</span>
   </div>
@@ -1297,162 +1297,11 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <div class="banner-row">
     <div class="banner-slider" id="bannerSlider">
 
-      <!-- Slide 0: CSCA 필수 시험 안내 -->
-      <div class="banner-slide slide-csca active">
-        <div class="banner-content">
-          <div class="banner-title">
-            2026학년도부터 학부 지원 필수!
-            <em>CSCA 시험 안내</em>
-          </div>
-          <div class="banner-desc">
-            来华留学本科入学学业水平测试 · 매년 <strong>1·3·4·6·12월</strong> 시행<br>
-            수학은 모든 지원자 필수 · 중국어 授课는 전문 중국어 필수<br>
-            응시료 1과목 450위안 / 2과목 이상 700위안
-          </div>
-          <div class="banner-btns">
-            <button class="banner-btn" style="background:#ffeb3b;color:#004d40;" onclick="openPage('cscaOverlay')">내 응시과목 찾기 ›</button>
-            <button class="banner-btn" style="background:rgba(255,255,255,0.2);color:#fff;" onclick="window.open('https://www.csca.cn','_blank')">csca.cn 바로가기</button>
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-pen-alt main-icon"></i></div>
-      </div>
-
-      <!-- Slide 1: 중국 명문대 입학설명회 -->
-      <div class="banner-slide slide-1">
-        <div class="banner-content">
-          <div class="banner-title">
-            2027학년도 중국 명문대
-            <em>입학설명회</em>
-          </div>
-          <div class="banner-desc">
-            <strong>2026. 11. 14.(토) ~ 15.(일)</strong> 매일 10:00 ~ 17:00 서울 코엑스 · 온라인 동시 진행<br>
-            신청기간 : 2026. 10. 15.(목) 09:00 ~ 11. 6.(금) 18:00<br>
-            신청방법 : 중국대학 One Stop 서비스 홈페이지 선착순 접수<br>
-            입시정보센터 ▶ 설명회/박람회 ▶ 1:1 상담관
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-bullhorn main-icon"></i></div>
-      </div>
-
-      <!-- Slide 2: 서비스 가이드 -->
-      <div class="banner-slide slide-2">
-        <div class="banner-content">
-          <div class="banner-title">
-            중국 대학 유학생 원서접수
-            <em>서비스 가이드!</em>
-          </div>
-          <div class="banner-desc">
-            대학마다 다른 온라인 지원시스템, 한 곳에서 준비하세요.<br>
-            지원 절차와 필요서류를 쉽게 안내해 드립니다.
-          </div>
-          <div class="banner-btns">
-            <button class="banner-btn" style="background:#2196f3;color:#fff;" onclick="openNoviceGuide()">가이드 보기 ›</button>
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-book-open main-icon"></i></div>
-      </div>
-
-      <!-- Slide 3: 차세대 포털 -->
-      <div class="banner-slide slide-3">
-        <div class="banner-content">
-          <div class="banner-title">
-            새로워진 차세대 중국대학 포털!
-          </div>
-          <div class="feature-row">
-            <div class="feature-card" style="cursor:pointer;" onclick="openPage('cscaOverlay')">
-              <div class="feature-icon">📝</div>
-              <div class="feature-title">CSCA 과목 찾기</div>
-              <div class="feature-desc">계열별 안내</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">📄</div>
-              <div class="feature-title">서류 체크리스트</div>
-              <div class="feature-desc">한 번에 준비</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🀄</div>
-              <div class="feature-title">HSK 기준</div>
-              <div class="feature-desc">대학별 비교</div>
-            </div>
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-rocket main-icon"></i></div>
-      </div>
-
-      <!-- Slide 4: 유튜브 채널 -->
-      <div class="banner-slide slide-4">
-        <div class="banner-content">
-          <div class="banner-title">
-            중국대학 One Stop 유튜브 채널
-            <em>중국 유학 TV</em>
-          </div>
-          <div class="pill-row">
-            <span class="pill">구독!</span>
-            <span class="pill" style="background:#fbc02d;">좋아요!</span>
-          </div>
-          <div class="banner-desc">설정하고 새로운 영상들을 먼저 만나보세요~!</div>
-        </div>
-        <div class="banner-illustration"><i class="fab fa-youtube main-icon"></i></div>
-      </div>
-
-      <!-- Slide 5: 용어사전 -->
-      <div class="banner-slide slide-5">
-        <div class="banner-content">
-          <div class="banner-title">
-            알아두면 쓸데있는
-            <em>중국 유학 용어사전</em>
-          </div>
-          <div class="banner-desc">
-            아는만큼 보인다!<br>
-            본과·预科·CSCA·HSK·招生简章·JW202 등 헷갈리는 중국 입시 용어를 한번에 확인하세요
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-star main-icon"></i></div>
-      </div>
-
-      <!-- Slide 6: 알리미 -->
-      <div class="banner-slide slide-6">
-        <div class="banner-content">
-          <div class="banner-title">
-            <span style="font-size:18px;color:#888;display:block;font-weight:500;">대학정보를 보다, 미래를 보다</span>
-            대학정보가 필요할때 <em>중국대학 알리미</em>
-          </div>
-          <div class="banner-desc">985·211·双一流 대학의 유학생 전형 정보를 한눈에 확인하세요.</div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-university main-icon"></i></div>
-      </div>
-
-      <!-- Slide 7: 기숙사 -->
-      <div class="banner-slide slide-7">
-        <div class="banner-content">
-          <div class="banner-title">
-            기숙사 선택,<br>이제 쉽고 빠르게
-          </div>
-          <div class="banner-desc">
-            검색부터 비교, 선택까지 한 번에<br>
-            중국 유학생을 위한 기숙사(留学生公寓) 정보 플랫폼
-          </div>
-          <div class="app-badges">
-            <span class="app-badge"><i class="fab fa-google-play"></i> Google Play</span>
-            <span class="app-badge"><i class="fab fa-apple"></i> App Store</span>
-          </div>
-        </div>
-        <div class="banner-illustration"><i class="fas fa-building main-icon"></i></div>
-      </div>
+      <div id="bannerSlides"></div>
 
       <div class="banner-arrow prev" onclick="bannerPrev()"><i class="fas fa-chevron-left"></i></div>
       <div class="banner-arrow next" onclick="bannerNext()"><i class="fas fa-chevron-right"></i></div>
-      <div class="banner-dots">
-        <span class="dot active" onclick="bannerGo(0)"></span>
-        <span class="dot" onclick="bannerGo(1)"></span>
-        <span class="dot" onclick="bannerGo(2)"></span>
-        <span class="dot" onclick="bannerGo(3)"></span>
-        <span class="dot" onclick="bannerGo(4)"></span>
-        <span class="dot" onclick="bannerGo(5)"></span>
-        <span class="dot" onclick="bannerGo(6)"></span>
-        <span class="dot" onclick="bannerGo(7)"></span>
-        <span class="counter" id="bannerCounter">‖ 1/8</span>
-      </div>
+      <div class="banner-dots" id="bannerDots"></div>
     </div>
 
     <div class="login-sidebar">
@@ -1508,7 +1357,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 
   <!-- STEP SECTION -->
   <div class="section-row">
-    <div class="section-main">
+    <div class="section-main" data-cms-block="home-steps" data-cms-label="홈 · 자격분석 STEP 카드">
       <div class="section-header">
         <span class="section-title">자격분석</span>
         <span class="section-tab">전형정보</span>
@@ -1551,7 +1400,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
     </div>
-    <div class="section-side">
+    <div class="section-side" data-cms-block="home-magazine" data-cms-label="홈 · 입시 매거진">
       <div class="side-title">입시 정보</div>
       <div class="side-subtitle">
         중국유학 매거진
@@ -1567,7 +1416,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 
   <!-- 입시 핵심 체크포인트 + 공식 사이트 바로가기 -->
   <div class="keycheck-row">
-    <div class="keycheck-main">
+    <div class="keycheck-main" data-cms-block="home-keycheck" data-cms-label="홈 · 입시 핵심 체크포인트">
       <div class="keycheck-header">
         <span class="keycheck-title">입시 핵심 체크포인트</span>
         <a class="keycheck-more" onclick="openPage('admGuideOverlay')">입시 핵심가이드 전체보기 ›</a>
@@ -1598,29 +1447,14 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
     <div class="official-side">
       <div class="official-title">공식 사이트 바로가기</div>
-      <a class="official-link" href="https://www.csca.cn" target="_blank" rel="noopener">
-        <span class="official-icon"><i class="fas fa-pen-alt"></i></span>
-        <span><span class="official-name">CSCA 공식 사이트</span><br><span class="official-url">csca.cn · 시험 접수·성적 조회</span></span>
-      </a>
-      <a class="official-link" href="https://www.campuschina.org" target="_blank" rel="noopener">
-        <span class="official-icon"><i class="fas fa-award"></i></span>
-        <span><span class="official-name">Campus China</span><br><span class="official-url">campuschina.org · 중국정부장학금</span></span>
-      </a>
-      <a class="official-link" href="https://www.studyinchina.edu.cn" target="_blank" rel="noopener">
-        <span class="official-icon"><i class="fas fa-globe-asia"></i></span>
-        <span><span class="official-name">Study in China (留学中国)</span><br><span class="official-url">studyinchina.edu.cn · 유학 종합 정보</span></span>
-      </a>
-      <a class="official-link" href="https://www.chinesetest.cn" target="_blank" rel="noopener">
-        <span class="official-icon"><i class="fas fa-language"></i></span>
-        <span><span class="official-name">HSK 공식 사이트</span><br><span class="official-url">chinesetest.cn · HSK 접수·성적</span></span>
-      </a>
-      <div class="official-note">※ 대학별 CSCA 과목·마감일·자체 시험 여부는 각 대학 유학생 입학처에서 확인하세요.</div>
+      <div id="officialList"></div>
+      <div class="official-note" data-setting="officialNote">※ 대학별 CSCA 과목·마감일·자체 시험 여부는 각 대학 유학생 입학처에서 확인하세요.</div>
     </div>
   </div>
 
   <!-- EVALUATION BANNER + NEWS SIDE -->
   <div class="eval-row">
-    <div class="eval-banner">
+    <div class="eval-banner" data-cms-block="home-eval" data-cms-label="홈 · 전형 평가기준 배너">
       <div class="eval-tag">중국 대학 유학생 전형 평가기준 및 모집요강 비교</div>
       <div class="eval-title">대학별 선발방식과 평가기준을 확인하세요.</div>
       <div class="eval-desc">
@@ -1639,34 +1473,14 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <span class="news-tab">입시자료실</span>
           <span class="news-tab">주요일정</span>
         </div>
-        <div class="news-item" style="cursor:pointer;" onclick="openPage('cscaOverlay')">
-          <div class="news-thumb"><i class="fas fa-pen-alt"></i></div>
-          <div class="news-text">
-            <div class="title">학부 지원 필수 CSCA, 계열별 응시과목과 응시료 한눈에 보기</div>
-            <div class="meta">CSCA</div>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-thumb"><i class="fas fa-newspaper"></i></div>
-          <div class="news-text">
-            <div class="title">2027년 9월 입학 중국 주요대학 모집요강 발표 일정 총정리</div>
-            <div class="meta">2027 중국대학</div>
-          </div>
-        </div>
-        <div class="news-item">
-          <div class="news-thumb"><i class="fas fa-question-circle"></i></div>
-          <div class="news-text">
-            <div class="title">외국 국적 4년·해외거주 2년 요건, 꼭 알아야 할 핵심 포인트</div>
-            <div class="meta">2027 공통</div>
-          </div>
-        </div>
+        <div id="newsList"></div>
       </div>
     </div>
   </div>
 
   <!-- UNIVERSITY/DEPARTMENT/ADMISSION SEARCH + NOTICES SIDE -->
   <div class="search-section-row">
-    <div class="search-section-main">
+    <div class="search-section-main" data-cms-block="home-search" data-cms-label="홈 · 대학/학과/전형 검색 카드">
       <div class="search-section-title">대학/학과/전형 검색</div>
       <div class="search-section-desc">나에게 적합한 유학 전략을 세우기 위하여 대학, 학과, 전형 검색을 통하여 다양한 중국 대학 입시정보를 찾을 수 있도록 도와드립니다.</div>
       <div class="color-cards">
@@ -1693,26 +1507,15 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <span class="notice-title">공지사항</span>
           <span class="notice-more">더보기</span>
         </div>
-        <div class="notice-item" style="cursor:pointer;" onclick="openPage('cscaOverlay')">
-          <span class="notice-badge">중요</span>
-          <span class="notice-text">CSCA 시험 안내 · 응시과목 찾기 서비스 오픈</span>
-        </div>
-        <div class="notice-item" style="cursor:pointer;" onclick="openPage('admGuideOverlay')">
-          <span class="notice-badge general">일반</span>
-          <span class="notice-text">중국 유학 입시 핵심가이드 · 공식 사이트 모음 오픈</span>
-        </div>
-        <div class="notice-item">
-          <span class="notice-badge general">일반</span>
-          <span class="notice-text">2027년 9월 입학 모집요강 업데이트 일정 안내</span>
-        </div>
+        <div id="noticeList"></div>
       </div>
       <div class="phone-box">
-        <div class="phone-label">유학상담전화</div>
+        <div class="phone-label" data-setting="phoneLabel">유학상담전화</div>
         <div class="phone-number">
-          02-000-0000
+          <span data-setting="phone">02-000-0000</span>
           <span class="ph-icon"><i class="fas fa-headset"></i></span>
         </div>
-        <div class="phone-hours">
+        <div class="phone-hours" data-setting="phoneHours">
           월 ~ 금 10:00 ~ 19:00 (한국시간)<br>
           중국시간 09:00 ~ 18:00<br>
           ※주말, 공휴일 미운영
@@ -1974,7 +1777,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       </div>
 
       <!-- 아코디언 목록 -->
-      <div class="job-acc-list">
+      <div class="job-acc-list" data-cms-block="job-list" data-cms-label="직업정보 · 직업 목록">
         <div class="source-note">[ 정보제공 : 한국고용정보원 고용24(구 워크넷) ]</div>
 
         <div class="job-acc-item">
@@ -2530,7 +2333,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="table-summary">총 <strong id="univCount">0건</strong></div>
         <select class="table-view-select"><option>대학목록 ∨</option></select>
       </div>
-      <div class="table-note"><i class="fas fa-info-circle"></i> 985·211·双一流은 중국 정부의 중점 대학 지정 구분입니다. 유학생 모집 여부와 조건은 매년 각 대학 모집요강(招生简章)에서 확인하세요.</div>
+      <div class="table-note" data-cms-block="univ-note" data-cms-label="대학정보 · 상단 안내문"><i class="fas fa-info-circle"></i> 985·211·双一流은 중국 정부의 중점 대학 지정 구분입니다. 유학생 모집 여부와 조건은 매년 각 대학 모집요강(招生简章)에서 확인하세요.</div>
       <table class="info-table">
         <thead>
           <tr>
@@ -2744,11 +2547,13 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>13건</strong></div>
+        <div class="table-summary">총 <strong id="admCount">0건</strong></div>
         <select class="table-view-select"><option>대학목록 ∨</option></select>
       </div>
+      <div data-cms-block="adm-notes" data-cms-label="전형정보 · 상단 안내문">
       <div class="table-note" style="background:#e8f5f4;color:#00695c;"><i class="fas fa-pen-alt"></i> 2026/2027학년도부터 학부 지원자는 <strong>CSCA 성적이 필수</strong>입니다. 수학은 모든 지원자, 전문 중국어는 중국어 授课 전공 필수, 이공·농·의학 계열은 물리·화학 중 최소 1과목을 추가로 응시합니다. <a href="#" onclick="openPage('cscaOverlay');return false;" style="color:#2db4a8;font-weight:700;">CSCA 시험 안내 ›</a></div>
       <div class="table-note"><i class="fas fa-exclamation-circle"></i> 선발방식·어학기준·접수시기는 최근 모집요강을 바탕으로 한 참고 정보이며 매년 바뀔 수 있습니다. 지원 전 반드시 각 대학의 国际学生本科招生简章(유학생 본과 모집요강)을 확인하세요. 대학별 HSK 점수 기준은 2026년 모집요강 예시입니다.</div>
+      </div>
       <table class="info-table">
         <thead><tr>
           <th>대학명 <span class="sort-icon">▾</span></th>
@@ -2758,24 +2563,10 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <th>CSCA 과목(참고)</th>
           <th>어학기준(참고)</th>
           <th>원서접수(참고)</th>
-          <th>분석 · 비교</th>
+          <th>모집요강</th>
           <th>★</th>
         </tr></thead>
-        <tbody>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징대학교</span><div class="univ-cn">北京大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·필기·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">清</div><div><span class="univ-name-text">칭화대학교</span><div class="univ-cn">清华大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·필기·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">复</div><div><span class="univ-name-text">푸단대학교</span><div class="univ-cn">复旦大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·필기·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">上</div><div><span class="univ-name-text">상하이자오퉁대학교</span><div class="univ-cn">上海交通大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·필기·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 이상</span></td><td>12월~3월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">浙</div><div><span class="univ-name-text">저장대학교</span><div class="univ-cn">浙江大学</div></div></div></td><td>본과(영어·의학)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>항저우</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 물리/화학</span><br><span class="csca-sub">전문 중국어 면제</span></td><td><span class="lang-badge en">IELTS·TOEFL</span></td><td>1월~4월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">中</div><div><span class="univ-name-text">중국런민대학교</span><div class="univ-cn">中国人民大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·전문考核(4~5월)</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">이공 HSK5 210<br>인문 HSK6 180</span></td><td>12월~3월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">同</div><div><span class="univ-name-text">퉁지대학교</span><div class="univ-cn">同济大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 180점 이상</span></td><td>11월~4월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">上</div><div><span class="univ-name-text">상하이대학교</span><div class="univ-cn">上海大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>상하이</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">이공·경영 HSK5 180<br>인문 HSK5 210</span></td><td>11월~4월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">中</div><div><span class="univ-name-text">중산대학교</span><div class="univ-cn">中山大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>광저우</div></td><td>서류 → 면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">모집요강 확인</span></td><td>11월~4월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">对</div><div><span class="univ-name-text">대외경제무역대학교</span><div class="univ-cn">对外经济贸易大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 5급 이상</span></td><td>1월~4월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징중의약대학교</span><div class="univ-cn">北京中医药大学</div></div></div></td><td>본과(중국어·중의학)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 4~5급 이상</span></td><td>1월~5월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">中</div><div><span class="univ-name-text">중국해양대학교</span><div class="univ-cn">中国海洋大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>칭다오</div></td><td>서류·면접</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">이공·의학계 +물리/화학</span></td><td><span class="lang-badge">HSK 4급 이상</span></td><td>1월~5월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-          <tr><td><div class="univ-name-cell"><div class="univ-logo">北</div><div><span class="univ-name-text">베이징어언대학교</span><div class="univ-cn">北京语言大学</div></div></div></td><td>본과(중국어)</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>베이징</div></td><td>서류</td><td class="csca-cell"><span class="csca-main">수학 + 전문 중국어</span><br><span class="csca-sub">중국어 계열 전공은<br>HSK4 시 면제</span></td><td><span class="lang-badge">HSK 3~4급 이상</span></td><td>1월~6월경</td><td><button class="adm-result-btn" onclick="openPage('cscaOverlay')">CSCA·평가기준</button></td><td><button class="star-btn">★</button></td></tr>
-        </tbody>
+        <tbody id="admTableBody"></tbody>
       </table>
       <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
     </div>
@@ -2892,26 +2683,15 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <div class="info-filter">
       <div class="filter-box"><label>입학연도</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>전체</option><option>2027년 9월 입학</option><option>2028년 9월 입학</option></select></div>
       <div class="filter-box"><label>제목</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>제목</option></select></div>
-      <div class="filter-input-row"><input type="text" placeholder="검색어를 입력해주세요."><button><i class="fas fa-search"></i></button></div>
+      <div class="filter-input-row"><input type="text" id="resourceSearch" placeholder="검색어를 입력해주세요." oninput="renderResources()"><button onclick="renderResources()"><i class="fas fa-search"></i></button></div>
       <div class="filter-apply-row" style="margin-top:12px;">카테고리 <i class="fas fa-chevron-down" style="color:#aaa;font-size:12px;"></i></div>
     </div>
     <div class="info-table-area">
       <div class="table-top-row">
-        <div class="table-summary">총 <strong>9건</strong></div>
+        <div class="table-summary">총 <strong id="resourceCount">0건</strong></div>
         <select class="table-view-select"><option>10개씩 보기</option></select>
       </div>
-      <div class="data-grid">
-        <div class="data-card" style="cursor:pointer;" onclick="openPage('cscaOverlay')"><div class="data-thumb orange">CSCA<br>과목별<br>가이드</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>CSCA</span></div><div class="data-title">CSCA 과목별 시험 대강(考试大纲)·응시료·면제 기준 총정리</div><div class="data-file">CSCA 시험 안내 페이지 바로가기 <i class="fas fa-arrow-right"></i></div><div class="data-meta">입시정보센터 · 2026-09-26</div></div></div>
-        <div class="data-card" style="cursor:pointer;" onclick="openPageAt('admGuideOverlay','ag-sites')"><div class="data-thumb green">공식<br>사이트<br>모음</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>사이트 활용</span></div><div class="data-title">CSCA·Campus China·Study in China 공식 사이트와 신청 플랫폼 활용법</div><div class="data-file">입시 핵심가이드 바로가기 <i class="fas fa-arrow-right"></i></div><div class="data-meta">입시정보센터 · 2026-09-26</div></div></div>
-        <div class="data-card"><div class="data-thumb">2027<br>모집요강<br>모음</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>모집요강</span></div><div class="data-title">2027년 9월 입학 중국 주요대학 유학생 본과 모집요강 모음</div><div class="data-file">2027_중국주요대학_본과_모집요강.zip <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-09-15</div></div></div>
-        <div class="data-card"><div class="data-thumb green">HSK<br>급수별<br>가이드</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>어학(HSK)</span></div><div class="data-title">HSK 급수별 준비 전략과 대학별 요구 수준 정리</div><div class="data-file">HSK_급수별_준비가이드.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-09-08</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">비자<br>X1</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>비자 · 출국</span></div><div class="data-title">중국 유학 비자(X1) 발급 및 입국 후 거류허가 안내</div><div class="data-file">중국유학_X1비자_거류허가_안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-08-28</div></div></div>
-        <div class="data-card"><div class="data-thumb">장학금</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>장학금</span></div><div class="data-title">중국정부장학금(CSC)·지방정부·대학 장학금 신청 안내</div><div class="data-file">2027_중국유학_장학금_안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-08-20</div></div></div>
-        <div class="data-card"><div class="data-thumb green">서류<br>인증</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>서류준비</span></div><div class="data-title">아포스티유로 준비하는 중국 대학 제출서류 (발급·번역·공증)</div><div class="data-file">중국대학_제출서류_아포스티유_가이드.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-08-12</div></div></div>
-        <div class="data-card"><div class="data-thumb orange">국적<br>요건</div><div class="data-info"><div class="data-tags"><span>2027</span> <span>자격요건</span></div><div class="data-title">외국 국적 4년·해외거주 2년 요건 Q&amp;A (귀화·이민 가정 필독)</div><div class="data-file">유학생_국적요건_QnA.pdf <i class="fas fa-download"></i></div><div class="data-meta">입시정보센터 · 2026-07-30</div></div></div>
-        <div class="data-card"><div class="data-thumb">전공<br>가이드</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>전공 · 진로</span></div><div class="data-title">중의학·임상의학 전공 유학 안내 (학제·수업언어·진로)</div><div class="data-file">중국_의학계열_유학안내.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-07-18</div></div></div>
-        <div class="data-card"><div class="data-thumb green">기숙사<br>생활비</div><div class="data-info"><div class="data-tags"><span>공통</span> <span>유학생활</span></div><div class="data-title">도시별 유학생 기숙사(留学生公寓)·생활비 가이드</div><div class="data-file">중국_도시별_기숙사_생활비.pdf <i class="fas fa-download"></i></div><div class="data-meta">유학지원팀 · 2026-07-05</div></div></div>
-      </div>
+      <div class="data-grid" id="resourceGrid"></div>
       <div class="pagination"><button class="page-btn">«</button><button class="page-btn">‹</button><button class="page-btn active">1</button><button class="page-btn">›</button><button class="page-btn">»</button></div>
     </div>
   </div>
@@ -2939,7 +2719,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <select class="consult-filter-select"><option>처리상태</option></select>
       <button class="bookmark-btn">상담신청</button>
     </div>
-    <div class="info-table-area">
+    <div class="info-table-area" data-cms-block="comp-body" data-cms-label="서류·면접 상담 · 본문">
       <div class="consult-stats">
         <div class="consult-stat"><div class="stat-label">중국 명문대 출신</div><div class="stat-value">멘토 상담</div></div>
         <div class="consult-stat"><div class="stat-label">학업계획서 · 추천서</div><div class="stat-value black">1:1 첨삭</div></div>
@@ -2985,7 +2765,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <select class="consult-filter-select"><option>공개여부</option></select>
       <button class="bookmark-btn">상담신청</button>
     </div>
-    <div class="info-table-area">
+    <div class="info-table-area" data-cms-block="consult-body" data-cms-label="온라인 유학상담 · 본문">
       <div class="consult-stats">
         <div class="consult-stat"><div class="stat-label">중국 현지 입시</div><div class="stat-value">전문 상담</div></div>
         <div class="consult-stat"><div class="stat-label">상담 언어</div><div class="stat-value black">한국어·中文</div></div>
@@ -3062,7 +2842,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <button class="filter-apply-row" style="text-align:left;width:100%;margin-top:8px;">적용필터</button>
       <button class="filter-link-btn" style="margin-top:8px;">검색조건설정 바로가기</button>
     </div>
-    <div class="info-table-area">
+    <div class="info-table-area" data-cms-block="univgrade-body" data-cms-label="합격분석 · 본문">
       <div class="table-top-row">
         <div class="table-summary">총 <strong>10개 대학</strong></div>
       </div>
@@ -3241,12 +3021,12 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
 
     <div class="info-table-area">
-      <div class="cg-alert">
+      <div class="cg-alert" data-cms-block="csca-alert" data-cms-label="CSCA · 상단 안내">
         <strong>2026/2027학년도 입학부터 필수!</strong> 중국 대학 학부(본과) 과정에 지원하는 외국인 유학생은 원서 제출 전에 CSCA를 응시해야 합니다.
         중국정부장학금(CSC)으로 학부에 지원하는 경우도 마찬가지입니다. 대학·전공별 요구 과목과 성적 기준이 다르므로 목표 대학 모집요강(招生简章)을 함께 확인하세요.
       </div>
 
-      <div class="cg-section" id="csca-about">
+      <div class="cg-section" id="csca-about" data-cms-block="csca-about" data-cms-label="CSCA · 시험 개요">
         <div class="cg-section-title"><i class="fas fa-info-circle"></i> 시험 개요</div>
         <div class="consult-stats">
           <div class="consult-stat"><div class="stat-label">시행 횟수</div><div class="stat-value">연 5회</div></div>
@@ -3262,7 +3042,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="cg-note">※ 성적 유효기간은 일반적으로 성적 발표일로부터 2년으로 안내되고 있으나, 회차별 공식 공지를 반드시 확인하세요.</div>
       </div>
 
-      <div class="cg-section" id="csca-subjects">
+      <div class="cg-section" id="csca-subjects" data-cms-block="csca-subjects" data-cms-label="CSCA · 시험 과목">
         <div class="cg-section-title"><i class="fas fa-list-ol"></i> 시험 과목 구성</div>
         <table class="cg-table">
           <thead><tr><th>과목</th><th>응시 대상</th><th>시험 언어</th><th>시간</th><th>문항 수</th><th>출제 범위</th></tr></thead>
@@ -3277,7 +3057,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         ※ 물리·화학 중 어느 과목을 요구하는지는 대학·전공마다 다릅니다 (예: 화공·약학은 화학 지정). 모집요강의 전공별 CSCA 과목표를 확인하세요.</div>
       </div>
 
-      <div class="cg-section" id="csca-exempt">
+      <div class="cg-section" id="csca-exempt" data-cms-block="csca-exempt" data-cms-label="CSCA · 면제 기준">
         <div class="cg-section-title"><i class="fas fa-user-check"></i> 면제 기준</div>
         <div class="cg-cards">
           <div class="cg-card">
@@ -3299,7 +3079,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="csca-apply">
+      <div class="cg-section" id="csca-apply" data-cms-block="csca-apply" data-cms-label="CSCA · 일정·응시료·접수">
         <div class="cg-section-title"><i class="fas fa-calendar-alt"></i> 일정 · 응시료 · 접수 절차</div>
         <table class="cg-table" style="margin-bottom:18px;">
           <thead><tr><th>구분</th><th>내용</th></tr></thead>
@@ -3323,7 +3103,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="csca-prep">
+      <div class="cg-section" id="csca-prep" data-cms-block="csca-prep" data-cms-label="CSCA · 준비 전략">
         <div class="cg-section-title"><i class="fas fa-pencil-alt"></i> 과목별 준비 전략</div>
         <div class="cg-cards">
           <div class="cg-card">
@@ -3385,12 +3165,12 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
 
     <div class="info-table-area">
-      <div class="cg-alert">
+      <div class="cg-alert" data-cms-block="ag-alert" data-cms-label="입시가이드 · 상단 안내">
         입시에서 가장 먼저 봐야 할 것은 <strong>CSCA 성적</strong>, <strong>언어 성적(HSK 또는 IELTS·TOEFL)</strong>, 그리고 <strong>국적 심사 조건</strong>입니다.
         CSCA는 2026년부터 거의 모든 중국 대학 학부 과정의 필수 서류가 되었으며, 수학은 모든 지원자 필수, 전문 중국어는 중국어 授课 전공 필수입니다.
       </div>
 
-      <div class="cg-section" id="ag-key">
+      <div class="cg-section" id="ag-key" data-cms-block="ag-key" data-cms-label="입시가이드 · 핵심 심사 요소">
         <div class="cg-section-title"><i class="fas fa-bullseye"></i> 입시 핵심 심사 요소</div>
         <div class="cg-cards">
           <div class="cg-card link" onclick="openPage('cscaOverlay')">
@@ -3420,7 +3200,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="ag-lang">
+      <div class="cg-section" id="ag-lang" data-cms-block="ag-lang" data-cms-label="입시가이드 · 어학 기준">
         <div class="cg-section-title"><i class="fas fa-language"></i> 어학 기준 <span class="cn">语言要求</span></div>
         <table class="cg-table">
           <thead><tr><th>대학</th><th>이공 · 경영 계열</th><th>인문 · 사회 계열</th><th>비고</th></tr></thead>
@@ -3434,7 +3214,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="cg-note">※ 2026년 모집요강 기준 예시이며 매년 바뀔 수 있습니다. HSK 성적은 대부분 <strong>응시일로부터 2년 이내</strong>만 인정되고, HSKK(회화)를 함께 요구하는 대학도 있습니다.</div>
       </div>
 
-      <div class="cg-section" id="ag-select">
+      <div class="cg-section" id="ag-select" data-cms-block="ag-select" data-cms-label="입시가이드 · 서류·면접">
         <div class="cg-section-title"><i class="fas fa-user-tie"></i> 서류 심사 · 면접 · 자체 시험</div>
         <div class="cg-cards three">
           <div class="cg-card">
@@ -3452,7 +3232,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="ag-nation">
+      <div class="cg-section" id="ag-nation" data-cms-block="ag-nation" data-cms-label="입시가이드 · 국적 심사">
         <div class="cg-section-title"><i class="fas fa-passport"></i> 국적 심사 <span class="cn">国籍审核</span></div>
         <div class="cg-cards">
           <div class="cg-card">
@@ -3473,7 +3253,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="cg-note">※ 부모 중 중국 국적자가 있는 경우 대학별로 추가 서류·심사가 있을 수 있습니다.</div>
       </div>
 
-      <div class="cg-section" id="ag-docs">
+      <div class="cg-section" id="ag-docs" data-cms-block="ag-docs" data-cms-label="입시가이드 · 필수 서류">
         <div class="cg-section-title"><i class="fas fa-folder-open"></i> 필수 준비 서류 체크리스트</div>
         <table class="cg-table">
           <thead><tr><th>서류</th><th>구분</th><th>비고</th></tr></thead>
@@ -3493,7 +3273,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <button class="cg-btn" onclick="openDocsGuide()">서류준비 가이드 자세히 보기 <i class="fas fa-arrow-right"></i></button>
       </div>
 
-      <div class="cg-section" id="ag-schedule">
+      <div class="cg-section" id="ag-schedule" data-cms-block="ag-schedule" data-cms-label="입시가이드 · 지원 일정">
         <div class="cg-section-title"><i class="fas fa-calendar-alt"></i> 지원 일정 <span class="cn">9월 입학 기준</span></div>
         <div class="cg-steps">
           <div class="cg-step"><div class="cg-step-num">매년 1·3·4·6·12월</div><div class="cg-step-title">CSCA 응시</div><div class="cg-step-desc">원서 마감 전<br>성적 확보</div></div>
@@ -3504,7 +3284,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="ag-sites">
+      <div class="cg-section" id="ag-sites" data-cms-block="ag-sites" data-cms-label="입시가이드 · 공식 사이트·플랫폼">
         <div class="cg-section-title"><i class="fas fa-globe"></i> 공식 사이트 · 신청 플랫폼</div>
         <div class="cg-cards">
           <div class="cg-card link" onclick="window.open('https://www.csca.cn','_blank')">
@@ -3554,7 +3334,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         </div>
       </div>
 
-      <div class="cg-section" id="ag-scholar">
+      <div class="cg-section" id="ag-scholar" data-cms-block="ag-scholar" data-cms-label="입시가이드 · 장학금">
         <div class="cg-section-title"><i class="fas fa-award"></i> 장학금 <span class="cn">奖学金</span></div>
         <div class="cg-cards three">
           <div class="cg-card">
@@ -3573,7 +3353,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="cg-note">※ 장학금으로 학부에 지원해도 CSCA 성적은 필요합니다. 장학금 종류와 신청 절차는 campuschina.org에서 미리 파악해 두세요.</div>
       </div>
 
-      <div class="cg-section" id="ag-tips">
+      <div class="cg-section" id="ag-tips" data-cms-block="ag-tips" data-cms-label="입시가이드 · 실전 조언">
         <div class="cg-section-title"><i class="fas fa-lightbulb"></i> 한국 학생을 위한 실전 조언</div>
         <div class="cg-cards">
           <div class="cg-card">
@@ -3922,7 +3702,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <button class="guide-tab-btn guide-tab-full" onclick="switchGuideTab(this, 4)">서류 HTML 입력 가이드</button>
     </div>
 
-    <div class="guide-section" id="guideContent">
+    <div class="guide-section" id="guideContent" data-cms-block="guide-content" data-cms-label="자격요건 가이드 · 본문">
       <h2>유학생 자격요건 입력 가이드</h2>
 
       <div class="guide-form-demo" style="background:#f0faf9;border-color:#c8ebe8;">
@@ -4300,6 +4080,7 @@ function switchGuideTab(btn, idx) {
       <button class="novice-tab">입학도우미</button>
     </div>
 
+    <div data-cms-block="novice-body" data-cms-label="초보자 가이드 · 본문">
     <div class="novice-intro">
       <div class="novice-intro-icon"><i class="fas fa-book-reader"></i></div>
       <div class="novice-intro-text">
@@ -4378,6 +4159,7 @@ function switchGuideTab(btn, idx) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </div>
@@ -4625,6 +4407,7 @@ function closeNoviceGuide() {
       <button class="docs-tab">일정 및 유의사항</button>
     </div>
 
+    <div data-cms-block="docs-body" data-cms-label="서류준비 가이드 · 본문">
     <div class="docs-intro">
       중국 대학 유학생(본과) 전형은 대학별 <strong>온라인 지원시스템에 서류를 업로드</strong>하는 방식이 일반적이며,
       <strong>CSCA·고교 학력·HSK·국적</strong>을 증빙하는 서류가 핵심입니다.
@@ -4788,6 +4571,7 @@ function closeNoviceGuide() {
       </div>
 
     </div>
+    </div>
   </div>
 </div>
 
@@ -4801,6 +4585,57 @@ function closeDocsGuide() {
   document.body.style.overflow = '';
 }
 </script>
+
+<!-- ===== 대학별 유학생 모집요강 창 ===== -->
+<style>
+.ug-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 950; overflow-y: auto; padding: 40px 20px; }
+.ug-overlay.open { display: block; }
+.ug-box { max-width: 820px; margin: 0 auto; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+.ug-header { background: linear-gradient(90deg, #2db4a8, #00897b); color: #fff; padding: 18px 26px; font-size: 18px; font-weight: 800; display: flex; align-items: center; }
+.ug-header .ug-close { margin-left: auto; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; }
+.ug-body { padding: 24px 26px 26px; }
+.ug-head { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+.ug-logo { width: 54px; height: 54px; font-size: 22px; }
+.ug-name { font-size: 20px; font-weight: 800; color: #222; }
+.ug-cn { font-size: 15px; color: #888; font-weight: 600; font-family: 'Noto Sans SC', sans-serif; margin-left: 6px; }
+.ug-meta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 12px; color: #666; margin-top: 6px; }
+.ug-meta i { color: #2db4a8; }
+.ug-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.ug-link { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border: 1px solid #2db4a8; border-radius: 20px; color: #2db4a8; font-size: 13px; font-weight: 600; }
+.ug-link:hover, .ug-link.primary { background: #2db4a8; color: #fff; }
+.ug-table { width: 100%; border-collapse: collapse; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
+.ug-table th { width: 140px; background: #f7f9f9; padding: 12px 14px; font-size: 13px; font-weight: 700; color: #444; text-align: left; vertical-align: top; border-bottom: 1px solid #eee; white-space: nowrap; }
+.ug-table th i { color: #2db4a8; width: 16px; }
+.ug-table td { padding: 12px 14px; font-size: 13px; color: #333; line-height: 1.7; border-bottom: 1px solid #eee; }
+.ug-empty { color: #aaa; }
+.ug-basis { margin-top: 14px; font-size: 12px; color: #00796b; font-weight: 600; }
+.ug-notice { margin-top: 6px; font-size: 12px; color: #e65100; background: #fff8e1; border-radius: 6px; padding: 10px 12px; line-height: 1.6; }
+
+.banner-photo img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px; }
+.slide-custom .banner-title em { font-size: 34px; }
+
+/* CMS 미리보기 안내 바 */
+.cms-preview-bar { display: none; position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); z-index: 960; background: #263238; color: #fff; border-radius: 30px; padding: 10px 12px 10px 20px; font-size: 13px; align-items: center; gap: 10px; box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+.cms-preview-bar.show { display: flex; }
+.cms-preview-bar button { border: none; border-radius: 16px; padding: 6px 12px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif; }
+.cms-preview-bar .pv-open { background: #2db4a8; color: #fff; }
+.cms-preview-bar .pv-exit { background: #fff; color: #333; }
+</style>
+
+<div class="ug-overlay" id="univGuideOverlay" onclick="if(event.target===this)closeUnivGuide()">
+  <div class="ug-box">
+    <div class="ug-header"><i class="fas fa-file-alt" style="margin-right:8px;"></i> 유학생 본과 모집요강 (招生简章) 요약
+      <button class="ug-close" onclick="closeUnivGuide()" aria-label="닫기"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="ug-body" id="univGuideBody"></div>
+  </div>
+</div>
+
+<div class="cms-preview-bar" id="cmsPreviewBar">
+  <i class="fas fa-eye"></i> 편집 미리보기 중 · 게시 전 변경사항이 이 브라우저에만 보입니다
+  <button class="pv-open" onclick="openCms()">CMS 열기</button>
+  <button class="pv-exit" onclick="exitCmsPreview()">미리보기 종료</button>
+</div>
 
 <!-- FOOTER -->
 </div><!-- /page-content -->
@@ -4827,19 +4662,19 @@ function closeDocsGuide() {
     <div class="footer-org">
       <div class="footer-org-logo"><i class="fas fa-graduation-cap"></i></div>
       <div class="footer-org-info">
-        <div class="org-name">중국대학 One Stop 서비스</div>
-        중국 대학 진학을 준비하는 한국 학생과 학부모를 위한 입시정보 포털<br>
+        <div class="org-name" data-setting="footerOrgName">중국대학 One Stop 서비스</div>
+        <div data-setting="footerAbout">중국 대학 진학을 준비하는 한국 학생과 학부모를 위한 입시정보 포털<br>
         유학상담 : 02-000-0000 (평일 10:00~19:00, 한국시간)<br>
-        Copyright 2026. 중국대학 One Stop. All rights reserved.
+        Copyright 2026. 중국대학 One Stop. All rights reserved.</div>
       </div>
     </div>
     <div class="footer-org">
       <div class="footer-org-logo"><i class="fas fa-info-circle"></i></div>
       <div class="footer-org-info">
-        <div class="org-name">이용 안내</div>
-        본 사이트의 입시 정보는 참고용입니다.<br>
+        <div class="org-name" data-setting="footerNoticeTitle">이용 안내</div>
+        <div data-setting="footerNotice">본 사이트의 입시 정보는 참고용입니다.<br>
         모집요강·CSCA·어학 기준·일정은 매년 바뀔 수 있으므로 지원 전 반드시<br>
-        각 대학의 공식 모집요강(招生简章)과 csca.cn 공지를 확인하세요.
+        각 대학의 공식 모집요강(招生简章)과 csca.cn 공지를 확인하세요.</div>
       </div>
     </div>
   </div>
@@ -4944,6 +4779,7 @@ function closeDocsGuide() {
         </div>
         <div class="menu-links">
           <a href="#">공지사항</a>
+          <a href="#" onclick="closeMenu();openCms();return false;">콘텐츠 관리(CMS)</a>
           <a href="#">서비스이용문의</a>
           <a href="#">사이트맵</a>
           <a href="#">이용안내</a>
@@ -4989,15 +4825,15 @@ function closeDocsGuide() {
       <div class="menu-contact">
         <i class="fas fa-phone-alt"></i>
         <div>
-          <div class="contact-label">유학상담전화</div>
-          <div class="contact-number">02-000-0000</div>
+          <div class="contact-label" data-setting="phoneLabel">유학상담전화</div>
+          <div class="contact-number" data-setting="phone">02-000-0000</div>
         </div>
       </div>
       <div class="menu-contact">
         <i class="fab fa-weixin"></i>
         <div>
           <div class="contact-label">위챗 상담 (WeChat)</div>
-          <div class="contact-number">준비 중</div>
+          <div class="contact-number" data-setting="wechat">준비 중</div>
         </div>
       </div>
     </div>
@@ -5075,77 +4911,54 @@ function searchJobs() {
 
 
 <script>
-/* ====== 대학 데이터 (tier: 985 / 211 / dbl=双一流 / etc) ====== */
-const univData = [
-  { ko:'베이징대학교', cn:'北京大学', region:'베이징', tier:'985', strength:'인문·경제·기초과학·의학' },
-  { ko:'칭화대학교', cn:'清华大学', region:'베이징', tier:'985', strength:'공학·컴퓨터·건축·경영' },
-  { ko:'푸단대학교', cn:'复旦大学', region:'상하이', tier:'985', strength:'경제·신문방송·의학' },
-  { ko:'상하이자오퉁대학교', cn:'上海交通大学', region:'상하이', tier:'985', strength:'공학·의학·경영' },
-  { ko:'저장대학교', cn:'浙江大学', region:'항저우', tier:'985', strength:'공학·컴퓨터·농학' },
-  { ko:'중국런민대학교', cn:'中国人民大学', region:'베이징', tier:'985', strength:'경제·법학·국제관계' },
-  { ko:'난징대학교', cn:'南京大学', region:'난징', tier:'985', strength:'인문·기초과학·천문' },
-  { ko:'우한대학교', cn:'武汉大学', region:'우한', tier:'985', strength:'법학·신문방송·측량' },
-  { ko:'중산대학교', cn:'中山大学', region:'광저우', tier:'985', strength:'의학·경영·인문' },
-  { ko:'베이징사범대학교', cn:'北京师范大学', region:'베이징', tier:'985', strength:'교육·심리·중국어문' },
-  { ko:'퉁지대학교', cn:'同济大学', region:'상하이', tier:'985', strength:'건축·토목·자동차' },
-  { ko:'난카이대학교', cn:'南开大学', region:'톈진', tier:'985', strength:'경제·화학·역사' },
-  { ko:'톈진대학교', cn:'天津大学', region:'톈진', tier:'985', strength:'화공·건축·정밀기기' },
-  { ko:'샤먼대학교', cn:'厦门大学', region:'샤먼', tier:'985', strength:'경제·회계·해양' },
-  { ko:'산둥대학교', cn:'山东大学', region:'지난·웨이하이', tier:'985', strength:'중국어문·수학·의학' },
-  { ko:'중국해양대학교', cn:'中国海洋大学', region:'칭다오', tier:'985', strength:'해양·수산·환경' },
-  { ko:'지린대학교', cn:'吉林大学', region:'창춘', tier:'985', strength:'화학·법학·자동차' },
-  { ko:'다롄이공대학교', cn:'大连理工大学', region:'다롄', tier:'985', strength:'화공·기계·토목' },
-  { ko:'하얼빈공업대학교', cn:'哈尔滨工业大学', region:'하얼빈', tier:'985', strength:'항공우주·기계·재료' },
-  { ko:'시안자오퉁대학교', cn:'西安交通大学', region:'시안', tier:'985', strength:'에너지·전기·경영' },
-  { ko:'쓰촨대학교', cn:'四川大学', region:'청두', tier:'985', strength:'의학·구강의학·중국어문' },
-  { ko:'화둥사범대학교', cn:'华东师范大学', region:'상하이', tier:'985', strength:'교육·지리·중국어교육' },
-  { ko:'베이징항공항천대학교', cn:'北京航空航天大学', region:'베이징', tier:'985', strength:'항공우주·컴퓨터' },
-  { ko:'대외경제무역대학교', cn:'对外经济贸易大学', region:'베이징', tier:'211', strength:'국제무역·금융·경영' },
-  { ko:'베이징외국어대학교', cn:'北京外国语大学', region:'베이징', tier:'211', strength:'외국어·외교·국제관계' },
-  { ko:'상하이외국어대학교', cn:'上海外国语大学', region:'상하이', tier:'211', strength:'외국어·국제관계' },
-  { ko:'상하이재경대학교', cn:'上海财经大学', region:'상하이', tier:'211', strength:'재무·회계·경제' },
-  { ko:'상하이대학교', cn:'上海大学', region:'상하이', tier:'211', strength:'재료·기계·영상예술' },
-  { ko:'중앙재경대학교', cn:'中央财经大学', region:'베이징', tier:'211', strength:'금융·회계·세무' },
-  { ko:'중국전매대학교', cn:'中国传媒大学', region:'베이징', tier:'211', strength:'방송·미디어·광고' },
-  { ko:'베이징중의약대학교', cn:'北京中医药大学', region:'베이징', tier:'211', strength:'중의학·침구·중약' },
-  { ko:'둥베이사범대학교', cn:'东北师范大学', region:'창춘', tier:'211', strength:'교육·중국어문' },
-  { ko:'연변대학교', cn:'延边大学', region:'옌지', tier:'211', strength:'조선어·의학·한중교류' },
-  { ko:'지난대학교(暨南)', cn:'暨南大学', region:'광저우', tier:'211', strength:'경영·미디어·화교교육' },
-  { ko:'상하이중의약대학교', cn:'上海中医药大学', region:'상하이', tier:'dbl', strength:'중의학·침구' },
-  { ko:'베이징어언대학교', cn:'北京语言大学', region:'베이징', tier:'etc', strength:'중국어·국제중국어교육 (유학생 특화)' },
-];
+/* 게시 후 1~2분 안에 반영되도록 콘텐츠 파일 주소에 분 단위 값을 붙여 캐시를 우회 */
+document.write('<script src="data/content.js?v=' + Math.floor(Date.now() / 60000) + '"><\/script>');
+</script>
+<script>
+/* ====== 사이트 콘텐츠 : data/content.js (CMS 임시저장본이 있으면 미리보기로 표시) ====== */
+const CMS_DRAFT_KEY = 'cms.draft.v1';
+const CMS_PREVIEW_KEY = 'cms.preview';
+const CMS_ASSET_VERSION = '20260927';
+
+function storageGet(key) { try { return localStorage.getItem(key); } catch (e) { return null; } }
+function storageSet(key, value) { try { localStorage.setItem(key, value); } catch (e) {} }
+
+function readCmsDraft() {
+  try { const d = JSON.parse(storageGet(CMS_DRAFT_KEY) || 'null'); return d && d.content ? d : null; } catch (e) { return null; }
+}
+function loadSiteContent() {
+  if (storageGet(CMS_PREVIEW_KEY) === '1') {
+    const draft = readCmsDraft();
+    if (draft) return draft.content;
+  }
+  return window.SITE_CONTENT || {};
+}
+let SITE = loadSiteContent();
+function siteList(key) { return Array.isArray(SITE[key]) ? SITE[key] : []; }
+function univList() { return siteList('univs'); }
+function deptList() { return siteList('depts'); }
 
 const TIER_LABEL = { '985':'985·211', '211':'211', 'dbl':'双一流', 'etc':'일반' };
 const TIER_CLASS = { '985':'t985', '211':'t211', 'dbl':'tdbl', 'etc':'tetc' };
 
-/* ====== 학과 데이터 ====== */
-const deptData = [
-  { cn:'汉语言文学', ko:'중국언어문학', univ:'北京大学', field:'인문', lang:'중국어', years:'4년' },
-  { cn:'计算机科学与技术', ko:'컴퓨터과학기술', univ:'清华大学', field:'공학', lang:'중국어', years:'4년' },
-  { cn:'临床医学', ko:'임상의학', univ:'复旦大学', field:'의학', lang:'중국어', years:'5~6년' },
-  { cn:'国际政治', ko:'국제정치', univ:'复旦大学', field:'사회', lang:'중국어', years:'4년' },
-  { cn:'工商管理', ko:'경영학', univ:'上海交通大学', field:'상경', lang:'중국어', years:'4년' },
-  { cn:'临床医学(MBBS)', ko:'임상의학 (영어과정)', univ:'浙江大学', field:'의학', lang:'영어', years:'6년' },
-  { cn:'法学', ko:'법학', univ:'中国人民大学', field:'사회', lang:'중국어', years:'4년' },
-  { cn:'心理学', ko:'심리학', univ:'北京师范大学', field:'사회', lang:'중국어', years:'4년' },
-  { cn:'建筑学', ko:'건축학', univ:'同济大学', field:'공학', lang:'중국어', years:'5년' },
-  { cn:'会计学', ko:'회계학', univ:'厦门大学', field:'상경', lang:'중국어', years:'4년' },
-  { cn:'海洋科学', ko:'해양과학', univ:'中国海洋大学', field:'자연', lang:'중국어', years:'4년' },
-  { cn:'电气工程及其自动化', ko:'전기공학', univ:'西安交通大学', field:'공학', lang:'중국어', years:'4년' },
-  { cn:'国际经济与贸易', ko:'국제경제무역', univ:'对外经济贸易大学', field:'상경', lang:'중국어', years:'4년' },
-  { cn:'外交学', ko:'외교학', univ:'北京外国语大学', field:'사회', lang:'중국어', years:'4년' },
-  { cn:'金融学', ko:'금융학', univ:'上海财经大学', field:'상경', lang:'중국어', years:'4년' },
-  { cn:'新闻学', ko:'신문학', univ:'中国传媒大学', field:'미디어', lang:'중국어', years:'4년' },
-  { cn:'中医学', ko:'중의학', univ:'北京中医药大学', field:'의학', lang:'중국어', years:'5년' },
-  { cn:'汉语言', ko:'중국어', univ:'北京语言大学', field:'인문', lang:'중국어', years:'4년' },
-];
+/* ====== 출력 헬퍼 ====== */
+function esc(v) {
+  return String(v == null ? '' : v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escBr(v) { return esc(v).replace(/\n/g, '<br>'); }
+function iconClass(icon) {
+  icon = String(icon || '').trim() || 'fa-circle';
+  return /^(fas|fab|far)\s/.test(icon) ? icon : 'fas ' + icon;
+}
+function cssColor(v) { return /^[#\w\s(),.%-]+$/.test(String(v || '')) ? String(v) : ''; }
 
+function univByCn(cn) { return univList().find(x => x.cn === cn); }
 function univKo(cn) {
-  const u = univData.find(x => x.cn === cn);
+  const u = univByCn(cn);
   return u ? u.ko : cn;
 }
 function univRegion(cn) {
-  const u = univData.find(x => x.cn === cn);
+  const u = univByCn(cn);
   return u ? u.region : '-';
 }
 function inputValue(id) {
@@ -5158,7 +4971,7 @@ const ROWS_PER_PAGE = 10;
 /* ====== 대학 테이블 렌더 ====== */
 function renderUnivTable(page) {
   const kw = inputValue('univSearchInput');
-  const list = univData.filter(d => !kw || (d.ko + d.cn + d.region + d.strength).toLowerCase().includes(kw));
+  const list = univList().filter(d => !kw || (d.ko + d.cn + d.region + d.strength).toLowerCase().includes(kw));
   const start = (page-1)*ROWS_PER_PAGE;
   const rows = list.slice(start, start+ROWS_PER_PAGE);
   document.getElementById('univCount').textContent = list.length + '건';
@@ -5166,13 +4979,13 @@ function renderUnivTable(page) {
   body.innerHTML = rows.map(d => `
     <tr>
       <td><div class="univ-name-cell">
-        <div class="univ-logo">${d.cn.charAt(0)}</div>
-        <div><span class="univ-name-text">${d.ko}</span><div class="univ-cn">${d.cn}</div></div>
+        <div class="univ-logo">${esc(d.cn.charAt(0))}</div>
+        <div><span class="univ-name-text">${esc(d.ko)}</span><div class="univ-cn">${esc(d.cn)}</div></div>
       </div></td>
-      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${d.region}</div></td>
-      <td><span class="tier-badge ${TIER_CLASS[d.tier]}">${TIER_LABEL[d.tier]}</span></td>
-      <td style="font-size:12px;color:#555;">${d.strength}</td>
-      <td><button class="result-btn">招生简章 확인</button></td>
+      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${esc(d.region)}</div></td>
+      <td><span class="tier-badge ${TIER_CLASS[d.tier] || 'tetc'}">${TIER_LABEL[d.tier] || esc(d.tier)}</span></td>
+      <td style="font-size:12px;color:#555;">${esc(d.strength)}</td>
+      <td><button class="result-btn" data-link="univ:${esc(d.cn)}">招生简章 확인</button></td>
       <td><button class="compare-btn">✓ 비교</button></td>
       <td><button class="star-btn">★</button></td>
     </tr>`).join('') || '<tr><td colspan="7" style="padding:40px;color:#aaa;">검색 결과가 없습니다.</td></tr>';
@@ -5183,7 +4996,7 @@ function renderUnivTable(page) {
 function renderDeptTable(page) {
   const ukw = inputValue('deptUnivInput');
   const dkw = inputValue('deptKeywordInput');
-  const list = deptData.filter(d =>
+  const list = deptList().filter(d =>
     (!ukw || (d.univ + univKo(d.univ)).toLowerCase().includes(ukw)) &&
     (!dkw || (d.cn + d.ko + d.field).toLowerCase().includes(dkw)));
   const start = (page-1)*ROWS_PER_PAGE;
@@ -5192,18 +5005,235 @@ function renderDeptTable(page) {
   const body = document.getElementById('deptTableBody');
   body.innerHTML = rows.map(d => `
     <tr>
-      <td style="text-align:left;"><div style="font-weight:600;">${d.ko}</div><div class="univ-cn">${d.cn}</div></td>
-      <td><div class="univ-name-cell" style="justify-content:center;">
-        <div class="univ-logo" style="width:28px;height:28px;font-size:11px;">${d.univ.charAt(0)}</div>
-        <span style="font-size:12px;">${univKo(d.univ)}</span>
+      <td style="text-align:left;"><div style="font-weight:600;">${esc(d.ko)}</div><div class="univ-cn">${esc(d.cn)}</div></td>
+      <td><div class="univ-name-cell" style="justify-content:center;cursor:pointer;" data-link="univ:${esc(d.univ)}">
+        <div class="univ-logo" style="width:28px;height:28px;font-size:11px;">${esc(String(d.univ).charAt(0))}</div>
+        <span style="font-size:12px;">${esc(univKo(d.univ))}</span>
       </div></td>
-      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${univRegion(d.univ)}</div></td>
-      <td>${d.field}</td>
-      <td><span class="lang-badge${d.lang==='영어' ? ' en' : ''}">${d.lang}</span></td>
-      <td>${d.years}</td>
+      <td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${esc(univRegion(d.univ))}</div></td>
+      <td>${esc(d.field)}</td>
+      <td><span class="lang-badge${d.lang==='영어' ? ' en' : ''}">${esc(d.lang)}</span></td>
+      <td>${esc(d.years)}</td>
       <td><button class="compare-btn">✓ 비교</button></td>
     </tr>`).join('') || '<tr><td colspan="7" style="padding:40px;color:#aaa;">검색 결과가 없습니다.</td></tr>';
   renderPagination('deptPagination', page, Math.max(1, Math.ceil(list.length/ROWS_PER_PAGE)), renderDeptTable);
+}
+
+/* ====== 전형정보 테이블 렌더 ====== */
+function renderAdmissions() {
+  const rows = siteList('admissions');
+  document.getElementById('admCount').textContent = rows.length + '건';
+  document.getElementById('admTableBody').innerHTML = rows.map(a => {
+    const u = univByCn(a.univ) || { ko: a.univ, cn: a.univ, region: '-' };
+    return `<tr><td><div class="univ-name-cell"><div class="univ-logo">${esc(String(u.cn).charAt(0))}</div><div><span class="univ-name-text">${esc(u.ko)}</span><div class="univ-cn">${esc(u.cn)}</div></div></div></td>`
+      + `<td>${esc(a.course)}</td><td><div class="region-cell"><i class="fas fa-map-marker-alt"></i>${esc(u.region)}</div></td><td>${esc(a.method)}</td>`
+      + `<td class="csca-cell"><span class="csca-main">${esc(a.csca)}</span>${a.cscaSub ? `<br><span class="csca-sub">${escBr(a.cscaSub)}</span>` : ''}</td>`
+      + `<td><span class="lang-badge${a.langEn ? ' en' : ''}">${escBr(a.lang)}</span></td><td>${esc(a.period)}</td>`
+      + `<td><button class="adm-result-btn" data-link="univ:${esc(a.univ)}">모집요강 보기</button></td><td><button class="star-btn">★</button></td></tr>`;
+  }).join('') || '<tr><td colspan="9" style="padding:40px;color:#aaa;">등록된 전형정보가 없습니다.</td></tr>';
+}
+
+/* ====== 유학자료실 렌더 ====== */
+function renderResources() {
+  const kw = inputValue('resourceSearch');
+  const list = siteList('resources').filter(r => !kw || [r.title, r.tags, r.fileLabel, r.meta].join(' ').toLowerCase().includes(kw));
+  document.getElementById('resourceCount').textContent = list.length + '건';
+  document.getElementById('resourceGrid').innerHTML = list.map(r => {
+    const tags = String(r.tags || '').split(',').map(t => t.trim()).filter(Boolean).map(t => `<span>${esc(t)}</span>`).join(' ');
+    const file = r.fileUrl
+      ? `<a class="data-file" href="${esc(r.fileUrl)}" target="_blank" rel="noopener">${esc(r.fileLabel || '파일 받기')} <i class="fas fa-download"></i></a>`
+      : `<div class="data-file">${esc(r.fileLabel)} <i class="fas ${r.link ? 'fa-arrow-right' : 'fa-download'}"></i></div>`;
+    return `<div class="data-card"${r.link ? ` data-link="${esc(r.link)}" style="cursor:pointer;"` : ''}>`
+      + `<div class="data-thumb${r.color ? ' ' + esc(r.color) : ''}">${escBr(r.thumb)}</div>`
+      + `<div class="data-info"><div class="data-tags">${tags}</div><div class="data-title">${esc(r.title)}</div>${file}<div class="data-meta">${esc(r.meta)}</div></div></div>`;
+  }).join('') || '<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-folder-open"></i>등록된 자료가 없습니다.</div>';
+}
+
+/* ====== 홈 : 공지 · 뉴스 · 공식 사이트 ====== */
+function renderNotices() {
+  document.getElementById('noticeList').innerHTML = siteList('notices').map(n =>
+    `<div class="notice-item"${n.link ? ` data-link="${esc(n.link)}" style="cursor:pointer;"` : ''}>`
+    + `<span class="notice-badge${n.style === 'general' ? ' general' : ''}">${esc(n.badge || '일반')}</span>`
+    + `<span class="notice-text">${esc(n.text)}</span></div>`).join('');
+}
+function renderNews() {
+  document.getElementById('newsList').innerHTML = siteList('news').map(n =>
+    `<div class="news-item"${n.link ? ` data-link="${esc(n.link)}" style="cursor:pointer;"` : ''}>`
+    + `<div class="news-thumb"><i class="${esc(iconClass(n.icon || 'fa-newspaper'))}"></i></div>`
+    + `<div class="news-text"><div class="title">${esc(n.title)}</div><div class="meta">${esc(n.meta)}</div></div></div>`).join('');
+}
+function renderOfficialSites() {
+  document.getElementById('officialList').innerHTML = siteList('officialSites').map(o =>
+    `<a class="official-link" href="${esc(o.url)}" target="_blank" rel="noopener">`
+    + `<span class="official-icon"><i class="${esc(iconClass(o.icon || 'fa-globe'))}"></i></span>`
+    + `<span><span class="official-name">${esc(o.name)}</span><br><span class="official-url">${esc(o.desc)}</span></span></a>`).join('');
+}
+
+/* ====== 배너 렌더 ====== */
+function renderBanners() {
+  const slides = siteList('banners').filter(b => b.enabled !== false);
+  document.getElementById('bannerSlides').innerHTML = slides.map((b, i) => {
+    const custom = b.theme === 'custom';
+    let style = custom ? `background:linear-gradient(135deg, ${cssColor(b.bg1) || '#2db4a8'} 0%, ${cssColor(b.bg2) || '#00897b'} 100%);` : '';
+    if (b.bgImage) style += `background-image:url('${esc(b.bgImage)}');background-size:cover;background-position:center;`;
+    const tc = custom && cssColor(b.textColor) ? ` style="color:${cssColor(b.textColor)}"` : '';
+    const ec = custom && cssColor(b.emColor) ? ` style="color:${cssColor(b.emColor)}"` : '';
+    const btns = (b.buttons || []).filter(x => x && x.text).map(x =>
+      `<button class="banner-btn" style="background:${cssColor(x.bg) || '#2db4a8'};color:${cssColor(x.color) || '#fff'};" data-link="${esc(x.link)}">${esc(x.text)}</button>`).join('');
+    const visual = b.image
+      ? `<div class="banner-illustration banner-photo"><img src="${esc(b.image)}" alt=""></div>`
+      : `<div class="banner-illustration"><i class="${esc(iconClass(b.icon))} main-icon"></i></div>`;
+    return `<div class="banner-slide ${custom ? 'slide-custom' : esc(b.theme || 'slide-2')}${i === 0 ? ' active' : ''}" style="${style}">`
+      + `<div class="banner-content">${b.tag ? `<div class="banner-tag">${esc(b.tag)}</div>` : ''}`
+      + `<div class="banner-title"${tc}>${b.title || ''}${b.em ? `<em${ec}>${b.em}</em>` : ''}</div>`
+      + (b.desc ? `<div class="banner-desc"${tc}>${b.desc}</div>` : '')
+      + (b.extraHtml || '')
+      + (btns ? `<div class="banner-btns">${btns}</div>` : '')
+      + `</div>${visual}</div>`;
+  }).join('');
+  document.getElementById('bannerDots').innerHTML = slides.length > 1
+    ? slides.map((_, i) => `<span class="dot${i === 0 ? ' active' : ''}" onclick="bannerGo(${i})"></span>`).join('') + `<span class="counter" id="bannerCounter">‖ 1/${slides.length}</span>`
+    : '';
+  document.querySelectorAll('.banner-arrow').forEach(a => { a.style.display = slides.length > 1 ? '' : 'none'; });
+  currentSlide = 0;
+  resetSlideTimer();
+}
+
+/* ====== 기본 설정 · 페이지 문구 블록 ====== */
+function applySettings() {
+  const st = SITE.settings || {};
+  document.querySelectorAll('[data-setting]').forEach(el => {
+    const v = st[el.dataset.setting];
+    if (v != null && v !== '') el.innerHTML = escBr(v);
+  });
+  document.querySelectorAll('[data-setting-attr]').forEach(el => {
+    const [attr, key] = el.dataset.settingAttr.split(':');
+    if (st[key]) el.setAttribute(attr, st[key]);
+  });
+}
+const BLOCK_DEFAULTS = {};
+document.querySelectorAll('[data-cms-block]').forEach(el => { BLOCK_DEFAULTS[el.dataset.cmsBlock] = el.innerHTML; });
+function applyBlocks() {
+  const blocks = SITE.blocks || {};
+  document.querySelectorAll('[data-cms-block]').forEach(el => {
+    const key = el.dataset.cmsBlock;
+    const html = Object.prototype.hasOwnProperty.call(blocks, key) ? blocks[key] : BLOCK_DEFAULTS[key];
+    if (html != null && el.innerHTML !== html) el.innerHTML = html;
+  });
+}
+
+/* ====== 전체 렌더 (CMS 미리보기에서도 호출) ====== */
+function renderSite() {
+  applySettings();
+  applyBlocks();
+  renderBanners();
+  renderNotices();
+  renderNews();
+  renderOfficialSites();
+  renderAdmissions();
+  renderResources();
+  if (document.getElementById('univOverlay').classList.contains('open')) renderUnivTable(1);
+  if (document.getElementById('deptOverlay').classList.contains('open')) renderDeptTable(1);
+  updatePreviewBar();
+}
+function setSiteContent(content) {
+  SITE = content || {};
+  renderSite();
+}
+
+/* ====== 링크 실행 : page:ID#섹션 · modal:이름 · univ:대학中文명 · URL ====== */
+function runLink(link) {
+  link = String(link || '').trim();
+  if (!link) return;
+  const m = link.match(/^(page|modal|univ|home):(.*)$/);
+  if (!m) { window.open(link, '_blank', 'noopener'); return; }
+  const [, kind, arg] = m;
+  if (kind === 'home') { showHome(); return; }
+  if (kind === 'univ') { openUnivGuide(arg); return; }
+  if (kind === 'modal') {
+    const modals = { docs: openDocsGuide, novice: openNoviceGuide, guide: openGuideModal, cms: openCms, menu: toggleMenu };
+    if (modals[arg]) modals[arg]();
+    return;
+  }
+  const [id, section] = arg.split('#');
+  if (!document.getElementById(id)) return;
+  if (section) openPageAt(id, section); else openPage(id);
+}
+document.addEventListener('click', function(e) {
+  const el = e.target.closest('[data-link]');
+  if (!el) return;
+  const a = e.target.closest('a[href]');
+  if (a && a !== el && el.contains(a)) return;
+  e.preventDefault();
+  runLink(el.dataset.link);
+});
+
+/* ====== 대학별 유학생 모집요강 ====== */
+const GUIDE_FIELDS = [
+  ['period', '접수 기간', 'fa-calendar-alt'],
+  ['lang', '어학 기준', 'fa-language'],
+  ['csca', 'CSCA', 'fa-pen-alt'],
+  ['selection', '선발 방식', 'fa-user-check'],
+  ['fee', '신청비', 'fa-receipt'],
+  ['tuition', '학비', 'fa-coins'],
+  ['age', '지원 연령', 'fa-user'],
+  ['notes', '참고 사항', 'fa-info-circle'],
+];
+function openUnivGuide(cn) {
+  const u = univByCn(cn);
+  if (!u) return;
+  const gd = u.guide || {};
+  const st = SITE.settings || {};
+  const links = [['site', '유학생 입학처', 'fa-university'], ['brochure', '모집요강 원문', 'fa-file-alt'], ['apply', '온라인 지원', 'fa-edit']]
+    .filter(([k]) => gd[k])
+    .map(([k, label, icon]) => `<a class="ug-link${k === 'brochure' ? ' primary' : ''}" href="${esc(gd[k])}" target="_blank" rel="noopener"><i class="fas ${icon}"></i> ${label}</a>`).join('');
+  const adm = siteList('admissions').find(a => a.univ === cn);
+  const rows = GUIDE_FIELDS.map(([k, label, icon]) => `<tr><th><i class="fas ${icon}"></i> ${label}</th><td>${gd[k] ? escBr(gd[k]) : '<span class="ug-empty">모집요강 원문에서 확인하세요</span>'}</td></tr>`).join('');
+  document.getElementById('univGuideBody').innerHTML = `
+    <div class="ug-head">
+      <div class="univ-logo ug-logo">${esc(u.cn.charAt(0))}</div>
+      <div>
+        <div class="ug-name">${esc(u.ko)} <span class="ug-cn">${esc(u.cn)}</span></div>
+        <div class="ug-meta"><span class="tier-badge ${TIER_CLASS[u.tier] || 'tetc'}">${TIER_LABEL[u.tier] || esc(u.tier)}</span>
+          <span><i class="fas fa-map-marker-alt"></i> ${esc(u.region)}</span><span>${esc(u.strength)}</span>${adm ? `<span>${esc(adm.course)} · ${esc(adm.method)}</span>` : ''}</div>
+      </div>
+    </div>
+    ${links ? `<div class="ug-links">${links}</div>` : ''}
+    <table class="ug-table">${rows}</table>
+    <div class="ug-basis"><i class="fas fa-clock"></i> ${escBr(st.guideBasis || '')}</div>
+    <div class="ug-notice">${escBr(st.guideNotice || '')}</div>`;
+  document.getElementById('univGuideOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeUnivGuide() {
+  document.getElementById('univGuideOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ====== CMS (메뉴편집) : 필요할 때만 불러옴 ====== */
+function openCms() {
+  if (window.CMS) { window.CMS.open(); return; }
+  if (document.getElementById('cmsScript')) return;
+  const css = document.createElement('link');
+  css.rel = 'stylesheet';
+  css.href = 'cms/cms.css?v=' + CMS_ASSET_VERSION;
+  document.head.appendChild(css);
+  const s = document.createElement('script');
+  s.id = 'cmsScript';
+  s.src = 'cms/cms.js?v=' + CMS_ASSET_VERSION;
+  s.onload = () => window.CMS && window.CMS.open();
+  s.onerror = () => { s.remove(); alert('CMS 파일(cms/cms.js)을 불러오지 못했습니다.'); };
+  document.body.appendChild(s);
+}
+function updatePreviewBar() {
+  const bar = document.getElementById('cmsPreviewBar');
+  const on = storageGet(CMS_PREVIEW_KEY) === '1' && !!readCmsDraft();
+  bar.classList.toggle('show', on);
+  document.body.classList.toggle('cms-previewing', on);
+}
+function exitCmsPreview() {
+  storageSet(CMS_PREVIEW_KEY, '0');
+  setSiteContent(window.SITE_CONTENT || {});
 }
 
 /* ====== 페이지네이션 ====== */
@@ -5319,9 +5349,11 @@ function closeDeptModal() { showHome(); }
 function openJobModal() { showPage('jobOverlay'); }
 function closeJobModal() { showHome(); }
 
-/* ESC → 홈으로 */
+/* ESC → 모집요강 창 닫기, 그 외에는 홈으로 (CMS 편집 중에는 무시) */
 document.addEventListener('keydown', function(e){
-  if(e.key==='Escape'){ showHome(); closeMenu(); }
+  if(e.key!=='Escape' || document.body.classList.contains('cms-open')) return;
+  if(document.getElementById('univGuideOverlay').classList.contains('open')){ closeUnivGuide(); return; }
+  showHome(); closeMenu();
 });
 
 /* ====== 로그인/로그아웃 ====== */
@@ -5337,35 +5369,40 @@ function logoutUser() {
 
 /* ====== 배너 슬라이더 ====== */
 let currentSlide = 0;
-const totalSlides = document.querySelectorAll('.banner-slide').length;
 let slideInterval;
+function slideCount() { return document.querySelectorAll('#bannerSlides .banner-slide').length; }
 
 function bannerGo(idx) {
+  const total = slideCount();
+  if (!total) return;
   currentSlide = idx;
-  document.querySelectorAll('.banner-slide').forEach((s,i) => {
+  document.querySelectorAll('#bannerSlides .banner-slide').forEach((s,i) => {
     s.classList.toggle('active', i === idx);
   });
   document.querySelectorAll('.banner-dots .dot').forEach((d,i) => {
     d.classList.toggle('active', i === idx);
   });
-  document.getElementById('bannerCounter').textContent = `‖ ${idx+1}/${totalSlides}`;
+  const counter = document.getElementById('bannerCounter');
+  if (counter) counter.textContent = `‖ ${idx+1}/${total}`;
   resetSlideTimer();
 }
 
 function bannerNext() {
-  bannerGo((currentSlide + 1) % totalSlides);
+  const total = slideCount();
+  if (total) bannerGo((currentSlide + 1) % total);
 }
 
 function bannerPrev() {
-  bannerGo((currentSlide - 1 + totalSlides) % totalSlides);
+  const total = slideCount();
+  if (total) bannerGo((currentSlide - 1 + total) % total);
 }
 
 function resetSlideTimer() {
   clearInterval(slideInterval);
-  slideInterval = setInterval(bannerNext, 5000);
+  if (slideCount() > 1) slideInterval = setInterval(bannerNext, 5000);
 }
 
-resetSlideTimer();
+renderSite();
 </script>
 
 </body>
