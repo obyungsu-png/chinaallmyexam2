@@ -1,7 +1,7 @@
 /* 사이트 콘텐츠 데이터 — '메뉴편집'(CMS)에서 편집·게시하면 이 파일이 갱신됩니다. 직접 수정 시 JSON 형식을 유지하세요. */
 window.SITE_CONTENT = {
  "version": 1,
- "updatedAt": "2026-09-29T09:19:51.366Z",
+ "updatedAt": "2026-09-29T09:35:34.865Z",
  "settings": {
   "logoMain": "중국대학",
   "logoSub": "One Stop",
@@ -1296,5 +1296,428 @@ window.SITE_CONTENT = {
    "meta": "유학지원팀 · 2026-07-05"
   }
  ],
- "blocks": {}
+ "blocks": {},
+ "navItems": [
+  {
+   "enabled": true,
+   "label": "직업정보",
+   "icon": "fa-briefcase",
+   "link": "page:jobOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "대학정보",
+   "icon": "fa-university",
+   "link": "page:univOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "학과정보",
+   "icon": "fa-book-open",
+   "link": "page:deptOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "전형정보",
+   "icon": "fa-file-alt",
+   "link": "page:admOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "CSCA 시험",
+   "icon": "fa-pen-alt",
+   "link": "page:cscaOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "입시가이드",
+   "icon": "fa-compass",
+   "link": "page:admGuideOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "합격분석",
+   "icon": "fa-chart-pie",
+   "link": "page:univGradeOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "성적입력",
+   "icon": "fa-chart-bar",
+   "link": "page:gradeOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "유학자료실",
+   "icon": "fa-database",
+   "link": "page:dataOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "서류·면접상담",
+   "icon": "fa-comments",
+   "link": "page:compOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "유학상담",
+   "icon": "fa-clipboard-list",
+   "link": "page:consultOverlay"
+  },
+  {
+   "enabled": true,
+   "label": "전형일정",
+   "icon": "fa-calendar-alt",
+   "link": "page:admGuideOverlay#ag-schedule"
+  }
+ ],
+ "sideWidgets": [
+  {
+   "enabled": true,
+   "label": "CSCA\n가이드",
+   "link": "modal:csca",
+   "color": ""
+  },
+  {
+   "enabled": true,
+   "label": "자격요건\n가이드",
+   "link": "modal:guide",
+   "color": ""
+  },
+  {
+   "enabled": true,
+   "label": "초보자\n가이드",
+   "link": "modal:novice",
+   "color": ""
+  },
+  {
+   "enabled": true,
+   "label": "HSK\n준비\n가이드",
+   "link": "modal:hsk",
+   "color": ""
+  },
+  {
+   "enabled": true,
+   "label": "서류준비\n가이드",
+   "link": "modal:docs",
+   "color": ""
+  }
+ ],
+ "fullMenu": [
+  {
+   "title": "대학/학과/전형",
+   "icon": "fa-edit",
+   "links": [
+    {
+     "text": "대학정보",
+     "link": "page:univOverlay",
+     "wide": false
+    },
+    {
+     "text": "학과정보",
+     "link": "page:deptOverlay",
+     "wide": false
+    },
+    {
+     "text": "전형정보",
+     "link": "page:admOverlay",
+     "wide": false
+    },
+    {
+     "text": "대학별 모집요강",
+     "link": "page:univOverlay",
+     "wide": false
+    },
+    {
+     "text": "985·211 대학",
+     "link": "page:univOverlay",
+     "wide": false
+    },
+    {
+     "text": "명문대 전형 비교",
+     "link": "page:admGuideOverlay#ag-top",
+     "wide": false
+    }
+   ]
+  },
+  {
+   "title": "자격요건 분석",
+   "icon": "fa-passport",
+   "links": [
+    {
+     "text": "유학생 자격확인",
+     "link": "modal:guide",
+     "wide": false
+    },
+    {
+     "text": "CSCA 응시과목 찾기",
+     "link": "modal:csca#4",
+     "wide": false
+    },
+    {
+     "text": "국적·거주요건 계산",
+     "link": "modal:guide#1",
+     "wide": false
+    },
+    {
+     "text": "HSK 기준 안내",
+     "link": "modal:hsk#2",
+     "wide": false
+    },
+    {
+     "text": "서류준비 가이드",
+     "link": "modal:docs",
+     "wide": true
+    }
+   ]
+  },
+  {
+   "title": "유학상담",
+   "icon": "fa-comments",
+   "links": [
+    {
+     "text": "온라인유학상담",
+     "link": "page:consultOverlay",
+     "wide": false
+    },
+    {
+     "text": "상담 이용안내",
+     "link": "modal:novice#4",
+     "wide": false
+    },
+    {
+     "text": "1:1 맞춤상담",
+     "link": "page:consultOverlay",
+     "wide": false
+    },
+    {
+     "text": "입학도우미",
+     "link": "modal:novice#5",
+     "wide": false
+    },
+    {
+     "text": "서류·면접 상담",
+     "link": "page:compOverlay",
+     "wide": true
+    }
+   ]
+  },
+  {
+   "title": "진로정보",
+   "icon": "fa-route",
+   "links": [
+    {
+     "text": "직업정보",
+     "link": "page:jobOverlay",
+     "wide": false
+    },
+    {
+     "text": "전공별 진로안내",
+     "link": "page:deptOverlay",
+     "wide": false
+    },
+    {
+     "text": "중국 취업정보",
+     "link": "",
+     "wide": false
+    },
+    {
+     "text": "직업심리검사",
+     "link": "",
+     "wide": false
+    }
+   ]
+  },
+  {
+   "title": "입시정보센터",
+   "icon": "fa-database",
+   "links": [
+    {
+     "text": "CSCA 시험 안내",
+     "link": "page:cscaOverlay",
+     "wide": false
+    },
+    {
+     "text": "입시 핵심가이드",
+     "link": "page:admGuideOverlay",
+     "wide": false
+    },
+    {
+     "text": "전형일정",
+     "link": "page:admGuideOverlay#ag-schedule",
+     "wide": false
+    },
+    {
+     "text": "연간 준비 계획",
+     "link": "custom:yearly-plan",
+     "wide": false
+    },
+    {
+     "text": "유학자료실",
+     "link": "page:dataOverlay",
+     "wide": false
+    },
+    {
+     "text": "장학금 안내",
+     "link": "page:admGuideOverlay#ag-scholar",
+     "wide": false
+    }
+   ]
+  },
+  {
+   "title": "고객센터",
+   "icon": "fa-headset",
+   "links": [
+    {
+     "text": "공지사항",
+     "link": "home:",
+     "wide": false
+    },
+    {
+     "text": "공식 사이트 모음",
+     "link": "page:admGuideOverlay#ag-sites",
+     "wide": false
+    },
+    {
+     "text": "이용안내",
+     "link": "modal:novice",
+     "wide": false
+    },
+    {
+     "text": "콘텐츠 관리(CMS)",
+     "link": "modal:cms",
+     "wide": false
+    }
+   ]
+  },
+  {
+   "title": "회원서비스",
+   "icon": "fa-users",
+   "links": [
+    {
+     "text": "로그인",
+     "link": "page:loginOverlay",
+     "wide": false
+    },
+    {
+     "text": "회원가입",
+     "link": "page:loginOverlay",
+     "wide": false
+    },
+    {
+     "text": "아이디찾기",
+     "link": "",
+     "wide": false
+    },
+    {
+     "text": "비밀번호찾기",
+     "link": "",
+     "wide": false
+    },
+    {
+     "text": "개인정보처리방침",
+     "link": "",
+     "wide": false
+    },
+    {
+     "text": "이메일수집거부",
+     "link": "",
+     "wide": false
+    }
+   ]
+  },
+  {
+   "title": "마이페이지",
+   "icon": "fa-user-circle",
+   "links": [
+    {
+     "text": "관심대학/전형",
+     "link": "page:univOverlay",
+     "wide": false
+    },
+    {
+     "text": "일정관리",
+     "link": "page:admGuideOverlay#ag-schedule",
+     "wide": false
+    },
+    {
+     "text": "성적·HSK 관리",
+     "link": "page:gradeOverlay",
+     "wide": false
+    },
+    {
+     "text": "합격분석",
+     "link": "page:univGradeOverlay",
+     "wide": false
+    },
+    {
+     "text": "입학도우미",
+     "link": "modal:novice#5",
+     "wide": false
+    }
+   ]
+  }
+ ],
+ "footerLinks": [
+  {
+   "text": "개인정보처리방침",
+   "link": ""
+  },
+  {
+   "text": "이용약관",
+   "link": ""
+  },
+  {
+   "text": "이메일주소 무단수집 거부",
+   "link": ""
+  },
+  {
+   "text": "저작권정책",
+   "link": ""
+  },
+  {
+   "text": "제안 및 건의하기",
+   "link": ""
+  }
+ ],
+ "relatedSites": [
+  {
+   "name": "CSCA 공식 사이트 (시험 접수·성적)",
+   "url": "https://www.csca.cn/"
+  },
+  {
+   "name": "Campus China (중국정부장학금)",
+   "url": "https://www.campuschina.org/"
+  },
+  {
+   "name": "Study in China (留学中国)",
+   "url": "https://www.studyinchina.edu.cn/"
+  },
+  {
+   "name": "HSK 공식 사이트 (中文考试服务网)",
+   "url": "https://www.chinesetest.cn/"
+  },
+  {
+   "name": "HSK 한국사무국",
+   "url": "https://www.hsk.or.kr/"
+  },
+  {
+   "name": "E-아포스티유 (외교부)",
+   "url": "https://www.apostille.go.kr/"
+  },
+  {
+   "name": "중국 교육부 (教育部)",
+   "url": "https://www.moe.gov.cn/"
+  }
+ ],
+ "pages": [
+  {
+   "enabled": true,
+   "slug": "yearly-plan",
+   "title": "2027년 9월 입학 · 연간 준비 계획",
+   "subtitle": "CSCA·HSK·모집요강·비자까지 월별로 정리한 준비 일정",
+   "html": "<div class=\"cg-alert\"><strong>이 페이지는 '메뉴편집 &gt; 추가 페이지'에서 자유롭게 고치거나 새로 만들 수 있는 예시 페이지입니다.</strong> 날짜는 2026년 9월 입학 모집요강을 바탕으로 한 참고 일정이며, 대학별로 다를 수 있습니다.</div>\n<table class=\"cg-table\">\n<thead><tr><th>시기</th><th>할 일</th><th>체크</th></tr></thead>\n<tbody>\n<tr><td class=\"name\">2026년 10월</td><td class=\"left\">목표 대학군 정하기 (베이징대 본고사형 / 칭화대 서류·면접형 / 푸단대·상하이자오퉁대 CSCA·면접형), CSCA 12월 회차 접수 공지 확인</td><td>대학군 결정</td></tr>\n<tr><td class=\"name\">2026년 11월</td><td class=\"left\">HSK(2.0) 마지막 회차 응시 검토, 국적·거주요건 확인, 영문 기본·가족관계증명서와 출입국사실증명서 발급</td><td>서류 발급</td></tr>\n<tr><td class=\"name\">2026년 12월</td><td class=\"left\">CSCA 1차 응시, 고교 졸업예정·성적증명서 발급 후 아포스티유(E-아포스티유), 대학별 2027 모집요강 발표 확인 · HSK 3.0 전면 시행(12/13)</td><td>CSCA 응시</td></tr>\n<tr><td class=\"name\">2027년 1~2월</td><td class=\"left\">온라인 원서 접수 시작, 개인 진술서·추천서 준비, 필요하면 CSCA 1월 회차 재응시·추가 과목 응시</td><td>원서 제출</td></tr>\n<tr><td class=\"name\">2027년 3~4월</td><td class=\"left\">상위권 대학 원서 마감, 베이징대 입학시험(3월 말)·자체 평가 응시, CSCA 3월·4월 회차</td><td>마감 확인</td></tr>\n<tr><td class=\"name\">2027년 4~6월</td><td class=\"left\">서류 심사·면접(온라인/현장), 합격 발표, 录取通知书·JW202 수령</td><td>면접 대비</td></tr>\n<tr><td class=\"name\">2027년 7~8월</td><td class=\"left\">X1 학생비자 신청, 외국인 체격검사, 기숙사·항공권 준비, 보험 가입</td><td>비자 발급</td></tr>\n<tr><td class=\"name\">2027년 9월</td><td class=\"left\">입국 후 등록, 입국 30일 이내 거류허가(居留许可) 신청</td><td>거류허가</td></tr>\n</tbody></table>\n<div class=\"cg-note\">※ CSCA는 매년 1·3·4·6·12월, HSK는 2026년 12월 13일 시험부터 HSK 3.0으로 시행됩니다. 목표 대학 모집요강 원문을 반드시 함께 확인하세요.</div>"
+  }
+ ],
+ "hiddenBlocks": []
 };

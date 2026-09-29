@@ -91,14 +91,21 @@
     ['page:admGuideOverlay#ag-lang', '어학 기준'], ['page:admGuideOverlay#ag-nation', '국적 심사'], ['page:admGuideOverlay#ag-sites', '공식 사이트 모음'],
     ['page:admGuideOverlay#ag-scholar', '장학금'], ['page:univOverlay', '대학정보'], ['page:deptOverlay', '학과정보'], ['page:admOverlay', '전형정보'],
     ['page:univGradeOverlay', '합격분석'], ['page:gradeOverlay', '성적입력'], ['page:dataOverlay', '유학자료실'], ['page:compOverlay', '서류·면접 상담'],
-    ['page:consultOverlay', '온라인 유학상담'], ['page:jobOverlay', '직업정보'], ['modal:docs', '서류준비 가이드(창)'], ['modal:novice', '초보자 가이드(창)'],
-    ['modal:guide', '자격요건 가이드(창)'], ['home:', '홈'],
+    ['page:consultOverlay', '온라인 유학상담'], ['page:jobOverlay', '직업정보'], ['page:loginOverlay', '로그인'], ['page:admGuideOverlay#ag-top', '명문대 전형 비교'], ['home:', '홈'],
+  ];
+  const WIDGET_LINKS = [
+    ['modal:csca', 'CSCA 가이드'], ['modal:csca#4', 'CSCA 가이드 · 내 과목 찾기'], ['modal:guide', '자격요건 가이드'], ['modal:guide#1', '자격요건 가이드 · 국적·거주 계산기'],
+    ['modal:novice', '초보자 가이드'], ['modal:novice#5', '초보자 가이드 · 입학도우미'], ['modal:hsk', 'HSK 준비 가이드'], ['modal:hsk#2', 'HSK 가이드 · 대학별 요구 수준'],
+    ['modal:docs', '서류준비 가이드'], ['modal:menu', '전체메뉴'], ['modal:cms', '콘텐츠 관리(CMS)'],
   ];
   function linkOptions() {
     const univs = (draft.content.univs || []).map(u => `<option value="univ:${esc(u.cn)}">${esc(u.ko)} 모집요강</option>`).join('');
-    return `<option value="">사이트 안 페이지 선택…</option><optgroup label="페이지">`
-      + PAGE_LINKS.map(([v, l]) => `<option value="${esc(v)}">${esc(l)}</option>`).join('')
-      + `</optgroup><optgroup label="대학 모집요강 창">${univs}</optgroup>`;
+    const pages = (draft.content.pages || []).filter(pg => pg.slug).map(pg => `<option value="custom:${esc(pg.slug)}">${esc(pg.title || pg.slug)}</option>`).join('');
+    const opt = ([v, l]) => `<option value="${esc(v)}">${esc(l)}</option>`;
+    return `<option value="">사이트 안 페이지 선택…</option><optgroup label="페이지">${PAGE_LINKS.map(opt).join('')}</optgroup>`
+      + `<optgroup label="오른쪽 위젯 창">${WIDGET_LINKS.map(opt).join('')}</optgroup>`
+      + (pages ? `<optgroup label="추가 페이지">${pages}</optgroup>` : '')
+      + `<optgroup label="대학 모집요강 창">${univs}</optgroup>`;
   }
   const LINK_HINT = '비우면 클릭 없음 · https://… 외부 주소 · 오른쪽 목록에서 사이트 안 페이지 선택';
 
@@ -124,7 +131,9 @@
         { path: 'title', label: '제목', type: 'html', rows: 2 },
         { path: 'em', label: '강조 제목 (큰 글씨, 다음 줄)', type: 'html', rows: 1 },
         { path: 'desc', label: '설명', type: 'html', rows: 4 },
-        { path: 'buttons', label: '버튼', type: 'buttons' },
+        { path: 'buttons', label: '버튼', type: 'sublist', addLabel: '버튼 추가',
+          create: () => ({ text: '', link: '', bg: '#2db4a8', color: '#ffffff' }),
+          sub: [{ key: 'text', ph: '버튼 문구' }, { key: 'link', type: 'link', ph: '링크' }, { key: 'bg', type: 'color', title: '버튼 색', def: '#2db4a8' }, { key: 'color', type: 'color', title: '글자색', def: '#ffffff' }] },
         { path: 'icon', label: '오른쪽 아이콘', type: 'text', hint: 'Font Awesome 이름 (예: fa-star, fab fa-youtube)' },
         { path: 'image', label: '오른쪽 이미지 (아이콘 대신)', type: 'image' },
         { path: 'bgImage', label: '배경 이미지 (선택)', type: 'image' },
@@ -242,12 +251,76 @@
         { path: 'footerNoticeTitle', label: '안내 제목', type: 'text' },
         { path: 'footerNotice', label: '안내 문구', type: 'textarea', rows: 3 },
       ] },
-    { id: 'blocks', label: '페이지 문구', icon: 'fa-paragraph' },
+    { id: 'blocks', label: '페이지 문구 · 위젯 내용', icon: 'fa-paragraph' },
     { id: 'media', label: '파일 업로드', icon: 'fa-cloud-upload-alt' },
     { id: 'github', label: '게시 설정', icon: 'fa-key' },
   ];
   const TIER_LABEL_CMS = { '985': '985·211', '211': '211', 'dbl': '双一流', 'etc': '일반' };
-  const KEY_LABELS = Object.assign({ blocks: '페이지 문구' }, ...SECTIONS.filter(s => s.key).map(s => ({ [s.key]: s.label })));
+  const shown = x => (x.enabled === false ? '숨김 · ' : '');
+  SECTIONS.push(
+    { id: 'navItems', key: 'navItems', type: 'list', label: '아이콘 메뉴', icon: 'fa-th',
+      help: '상단 아이콘 메뉴입니다. 순서는 ▲▼, 잠시 빼려면 "표시"를 끄고, 필요 없으면 삭제하세요. 맨 끝의 "메뉴편집"(이 화면)은 항상 고정됩니다.',
+      title: n => n.label, sub: n => shown(n) + (n.link || '링크 없음'),
+      create: () => ({ enabled: true, label: '새 메뉴', icon: 'fa-star', link: '' }),
+      fields: [
+        { path: 'enabled', label: '표시', type: 'checkbox' },
+        { path: 'label', label: '메뉴 이름', type: 'text' },
+        { path: 'icon', label: '아이콘', type: 'text', hint: 'Font Awesome 이름 (예: fa-star, fa-university)' },
+        { path: 'link', label: '누르면 이동', type: 'link' },
+      ] },
+    { id: 'sideWidgets', key: 'sideWidgets', type: 'list', label: '오른쪽 위젯 버튼', icon: 'fa-grip-vertical',
+      help: '화면 오른쪽에 붙어 있는 가이드 버튼입니다. 버튼이 여는 창(CSCA·자격요건·초보자·HSK·서류준비 가이드)의 내용은 "페이지 문구"에서 고칩니다.',
+      title: w => String(w.label || '').replace(/\n/g, ' '), sub: w => shown(w) + (w.link || ''),
+      create: () => ({ enabled: true, label: '새\n위젯', link: '', color: '' }),
+      fields: [
+        { path: 'enabled', label: '표시', type: 'checkbox' },
+        { path: 'label', label: '버튼 글자 (줄바꿈으로 줄 나눔)', type: 'textarea', rows: 3 },
+        { path: 'link', label: '누르면 열기', type: 'link' },
+        { path: 'color', label: '버튼 색 (비우면 기본 색)', type: 'color' },
+      ] },
+    { id: 'fullMenu', key: 'fullMenu', type: 'list', label: '전체메뉴', icon: 'fa-bars',
+      help: '왼쪽 위 ≡ 버튼을 누르면 나오는 전체메뉴입니다. 분류마다 링크를 추가·삭제할 수 있고, 링크가 비어 있으면 회색 글자로만 보입니다.',
+      title: c => c.title, sub: c => `링크 ${(c.links || []).length}개`,
+      create: () => ({ title: '새 분류', icon: 'fa-folder', links: [] }),
+      fields: [
+        { path: 'title', label: '분류 이름', type: 'text' },
+        { path: 'icon', label: '아이콘', type: 'text' },
+        { path: 'links', label: '메뉴 링크', type: 'sublist', addLabel: '링크 추가',
+          create: () => ({ text: '', link: '', wide: false }),
+          sub: [{ key: 'text', ph: '메뉴 이름' }, { key: 'link', type: 'link', ph: '링크' }, { key: 'wide', type: 'checkbox', title: '한 줄 전체' }] },
+      ] },
+    { id: 'footerLinks', key: 'footerLinks', type: 'list', label: '푸터 링크', icon: 'fa-shoe-prints',
+      help: '맨 아래 푸터의 링크(개인정보처리방침 등)입니다.', title: l => l.text, sub: l => l.link || '링크 없음',
+      create: () => ({ text: '새 링크', link: '' }),
+      fields: [{ path: 'text', label: '글자', type: 'text' }, { path: 'link', label: '누르면 이동', type: 'link' }] },
+    { id: 'relatedSites', key: 'relatedSites', type: 'list', label: '관련기관', icon: 'fa-link',
+      help: '푸터의 "관련기관" 선택 상자에 들어가는 사이트입니다.', title: r => r.name, sub: r => r.url,
+      create: () => ({ name: '새 기관', url: 'https://' }),
+      fields: [{ path: 'name', label: '이름', type: 'text' }, { path: 'url', label: '주소', type: 'text' }] },
+    { id: 'pages', key: 'pages', type: 'list', label: '추가 페이지', icon: 'fa-file-medical',
+      help: '원하는 내용으로 새 페이지를 만들 수 있습니다. 링크 주소는 <code>custom:페이지주소</code>이며, 아이콘 메뉴·전체메뉴·배너 버튼의 링크 선택 목록에도 나타납니다. 본문은 HTML로 쓰거나 "화면에서 편집"으로 고치세요.',
+      title: pg => pg.title, sub: pg => shown(pg) + 'custom:' + (pg.slug || '?'),
+      create: () => ({ enabled: true, slug: 'page-' + Date.now().toString(36), title: '새 페이지', subtitle: '', html: '<p>내용을 입력하세요.</p>' }),
+      actions: [{ act: 'page-open', icon: 'fa-eye', label: '사이트에서 열기' }, { act: 'page-inline', icon: 'fa-mouse-pointer', label: '화면에서 편집', primary: true }],
+      fields: [
+        { path: 'enabled', label: '공개', type: 'checkbox' },
+        { path: 'title', label: '제목', type: 'text' },
+        { path: 'subtitle', label: '부제목', type: 'text' },
+        { path: 'slug', label: '페이지 주소', type: 'text', hint: '영문 소문자·숫자·하이픈 (예: yearly-plan) → 링크는 custom:yearly-plan' },
+        { path: 'html', label: '본문', type: 'html', rows: 16 },
+      ] },
+  );
+  const GROUPS = [
+    ['', ['dashboard']],
+    ['홈 화면', ['banners', 'notices', 'news', 'officialSites']],
+    ['메뉴 · 위젯', ['navItems', 'sideWidgets', 'fullMenu', 'footerLinks', 'relatedSites']],
+    ['대학 · 입시 정보', ['univs', 'depts', 'admissions', 'resources']],
+    ['페이지 · 문구', ['blocks', 'pages', 'settings']],
+    ['파일 · 게시', ['media', 'github']],
+  ];
+  const ORDERED = GROUPS.flatMap(([g, ids]) => ids.map(id => Object.assign(SECTIONS.find(x => x.id === id), { group: g })));
+  SECTIONS.splice(0, SECTIONS.length, ...ORDERED);
+  const KEY_LABELS = Object.assign({ blocks: '페이지 문구', hiddenBlocks: '페이지 문구(숨김)' }, ...SECTIONS.filter(s => s.key).map(s => ({ [s.key]: s.label })));
 
   /* ---------- 공통 UI ---------- */
   let root = null;
@@ -307,9 +380,12 @@
 
   function renderNav() {
     const changed = changedKeys();
+    let lastGroup = null;
     $('#cmsNav').innerHTML = SECTIONS.map(s => {
-      const dot = (s.key && changed.includes(s.key)) || (s.id === 'blocks' && changed.includes('blocks')) ? '<span class="cms-dot" title="게시 안 된 변경"></span>' : '';
-      return `<button class="cms-nav-btn${s.id === state.section ? ' active' : ''}" data-act="nav" data-id="${s.id}"><i class="fas ${s.icon}"></i><span>${s.label}</span>${dot}</button>`;
+      const dot = (s.key && changed.includes(s.key)) || (s.id === 'blocks' && (changed.includes('blocks') || changed.includes('hiddenBlocks'))) ? '<span class="cms-dot" title="게시 안 된 변경"></span>' : '';
+      const head = s.group !== lastGroup && s.group ? `<div class="cms-nav-group">${s.group}</div>` : '';
+      lastGroup = s.group;
+      return `${head}<button class="cms-nav-btn${s.id === state.section ? ' active' : ''}" data-act="nav" data-id="${s.id}"><i class="fas ${s.icon}"></i><span>${s.label}</span>${dot}</button>`;
     }).join('');
   }
   function updateStatus() {
@@ -361,7 +437,9 @@
           <div class="cms-list" id="cmsList">${listItemsHtml(s)}</div>
           <div class="cms-count">총 ${items.length}개</div>
         </div>
-        <div class="cms-form-col cms-card">${item ? formHtml(s.fields, item) : '<div class="cms-empty">왼쪽에서 항목을 선택하거나 추가하세요.</div>'}</div>
+        <div class="cms-form-col cms-card">${item
+          ? (s.actions ? `<div class="cms-actions" style="margin:0 0 14px;">${s.actions.map(a => `<button class="cms-btn sm${a.primary ? ' primary' : ''}" data-act="${a.act}"><i class="fas ${a.icon}"></i> ${a.label}</button>`).join('')}</div>` : '') + formHtml(s.fields, item)
+          : '<div class="cms-empty">왼쪽에서 항목을 선택하거나 추가하세요.</div>'}</div>
       </div>`;
   }
   function refreshListTitles() {
@@ -410,19 +488,22 @@
         return `<div class="cms-field">${label}<div class="cms-row"><input class="cms-input" ${attrs} value="${esc(val)}" placeholder="uploads/… 또는 https://…">
           <button class="cms-btn sm" data-act="upload" data-for="${id}" data-accept="${f.type === 'image' ? 'image/*' : ''}"><i class="fas fa-upload"></i> 업로드</button></div>${preview}</div>`;
       }
-      case 'buttons': {
+      case 'sublist': {
         const arr = Array.isArray(val) ? val : [];
-        const rows = arr.map((b, i) => {
-          const lid = id + '_' + i;
-          return `<div class="cms-subrow">
-            <input class="cms-input" data-path="${f.path}.${i}.text" value="${esc(b.text)}" placeholder="버튼 문구">
-            <input class="cms-input" id="${lid}" data-path="${f.path}.${i}.link" value="${esc(b.link)}" placeholder="링크">
-            <select class="cms-input cms-link-pick" data-act="pick-link" data-for="${lid}">${linkOptions()}</select>
-            <input type="color" class="cms-color" data-path="${f.path}.${i}.bg" value="${/^#[0-9a-f]{6}$/i.test(b.bg) ? b.bg : '#2db4a8'}" title="버튼 색">
-            <input type="color" class="cms-color" data-path="${f.path}.${i}.color" value="${/^#[0-9a-f]{6}$/i.test(b.color) ? b.color : '#ffffff'}" title="글자색">
-            <button class="cms-btn sm danger" data-act="sub-del" data-path="${f.path}" data-i="${i}"><i class="fas fa-times"></i></button></div>`;
-        }).join('');
-        return `<div class="cms-field">${label}${rows}<button class="cms-btn sm" data-act="sub-add" data-path="${f.path}"><i class="fas fa-plus"></i> 버튼 추가</button></div>`;
+        const rows = arr.map((row, i) => `<div class="cms-subrow">${f.sub.map(sf => {
+          const path = `${f.path}.${i}.${sf.key}`;
+          const v = row[sf.key];
+          if (sf.type === 'color') return `<input type="color" class="cms-color" data-path="${esc(path)}" value="${/^#[0-9a-f]{6}$/i.test(v) ? v : (sf.def || '#2db4a8')}" title="${sf.title || ''}">`;
+          if (sf.type === 'checkbox') return `<label class="cms-check sm"><input type="checkbox" data-path="${esc(path)}"${v ? ' checked' : ''}> ${sf.title || ''}</label>`;
+          if (sf.type === 'link') {
+            const lid = id + '_' + i + '_' + sf.key;
+            return `<input class="cms-input" id="${lid}" data-path="${esc(path)}" value="${esc(v)}" placeholder="${sf.ph || ''}"><select class="cms-input cms-link-pick" data-act="pick-link" data-for="${lid}">${linkOptions()}</select>`;
+          }
+          return `<input class="cms-input" data-path="${esc(path)}" value="${esc(v)}" placeholder="${sf.ph || ''}">`;
+        }).join('')}
+            <button class="cms-btn sm" data-act="sub-up" data-path="${f.path}" data-i="${i}" title="위로"><i class="fas fa-arrow-up"></i></button>
+            <button class="cms-btn sm danger" data-act="sub-del" data-path="${f.path}" data-i="${i}" title="삭제"><i class="fas fa-times"></i></button></div>`).join('');
+        return `<div class="cms-field">${label}${rows}<button class="cms-btn sm" data-act="sub-add" data-path="${f.path}"><i class="fas fa-plus"></i> ${f.addLabel || '추가'}</button></div>`;
       }
       default:
         return `<div class="cms-field">${label}<input class="cms-input" ${attrs} value="${esc(val)}"></div>`;
@@ -434,7 +515,7 @@
     if (el.dataset.act === 'filter') {
       if (e.type !== 'input') return;     // blur 시 change 로 목록을 다시 그리면 클릭이 사라짐
       state.filter = el.value;
-      $('#cmsList').innerHTML = listItemsHtml(currentSection());
+      $('#cmsList').innerHTML = currentSection().id === 'blocks' ? blockRowsHtml() : listItemsHtml(currentSection());
       return;
     }
     if (el.dataset.act === 'pick-link') {
@@ -477,8 +558,27 @@
       case 'del':
         if (items[state.index] && confirm(`"${s.title(items[state.index])}" 항목을 삭제할까요?`)) { items.splice(state.index, 1); state.index = Math.max(0, state.index - 1); commit(true); render(); }
         break;
-      case 'sub-add': { const t = currentTarget(); const arr = getPath(t, btn.dataset.path) || []; arr.push({ text: '', link: '', bg: '#2db4a8', color: '#ffffff' }); setPath(t, btn.dataset.path, arr); commit(true); render(); break; }
+      case 'sub-add': {
+        const t = currentTarget();
+        const fdef = (s.fields || []).find(f => f.path === btn.dataset.path);
+        const arr = getPath(t, btn.dataset.path) || [];
+        arr.push(fdef && fdef.create ? fdef.create() : {});
+        setPath(t, btn.dataset.path, arr); commit(true); render(); break;
+      }
       case 'sub-del': { const t = currentTarget(); const arr = getPath(t, btn.dataset.path) || []; arr.splice(+btn.dataset.i, 1); commit(true); render(); break; }
+      case 'sub-up': {
+        const t = currentTarget(); const arr = getPath(t, btn.dataset.path) || []; const k = +btn.dataset.i;
+        if (k > 0) { arr.splice(k - 1, 0, arr.splice(k, 1)[0]); commit(true); render(); }
+        break;
+      }
+      case 'page-open': { const pg = currentItems()[state.index]; if (pg) { commit(true); close(); window.openCustomPage(pg.slug); } break; }
+      case 'page-inline': { const pg = currentItems()[state.index]; if (pg) startInlinePage(state.index); break; }
+      case 'block-hide': {
+        const hb = draft.content.hiddenBlocks || (draft.content.hiddenBlocks = []);
+        const key = btn.dataset.key; const k = hb.indexOf(key);
+        if (k >= 0) hb.splice(k, 1); else hb.push(key);
+        commit(true); render(); break;
+      }
       case 'upload': pickAndUpload(btn.dataset.accept, path => {
         const input = document.getElementById(btn.dataset.for);
         input.value = path;
@@ -555,29 +655,45 @@
         <h3>무엇을 어디서 고치나요?</h3>
         <ul class="cms-guide-list">
           <li><b>메인 배너 · 공지사항 · 유학 주요자료 · 공식 사이트</b> — 홈 화면 목록</li>
+          <li><b>아이콘 메뉴 · 오른쪽 위젯 버튼 · 전체메뉴 · 푸터 링크 · 관련기관</b> — 메뉴 이름·순서·링크 추가/삭제</li>
+          <li><b>추가 페이지</b> — 새 페이지를 만들어 메뉴·배너에 연결 (예: 연간 준비 계획)</li>
           <li><b>대학정보 · 모집요강</b> — 대학 목록과 "招生简章 확인" 창 (접수 기간·HSK·신청비·학비 등)</li>
           <li><b>학과정보 · 전형정보 · 유학자료실</b> — 각 메뉴의 표와 카드 (자료실은 파일 업로드 가능)</li>
           <li><b>기본 설정</b> — 로고, 상담 전화, 푸터, 모집요강 기준 문구</li>
-          <li><b>페이지 문구</b> — CSCA 안내, 입시가이드, 각종 가이드 창 등 나머지 모든 글. 화면에서 바로 고칠 수 있습니다.</li>
+          <li><b>페이지 문구 · 위젯 내용</b> — 각 페이지 제목·본문, CSCA 안내, 입시가이드, 오른쪽 위젯 창의 탭별 내용 등 나머지 모든 글. 화면에서 바로 고치거나 숨길 수 있습니다.</li>
           <li><b>파일 업로드</b> — 이미지·PDF를 올리고 경로를 복사해 어디서든 사용</li>
         </ul>
       </div>`;
   };
 
   /* ---------- 페이지 문구 블록 ---------- */
-  VIEWS.blocks = () => {
+  function blockRowsHtml() {
     const blocks = draft.content.blocks || (draft.content.blocks = {});
+    const hidden = new Set(draft.content.hiddenBlocks || []);
+    const f = state.filter.trim().toLowerCase();
+    let lastGroup = '';
     const rows = $$('[data-cms-block]').map(el => {
       const key = el.dataset.cmsBlock;
+      const label = el.dataset.cmsLabel || key;
+      if (f && !(label + key).toLowerCase().includes(f)) return '';
+      const [group, name] = label.includes(' · ') ? label.split(' · ') : ['기타', label];
+      const head = group !== lastGroup ? `<div class="cms-block-group">${esc(group)}</div>` : '';
+      lastGroup = group;
       const changed = Object.prototype.hasOwnProperty.call(blocks, key);
-      return `<div class="cms-block-row${state.blockKey === key ? ' active' : ''}">
-        <div class="cms-block-name">${esc(el.dataset.cmsLabel || key)} ${changed ? '<span class="cms-badge">수정됨</span>' : ''}</div>
+      const isHidden = hidden.has(key);
+      return `${head}<div class="cms-block-row${state.blockKey === key ? ' active' : ''}${isHidden ? ' is-hidden' : ''}">
+        <div class="cms-block-name">${esc(name)} ${changed ? '<span class="cms-badge">수정됨</span>' : ''}${isHidden ? '<span class="cms-badge gray">숨김</span>' : ''}</div>
         <div class="cms-block-acts">
           <button class="cms-btn sm primary" data-act="block-inline" data-key="${esc(key)}"><i class="fas fa-mouse-pointer"></i> 화면에서 편집</button>
           <button class="cms-btn sm" data-act="block-edit" data-key="${esc(key)}"><i class="fas fa-code"></i> HTML</button>
+          <button class="cms-btn sm" data-act="block-hide" data-key="${esc(key)}" title="사이트에서 이 영역을 숨기거나 다시 보이기"><i class="fas ${isHidden ? 'fa-eye' : 'fa-eye-slash'}"></i> ${isHidden ? '보이기' : '숨기기'}</button>
           ${changed ? `<button class="cms-btn sm danger" data-act="block-reset" data-key="${esc(key)}"><i class="fas fa-undo"></i> 원래대로</button>` : ''}
         </div></div>`;
     }).join('');
+    return rows || '<div class="cms-empty">찾는 영역이 없습니다.</div>';
+  }
+  VIEWS.blocks = () => {
+    const blocks = draft.content.blocks || (draft.content.blocks = {});
     let editor = '';
     if (state.blockKey) {
       const key = state.blockKey;
@@ -586,15 +702,17 @@
         <textarea class="cms-input cms-code" id="cmsBlockHtml" rows="18">${esc(html)}</textarea>
         <div class="cms-actions"><button class="cms-btn primary" data-act="block-save"><i class="fas fa-check"></i> 적용</button><button class="cms-btn" data-act="block-cancel">닫기</button></div></div>`;
     }
-    return `<div class="cms-help">CSCA 안내·입시가이드·가이드 창 등 목록이 아닌 모든 글입니다. <b>화면에서 편집</b>을 누르면 해당 페이지가 열리고 점선 영역의 글을 바로 고칠 수 있습니다.
-      (굵게·링크·이미지 넣기 지원) 복잡한 표나 레이아웃은 <b>HTML</b>로 고치세요.</div>
-      ${editor}<div class="cms-card cms-block-list">${rows}</div>`;
+    return `<div class="cms-help">목록이 아닌 모든 글입니다 — 각 페이지 제목과 본문, CSCA 안내, 입시가이드, 오른쪽 위젯 창(CSCA·자격요건·초보자·HSK·서류준비 가이드)의 탭별 내용 등.
+      <b>화면에서 편집</b>을 누르면 해당 화면이 열리고 점선 영역을 바로 고칠 수 있습니다 (굵게·링크·이미지 넣기). 복잡한 표는 <b>HTML</b>로 고치고, 필요 없는 영역은 <b>숨기기</b>로 지울 수 있습니다.</div>
+      ${editor}<input class="cms-input cms-filter" data-act="filter" placeholder="영역 찾기 (예: HSK, 초보자, CSCA)" value="${esc(state.filter)}" style="margin-bottom:12px;">
+      <div class="cms-card cms-block-list" id="cmsList">${blockRowsHtml()}</div>`;
   };
   /* 편집기가 남기는 흔적(빈 style, contenteditable)을 지워 비교·저장 */
   function normalizeHtml(html) {
     const t = document.createElement('template');
     t.innerHTML = html == null ? '' : html;
-    t.content.querySelectorAll('[style=""]').forEach(e => e.removeAttribute('style'));
+    // 브라우저가 편집 중 style 표기를 바꾸므로(margin:0 → margin: 0px) 같은 형식으로 맞춤
+    t.content.querySelectorAll('[style]').forEach(e => { const css = e.style.cssText; if (css) e.setAttribute('style', css); else e.removeAttribute('style'); });
     t.content.querySelectorAll('[contenteditable]').forEach(e => e.removeAttribute('contenteditable'));
     return t.innerHTML;
   }
@@ -626,11 +744,11 @@
     document.addEventListener('selectionchange', () => {
       if (!inlineMode) return;
       const sel = window.getSelection();
-      if (sel.rangeCount && sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest('[data-cms-block]')) savedRange = sel.getRangeAt(0).cloneRange();
+      if (sel.rangeCount && sel.anchorNode && sel.anchorNode.parentElement && sel.anchorNode.parentElement.closest('[data-cms-block], #customBody[contenteditable]')) savedRange = sel.getRangeAt(0).cloneRange();
     });
     // 편집 중에는 블록 안의 링크·버튼이 동작하지 않도록 막음 (글자 선택만 가능)
     window.addEventListener('click', e => {
-      if (inlineMode && !e.target.closest('#cmsInlineBar') && e.target.closest('[data-cms-block]')) { e.preventDefault(); e.stopPropagation(); }
+      if (inlineMode && !e.target.closest('#cmsInlineBar') && e.target.closest('[data-cms-block], #customBody[contenteditable]')) { e.preventDefault(); e.stopPropagation(); }
     }, true);
   }
   function restoreRange() {
@@ -643,46 +761,76 @@
   function navigateToBlock(key) {
     const el = document.querySelector(`[data-cms-block="${CSS.escape(key)}"]`);
     if (!el) return null;
-    if (el.closest('#guideModalOverlay')) openGuideModal();
-    else if (el.closest('#noviceModalOverlay')) openNoviceGuide();
-    else if (el.closest('#docsModalOverlay')) openDocsGuide();
-    else {
+    const modal = el.closest('.guide-modal-overlay, .novice-modal-overlay, .docs-modal-overlay');
+    if (modal) {
+      const pane = el.closest('.w-pane');
+      window.openWidget(modal.id, pane ? [...modal.querySelectorAll('.w-pane')].indexOf(pane) : 0);
+    } else {
       const page = el.closest('.info-overlay, .job-overlay');
       if (page) openPage(page.id); else showHome();
     }
     setTimeout(() => el.scrollIntoView({ block: 'center' }), 80);
     return el;
   }
-  function startInline(key) {
+  let inlinePage = -1;          // 추가 페이지를 화면에서 편집 중이면 그 목록 번호
+  function beginInline() {
     hideRoot();
     inlineMode = true;
     document.body.classList.add('cms-open', 'cms-inline');
     document.body.style.overflow = '';
+    $('#cmsInlineBar').classList.add('show');
+  }
+  function startInline(key) {
+    beginInline();
+    inlinePage = -1;
     window.applyBlocks();
     $$('[data-cms-block]').forEach(el => el.setAttribute('contenteditable', 'true'));
-    $('#cmsInlineBar').classList.add('show');
     navigateToBlock(key);
   }
+  function startInlinePage(index) {
+    const pg = (draft.content.pages || [])[index];
+    if (!pg || !pg.slug) { toast('페이지 주소를 먼저 입력하세요.', 'error'); return; }
+    commit(true);
+    window.openCustomPage(pg.slug);
+    if (!document.getElementById('customOverlay').classList.contains('open')) { toast('페이지를 열 수 없습니다. "공개"를 켜고 주소를 확인하세요.', 'error'); return; }
+    beginInline();
+    inlinePage = index;
+    const body = document.getElementById('customBody');
+    body.setAttribute('contenteditable', 'true');
+    body.focus();
+  }
   function finishInline(save) {
-    const blocks = draft.content.blocks || (draft.content.blocks = {});
     let n = 0;
-    $$('[data-cms-block]').forEach(el => {
-      el.removeAttribute('contenteditable');
-      if (!save) return;
-      const key = el.dataset.cmsBlock;
-      const html = normalizeHtml(el.innerHTML);
-      const before = normalizeHtml(Object.prototype.hasOwnProperty.call(blocks, key) ? blocks[key] : BLOCK_DEFAULTS[key]);
-      if (html === before) return;
-      n++;
-      if (html === normalizeHtml(BLOCK_DEFAULTS[key])) delete blocks[key]; else blocks[key] = html;
-    });
+    if (inlinePage >= 0) {
+      const body = document.getElementById('customBody');
+      body.removeAttribute('contenteditable');
+      const pg = (draft.content.pages || [])[inlinePage];
+      if (save && pg) {
+        const html = normalizeHtml(body.innerHTML);
+        if (html !== normalizeHtml(pg.html)) { pg.html = html; n = 1; }
+      }
+    } else {
+      const blocks = draft.content.blocks || (draft.content.blocks = {});
+      $$('[data-cms-block]').forEach(el => {
+        el.removeAttribute('contenteditable');
+        if (!save) return;
+        const key = el.dataset.cmsBlock;
+        const html = normalizeHtml(el.innerHTML);
+        const before = normalizeHtml(Object.prototype.hasOwnProperty.call(blocks, key) ? blocks[key] : BLOCK_DEFAULTS[key]);
+        if (html === before) return;
+        n++;
+        if (html === normalizeHtml(BLOCK_DEFAULTS[key])) delete blocks[key]; else blocks[key] = html;
+      });
+    }
+    const wasPage = inlinePage >= 0;
     inlineMode = false;
+    inlinePage = -1;
     savedRange = null;
     $('#cmsInlineBar').classList.remove('show');
     document.body.classList.remove('cms-inline');
-    if (save) commit(true); else window.applyBlocks();
-    closeGuideModal(); closeNoviceGuide(); closeDocsGuide();
-    state.section = 'blocks';
+    if (save) commit(true); else window.setSiteContent(draft.content);
+    ['guideModalOverlay', 'noviceModalOverlay', 'docsModalOverlay', 'hskModalOverlay', 'cscaModalOverlay'].forEach(id => window.closeWidget(id));
+    state.section = wasPage ? 'pages' : 'blocks';
     open();
     if (save) toast(n ? `${n}개 영역을 저장했습니다. 게시하기를 눌러야 방문자에게 보입니다.` : '바뀐 내용이 없습니다.');
   }
@@ -777,6 +925,12 @@
     });
     (content.admissions || []).forEach(a => { if (!cns.has(a.univ)) problems.push(`전형정보 "${a.univ || '(대학 미선택)'} · ${a.course}"의 대학을 찾을 수 없습니다.`); });
     (content.depts || []).forEach(d => { if (!cns.has(d.univ)) problems.push(`학과정보 "${d.ko}"의 대학을 찾을 수 없습니다.`); });
+    const slugs = new Set();
+    (content.pages || []).forEach(pg => {
+      if (!/^[a-z0-9-]+$/.test(pg.slug || '')) problems.push(`추가 페이지 "${pg.title}"의 주소는 영문 소문자·숫자·하이픈만 쓸 수 있습니다.`);
+      else if (slugs.has(pg.slug)) problems.push(`추가 페이지 주소 "${pg.slug}"가 중복됩니다.`);
+      slugs.add(pg.slug);
+    });
     return problems;
   }
 

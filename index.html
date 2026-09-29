@@ -1232,54 +1232,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   <div class="nav-hamburger" id="menuBtn" onclick="toggleMenu()">
     <i class="fas fa-bars"></i>
   </div>
-  <div class="icon-nav-item" onclick="openJobModal()" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-briefcase"></i></div>
-    <span class="nav-label">직업정보</span>
-  </div>
-  <div class="icon-nav-item" onclick="openUnivModal()" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-university"></i></div>
-    <span class="nav-label">대학정보</span>
-  </div>
-  <div class="icon-nav-item" onclick="openDeptModal()" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-book-open"></i></div>
-    <span class="nav-label">학과정보</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('admOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-file-alt"></i></div>
-    <span class="nav-label">전형정보</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('cscaOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-pen-alt"></i></div>
-    <span class="nav-label">CSCA 시험</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('admGuideOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-compass"></i></div>
-    <span class="nav-label">입시가이드</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('univGradeOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-chart-pie"></i></div>
-    <span class="nav-label">합격분석</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('gradeOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-chart-bar"></i></div>
-    <span class="nav-label">성적입력</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('dataOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-database"></i></div>
-    <span class="nav-label">유학자료실</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('compOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-comments"></i></div>
-    <span class="nav-label">서류·면접상담</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPage('consultOverlay')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-clipboard-list"></i></div>
-    <span class="nav-label">유학상담</span>
-  </div>
-  <div class="icon-nav-item" onclick="openPageAt('admGuideOverlay','ag-schedule')" style="cursor:pointer;">
-    <div class="icon-circle"><i class="fas fa-calendar-alt"></i></div>
-    <span class="nav-label">전형일정</span>
-  </div>
+  <div id="navItems" class="nav-items"></div>
   <div class="icon-nav-item" onclick="openCms()" style="cursor:pointer;" title="사이트 콘텐츠 관리(CMS)">
     <div class="icon-circle"><i class="fas fa-cogs"></i></div>
     <span class="nav-label">메뉴편집</span>
@@ -1307,7 +1260,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <div class="login-sidebar">
       <!-- 로그인 전 상태 -->
       <div id="loginBeforeBox" style="width:100%;display:flex;flex-direction:column;align-items:center;">
-        <div class="login-greeting">만나서 반가워요!</div>
+        <div class="login-greeting" data-cms-block="home-greeting" data-cms-label="홈 · 로그인 인사말">만나서 반가워요!</div>
         <div class="login-avatar"><i class="fas fa-user"></i></div>
         <button class="login-btn" onclick="openPage('loginOverlay')">로그인</button>
         <div class="login-links">
@@ -1527,12 +1480,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 </div>
 
 <!-- FLOATING SIDE BUTTONS -->
-<div class="side-floating">
-  <div class="side-float-btn" onclick="openPage('cscaOverlay')">CSCA<br>가이드</div>
-  <div class="side-float-btn" onclick="openGuideModal()">자격요건<br>가이드</div>
-  <div class="side-float-btn" onclick="openNoviceGuide()">초보자<br>가이드</div>
-  <div class="side-float-btn" onclick="window.open('https://www.youtube.com/results?search_query=HSK+시험+준비','_blank')">HSK<br>준비<br>가이드</div>
-  <div class="side-float-btn" onclick="openDocsGuide()">서류준비<br>가이드</div>
+<div class="side-floating" id="sideFloating"></div>
 </div>
 
 
@@ -1741,7 +1689,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <button class="job-modal-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
     </div>
 
-    <div class="job-modal-hero">
+    <div class="job-modal-hero" data-cms-block="hero-jobOverlay" data-cms-label="직업정보 · 페이지 제목">
       <h1>직업정보</h1>
     </div>
 
@@ -2296,7 +2244,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>대학정보</h1></div>
+  <div class="info-hero" data-cms-block="hero-univOverlay" data-cms-label="대학정보 · 페이지 제목"><h1>대학정보</h1></div>
 
   <div class="info-body">
     <!-- 필터 -->
@@ -2362,7 +2310,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>학과정보</h1></div>
+  <div class="info-hero" data-cms-block="hero-deptOverlay" data-cms-label="학과정보 · 페이지 제목"><h1>학과정보</h1></div>
 
   <div class="info-body">
     <!-- 필터 -->
@@ -2529,7 +2477,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">본과(학부)</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>전형정보</h1></div>
+  <div class="info-hero" data-cms-block="hero-admOverlay" data-cms-label="전형정보 · 페이지 제목"><h1>전형정보</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div class="tab-row">
@@ -2582,7 +2530,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">고교 성적 · HSK</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>고교 성적 · CSCA · HSK 입력</h1></div>
+  <div class="info-hero" data-cms-block="hero-gradeOverlay" data-cms-label="성적입력 · 페이지 제목"><h1>고교 성적 · CSCA · HSK 입력</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div style="border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:14px;background:#fff;">
@@ -2613,7 +2561,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       </div>
       <button class="bookmark-btn" onclick="openPage('univGradeOverlay')">합격분석</button>
     </div>
-    <div class="info-table-area">
+    <div class="info-table-area" data-cms-block="grade-body" data-cms-label="성적입력 · 본문">
       <div style="background:#e8f5f4;padding:14px 18px;border-radius:8px;margin-bottom:18px;font-size:13px;color:#333;">
         <strong>오병수</strong>님 반갑습니다. 대학별 합격분석을 위해서는 <a href="#" style="color:#2db4a8;font-weight:600;">고교 성적 · CSCA · HSK 입력</a>이 필요합니다. (입력 가이드를 참고해주세요.) →
         <button style="float:right;padding:6px 14px;border:1px solid #ccc;border-radius:20px;background:#fff;font-size:12px;cursor:pointer;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;" onclick="openGuideModal()">성적 입력 가이드</button>
@@ -2678,7 +2626,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">유학자료실</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>유학자료실</h1></div>
+  <div class="info-hero" data-cms-block="hero-dataOverlay" data-cms-label="유학자료실 · 페이지 제목"><h1>유학자료실</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div class="filter-box"><label>입학연도</label><select style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"><option>전체</option><option>2027년 9월 입학</option><option>2028년 9월 입학</option></select></div>
@@ -2705,7 +2653,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">서류·면접 상담</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>서류·면접 상담</h1></div>
+  <div class="info-hero" data-cms-block="hero-compOverlay" data-cms-label="서류·면접 상담 · 페이지 제목"><h1>서류·면접 상담</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <select class="consult-filter-select"><option>학업계획서</option><option>추천서</option><option>면접 준비</option><option>필기시험</option></select>
@@ -2750,7 +2698,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">온라인 유학상담</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>온라인 유학상담</h1></div>
+  <div class="info-hero" data-cms-block="hero-consultOverlay" data-cms-label="온라인 유학상담 · 페이지 제목"><h1>온라인 유학상담</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <select class="consult-filter-select"><option>제목</option></select>
@@ -2822,7 +2770,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">중국어 과정</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero"><h1>대학별 합격분석</h1></div>
+  <div class="info-hero" data-cms-block="hero-univGradeOverlay" data-cms-label="합격분석 · 페이지 제목"><h1>대학별 합격분석</h1></div>
   <div class="info-body">
     <div class="info-filter">
       <div class="filter-box"><label>학과</label><input type="text" placeholder="전공 키워드" style="width:100%;padding:8px;border:1px solid #ddd;border-radius:6px;font-size:13px;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;"></div>
@@ -2988,7 +2936,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">CSCA 시험 안내</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero">
+  <div class="info-hero" data-cms-block="hero-cscaOverlay" data-cms-label="CSCA 시험 안내 · 페이지 제목">
     <h1>CSCA 시험 안내</h1>
     <div class="hero-sub">来华留学本科入学学业水平测试 · China Scholastic Competency Assessment</div>
   </div>
@@ -3011,7 +2959,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <div class="cg-finder-result" id="cscaFinderResult"></div>
       </div>
       <button class="bookmark-btn" onclick="window.open('https://www.csca.cn','_blank')">CSCA 공식 사이트 (csca.cn) <i class="fas fa-external-link-alt" style="font-size:11px;"></i></button>
-      <div class="cg-nav">
+      <div class="cg-nav" data-cms-block="csca-side-nav" data-cms-label="CSCA · 왼쪽 바로가기">
         <div class="cg-nav-title">바로가기</div>
         <a href="#" onclick="scrollToSection('csca-about');return false;"><i class="fas fa-info-circle"></i> 시험 개요</a>
         <a href="#" onclick="scrollToSection('csca-subjects');return false;"><i class="fas fa-list-ol"></i> 시험 과목</a>
@@ -3144,13 +3092,13 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <span class="bc-sep">›</span><span class="bc-cur">입시 핵심가이드</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero">
+  <div class="info-hero" data-cms-block="hero-admGuideOverlay" data-cms-label="입시 핵심가이드 · 페이지 제목">
     <h1>중국 유학 입시 핵심가이드</h1>
     <div class="hero-sub">입시에서 무엇을 봐야 하는지 · 언제 무엇을 준비해야 하는지 한눈에</div>
   </div>
   <div class="info-body">
     <div class="info-filter">
-      <div class="cg-nav">
+      <div class="cg-nav" data-cms-block="ag-side-nav" data-cms-label="입시가이드 · 왼쪽 목차">
         <div class="cg-nav-title">목차</div>
         <a href="#" onclick="scrollToSection('ag-key');return false;"><i class="fas fa-bullseye"></i> 핵심 심사 요소</a>
         <a href="#" onclick="scrollToSection('ag-top');return false;"><i class="fas fa-balance-scale"></i> 명문대 전형 비교</a>
@@ -3427,6 +3375,30 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 </div>
 
 
+<!-- ===== 추가 페이지 (CMS에서 만든 페이지) ===== -->
+<style>
+.custom-page { max-width: 1100px; margin: 0 auto; padding: 26px 40px 40px; }
+.custom-page-body { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 28px 30px; font-size: 14px; color: #333; line-height: 1.8; }
+.custom-page-body h2 { font-size: 20px; font-weight: 800; margin: 18px 0 10px; color: #222; }
+.custom-page-body h3 { font-size: 16px; font-weight: 800; margin: 14px 0 8px; color: #222; }
+.custom-page-body p { margin-bottom: 10px; }
+.custom-page-body ul, .custom-page-body ol { padding-left: 22px; margin-bottom: 10px; }
+.custom-page-body img { max-width: 100%; border-radius: 8px; }
+.custom-page-body a { color: #00796b; text-decoration: underline; }
+.nav-items, .footer-link-list { display: contents; }
+.menu-links .menu-link-off { color: #aaa; cursor: default; }
+.cms-hidden { display: none !important; }
+</style>
+<div class="info-overlay" id="customOverlay">
+  <div class="info-topbar">
+    <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
+    <span class="bc-sep">›</span><span class="bc-cur" id="customCrumb"></span>
+    <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
+  </div>
+  <div class="info-hero"><h1 id="customTitle"></h1><div class="hero-sub" id="customSub"></div></div>
+  <div class="custom-page"><div class="custom-page-body" id="customBody"></div></div>
+</div>
+
 <!-- ===== 로그인 페이지 ===== -->
 <style>
 .login-page { display: flex; justify-content: center; padding: 60px 20px; }
@@ -3460,7 +3432,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
   <div class="login-page">
-    <div class="login-box">
+    <div class="login-box" data-cms-block="login-box" data-cms-label="로그인 · 로그인 상자">
       <h1>로그인</h1>
       <input type="text" class="login-field" placeholder="아이디 입력">
       <div class="login-field-wrap">
@@ -3743,14 +3715,16 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
     </div>
 
     <div class="guide-tabs-row">
-      <button class="guide-tab-btn active" onclick="switchGuideTab(this, 0)">유학생 자격요건 입력 가이드</button>
-      <button class="guide-tab-btn" onclick="switchGuideTab(this, 1)">국적·해외거주기간 입력 가이드</button>
-      <button class="guide-tab-btn" onclick="switchGuideTab(this, 2)">학력증빙서류 OCR 입력 가이드</button>
-      <button class="guide-tab-btn" onclick="switchGuideTab(this, 3)">고교 성적·HSK 입력 가이드</button>
-      <button class="guide-tab-btn guide-tab-full" onclick="switchGuideTab(this, 4)">서류 HTML 입력 가이드</button>
+      <button class="guide-tab-btn active" data-tab-btn onclick="switchWidgetTab('guideModalOverlay', 0)">유학생 자격요건 입력 가이드</button>
+      <button class="guide-tab-btn" data-tab-btn onclick="switchWidgetTab('guideModalOverlay', 1)">국적·해외거주기간 입력 가이드</button>
+      <button class="guide-tab-btn" data-tab-btn onclick="switchWidgetTab('guideModalOverlay', 2)">학력증빙서류 OCR 입력 가이드</button>
+      <button class="guide-tab-btn" data-tab-btn onclick="switchWidgetTab('guideModalOverlay', 3)">고교 성적·HSK 입력 가이드</button>
+      <button class="guide-tab-btn guide-tab-full" data-tab-btn onclick="switchWidgetTab('guideModalOverlay', 4)">학생부·증명서 온라인 발급 가이드</button>
     </div>
 
-    <div class="guide-section" id="guideContent" data-cms-block="guide-content" data-cms-label="자격요건 가이드 · 본문">
+    <div class="guide-section" id="guideContent">
+      <div class="w-pane active">
+      <div data-cms-block="guide-tab-0" data-cms-label="자격요건 가이드 · 자격요건 입력">
       <h2>유학생 자격요건 입력 가이드</h2>
 
       <div class="guide-form-demo" style="background:#f0faf9;border-color:#c8ebe8;">
@@ -3761,11 +3735,11 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
           <li><strong>CSCA</strong> : 중국정부장학금 지원자 필수, 자비생도 요구 대학 확대 중(2028년 전면 예정) — 수학(전원), 전문 중국어(중국어 授课), 물리·화학(이공·농·의학 계열 최소 1과목)</li>
           <li><strong>어학</strong> : 중국어 과정은 HSK 성적(대학·전공별 보통 4~6급), 영어 과정은 IELTS·TOEFL 등 영어 성적</li>
           <li><strong>국적 심사</strong> : 한국 출생·한국 국적만 보유한 경우 보통 출생증명서(기본증명서)와 부모 국적 서류만 제출</li>
-          <li><strong>국적·거주 요건</strong> : 중국 국적이었다가 외국 국적을 취득한 경우, 퇴적증명·호적말소증명 + 외국 국적(여권) 보유 <strong>4년 이상</strong> + 최근 4년 중 <strong>2년 이상 해외 실거주</strong>(1년 중 9개월 이상 체류 시 1년 인정, 출입국기록 기준)</li>
+          <li><strong>국적·거주 요건</strong> : ① 중국 국적이었다가 이민 등으로 외국 국적을 취득한 경우, ② 부모 중 한 명 이상이 중국 공민이고 본인은 출생 시 외국 국적인 경우 → 외국 국적(여권) 보유 <strong>4년 이상</strong> + 최근 4년(입학 연도 4월 30일까지) 중 <strong>2년 이상 해외 실거주</strong>(1년 중 9개월 이상 체류 시 1년 인정, 출입국기록 기준). ①은 퇴적증명·호적말소증명도 제출</li>
           <li><strong>미성년자</strong> : 입학 시 만 18세 미만이면 중국 내 보호자(监护人) 관련 서류가 필요</li>
           <li><strong>건강</strong> : 외국인 체격검사(外国人体格检查) 기준 충족</li>
         </ul>
-        <div style="font-size:12px;color:#e53935;margin-top:8px;"><i class="fas fa-exclamation-circle"></i> 부모 중 한 명 이상이 중국 국적인 경우 등은 대학별로 추가 서류·심사가 있을 수 있으니 모집요강을 꼭 확인하세요.</div>
+        <div style="font-size:12px;color:#e53935;margin-top:8px;"><i class="fas fa-exclamation-circle"></i> 위 국적·거주 요건은 중국 교육부 教外函〔2020〕12号 기준이며, 대학별 추가 서류·심사가 있을 수 있으니 모집요강을 꼭 확인하세요.</div>
       </div>
 
       <div class="guide-method-title"><i class="fas fa-play-circle"></i> 방법1) 자격요건 직접입력 방법</div>
@@ -3872,7 +3846,7 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <i class="fas fa-lightbulb"></i>
         <div>
           <strong>TIP.</strong> 중국 대학 유학생 지원자격은 대학별로 상이할 수 있습니다.<br>
-          중국 국적을 보유했던 적이 있다면(귀화·이민 등) <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 반드시 확인 후 입력해주세요.<br>
+          중국 국적을 보유했던 적이 있거나 부모 중 중국 공민이 있다면 <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 반드시 확인 후 입력해주세요. ('국적·해외거주기간 입력 가이드' 탭의 계산기 참고)<br>
           입력한 자격요건은 <strong>입력한 자격요건 다운로드</strong> 버튼으로 백업할 수 있습니다.
         </div>
       </div>
@@ -3893,31 +3867,133 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
         <span class="guide-step-text">파일 업로드</span>
         <div class="guide-step-desc"><strong>입력한 자격요건 업로드</strong> 버튼으로 작성한 Excel 파일을 업로드하면 자동으로 입력이 완료됩니다.</div>
       </div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="guide-tab-1" data-cms-label="자격요건 가이드 · 국적·해외거주기간">
+        <h2>국적·해외거주기간 입력 가이드</h2>
+        <div class="guide-form-demo" style="background:#f0faf9;border-color:#c8ebe8;">
+          <h3>이런 경우 '외국 국적 4년 · 해외 거주 2년' 요건이 적용됩니다</h3>
+          <ul style="font-size:13px;color:#444;line-height:1.9;padding-left:20px;">
+            <li><strong>① 이민형</strong> : 중국(대륙·홍콩·마카오·대만) 주민이었다가 이민 등으로 외국 국적을 취득한 경우</li>
+            <li><strong>② 출생형</strong> : 부모 중 한 명 이상이 중국 공민이고, 본인은 태어날 때부터 외국 국적인 경우</li>
+            <li>요건 : 유효한 외국 여권(국적) <strong>4년 이상</strong> 보유 + 최근 4년(입학 연도 <strong>4월 30일</strong>까지) 중 <strong>2년 이상 해외 실거주</strong></li>
+            <li>1년 중 해외에 <strong>9개월 이상</strong> 머물렀으면 1년으로 인정하며, 출입국 기록으로 확인합니다.</li>
+          </ul>
+          <div style="font-size:12px;color:#666;margin-top:6px;">근거: 중국 교육부 「고등학교 국제학생 접수 업무 규범에 관한 통지」(教外函〔2020〕12号, 2021년 입학부터 적용). 부모와 본인 모두 한국 국적만 가진 한국 출생 학생은 해당되지 않습니다.</div>
+        </div>
+
+        <table class="cg-table" style="margin-bottom:18px;">
+          <thead><tr><th>유형</th><th>해당 학생</th><th>주요 제출 서류</th></tr></thead>
+          <tbody>
+            <tr><td class="name">CASE A</td><td class="left">한국 출생 · 본인과 부모 모두 한국 국적</td><td class="left">여권 사본, 영문 기본증명서·가족관계증명서, 부모 여권 사본</td></tr>
+            <tr><td class="name">CASE B</td><td class="left">① 이민형 (중국 국적 → 외국 국적)</td><td class="left">CASE A 서류 + 퇴적증명(退籍证明)·호적말소증명(户口注销证明) + 출입국사실증명서</td></tr>
+            <tr><td class="name">CASE C</td><td class="left">② 출생형 (부모 중 중국 공민 있음)</td><td class="left">CASE A 서류 + 부모 국적 증빙 + 출입국사실증명서 (대학별 추가 서류 가능)</td></tr>
+          </tbody>
+        </table>
+
+        <div class="guide-method-title"><i class="fas fa-play-circle"></i> 해외 거주기간 계산 방법</div>
+        <div class="guide-step"><span class="guide-step-num">01</span><span class="guide-step-text">출입국사실증명서 발급</span>
+          <div class="guide-step-desc"><strong>정부24</strong>에서 '출입국에 관한 사실증명'을 온라인으로 무료 발급할 수 있고, 영문 또는 국·영문 병기를 선택할 수 있습니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">02</span><span class="guide-step-text">최근 4년을 1년씩 나누기</span>
+          <div class="guide-step-desc">입학 연도 4월 30일부터 거꾸로 1년씩 4구간으로 나눕니다. 예) 2027년 9월 입학 → 2023.05.01~2024.04.30, 2024.05.01~2025.04.30, 2025.05.01~2026.04.30, 2026.05.01~2027.04.30</div></div>
+        <div class="guide-step"><span class="guide-step-num">03</span><span class="guide-step-text">구간별 해외 체류 일수 합산</span>
+          <div class="guide-step-desc">각 구간에서 해외(중국 외 지역)에 머문 날을 더해 <strong>9개월(약 270일) 이상</strong>이면 1년으로 인정합니다. 인정 구간이 2개 이상이면 거주 요건을 충족합니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">04</span><span class="guide-step-text">외국 국적 보유 기간 확인</span>
+          <div class="guide-step-desc">외국 국적 취득일(출생형은 생년월일)부터 입학 연도 4월 30일까지 4년 이상인지 확인합니다. 아래 계산기로 바로 확인할 수 있습니다.</div></div>
+        <div class="guide-tip"><i class="fas fa-lightbulb"></i><div><strong>TIP.</strong> 중국 체류 기간이 긴 학생(중국 현지 학교 재학 등)은 거주 요건을 채우지 못하는 경우가 많습니다. 원서 접수 전 출입국 기록으로 미리 계산해 보고, 대학별 추가 요구 서류는 모집요강에서 확인하세요.</div></div>
+      </div>
+      <div class="res-calc" id="residenceCalc">
+        <h3><i class="fas fa-calculator"></i> 국적·거주요건 계산기 <span>참고용</span></h3>
+        <div class="res-calc-row">
+          <label>입학 연도 <select id="rcYear" onchange="updateResidenceCalc()"><option>2027</option><option>2028</option><option>2029</option></select></label>
+          <label>외국 국적 취득일 <small>(출생형은 생년월일)</small> <input type="date" id="rcNat" oninput="updateResidenceCalc()"></label>
+        </div>
+        <table class="res-calc-table"><thead><tr><th>구간</th><th>해외 체류 개월 수</th><th>인정</th></tr></thead><tbody id="rcRows"></tbody></table>
+        <div class="res-calc-result" id="rcResult"></div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="guide-tab-2" data-cms-label="자격요건 가이드 · 학력증빙서류">
+        <h2>학력증빙서류 OCR 입력 가이드</h2>
+        <div class="guide-form-demo" style="background:#f0faf9;border-color:#c8ebe8;">
+          <h3>준비할 학력증빙서류</h3>
+          <table class="cg-table">
+            <thead><tr><th>서류</th><th>대상</th><th>발급·준비</th></tr></thead>
+            <tbody>
+              <tr><td class="name">졸업(예정)증명서</td><td class="left">모든 지원자</td><td class="left">재학·졸업 학교 행정실(영문 발급 가능 여부 확인). 졸업예정자는 입학 전 졸업증명서 추가 제출</td></tr>
+              <tr><td class="name">성적증명서 (전 학년)</td><td class="left">모든 지원자</td><td class="left">고1~고3 전 과목. 영문 성적증명서 또는 중·영문 번역공증본</td></tr>
+              <tr><td class="name">학교생활기록부</td><td class="left">국내 고교 재학·졸업생</td><td class="left">정부24에서 발급 후 PDF 저장 (주민등록번호 뒷자리 비공개 처리본)</td></tr>
+              <tr><td class="name">검정고시 합격·성적증명서</td><td class="left">검정고시 출신</td><td class="left">관할 교육청 또는 정부24</td></tr>
+              <tr><td class="name">해외·국제학교 서류</td><td class="left">해외 고교·국제학교</td><td class="left">학교 발급 졸업장·성적표 원본 스캔 (IB·AP·A-Level 성적표 포함)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="guide-method-title"><i class="fas fa-play-circle"></i> 스캔·업로드 요령</div>
+        <div class="cg-cards">
+          <div class="cg-card"><div class="cg-card-title">선명하게</div><div class="cg-card-desc">컬러, 300dpi 이상으로 스캔하고 도장·서명·아포스티유 인증서가 잘 보이게 합니다.</div></div>
+          <div class="cg-card"><div class="cg-card-title">한 파일로</div><div class="cg-card-desc">증명서 + 번역본 + 아포스티유를 순서대로 묶어 PDF 한 파일로 만듭니다. 대학 시스템의 용량 제한을 확인하세요.</div></div>
+          <div class="cg-card"><div class="cg-card-title">파일 이름</div><div class="cg-card-desc">여권 영문 이름_서류명.pdf (예: HONG_GILDONG_Transcript.pdf)처럼 알아보기 쉽게 붙입니다.</div></div>
+          <div class="cg-card"><div class="cg-card-title">원본 보관</div><div class="cg-card-desc">입학 후 원본 확인을 요구하는 대학이 많으니 원본과 인증본을 따로 보관합니다.</div></div>
+        </div>
+        <div class="guide-method-title"><i class="fas fa-play-circle"></i> OCR 자동 입력 순서</div>
+        <div class="guide-step"><span class="guide-step-num">01</span><span class="guide-step-text">서류 업로드</span><div class="guide-step-desc">성적입력 화면의 '성적증명서 업로드'에서 PDF 또는 이미지를 올립니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">02</span><span class="guide-step-text">인식 결과 확인</span><div class="guide-step-desc">학교명·학년·학기·과목·등급이 자동으로 채워지면 원본과 한 줄씩 비교합니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">03</span><span class="guide-step-text">수정 후 저장</span><div class="guide-step-desc">잘못 읽힌 값만 고친 뒤 저장하면 합격분석에 반영됩니다.</div></div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="guide-tab-3" data-cms-label="자격요건 가이드 · 고교 성적·HSK">
+        <h2>고교 성적·HSK 입력 가이드</h2>
+        <div class="guide-step"><span class="guide-step-num">01</span><span class="guide-step-text">고교 성적 입력</span>
+          <div class="guide-step-desc">학기별로 과목 성적을 입력합니다. 국내 고교는 등급(1~9등급), 해외 고교는 100점 환산을 선택하세요. 졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지 입력합니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">02</span><span class="guide-step-text">어학·공인시험 입력</span>
+          <div class="guide-step-desc">성적표에 적힌 급수·총점·영역별 점수와 응시일을 그대로 입력합니다.</div></div>
+        <table class="cg-table" style="margin:10px 0 18px;">
+          <thead><tr><th>시험</th><th>입력 항목</th><th>유효기간 (입학 기준)</th></tr></thead>
+          <tbody>
+            <tr><td class="name">HSK</td><td class="left">급수, 총점, 듣기·읽기·쓰기 점수 (HSK 2.0 / 3.0 구분)</td><td>보통 응시일로부터 2년</td></tr>
+            <tr><td class="name">HSKK</td><td class="left">초급·중급·고급, 점수</td><td>보통 2년</td></tr>
+            <tr><td class="name">CSCA</td><td class="left">과목별 점수 (수학·전문 중국어·물리·화학), 시험 언어</td><td>보통 성적 발표일로부터 2년 (공지 확인)</td></tr>
+            <tr><td class="name">IELTS · TOEFL</td><td class="left">총점, 영역별 점수</td><td>2년</td></tr>
+            <tr><td class="name">수능 · SAT · IB · AP</td><td class="left">과목별 점수·등급</td><td>대학별 상이</td></tr>
+          </tbody>
+        </table>
+        <div class="guide-tip"><i class="fas fa-lightbulb"></i><div><strong>HSK 3.0 안내.</strong> 2026년 12월 13일 시험부터 HSK가 3단계 9급 체계(HSK 3.0)로 바뀝니다. 그 전에 본 HSK 2.0 성적도 입력할 수 있으며, 지원 대학이 어느 체계의 몇 급을 요구하는지 모집요강에서 확인하세요.</div></div>
+        <a class="cg-btn solid" href="#" data-link="page:gradeOverlay"><i class="fas fa-chart-bar"></i> 성적 입력 화면 열기</a>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="guide-tab-4" data-cms-label="자격요건 가이드 · 학생부·증명서 발급">
+        <h2>학생부·증명서 온라인 발급 가이드</h2>
+        <table class="cg-table" style="margin-bottom:18px;">
+          <thead><tr><th>서류</th><th>발급처</th><th>안내</th></tr></thead>
+          <tbody>
+            <tr><td class="name">학교생활기록부</td><td class="left">정부24</td><td class="left">'학교생활기록부(초·중·고)' 발급 → PDF로 저장. 주민등록번호 뒷자리가 비공개 처리된 파일로 올리세요.</td></tr>
+            <tr><td class="name">출입국사실증명서</td><td class="left">정부24</td><td class="left">온라인 무료 발급. 영문 또는 국·영문 병기 선택 가능</td></tr>
+            <tr><td class="name">기본증명서 · 가족관계증명서 (영문)</td><td class="left">대법원 전자가족관계등록시스템</td><td class="left">여권 영문 이름만 있으면 24시간 무료 발급</td></tr>
+            <tr><td class="name">아포스티유</td><td class="left">외교부 E-아포스티유 (apostille.go.kr)</td><td class="left">대상 공문서는 온라인으로 즉시·무료 발급. 사문서·번역공증본은 공증 후 방문 접수</td></tr>
+            <tr><td class="name">범죄경력회보서</td><td class="left">경찰청</td><td class="left">요구하는 대학·비자 단계에서 준비 (영문 발급 가능 여부 확인)</td></tr>
+          </tbody>
+        </table>
+        <div class="guide-step"><span class="guide-step-num">01</span><span class="guide-step-text">발급 후 PDF로 저장</span><div class="guide-step-desc">화면 출력 대신 'PDF로 저장'을 선택해 원본 파일을 보관합니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">02</span><span class="guide-step-text">업로드</span><div class="guide-step-desc">학생부 PDF를 올리면 과목·등급이 자동으로 읽혀 성적입력에 채워집니다.</div></div>
+        <div class="guide-step"><span class="guide-step-num">03</span><span class="guide-step-text">번역·인증</span><div class="guide-step-desc">한국어 서류는 중·영문 번역과 공증, 필요 시 아포스티유를 받아 대학에 제출합니다.</div></div>
+        <div class="guide-tip"><i class="fas fa-lightbulb"></i><div><strong>TIP.</strong> 대부분의 증명서는 발급일로부터 3~6개월 이내본만 인정합니다. 원서 접수 일정에 맞춰 발급하세요.</div></div>
+      </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-function openGuideModal() {
-  document.getElementById('guideModalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeGuideModal() {
-  document.getElementById('guideModalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function switchGuideTab(btn, idx) {
-  document.querySelectorAll('.guide-tab-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  const titles = [
-    '유학생 자격요건 입력 가이드',
-    '국적·해외거주기간 입력 가이드',
-    '학력증빙서류 OCR 입력 가이드',
-    '고교 성적·HSK 입력 가이드',
-    '서류 HTML 입력 가이드'
-  ];
-  document.querySelector('#guideContent h2').textContent = titles[idx];
-}
+function openGuideModal(tab) { openWidget('guideModalOverlay', tab); }
+function closeGuideModal() { closeWidget('guideModalOverlay'); }
+function switchGuideTab(btn, idx) { switchWidgetTab('guideModalOverlay', idx); }
 </script>
 
 
@@ -4120,106 +4196,173 @@ function switchGuideTab(btn, idx) {
     </div>
 
     <div class="novice-top-tabs">
-      <button class="novice-tab active">회원가입 및 로그인</button>
-      <button class="novice-tab">자격요건 확인</button>
-      <button class="novice-tab">대학/전공 검색</button>
-      <button class="novice-tab">서류준비 안내</button>
-      <button class="novice-tab">유학상담</button>
-      <button class="novice-tab">입학도우미</button>
+      <button class="novice-tab active" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 0)">회원가입 및 로그인</button>
+      <button class="novice-tab" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 1)">자격요건 확인</button>
+      <button class="novice-tab" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 2)">대학/전공 검색</button>
+      <button class="novice-tab" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 3)">서류준비 안내</button>
+      <button class="novice-tab" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 4)">유학상담</button>
+      <button class="novice-tab" data-tab-btn onclick="switchWidgetTab('noviceModalOverlay', 5)">입학도우미</button>
     </div>
 
-    <div data-cms-block="novice-body" data-cms-label="초보자 가이드 · 본문">
+    <div class="w-pane active">
+    <div data-cms-block="novice-tab-0" data-cms-label="초보자 가이드 · 이용 흐름·회원가입">
     <div class="novice-intro">
       <div class="novice-intro-icon"><i class="fas fa-book-reader"></i></div>
       <div class="novice-intro-text">
         중국대학 One Stop 서비스 <strong>제대로 활용하기!</strong>
-        <div class="sub">중국 대학 입시정보는 검색·진단·상담을 거치면 더 정확하게 확인할 수 있습니다.</div>
+        <div class="sub">검색 → 자격 진단 → 상담 3단계로 이용하면 중국 대학 입시 정보를 가장 정확하게 확인할 수 있습니다. 카드를 눌러 단계별 안내를 보세요.</div>
       </div>
     </div>
-
     <div class="novice-steps">
-      <div class="novice-step-card active">
+      <div class="novice-step-card active" onclick="noviceStep(this, 0)">
         <div class="novice-step-icon"><i class="fas fa-search"></i></div>
         <div class="novice-step-title"><strong>1단계</strong> 중국대학 정보 검색</div>
-        <div class="novice-step-desc">
-          국적·학력·HSK 정보를 입력해 본인의 유학생 지원자격을 확인하고, CSCA 응시과목과 자격에 맞는 대학·전공·전형을 검색합니다.
-        </div>
+        <div class="novice-step-desc">국적·학력·HSK 정보로 지원자격을 확인하고, 자격에 맞는 대학·전공·전형과 모집요강을 검색합니다.</div>
       </div>
-      <div class="novice-step-card">
+      <div class="novice-step-card" onclick="noviceStep(this, 1)">
         <div class="novice-step-icon"><i class="fas fa-clipboard-check"></i></div>
         <div class="novice-step-title"><strong>2단계</strong> 자격 진단</div>
-        <div class="novice-step-desc">
-          고교 성적과 CSCA·HSK·수능/SAT 등 성적을 입력하여 대학별 요구 기준 충족 여부를 분석하고, 원하는 대학·전공의 선발방식과 어학 기준을 확인합니다.
-        </div>
+        <div class="novice-step-desc">고교 성적과 CSCA·HSK·SAT 등 성적을 입력해 대학별 요구 기준 충족 여부를 분석합니다.</div>
       </div>
-      <div class="novice-step-card">
+      <div class="novice-step-card" onclick="noviceStep(this, 2)">
         <div class="novice-step-icon"><i class="fas fa-comments"></i></div>
         <div class="novice-step-title"><strong>3단계</strong> 유학상담</div>
-        <div class="novice-step-desc">
-          온라인 유학상담, 학업계획서·면접을 준비하는 서류·면접 상담, 전화상담 등 다양한 방법으로 진단결과를 상담받을 수 있습니다.
-        </div>
+        <div class="novice-step-desc">온라인 유학상담, 학업계획서·면접 상담, 전화·위챗 상담으로 진단 결과를 상담받습니다.</div>
       </div>
     </div>
-
-    <div class="novice-detail">
-      <div class="novice-detail-title">
-        <span class="magnifier"><i class="fas fa-search"></i></span>
-        <strong>1단계</strong> 중국대학 정보 검색
-      </div>
+    <div class="novice-detail novice-step-pane active">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-search"></i></span><strong>1단계</strong> 중국대학 정보 검색</div>
       <div class="novice-detail-list">
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">자격요건</span>
-          <div class="novice-detail-desc">
-            국적(유효한 외국 여권), 고교 졸업 학력, HSK 등 어학 요건, 미성년자 보호자 요건 등 유학생 지원자격을 확인할 수 있습니다.<br>
-            중국 국적을 보유했던 적이 있는 경우 적용되는 <strong>외국 국적 4년·해외거주 2년</strong> 요건도 함께 확인할 수 있습니다.
-          </div>
-        </div>
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">대학정보</span>
-          <div class="novice-detail-desc">
-            985·211·双一流 여부, 위치, 강점 분야, 유학생 모집요강(招生简章), 학비, 장학금, 기숙사(留学生公寓) 등 대학의 기본 정보를 확인할 수 있습니다.
-          </div>
-        </div>
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">학과정보</span>
-          <div class="novice-detail-desc">
-            수업언어(중국어/영어), 학제(4~6년), 교육과정, 졸업 후 진로 등 학생들이 궁금해 하는 전공의 주요정보를 확인할 수 있습니다.
-          </div>
-        </div>
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">전형정보</span>
-          <div class="novice-detail-desc">
-            원서접수 일정, 선발방식(서류·필기시험·면접), HSK 기준 등 대학이 어떤 기준으로 유학생을 선발하는지, 어렵게만 느껴졌던 전형 정보를 한눈에 확인할 수 있습니다.
-          </div>
-        </div>
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">CSCA</span>
-          <div class="novice-detail-desc">
-            2026년부터 중국정부장학금 학부 지원자는 <strong>CSCA(来华留学本科入学学业水平测试)</strong>를 원서 제출 전에 응시해야 하고, 자비생에게 요구하는 대학도 빠르게 늘고 있습니다(2028년 전면 예정).
-            수학은 모든 지원자 필수, 전문 중국어는 중국어 授课 전공 필수이며, 시험 접수·일정·성적 조회는 <strong>csca.cn</strong>에서 진행합니다.
-            <a href="#" onclick="closeNoviceGuide();openPage('cscaOverlay');return false;" style="color:#2db4a8;font-weight:700;">내 응시과목 찾기 ›</a>
-          </div>
-        </div>
-        <div class="novice-detail-item">
-          <span class="novice-detail-tag">HSK</span>
-          <div class="novice-detail-desc">
-            중국어 과정 지원 시 HSK 성적은 사실상 필수입니다. 대학·전공별 요구 급수와 <strong>성적 유효기간(응시일로부터 2년)</strong>을 확인하고 원서접수 일정에 맞춰 응시하세요.
-          </div>
-        </div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">자격요건</span><div class="novice-detail-desc">국적(유효한 외국 여권), 고교 졸업 학력, HSK 등 어학 요건을 확인합니다. 중국 국적 이력이 있거나 부모 중 중국 공민이 있으면 <strong>외국 국적 4년·해외거주 2년</strong> 요건도 확인하세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">대학정보</span><div class="novice-detail-desc">985·211·双一流 여부, 위치, 강점 분야와 함께 <strong>招生简章 확인</strong> 버튼으로 대학별 모집요강 요약(접수 기간·HSK·CSCA·신청비·학비)을 볼 수 있습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">학과정보</span><div class="novice-detail-desc">수업언어(중국어/영어), 학제(4~6년), 계열 등 전공의 주요 정보를 확인합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">전형정보</span><div class="novice-detail-desc">원서접수 시기, 선발방식(서류·필기·면접), CSCA 과목, 어학 기준을 대학별로 비교합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">CSCA · HSK</span><div class="novice-detail-desc">오른쪽 <strong>CSCA 가이드</strong>·<strong>HSK 준비 가이드</strong>에서 시험 구성, 일정, 대학별 요구 수준을 확인하세요.</div></div>
       </div>
+    </div>
+    <div class="novice-detail novice-step-pane">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-clipboard-check"></i></span><strong>2단계</strong> 자격 진단</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">성적입력</span><div class="novice-detail-desc">학기별 고교 성적(등급 또는 100점 환산)과 CSCA·HSK·IELTS·SAT 등 시험 성적을 입력합니다. 학생부 PDF를 올리면 자동으로 읽어 줍니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">합격분석</span><div class="novice-detail-desc">입력한 성적과 대학별 어학 기준·CSCA 요구를 비교해 충족 여부를 보여 줍니다. 결과는 참고용이며 합격을 보장하지 않습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">대학군 전략</span><div class="novice-detail-desc">입시가이드의 <strong>명문대 전형 비교</strong>에서 본고사형·서류면접형·CSCA면접형 중 나에게 맞는 대학군을 정하세요.</div></div>
+      </div>
+    </div>
+    <div class="novice-detail novice-step-pane">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-comments"></i></span><strong>3단계</strong> 유학상담</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">온라인 상담</span><div class="novice-detail-desc">자격·서류·비자 등 궁금한 점을 글로 남기면 전문가가 답변합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">서류·면접</span><div class="novice-detail-desc">학업계획서·추천서 첨삭과 한·中 모의면접을 신청할 수 있습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">전화·위챗</span><div class="novice-detail-desc">평일 상담전화와 위챗 상담을 이용할 수 있습니다. 원서 접수가 몰리는 12~3월에는 답변이 늦어질 수 있어요.</div></div>
+      </div>
+    </div>
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-user-plus"></i></span>회원가입 및 로그인</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">가입 방법</span><div class="novice-detail-desc">아이디 가입 또는 네이버·카카오·위챗 간편 로그인으로 가입할 수 있습니다. 학생·학부모 모두 가입할 수 있습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">로그인 후</span><div class="novice-detail-desc">오른쪽 메뉴에서 관심전형·관심대학·관심진로·상담내역·신청/접수·나의일정을 한 번에 관리합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">개인정보</span><div class="novice-detail-desc">여권 번호, 주민등록번호 등 민감한 정보는 상담 글에 적지 말고, 서류는 주민등록번호 뒷자리를 가린 파일로 올리세요.</div></div>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="w-pane">
+    <div data-cms-block="novice-tab-1" data-cms-label="초보자 가이드 · 자격요건 확인">
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-passport"></i></span>자격요건 확인 순서</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">① 국적</span><div class="novice-detail-desc">유효한 외국(한국) 여권을 가진 비중국 국적자여야 합니다. 중국 국적 이력이 있거나 부모 중 중국 공민이 있으면 <strong>외국 국적 4년 + 최근 4년 중 2년 해외 실거주</strong> 요건을 확인하세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">② 학력</span><div class="novice-detail-desc">고등학교 졸업자 또는 입학 전 졸업 예정자. 검정고시·해외 고교·국제학교 출신도 지원할 수 있습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">③ 어학</span><div class="novice-detail-desc">중국어 授课는 HSK(대학별 4~6급, 점수 기준 상이), 영어 授课는 IELTS 6.0~6.5 · TOEFL 80~90 수준이 일반적입니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">④ CSCA</span><div class="novice-detail-desc">중국정부장학금 지원자는 필수이고 자비생에게 요구하는 대학도 빠르게 늘고 있습니다(2028년 전면 예정). 수학은 모든 응시자 필수입니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">⑤ 기타</span><div class="novice-detail-desc">대학별 연령 제한(예: 18~25세, 18~30세), 건강(외국인 체격검사), 만 18세 미만은 중국 내 보호자 서류가 필요합니다.</div></div>
+      </div>
+      <div class="novice-links">
+        <a href="#" data-link="modal:guide">자격요건 가이드 열기 ›</a>
+        <a href="#" data-link="modal:guide#1">국적·거주요건 계산기 ›</a>
+        <a href="#" data-link="modal:csca#4">내 CSCA 과목 찾기 ›</a>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="w-pane">
+    <div data-cms-block="novice-tab-2" data-cms-label="초보자 가이드 · 대학/전공 검색">
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-university"></i></span>대학·전공 검색 활용법</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">검색창</span><div class="novice-detail-desc">대학명은 한글·中文 모두 되고, <strong>북경대·복단대·상해교통대</strong> 같은 한국식 이름도 찾아집니다. 'CSCA', '장학금', 'HSK'를 입력하면 해당 안내로 이동합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">대학정보</span><div class="novice-detail-desc">36개 주요 대학의 지역·구분(985·211·双一流)·강점 분야와 <strong>모집요강 요약</strong>(접수 기간, 어학 기준, CSCA, 신청비, 학비, 원문 링크)을 제공합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">학과정보</span><div class="novice-detail-desc">대학명·전공 키워드로 검색하고, 수업언어와 학제를 비교합니다. 대학 이름을 누르면 모집요강 창이 열립니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">전형정보</span><div class="novice-detail-desc">대학별 모집과정·선발방식·CSCA 과목·어학 기준·원서접수 시기를 한 표에서 비교합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">명문대 비교</span><div class="novice-detail-desc">베이징대·칭화대·푸단대·상하이자오퉁대의 전형 방식과 대학군별 준비 전략을 확인하세요.</div></div>
+      </div>
+      <div class="novice-links">
+        <a href="#" data-link="page:univOverlay">대학정보 ›</a>
+        <a href="#" data-link="page:admOverlay">전형정보 ›</a>
+        <a href="#" data-link="page:admGuideOverlay#ag-top">명문대 전형 비교 ›</a>
+      </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="w-pane">
+    <div data-cms-block="novice-tab-3" data-cms-label="초보자 가이드 · 서류준비 안내">
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-folder-open"></i></span>서류는 이 순서로 준비하세요</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">1. 확인</span><div class="novice-detail-desc">목표 대학 모집요강(招生简章)에서 서류 목록·언어·인증 방식·마감일을 확인합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">2. 발급</span><div class="novice-detail-desc">졸업(예정)·성적증명서, 학생부(정부24), 영문 기본·가족관계증명서(전자가족관계등록시스템), 출입국사실증명서(정부24)를 발급합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">3. 인증</span><div class="novice-detail-desc">한국어 서류는 중·영문 번역공증, 필요한 서류는 아포스티유(외교부 E-아포스티유)를 받습니다. 중국은 2023년 11월부터 아포스티유 협약국입니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">4. 성적</span><div class="novice-detail-desc">CSCA·HSK(또는 IELTS·TOEFL) 성적표를 준비합니다. 입학 기준 유효기간은 보통 2년입니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">5. 작성</span><div class="novice-detail-desc">개인 진술서(학습계획)·추천서를 대학이 정한 언어와 분량으로 작성하고, 모든 파일을 PDF로 정리해 업로드합니다.</div></div>
+      </div>
+      <div class="novice-links"><a href="#" data-link="modal:docs">서류준비 가이드 자세히 보기 ›</a></div>
+    </div>
+    </div>
+    </div>
+
+    <div class="w-pane">
+    <div data-cms-block="novice-tab-4" data-cms-label="초보자 가이드 · 유학상담">
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-headset"></i></span>상담 이용 안내</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">온라인 상담</span><div class="novice-detail-desc">유학상담 메뉴에서 글로 질문합니다. 질문을 한 번에 여러 개 넣기보다 주제별로 나눠 올리면 더 빨리 답변을 받을 수 있습니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">서류·면접</span><div class="novice-detail-desc">중국 명문대 출신 멘토가 학업계획서·추천서를 1:1로 첨삭하고, 한국어·중국어 모의면접을 진행합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">전화 상담</span><div class="novice-detail-desc">평일 10:00~19:00(한국시간) 운영하며 주말·공휴일은 쉽니다. 번호는 홈 화면 오른쪽에서 확인하세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">상담 전 준비</span><div class="novice-detail-desc">국적 이력, 재학 학교(국내/해외), 성적, HSK·CSCA 응시 계획, 목표 대학을 정리해 두면 상담이 훨씬 정확해집니다.</div></div>
+      </div>
+      <div class="novice-links"><a href="#" data-link="page:consultOverlay">온라인 유학상담 ›</a><a href="#" data-link="page:compOverlay">서류·면접 상담 ›</a></div>
+    </div>
+    </div>
+    </div>
+
+    <div class="w-pane">
+    <div data-cms-block="novice-tab-5" data-cms-label="초보자 가이드 · 입학도우미">
+    <div class="novice-detail">
+      <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-plane-departure"></i></span>합격 후 입학까지 체크리스트</div>
+      <div class="novice-detail-list">
+        <div class="novice-detail-item"><span class="novice-detail-tag">① 입학서류</span><div class="novice-detail-desc">录取通知书(입학허가서)와 JW202(중국정부장학생은 JW201)를 받습니다. 이름·여권번호·생년월일이 여권과 같은지 꼭 확인하세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">② X1 비자</span><div class="novice-detail-desc">입학허가서와 JW202로 X1(장기 학생) 비자를 신청합니다. 신청처·준비서류는 주한 중국대사관 안내를 확인하세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">③ 체격검사</span><div class="novice-detail-desc">외국인 체격검사표(外国人体格检查表)를 준비합니다. 발급 후 6개월 이내만 인정되니 출국 일정에 맞춰 받으세요.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">④ 출국 준비</span><div class="novice-detail-desc">기숙사(留学生公寓) 신청, 항공권, 보험, 중국 결제수단(알리페이·위챗페이)과 유심을 준비합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">⑤ 입국 후</span><div class="novice-detail-desc">학교 등록 후 <strong>입국 30일 이내</strong>에 거류허가(居留许可)를 신청합니다. 만 18세 미만은 중국 내 보호자 관련 서류를 챙기세요.</div></div>
+      </div>
+    </div>
     </div>
     </div>
   </div>
 </div>
 
 <script>
-function openNoviceGuide() {
-  document.getElementById('noviceModalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeNoviceGuide() {
-  document.getElementById('noviceModalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
+function openNoviceGuide(tab) { openWidget('noviceModalOverlay', tab); }
+function closeNoviceGuide() { closeWidget('noviceModalOverlay'); }
+/* 초보자 가이드 1번 탭의 1·2·3단계 카드 */
+function noviceStep(card, idx) {
+  const pane = card.closest('.w-pane');
+  pane.querySelectorAll('.novice-step-card').forEach((c, k) => c.classList.toggle('active', k === idx));
+  pane.querySelectorAll('.novice-step-pane').forEach((d, k) => d.classList.toggle('active', k === idx));
 }
 </script>
 
@@ -4448,24 +4591,26 @@ function closeNoviceGuide() {
     </div>
 
     <div class="docs-top-tabs">
-      <button class="docs-tab active">필수 제출서류</button>
-      <button class="docs-tab">학력증빙서류</button>
-      <button class="docs-tab">국적·거주 증빙</button>
-      <button class="docs-tab">서류 인증·번역</button>
-      <button class="docs-tab">일정 및 유의사항</button>
+      <button class="docs-tab active" data-tab-btn onclick="switchWidgetTab('docsModalOverlay', 0)">필수 제출서류</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('docsModalOverlay', 1)">학력증빙서류</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('docsModalOverlay', 2)">국적·거주 증빙</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('docsModalOverlay', 3)">서류 인증·번역</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('docsModalOverlay', 4)">일정 및 유의사항</button>
     </div>
 
-    <div data-cms-block="docs-body" data-cms-label="서류준비 가이드 · 본문">
+    <div data-cms-block="docs-intro" data-cms-label="서류준비 가이드 · 상단 안내">
     <div class="docs-intro">
       중국 대학 유학생(본과) 전형은 대학별 <strong>온라인 지원시스템에 서류를 업로드</strong>하는 방식이 일반적이며,
       <strong>CSCA·고교 학력·HSK·국적</strong>을 증빙하는 서류가 핵심입니다.
       대학별로 요구 서류와 기준이 조금씩 다르므로, 본 가이드는 공통적으로 요구되는 서류를 정리한 것입니다.
       실제 지원 시에는 반드시 <strong>각 대학의 모집요강(招生简章)</strong>을 확인하시기 바랍니다.
     </div>
+    </div>
 
     <div class="docs-section">
-
-      <div class="docs-section-title"><i class="fas fa-folder-open"></i> 1. 필수 제출서류 체크리스트</div>
+      <div class="w-pane active">
+      <div data-cms-block="docs-tab-0" data-cms-label="서류준비 가이드 · 필수 제출서류">
+      <div class="docs-section-title"><i class="fas fa-folder-open"></i> 필수 제출서류 체크리스트</div>
       <div class="docs-checklist">
         <div class="docs-check-item">
           <div class="docs-check-icon"><i class="fas fa-file-alt"></i></div>
@@ -4545,8 +4690,47 @@ function closeNoviceGuide() {
           </div>
         </div>
       </div>
+      </div>
+      </div>
+      <div class="w-pane">
+      <div data-cms-block="docs-tab-1" data-cms-label="서류준비 가이드 · 학력증빙서류">
 
-      <div class="docs-section-title"><i class="fas fa-stamp"></i> 2. 서류 인증 및 번역 안내</div>
+      <div class="docs-section-title"><i class="fas fa-graduation-cap"></i> 학력증빙서류 준비</div>
+      <table class="cg-table">
+        <thead><tr><th>서류</th><th>대상</th><th>발급처</th><th>유의사항</th></tr></thead>
+        <tbody>
+          <tr><td class="name">고교 졸업(예정)증명서</td><td class="left">모든 지원자</td><td class="left">재학·졸업 학교 행정실</td><td class="left">졸업예정자는 합격 후 입학 전 졸업증명서 추가 제출</td></tr>
+          <tr><td class="name">성적증명서 (고1~고3)</td><td class="left">모든 지원자</td><td class="left">학교 행정실 (영문 발급 가능 여부 확인)</td><td class="left">국문만 발급되면 중·영문 번역공증본 첨부</td></tr>
+          <tr><td class="name">학교생활기록부</td><td class="left">국내 고교</td><td class="left">정부24 온라인</td><td class="left">주민등록번호 뒷자리 비공개 처리본을 PDF로 저장</td></tr>
+          <tr><td class="name">검정고시 합격·성적증명서</td><td class="left">검정고시 출신</td><td class="left">관할 시·도 교육청 / 정부24</td><td class="left">번역공증 + 아포스티유</td></tr>
+          <tr><td class="name">해외 고교·국제학교 서류</td><td class="left">해외·국제학교</td><td class="left">해당 학교</td><td class="left">IB·AP·A-Level 성적표, 학교 소재국 인증 방식 확인</td></tr>
+          <tr><td class="name">표준시험 성적표</td><td class="left">대학별</td><td class="left">CSCA(csca.cn) · HSK(chinesetest.cn) · SAT 등</td><td class="left">입학 기준 유효기간 보통 2년</td></tr>
+        </tbody>
+      </table>
+      <div class="docs-warning"><i class="fas fa-info-circle"></i><div class="docs-warning-content"><div class="docs-warning-title">사립학교 서류도 아포스티유 가능</div><div class="docs-warning-text">사립 정규학교가 발급한 학사 서류(졸업·성적증명서 등)도 아포스티유 대상입니다. 온라인 발급 가능 여부는 외교부 E-아포스티유(apostille.go.kr)에서 확인하세요.</div></div></div>
+      </div>
+      </div>
+      <div class="w-pane">
+      <div data-cms-block="docs-tab-2" data-cms-label="서류준비 가이드 · 국적·거주 증빙">
+
+      <div class="docs-section-title"><i class="fas fa-passport"></i> 국적·거주 증빙 서류</div>
+      <table class="cg-table">
+        <thead><tr><th>서류</th><th>필요한 경우</th><th>발급처 · 방법</th></tr></thead>
+        <tbody>
+          <tr><td class="name">여권 사본 (본인·부모)</td><td class="left">모든 지원자</td><td class="left">사진면 스캔. 유효기간이 입학 연도 9월 이후까지 남아 있어야 함</td></tr>
+          <tr><td class="name">영문 기본증명서 · 가족관계증명서</td><td class="left">대부분 대학</td><td class="left">대법원 전자가족관계등록시스템 — 여권 영문 이름으로 24시간 무료 발급</td></tr>
+          <tr><td class="name">출입국사실증명서</td><td class="left">4년·2년 요건 적용 대상 (이민형·출생형)</td><td class="left">정부24 온라인 무료 발급, 영문 또는 국·영문 병기 선택</td></tr>
+          <tr><td class="name">퇴적증명 · 호적말소증명</td><td class="left">중국 국적이었다가 외국 국적을 취득한 경우</td><td class="left">중국 공안기관 발급 (退籍证明 · 户口注销证明)</td></tr>
+          <tr><td class="name">부모 국적 증빙</td><td class="left">부모 중 중국 공민이 있는 경우</td><td class="left">부모 여권·신분 증빙 (대학별 추가 서류 확인)</td></tr>
+          <tr><td class="name">보호자 서류</td><td class="left">입학 시 만 18세 미만</td><td class="left">중국 내 보호자(监护人) 위임·보증 서류 (대학 양식)</td></tr>
+        </tbody>
+      </table>
+      <div class="docs-warning"><i class="fas fa-exclamation-triangle"></i><div class="docs-warning-content"><div class="docs-warning-title">4년·2년 요건 (教外函〔2020〕12号)</div><div class="docs-warning-text">중국 국적에서 외국 국적으로 바꾼 경우와, 부모 중 한 명 이상이 중국 공민이고 본인이 출생 시 외국 국적인 경우에는 <strong>외국 국적 4년 이상 + 최근 4년(입학 연도 4월 30일까지) 중 2년 이상 해외 실거주</strong>가 필요합니다. 1년 중 9개월 이상 해외 체류 시 1년으로 인정합니다. <a href="#" data-link="modal:guide#1" style="color:#00796b;font-weight:700;">거주요건 계산기 ›</a></div></div></div>
+      </div>
+      </div>
+      <div class="w-pane">
+      <div data-cms-block="docs-tab-3" data-cms-label="서류준비 가이드 · 서류 인증·번역">
+      <div class="docs-section-title"><i class="fas fa-stamp"></i> 서류 인증 및 번역 안내</div>
       <div class="docs-tips">
         <div class="docs-tip-card">
           <div class="docs-tip-icon"><i class="fas fa-globe"></i></div>
@@ -4565,7 +4749,18 @@ function closeNoviceGuide() {
         </div>
       </div>
 
-      <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 3. 준비 일정 (9월 입학 기준 · 권장)</div>
+
+      <div class="docs-section-title" style="margin-top:26px;"><i class="fas fa-globe"></i> E-아포스티유로 온라인 발급하기</div>
+      <div class="docs-timeline">
+        <div class="docs-timeline-item"><div class="docs-timeline-period">STEP 1</div><div class="docs-timeline-title">대상 서류 확인</div><div class="docs-timeline-desc">외교부 E-아포스티유(apostille.go.kr)에서 행정안전부·교육부·경찰청 등과 연계된 공문서는 온라인으로 즉시·무료 발급됩니다.</div></div>
+        <div class="docs-timeline-item"><div class="docs-timeline-period">STEP 2</div><div class="docs-timeline-title">온라인 발급 또는 방문</div><div class="docs-timeline-desc">번역공증본·사문서처럼 공증이 필요한 서류는 온라인 무료 대상이 아니며, 공증 후 방문 접수(수수료 발생)가 원칙입니다.</div></div>
+        <div class="docs-timeline-item"><div class="docs-timeline-period">STEP 3</div><div class="docs-timeline-title">원본과 함께 스캔</div><div class="docs-timeline-desc">증명서 원본 + 번역본 + 아포스티유 인증서를 순서대로 묶어 PDF로 올립니다.</div></div>
+      </div>
+      </div>
+      </div>
+      <div class="w-pane">
+      <div data-cms-block="docs-tab-4" data-cms-label="서류준비 가이드 · 일정 및 유의사항">
+      <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 준비 일정 (9월 입학 기준 · 권장)</div>
       <div class="docs-timeline">
         <div class="docs-timeline-item">
           <div class="docs-timeline-period">전년 6월 ~ 10월</div>
@@ -4610,29 +4805,351 @@ function closeNoviceGuide() {
           <div class="docs-warning-title">반드시 확인하세요</div>
           <div class="docs-warning-text">
             • 대학별로 요구하는 서류 종류·양식·언어와 <strong>CSCA 과목·성적 제출 마감일</strong>이 다르므로 <strong>모집요강(招生简章)을 반드시 확인</strong>해야 합니다.<br>
-            • 중국 국적을 보유했던 적이 있으면 <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 충족해야 하며, 출입국기록 증빙이 요구됩니다.<br>
-            • 부모 중 중국 국적자가 있는 경우 대학별로 추가 서류와 심사가 있을 수 있습니다.<br>
+            • 중국 국적 이력이 있거나 부모 중 중국 공민이 있으면 <strong>외국 국적 4년 이상 · 최근 4년 중 2년 이상 해외 실거주</strong> 요건을 충족해야 하며, 출입국기록 증빙이 요구됩니다.<br>
             • 입학 시 만 18세 미만이면 중국 내 보호자(监护人) 관련 서류가 필요합니다.<br>
             • 서류 위·변조 시 합격 취소 및 입학 후에도 학적 취소 처리되니 주의하세요.
           </div>
         </div>
       </div>
-
-    </div>
+      </div>
+      </div>
     </div>
   </div>
 </div>
 
 <script>
-function openDocsGuide() {
-  document.getElementById('docsModalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+function openDocsGuide(tab) { openWidget('docsModalOverlay', tab); }
+function closeDocsGuide() { closeWidget('docsModalOverlay'); }
+</script>
+
+<!-- ===== 오른쪽 위젯 창 공통 : 탭 전환 · 열기/닫기 ===== -->
+<style>
+.w-pane { display: none; }
+.w-pane.active { display: block; }
+.novice-step-pane { display: none; }
+.novice-step-pane.active { display: block; }
+.novice-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.novice-links a { padding: 7px 14px; border: 1px solid #2db4a8; border-radius: 20px; font-size: 13px; font-weight: 600; color: #2db4a8; }
+.novice-links a:hover { background: #2db4a8; color: #fff; }
+.novice-w-pad { padding-top: 22px; }
+#noviceModalOverlay .w-pane > div > .novice-detail:first-child { margin-top: 22px; }
+.guide-section h3 { font-size: 15px; font-weight: 800; color: #222; margin-bottom: 10px; }
+.cg-actions-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding-top: 16px; border-top: 1px solid #eee; }
+.cg-actions-row .cg-btn { margin-top: 0; }
+.csca-modal-finder { max-width: 360px; }
+.hsk-univ-table { margin-top: 4px; }
+.res-calc { margin-top: 20px; border: 2px solid #2db4a8; border-radius: 12px; padding: 18px 20px; background: #fff; }
+.res-calc h3 { font-size: 16px; font-weight: 800; color: #00796b; margin-bottom: 12px; }
+.res-calc h3 span { font-size: 11px; background: #fff3e0; color: #e65100; border-radius: 4px; padding: 2px 6px; margin-left: 6px; vertical-align: middle; }
+.res-calc-row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; font-size: 13px; font-weight: 600; color: #444; }
+.res-calc-row select, .res-calc-row input { margin-left: 6px; padding: 6px 8px; border: 1px solid #ccc; border-radius: 6px; font-size: 13px; font-family: inherit; }
+.res-calc-row small { font-weight: 400; color: #888; }
+.res-calc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.res-calc-table th { background: #f5f5f5; padding: 8px; border-bottom: 1px solid #e0e0e0; }
+.res-calc-table td { padding: 7px 8px; border-bottom: 1px solid #f0f0f0; text-align: center; }
+.res-calc-table input { width: 80px; padding: 5px 6px; border: 1px solid #ccc; border-radius: 6px; text-align: center; font-family: inherit; }
+.res-calc-result { margin-top: 12px; padding: 12px 14px; border-radius: 8px; font-size: 13px; line-height: 1.7; background: #f5f5f5; color: #555; }
+.res-calc-result.ok { background: #e8f5e9; color: #1b5e20; }
+.res-calc-result.no { background: #ffebee; color: #b71c1c; }
+</style>
+<script>
+const WIDGET_IDS = { guide: 'guideModalOverlay', novice: 'noviceModalOverlay', docs: 'docsModalOverlay', hsk: 'hskModalOverlay', csca: 'cscaModalOverlay' };
+function switchWidgetTab(modalId, idx) {
+  const m = document.getElementById(modalId);
+  if (!m) return;
+  const panes = m.querySelectorAll('.w-pane');
+  idx = Math.max(0, Math.min(panes.length - 1, +idx || 0));
+  m.querySelectorAll('[data-tab-btn]').forEach((b, k) => b.classList.toggle('active', k === idx));
+  panes.forEach((pn, k) => pn.classList.toggle('active', k === idx));
+  m.scrollTop = 0;
+  if (modalId === 'guideModalOverlay' && idx === 1) updateResidenceCalc();
+  if (modalId === 'hskModalOverlay' && idx === 2) renderHskUnivTable();
+  if (modalId === 'cscaModalOverlay' && idx === 4) updateCscaFinder('cscaM');
 }
-function closeDocsGuide() {
-  document.getElementById('docsModalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
+function openWidget(modalId, tab) {
+  const m = document.getElementById(modalId);
+  if (!m) return;
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  switchWidgetTab(modalId, tab || 0);
+}
+function closeWidget(modalId) {
+  document.getElementById(modalId).classList.remove('open');
+  if (!document.querySelector('.guide-modal-overlay.open, .novice-modal-overlay.open, .docs-modal-overlay.open')) document.body.style.overflow = '';
+}
+
+/* 국적·거주요건 계산기 : 입학 연도 4월 30일 기준 최근 4년 중 9개월 이상 체류한 해가 2개 이상, 외국 국적 4년 이상 */
+function updateResidenceCalc() {
+  const yEl = document.getElementById('rcYear');
+  if (!yEl) return;
+  const Y = +yEl.value;
+  const rows = document.getElementById('rcRows');
+  if (rows.dataset.year !== String(Y)) {
+    const keep = [...rows.querySelectorAll('input')].map(i => i.value);
+    rows.innerHTML = [0, 1, 2, 3].map(k => {
+      const a = Y - 4 + k;
+      return `<tr><td>${a}.05.01 ~ ${a + 1}.04.30</td><td><input type="number" min="0" max="12" step="0.5" id="rcM${k}" value="${keep[k] || ''}" oninput="updateResidenceCalc()"> 개월</td><td id="rcOk${k}">-</td></tr>`;
+    }).join('');
+    rows.dataset.year = String(Y);
+  }
+  let years = 0, filled = 0;
+  [0, 1, 2, 3].forEach(k => {
+    const v = document.getElementById('rcM' + k).value;
+    const ok = v !== '' && +v >= 9;
+    if (v !== '') filled++;
+    if (ok) years++;
+    document.getElementById('rcOk' + k).textContent = v === '' ? '-' : (ok ? '1년 인정' : '미인정');
+  });
+  const natV = document.getElementById('rcNat').value;
+  const res = document.getElementById('rcResult');
+  const cut = new Date(Y, 3, 30);
+  let natOk = null, natYears = 0;
+  if (natV) {
+    const d = new Date(natV);
+    natYears = (cut - d) / (365.25 * 24 * 3600 * 1000);
+    natOk = natYears >= 4;
+  }
+  if (!natV && !filled) { res.className = 'res-calc-result'; res.textContent = '외국 국적 취득일과 구간별 해외 체류 개월 수를 입력하면 결과가 표시됩니다.'; return; }
+  const resOk = years >= 2;
+  const natMsg = natV ? `외국 국적 보유 ${natYears.toFixed(1)}년 (${Y}.04.30 기준) → ${natOk ? '4년 이상 충족' : '4년 미만'}` : '외국 국적 취득일을 입력하세요';
+  const resMsg = `해외 실거주 인정 ${years}년 → ${resOk ? '2년 이상 충족' : '2년 미만'}`;
+  const all = natOk && resOk;
+  res.className = 'res-calc-result ' + (natV && filled === 4 ? (all ? 'ok' : 'no') : '');
+  res.innerHTML = `${natMsg}<br>${resMsg}<br><strong>${natV && filled === 4 ? (all ? '요건을 충족하는 것으로 보입니다.' : '요건을 충족하지 못할 수 있습니다.') : '모든 칸을 입력하면 최종 결과가 표시됩니다.'}</strong> <span style="font-size:11px;">※ 참고용 계산이며 최종 판단은 대학 심사와 출입국 기록 기준입니다.</span>`;
+}
+
+/* HSK 가이드 : 대학정보(모집요강)의 어학 기준으로 표 생성 */
+function renderHskUnivTable() {
+  const box = document.getElementById('hskUnivTable');
+  if (!box) return;
+  const rows = univList().filter(u => u.guide && u.guide.lang).map(u =>
+    `<tr><td class="name">${esc(u.ko)}<span class="cn">${esc(u.cn)}</span></td><td class="left">${escBr(u.guide.lang)}</td><td><button class="adm-result-btn" data-link="univ:${esc(u.cn)}">모집요강</button></td></tr>`).join('');
+  box.innerHTML = rows ? `<table class="cg-table"><thead><tr><th>대학</th><th>어학 기준</th><th></th></tr></thead><tbody>${rows}</tbody></table>`
+    : '<div class="empty-state">등록된 어학 기준이 없습니다.</div>';
 }
 </script>
+
+<!-- ===== HSK 준비 가이드 창 ===== -->
+<div class="docs-modal-overlay" id="hskModalOverlay" onclick="if(event.target===this)closeWidget('hskModalOverlay')">
+  <div class="docs-modal-box">
+    <div class="docs-modal-header">
+      HSK 준비 가이드
+      <button class="docs-modal-close" onclick="closeWidget('hskModalOverlay')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="docs-top-tabs">
+      <button class="docs-tab active" data-tab-btn onclick="switchWidgetTab('hskModalOverlay', 0)">HSK 한눈에</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('hskModalOverlay', 1)">HSK 3.0 변화</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('hskModalOverlay', 2)">대학별 요구 수준</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('hskModalOverlay', 3)">일정·접수</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('hskModalOverlay', 4)">준비 전략</button>
+    </div>
+    <div class="docs-section">
+      <div class="w-pane active">
+      <div data-cms-block="hsk-tab-0" data-cms-label="HSK 가이드 · 한눈에">
+        <div class="docs-intro" style="margin:22px 0;">
+          HSK(汉语水平考试)는 중국어 授课 전공에 지원할 때 <strong>사실상 필수</strong>인 중국어 능력시험입니다.
+          대부분 대학이 <strong>HSK 4~6급과 급수별 점수</strong>를 요구하고, 입학에는 보통 <strong>응시일로부터 2년 이내</strong> 성적만 인정합니다.
+          <strong>2026년 12월 13일 시험부터 HSK 3.0</strong>(3단계 9급)으로 바뀌므로, 아래 표는 그 전까지 시행되는 현행 HSK(2.0) 기준입니다.
+        </div>
+        <table class="cg-table">
+          <thead><tr><th>급수</th><th>어휘</th><th>문항 · 시간</th><th>영역</th><th>만점 / 합격</th><th>대학 활용</th></tr></thead>
+          <tbody>
+            <tr><td class="name">1급</td><td>150</td><td>40문항 · 약 40분</td><td>듣기·읽기</td><td>200 / 120</td><td class="left">입문</td></tr>
+            <tr><td class="name">2급</td><td>300</td><td>60문항 · 약 55분</td><td>듣기·읽기</td><td>200 / 120</td><td class="left">입문</td></tr>
+            <tr><td class="name">3급</td><td>600</td><td>80문항 · 약 90분</td><td>듣기·읽기·쓰기</td><td>300 / 180</td><td class="left">예과·어학연수, 일부 중국어 전공</td></tr>
+            <tr><td class="name">4급</td><td>1,200</td><td>100문항 · 약 105분</td><td>듣기·읽기·쓰기</td><td>300 / 180</td><td class="left">중위권 대학 본과 최소 기준 (예: 우한대·난카이대 180점)</td></tr>
+            <tr><td class="name">5급</td><td>2,500</td><td>100문항 · 약 125분</td><td>듣기·읽기·쓰기</td><td>300 / 180</td><td class="left">상위권 대학 기본 (예: 푸단대 210점, 상하이자오퉁대 200점)</td></tr>
+            <tr><td class="name">6급</td><td>5,000+</td><td>101문항 · 약 140분</td><td>듣기·읽기·쓰기</td><td>300 / 180</td><td class="left">최상위·인문 계열 (예: 베이징대 필기 면제 210점, 런민대 인문 180점)</td></tr>
+          </tbody>
+        </table>
+        <div class="cg-note">※ 시간은 응시자 정보 작성 시간을 포함한 대략값입니다. 말하기 시험 HSKK(초급·중급·고급)는 별도 시험이며, 함께 요구하는 대학도 있습니다.</div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="hsk-tab-1" data-cms-label="HSK 가이드 · HSK 3.0 변화">
+        <div class="docs-section-title"><i class="fas fa-sync-alt"></i> 2026년 12월 13일부터 HSK 3.0</div>
+        <div class="docs-tips">
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-layer-group"></i></div><div class="docs-tip-title">3단계 9급</div><div class="docs-tip-desc">1~6급 체계가 초급(1~3급)·중급(4~6급)·고급(7~9급)의 9급 체계로 바뀝니다.</div></div>
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-microphone"></i></div><div class="docs-tip-title">말하기 포함</div><div class="docs-tip-desc">3급부터 말하기가 필수로 들어갑니다. 쓰기·번역 등 실제 의사소통 과제가 늘어납니다.</div></div>
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-book"></i></div><div class="docs-tip-title">어휘 기준 변경</div><div class="docs-tip-desc">1급 어휘가 300개로 조정되는 등 급수별 어휘 기준이 새로 정해졌고, 7~9급은 한 시험으로 치릅니다.</div></div>
+        </div>
+        <div class="docs-timeline" style="margin-top:20px;">
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2026년 1월 · 9월</div><div class="docs-timeline-title">시범 시험</div><div class="docs-timeline-desc">기존 HSK 2.0과 함께 HSK 3.0 시범 시험을 운영했습니다.</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2026년 12월 13일</div><div class="docs-timeline-title">전 세계 정식 시행</div><div class="docs-timeline-desc">이 날 시험부터 HSK 3.0으로 전면 개편됩니다 (HSK 한국사무국 공지).</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2027년 입시</div><div class="docs-timeline-title">대학 기준 확인</div><div class="docs-timeline-desc">2027년 모집요강에서 HSK 2.0 성적 인정 여부와 3.0 급수 기준을 확인하세요. 이미 딴 2.0 성적도 보통 응시일로부터 2년 동안 입학에 쓸 수 있습니다.</div></div>
+        </div>
+        <div class="docs-warning"><i class="fas fa-lightbulb"></i><div class="docs-warning-content"><div class="docs-warning-title">2027년 9월 입학이라면</div><div class="docs-warning-text">11월까지는 익숙한 HSK 2.0으로 목표 점수를 확보하고, 12월 이후 응시한다면 말하기가 포함된 HSK 3.0 형식에 맞춰 준비하세요.</div></div></div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="hsk-tab-2" data-cms-label="HSK 가이드 · 대학별 요구 수준">
+        <div class="docs-section-title"><i class="fas fa-university"></i> 대학별 HSK 요구 수준 <span style="font-size:12px;color:#888;font-weight:500;">2026년 9월 입학 모집요강 기준</span></div>
+        <p style="font-size:13px;color:#555;line-height:1.7;margin-bottom:12px;">대학정보(모집요강)에 등록된 어학 기준을 그대로 보여 줍니다. 급수뿐 아니라 <strong>총점·쓰기 점수</strong> 기준이 따로 있는 대학이 많으니 꼭 함께 확인하세요.</p>
+      </div>
+      <div class="hsk-univ-table" id="hskUnivTable"></div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="hsk-tab-3" data-cms-label="HSK 가이드 · 일정·접수">
+        <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 시험 방식과 접수</div>
+        <table class="cg-table">
+          <thead><tr><th>구분</th><th>내용</th></tr></thead>
+          <tbody>
+            <tr><td class="name">시험 방식</td><td class="left"><strong>IBT</strong>(컴퓨터 시험)와 <strong>PBT</strong>(지필 시험). 성적 발표는 IBT가 PBT보다 약 2주 빠릅니다.</td></tr>
+            <tr><td class="name">국내 접수</td><td class="left">HSK 한국사무국(hsk.or.kr) 등 국내 공식 접수처에서 IBT·PBT·HSKK를 접수합니다.</td></tr>
+            <tr><td class="name">접수 마감</td><td class="left">IBT는 시험 약 10일 전, PBT는 약 한 달 전 마감 (회차별 공지 확인)</td></tr>
+            <tr><td class="name">성적 조회</td><td class="left">中文考试服务网(chinesetest.cn)에서 조회하고 성적표를 확인합니다.</td></tr>
+            <tr><td class="name">유효기간</td><td class="left">자격 자체는 계속 유효하지만, 중국 대학 입학에는 보통 <strong>응시일로부터 2년 이내</strong> 성적만 인정</td></tr>
+          </tbody>
+        </table>
+        <div class="docs-section-title" style="margin-top:22px;"><i class="fas fa-flag-checkered"></i> 원서 마감에서 거꾸로 계산하기</div>
+        <div class="docs-timeline">
+          <div class="docs-timeline-item"><div class="docs-timeline-period">원서 마감 3~4개월 전</div><div class="docs-timeline-title">목표 급수 첫 응시</div><div class="docs-timeline-desc">상위권 대학 마감이 2~3월이므로 늦어도 전년 10~11월에 첫 응시하세요.</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">원서 마감 1~2개월 전</div><div class="docs-timeline-title">재응시로 점수 올리기</div><div class="docs-timeline-desc">점수 기준(예: 5급 200·210점)을 못 넘었다면 IBT로 재응시해 빠르게 성적을 받습니다.</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">원서 제출</div><div class="docs-timeline-title">성적표 업로드</div><div class="docs-timeline-desc">성적표 PDF를 올리고, 응시일이 2년 이내인지 다시 확인합니다.</div></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="hsk-tab-4" data-cms-label="HSK 가이드 · 준비 전략">
+        <div class="docs-section-title"><i class="fas fa-pencil-alt"></i> 영역별 준비 전략</div>
+        <div class="cg-cards">
+          <div class="cg-card"><div class="cg-card-title">어휘</div><div class="cg-card-desc">목표 급수 어휘(4급 1,200 · 5급 2,500 · 6급 5,000+)를 먼저 끝내세요. 한자어 뜻을 아는 한국 학생은 읽기에 유리하지만 성조·병음은 따로 익혀야 합니다.</div></div>
+          <div class="cg-card"><div class="cg-card-title">듣기</div><div class="cg-card-desc">기출 음원을 받아쓰기·섀도잉으로 반복합니다. 5·6급은 긴 대화와 강연이 나오니 메모 습관을 들이세요.</div></div>
+          <div class="cg-card"><div class="cg-card-title">읽기</div><div class="cg-card-desc">시간이 가장 부족한 영역입니다. 실제 시간을 재고 풀며, 모르는 문제는 표시하고 넘어가는 연습을 하세요.</div></div>
+          <div class="cg-card"><div class="cg-card-title">쓰기</div><div class="cg-card-desc">대학이 <strong>쓰기 60점 이상</strong>을 따로 요구하는 경우가 많습니다. 5·6급 작문은 자주 쓰는 문장 틀을 외워 두면 안정적입니다.</div></div>
+          <div class="cg-card"><div class="cg-card-title">말하기 (HSKK · 3.0)</div><div class="cg-card-desc">HSK 3.0은 3급부터 말하기가 포함되고, 대학 면접도 중국어로 진행됩니다. 자기소개·지원동기를 중국어로 말하는 연습을 일찍 시작하세요.</div></div>
+          <div class="cg-card"><div class="cg-card-title">CSCA와 함께</div><div class="cg-card-desc">CSCA 전문 중국어는 HSK 5급 수준입니다. HSK 5급 준비가 CSCA 대비로도 이어지도록 계획을 묶으세요.</div></div>
+        </div>
+      </div>
+      <div class="cg-actions-row">
+        <a class="cg-btn solid" href="https://www.hsk.or.kr" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> HSK 한국사무국</a>
+        <a class="cg-btn" href="https://www.chinesetest.cn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> 中文考试服务网 (성적 조회)</a>
+        <a class="cg-btn" href="https://www.youtube.com/results?search_query=HSK+시험+준비" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> HSK 준비 영상</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== CSCA 가이드 창 ===== -->
+<div class="docs-modal-overlay" id="cscaModalOverlay" onclick="if(event.target===this)closeWidget('cscaModalOverlay')">
+  <div class="docs-modal-box">
+    <div class="docs-modal-header">
+      CSCA 가이드 <span style="font-size:13px;font-weight:500;opacity:0.85;margin-left:6px;">来华留学本科入学学业水平测试</span>
+      <button class="docs-modal-close" onclick="closeWidget('cscaModalOverlay')"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="docs-top-tabs">
+      <button class="docs-tab active" data-tab-btn onclick="switchWidgetTab('cscaModalOverlay', 0)">한눈에 보기</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('cscaModalOverlay', 1)">과목·문항</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('cscaModalOverlay', 2)">누가 봐야 하나</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('cscaModalOverlay', 3)">일정·접수</button>
+      <button class="docs-tab" data-tab-btn onclick="switchWidgetTab('cscaModalOverlay', 4)">내 과목 찾기</button>
+    </div>
+    <div class="docs-section">
+      <div class="w-pane active">
+      <div data-cms-block="csca-w-0" data-cms-label="CSCA 가이드 · 한눈에 보기">
+        <div class="docs-intro" style="margin:22px 0;">
+          CSCA는 중국 대학 학부(본과)에 지원하는 국제학생의 학업 수준을 평가하는 표준화 시험입니다. <strong>2025년 12월 첫 시험</strong> 이후 매년 5회 시행되며,
+          <strong>2026년부터 중국정부장학금 학부 지원자는 필수</strong>, 자비생에게 요구하는 대학도 빠르게 늘어 <strong>2028년에는 모든 학부 지원자</strong>로 확대될 예정입니다.
+        </div>
+        <div class="consult-stats">
+          <div class="consult-stat"><div class="stat-label">시행</div><div class="stat-value">1·3·4·6·12월</div></div>
+          <div class="consult-stat"><div class="stat-label">모든 응시자 필수</div><div class="stat-value black">수학</div></div>
+          <div class="consult-stat"><div class="stat-label">응시료</div><div class="stat-value">450 / 700위안</div></div>
+          <div class="consult-stat"><div class="stat-label">성적 유효</div><div class="stat-value black">보통 2년</div></div>
+        </div>
+        <div class="docs-warning"><i class="fas fa-info-circle"></i><div class="docs-warning-content"><div class="docs-warning-title">접수·모의 문제·성적 조회는 csca.cn</div><div class="docs-warning-text">시험 대강(考试大纲)과 모의 문제, 회차별 시험일·접수기간은 공식 사이트 공지를 기준으로 확인하세요.</div></div></div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="csca-w-1" data-cms-label="CSCA 가이드 · 과목·문항">
+        <div class="docs-section-title"><i class="fas fa-list-ol"></i> 시험 과목</div>
+        <table class="cg-table">
+          <thead><tr><th>과목</th><th>응시 대상</th><th>시험 언어</th><th>시간 · 문항</th></tr></thead>
+          <tbody>
+            <tr><td class="name">수학</td><td><span class="cg-badge must">모든 응시자</span></td><td>중문 / 영문</td><td>60분 · 48문항</td></tr>
+            <tr><td class="name">전문 중국어 (문과/이과)</td><td><span class="cg-badge cond">중국어 授课</span></td><td>중문만</td><td>90분 · 80문항</td></tr>
+            <tr><td class="name">물리</td><td rowspan="2"><span class="cg-badge sel">이공·농·의학</span><br><span style="font-size:12px;color:#777;">최소 1과목</span></td><td>중문 / 영문</td><td>60분 · 48문항</td></tr>
+            <tr><td class="name">화학</td><td>중문 / 영문</td><td>60분 · 48문항</td></tr>
+          </tbody>
+        </table>
+        <div class="cg-note">※ 공개된 시험 대강 기준이며 변경될 수 있습니다 (전문 중국어는 자료에 따라 80~100문항).</div>
+        <div class="docs-tips">
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-square-root-alt"></i></div><div class="docs-tip-title">수학</div><div class="docs-tip-desc">한국 고교 수준이지만 60분 48문항(문항당 약 75초)이라 속도가 관건입니다.</div></div>
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-language"></i></div><div class="docs-tip-title">전문 중국어</div><div class="docs-tip-desc">HSK 5급 수준. 지원 계열에 맞춰 문과/이과 중국어 중 하나를 봅니다.</div></div>
+          <div class="docs-tip-card"><div class="docs-tip-icon"><i class="fas fa-flask"></i></div><div class="docs-tip-title">물리·화학</div><div class="docs-tip-desc">전공이 지정한 과목을 먼저 확인하고 1과목에 집중하세요.</div></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="csca-w-2" data-cms-label="CSCA 가이드 · 누가 봐야 하나">
+        <div class="docs-section-title"><i class="fas fa-user-check"></i> 누가 봐야 하나요?</div>
+        <table class="cg-table">
+          <thead><tr><th>구분</th><th>CSCA</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td class="name">중국정부장학금 학부 지원자</td><td><span class="cg-badge must">필수</span></td><td class="left">2026년부터 모든 대학 공통</td></tr>
+            <tr><td class="name">푸단대·상하이자오퉁대·중산대·난징대 등</td><td><span class="cg-badge must">필수</span></td><td class="left">자비생도 요구 (전공별 지정 과목)</td></tr>
+            <tr><td class="name">베이징대 (자비생)</td><td><span class="cg-badge sel">대체 가능</span></td><td class="left">자체 입학시험(중문·영어·수학) 또는 SAT·IB 등으로 지원하는 필기 면제 트랙</td></tr>
+            <tr><td class="name">칭화대</td><td><span class="cg-badge sel">선택 제출</span></td><td class="left">SAT·ACT·A-Level·AP·IB·CSCA 등 국제공인성적 중 제출</td></tr>
+            <tr><td class="name">2028년 이후</td><td><span class="cg-badge cond">전면 확대 예정</span></td><td class="left">모든 국제학생 학부 지원자</td></tr>
+          </tbody>
+        </table>
+        <div class="docs-section-title" style="margin-top:22px;"><i class="fas fa-user-minus"></i> 면제 기준</div>
+        <div class="docs-checklist">
+          <div class="docs-check-item"><div class="docs-check-icon"><i class="fas fa-globe"></i></div><div class="docs-check-content"><div class="docs-check-name">영어 授课 전공</div><div class="docs-check-desc">전문 중국어 면제 (수학 필수, 이공·의학은 물리/화학 추가)</div></div></div>
+          <div class="docs-check-item"><div class="docs-check-icon"><i class="fas fa-language"></i></div><div class="docs-check-content"><div class="docs-check-name">한어언 계열 전공 + HSK 4급</div><div class="docs-check-desc">전문 중국어 면제 (수학 필수)</div></div></div>
+          <div class="docs-check-item"><div class="docs-check-icon"><i class="fas fa-school"></i></div><div class="docs-check-content"><div class="docs-check-name">预科(예과) 수료자</div><div class="docs-check-desc">일부 대학은 공식 预科 성적으로 대체 인정</div></div></div>
+          <div class="docs-check-item"><div class="docs-check-icon"><i class="fas fa-search"></i></div><div class="docs-check-content"><div class="docs-check-name">꼭 확인</div><div class="docs-check-desc">요구 여부·과목·최저 점수는 대학·전공별 모집요강 기준</div></div></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="csca-w-3" data-cms-label="CSCA 가이드 · 일정·접수">
+        <div class="docs-section-title"><i class="fas fa-calendar-alt"></i> 접수 절차</div>
+        <div class="cg-steps">
+          <div class="cg-step"><div class="cg-step-num">STEP 1</div><div class="cg-step-title">회원가입</div><div class="cg-step-desc">csca.cn 가입,<br>여권 정보 입력</div></div>
+          <div class="cg-step"><div class="cg-step-num">STEP 2</div><div class="cg-step-title">회차·과목 선택</div><div class="cg-step-desc">시험 언어(中/英)<br>함께 선택</div></div>
+          <div class="cg-step"><div class="cg-step-num">STEP 3</div><div class="cg-step-title">응시료 결제</div><div class="cg-step-desc">1과목 450위안<br>2과목+ 700위안</div></div>
+          <div class="cg-step"><div class="cg-step-num">STEP 4</div><div class="cg-step-title">응시</div><div class="cg-step-desc">수험표·여권<br>지참</div></div>
+          <div class="cg-step"><div class="cg-step-num">STEP 5</div><div class="cg-step-title">성적 제출</div><div class="cg-step-desc">성적 조회 후<br>대학에 제출</div></div>
+        </div>
+        <div class="docs-section-title" style="margin-top:22px;"><i class="fas fa-flag-checkered"></i> 2027년 9월 입학 추천 일정</div>
+        <div class="docs-timeline">
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2026년 12월 · 2027년 1월</div><div class="docs-timeline-title">1차 응시</div><div class="docs-timeline-desc">상위권 대학 원서 마감(2~4월) 전에 성적을 확보합니다.</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2027년 3월 · 4월</div><div class="docs-timeline-title">재응시 · 추가 과목</div><div class="docs-timeline-desc">점수를 올리거나 전공이 요구하는 물리·화학을 추가로 봅니다.</div></div>
+          <div class="docs-timeline-item"><div class="docs-timeline-period">2027년 6월</div><div class="docs-timeline-title">늦은 마감·사전합격자 제출</div><div class="docs-timeline-desc">예) 상하이자오퉁대는 사전합격 후 6월 30일까지 CSCA 성적 제출.</div></div>
+        </div>
+      </div>
+      </div>
+
+      <div class="w-pane">
+      <div data-cms-block="csca-w-4" data-cms-label="CSCA 가이드 · 내 과목 찾기 안내">
+        <div class="docs-intro" style="margin:22px 0 14px;">수업언어와 지원 계열을 고르면 봐야 할 CSCA 과목과 예상 응시료를 알려 드립니다. 최종 과목은 지원 대학 모집요강의 <strong>전공별 CSCA 과목표</strong>를 따르세요.</div>
+      </div>
+      <div class="cg-finder csca-modal-finder">
+        <div class="cg-finder-title"><i class="fas fa-search"></i> 내 CSCA 응시과목 찾기</div>
+        <label for="cscaMLang">수업언어</label>
+        <select id="cscaMLang" onchange="updateCscaFinder('cscaM')"><option value="zh">중국어 授课</option><option value="en">영어 授课</option></select>
+        <label for="cscaMField">지원 계열</label>
+        <select id="cscaMField" onchange="updateCscaFinder('cscaM')"><option value="hum">인문·사회·상경·예술</option><option value="sci">이공·농학·의학</option><option value="chn">한어언(중국어) 계열 전공</option></select>
+        <label class="cg-check"><input type="checkbox" id="cscaMHsk4" onchange="updateCscaFinder('cscaM')"> 유효한 HSK 4급 이상 보유</label>
+        <div class="cg-finder-result" id="cscaMFinderResult"></div>
+      </div>
+      </div>
+      <div class="cg-actions-row">
+        <a class="cg-btn solid" href="#" data-link="page:cscaOverlay"><i class="fas fa-book-open"></i> CSCA 전체 안내 페이지</a>
+        <a class="cg-btn" href="https://www.csca.cn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> csca.cn 접수·모의 문제</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ===== 대학별 유학생 모집요강 창 ===== -->
 <style>
@@ -4689,20 +5206,9 @@ function closeDocsGuide() {
 </div><!-- /page-content -->
 <footer class="footer">
   <div class="footer-links">
-    <a href="#">개인정보처리방침</a>
-    <a href="#">이용약관</a>
-    <a href="#">이메일주소 무단수집 거부</a>
-    <a href="#">저작권정책</a>
-    <a href="#">제안 및 건의하기</a>
+    <span id="footerLinks" class="footer-link-list"></span>
     <div class="footer-selects">
-      <select onchange="if(this.value){window.open(this.value,'_blank');this.selectedIndex=0;}">
-        <option value="">관련기관</option>
-        <option value="https://www.csca.cn/">CSCA 공식 사이트 (시험 접수·성적)</option>
-        <option value="https://www.campuschina.org/">Campus China (중국정부장학금)</option>
-        <option value="https://www.studyinchina.edu.cn/">Study in China (留学中国)</option>
-        <option value="https://www.chinesetest.cn/">HSK 공식 사이트 (中文考试服务网)</option>
-        <option value="https://www.moe.gov.cn/">중국 교육부 (教育部)</option>
-      </select>
+      <select id="relatedSites" onchange="if(this.value){window.open(this.value,'_blank','noopener');this.selectedIndex=0;}"></select>
       <select><option>Family Site</option></select>
     </div>
   </div>
@@ -4741,132 +5247,7 @@ function closeDocsGuide() {
       <span class="menu-login-link" onclick="closeMenu();openPage('loginOverlay')">로그인해주세요 &rsaquo;</span>
     </div>
 
-    <div class="menu-grid">
-
-      <!-- 대학/학과/전형 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-edit"></i>
-          <span class="menu-cat-title">대학/학과/전형</span>
-        </div>
-        <div class="menu-links">
-          <a href="#" onclick="closeMenu();openUnivModal();return false;">대학정보</a>
-          <a href="#" onclick="closeMenu();openDeptModal();return false;">학과정보</a>
-          <a href="#" onclick="closeMenu();openPage('admOverlay');return false;">전형정보</a>
-          <a href="#">도시별 검색</a>
-          <a href="#">985·211 대학</a>
-          <a href="#">합격후기</a>
-        </div>
-      </div>
-
-      <!-- 자격요건 분석 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-passport"></i>
-          <span class="menu-cat-title">자격요건 분석</span>
-        </div>
-        <div class="menu-links">
-          <a href="#" onclick="closeMenu();openGuideModal();return false;">유학생 자격확인</a>
-          <a href="#" onclick="closeMenu();openPage('cscaOverlay');return false;">CSCA 응시과목 찾기</a>
-          <a href="#" onclick="closeMenu();openPageAt('admGuideOverlay','ag-nation');return false;">국적 심사 기준</a>
-          <a href="#" onclick="closeMenu();openPageAt('admGuideOverlay','ag-lang');return false;">HSK 기준 안내</a>
-          <a href="#" class="full-width" onclick="closeMenu();openDocsGuide();return false;">서류준비 가이드</a>
-        </div>
-      </div>
-
-      <!-- 유학상담 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-comments"></i>
-          <span class="menu-cat-title">유학상담</span>
-        </div>
-        <div class="menu-links">
-          <a href="#" onclick="closeMenu();openPage('consultOverlay');return false;">온라인유학상담</a>
-          <a href="#">상담FAQ</a>
-          <a href="#">전화상담 안내</a>
-          <a href="#">1:1 맞춤상담</a>
-          <a href="#" class="full-width" onclick="closeMenu();openPage('compOverlay');return false;">서류·면접 상담</a>
-        </div>
-      </div>
-
-      <!-- 진로정보 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-route"></i>
-          <span class="menu-cat-title">진로정보</span>
-        </div>
-        <div class="menu-links">
-          <a href="#" onclick="closeMenu();openJobModal();return false;">직업정보</a>
-          <a href="#">직업심리검사</a>
-          <a href="#">전공별 진로안내</a>
-          <a href="#">중국 취업정보</a>
-        </div>
-      </div>
-
-      <!-- 입시정보센터 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-database"></i>
-          <span class="menu-cat-title">입시정보센터</span>
-        </div>
-        <div class="menu-links">
-          <a href="#" onclick="closeMenu();openPage('cscaOverlay');return false;">CSCA 시험 안내</a>
-          <a href="#" onclick="closeMenu();openPage('admGuideOverlay');return false;">입시 핵심가이드</a>
-          <a href="#" onclick="closeMenu();openPageAt('admGuideOverlay','ag-schedule');return false;">전형일정</a>
-          <a href="#" onclick="closeMenu();openPageAt('admGuideOverlay','ag-sites');return false;">공식 사이트 모음</a>
-          <a href="#" onclick="closeMenu();openPage('dataOverlay');return false;">유학자료실</a>
-          <a href="#" onclick="closeMenu();openPageAt('admGuideOverlay','ag-scholar');return false;">장학금 안내</a>
-        </div>
-      </div>
-
-      <!-- 고객센터 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-headset"></i>
-          <span class="menu-cat-title">고객센터</span>
-        </div>
-        <div class="menu-links">
-          <a href="#">공지사항</a>
-          <a href="#" onclick="closeMenu();openCms();return false;">콘텐츠 관리(CMS)</a>
-          <a href="#">서비스이용문의</a>
-          <a href="#">사이트맵</a>
-          <a href="#">이용안내</a>
-        </div>
-      </div>
-
-      <!-- 회원서비스 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-users"></i>
-          <span class="menu-cat-title">회원서비스</span>
-        </div>
-        <div class="menu-links">
-          <a href="#">로그인</a>
-          <a href="#">회원가입</a>
-          <a href="#">아이디찾기</a>
-          <a href="#">비밀번호찾기</a>
-          <a href="#">개인정보처리방침</a>
-          <a href="#">이메일수집거부</a>
-        </div>
-      </div>
-
-      <!-- 마이페이지 -->
-      <div class="menu-category">
-        <div class="menu-cat-header">
-          <i class="fas fa-user-circle"></i>
-          <span class="menu-cat-title">마이페이지</span>
-        </div>
-        <div class="menu-links">
-          <a href="#">관심대학/전형</a>
-          <a href="#">입시 알림</a>
-          <a href="#">일정관리</a>
-          <a href="#">신청/접수</a>
-          <a href="#" onclick="closeMenu();openPage('gradeOverlay');return false;">성적·HSK 관리</a>
-          <a href="#">입학도우미</a>
-        </div>
-      </div>
-
-    </div>
+    <div class="menu-grid" id="menuGrid"></div>
 
     <!-- 하단 연락처 -->
     <div class="menu-bottom">
@@ -5126,6 +5507,44 @@ function renderOfficialSites() {
     + `<span><span class="official-name">${esc(o.name)}</span><br><span class="official-url">${esc(o.desc)}</span></span></a>`).join('');
 }
 
+/* ====== 아이콘 메뉴 · 오른쪽 위젯 · 전체메뉴 · 푸터 ====== */
+function linkAttr(link) { return link ? ` data-link="${esc(link)}"` : ''; }
+function renderNavItems() {
+  document.getElementById('navItems').innerHTML = siteList('navItems').filter(n => n.enabled !== false).map(n =>
+    `<div class="icon-nav-item"${linkAttr(n.link)} style="cursor:pointer;"><div class="icon-circle"><i class="${esc(iconClass(n.icon))}"></i></div><span class="nav-label">${esc(n.label)}</span></div>`).join('');
+}
+function renderSideWidgets() {
+  document.getElementById('sideFloating').innerHTML = siteList('sideWidgets').filter(w => w.enabled !== false).map(w =>
+    `<div class="side-float-btn"${linkAttr(w.link)}${cssColor(w.color) ? ` style="background:${cssColor(w.color)}"` : ''}>${escBr(w.label)}</div>`).join('');
+}
+function renderFullMenu() {
+  document.getElementById('menuGrid').innerHTML = siteList('fullMenu').map(cat =>
+    `<div class="menu-category"><div class="menu-cat-header"><i class="${esc(iconClass(cat.icon || 'fa-folder'))}"></i><span class="menu-cat-title">${esc(cat.title)}</span></div><div class="menu-links">`
+    + (cat.links || []).filter(l => l && l.text).map(l => l.link
+        ? `<a href="#" data-link="${esc(l.link)}"${l.wide ? ' class="full-width"' : ''}>${esc(l.text)}</a>`
+        : `<a class="menu-link-off${l.wide ? ' full-width' : ''}">${esc(l.text)}</a>`).join('')
+    + '</div></div>').join('');
+}
+function renderFooter() {
+  document.getElementById('footerLinks').innerHTML = siteList('footerLinks').map(l =>
+    l.link ? `<a href="#" data-link="${esc(l.link)}">${esc(l.text)}</a>` : `<a>${esc(l.text)}</a>`).join('');
+  document.getElementById('relatedSites').innerHTML = '<option value="">관련기관</option>'
+    + siteList('relatedSites').map(r => `<option value="${esc(r.url)}">${esc(r.name)}</option>`).join('');
+}
+
+/* ====== 추가 페이지 (CMS에서 만든 페이지 : custom:주소) ====== */
+function openCustomPage(slug) {
+  const pg = siteList('pages').find(x => x.slug === slug && x.enabled !== false);
+  if (!pg) return;
+  document.getElementById('customCrumb').textContent = pg.title || '';
+  document.getElementById('customTitle').textContent = pg.title || '';
+  document.getElementById('customSub').textContent = pg.subtitle || '';
+  const body = document.getElementById('customBody');
+  body.innerHTML = pg.html || '';
+  body.dataset.slug = slug;
+  showPage('customOverlay');
+}
+
 /* ====== 배너 렌더 ====== */
 function renderBanners() {
   const slides = siteList('banners').filter(b => b.enabled !== false);
@@ -5172,10 +5591,12 @@ const BLOCK_DEFAULTS = {};
 document.querySelectorAll('[data-cms-block]').forEach(el => { BLOCK_DEFAULTS[el.dataset.cmsBlock] = el.innerHTML; });
 function applyBlocks() {
   const blocks = SITE.blocks || {};
+  const hidden = new Set(SITE.hiddenBlocks || []);
   document.querySelectorAll('[data-cms-block]').forEach(el => {
     const key = el.dataset.cmsBlock;
     const html = Object.prototype.hasOwnProperty.call(blocks, key) ? blocks[key] : BLOCK_DEFAULTS[key];
     if (html != null && el.innerHTML !== html) el.innerHTML = html;
+    el.classList.toggle('cms-hidden', hidden.has(key));
   });
 }
 
@@ -5183,6 +5604,10 @@ function applyBlocks() {
 function renderSite() {
   applySettings();
   applyBlocks();
+  renderNavItems();
+  renderSideWidgets();
+  renderFullMenu();
+  renderFooter();
   renderBanners();
   renderNotices();
   renderNews();
@@ -5191,6 +5616,9 @@ function renderSite() {
   renderResources();
   if (document.getElementById('univOverlay').classList.contains('open')) renderUnivTable(1);
   if (document.getElementById('deptOverlay').classList.contains('open')) renderDeptTable(1);
+  const customBody = document.getElementById('customBody');
+  if (document.getElementById('customOverlay').classList.contains('open') && customBody.dataset.slug) openCustomPage(customBody.dataset.slug);
+  renderHskUnivTable();
   updatePreviewBar();
 }
 function setSiteContent(content) {
@@ -5202,14 +5630,17 @@ function setSiteContent(content) {
 function runLink(link) {
   link = String(link || '').trim();
   if (!link) return;
-  const m = link.match(/^(page|modal|univ|home):(.*)$/);
+  const m = link.match(/^(page|modal|univ|home|custom):(.*)$/);
   if (!m) { window.open(link, '_blank', 'noopener'); return; }
   const [, kind, arg] = m;
   if (kind === 'home') { showHome(); return; }
   if (kind === 'univ') { openUnivGuide(arg); return; }
+  if (kind === 'custom') { openCustomPage(arg); return; }
   if (kind === 'modal') {
-    const modals = { docs: openDocsGuide, novice: openNoviceGuide, guide: openGuideModal, cms: openCms, menu: toggleMenu };
-    if (modals[arg]) modals[arg]();
+    const [name, tab] = arg.split('#');
+    if (WIDGET_IDS[name]) openWidget(WIDGET_IDS[name], +tab || 0);
+    else if (name === 'cms') openCms();
+    else if (name === 'menu') toggleMenu();
     return;
   }
   const [id, section] = arg.split('#');
@@ -5222,8 +5653,9 @@ document.addEventListener('click', function(e) {
   const a = e.target.closest('a[href]');
   if (a && a !== el && el.contains(a)) return;
   e.preventDefault();
+  if (el.closest('#menuOverlay')) closeMenu();
   runLink(el.dataset.link);
-});
+}, true);   // 캡처 단계: 전체메뉴 창의 stopPropagation 보다 먼저 받음
 
 /* ====== 대학별 유학생 모집요강 ====== */
 const GUIDE_FIELDS = [
@@ -5307,7 +5739,7 @@ function renderPagination(containerId, current, total, callback) {
 }
 
 /* ====== 페이지 전환 헬퍼 ====== */
-const ALL_PAGES = ['univOverlay','deptOverlay','jobOverlay','admOverlay','gradeOverlay','dataOverlay','compOverlay','consultOverlay','univGradeOverlay','loginOverlay','cscaOverlay','admGuideOverlay'];
+const ALL_PAGES = ['univOverlay','deptOverlay','jobOverlay','admOverlay','gradeOverlay','dataOverlay','compOverlay','consultOverlay','univGradeOverlay','loginOverlay','cscaOverlay','admGuideOverlay','customOverlay'];
 
 function showPage(id) {
   document.getElementById('mainWrap').style.display = 'none';
@@ -5363,10 +5795,12 @@ function headerSearch() {
 
 /* ====== CSCA 응시과목 찾기 ====== */
 const CSCA_FEE_ONE = 450, CSCA_FEE_MULTI = 700;
-function updateCscaFinder() {
-  const lang = document.getElementById('cscaLang').value;
-  const field = document.getElementById('cscaField').value;
-  const hsk4 = document.getElementById('cscaHsk4').checked;
+function updateCscaFinder(prefix) {
+  const p = typeof prefix === 'string' ? prefix : 'csca';
+  if (!document.getElementById(p + 'Lang')) return;
+  const lang = document.getElementById(p + 'Lang').value;
+  const field = document.getElementById(p + 'Field').value;
+  const hsk4 = document.getElementById(p + 'Hsk4').checked;
   const required = ['수학'];
   const notes = [];
   let pickOne = false;
@@ -5394,7 +5828,7 @@ function updateCscaFinder() {
   html += `<div class="fee">예상 응시료 : ${fee}위안 (${count}과목)</div>`;
   if (notes.length) html += '<div class="muted" style="margin-top:6px;">' + notes.map(n => '· ' + n).join('<br>') + '</div>';
   html += '<div class="muted" style="margin-top:6px;">※ 최종 과목은 지원 대학 모집요강 기준</div>';
-  document.getElementById('cscaFinderResult').innerHTML = html;
+  document.getElementById(p + 'FinderResult').innerHTML = html;
 }
 
 function openUnivModal() { openPage('univOverlay'); }
@@ -5410,6 +5844,8 @@ function closeJobModal() { showHome(); }
 document.addEventListener('keydown', function(e){
   if(e.key!=='Escape' || document.body.classList.contains('cms-open')) return;
   if(document.getElementById('univGuideOverlay').classList.contains('open')){ closeUnivGuide(); return; }
+  const openWidgetEl = Object.values(WIDGET_IDS).map(id => document.getElementById(id)).find(m => m && m.classList.contains('open'));
+  if(openWidgetEl){ closeWidget(openWidgetEl.id); return; }
   showHome(); closeMenu();
 });
 
@@ -5460,6 +5896,11 @@ function resetSlideTimer() {
 }
 
 renderSite();
+
+/* 주소 끝에 #cms 를 붙이면 콘텐츠 관리(CMS)가 바로 열림 */
+function openCmsFromHash() { if (/^#cms$/i.test(location.hash)) openCms(); }
+window.addEventListener('hashchange', openCmsFromHash);
+openCmsFromHash();
 </script>
 
 </body>
