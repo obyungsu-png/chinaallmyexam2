@@ -2521,102 +2521,450 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   </div>
 </div>
 
-<!-- ===== 고교 성적 · HSK 입력 페이지 ===== -->
+<!-- ===== 성적 입력 · 대학별 요건 점검 페이지 ===== -->
+<style>
+.sc-nav { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px; margin-bottom: 14px; }
+.sc-nav-title { font-size: 13px; font-weight: 700; color: #444; padding: 4px 6px 8px; }
+.sc-nav a { display: flex; align-items: center; gap: 8px; padding: 9px 8px; border-radius: 6px; font-size: 13px; color: #444; }
+.sc-nav a:hover { background: #f0faf9; color: #00796b; }
+.sc-nav .sc-num { width: 22px; height: 22px; border-radius: 50%; background: #eceff1; color: #607d8b; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.sc-nav a.done .sc-num { background: #2db4a8; color: #fff; }
+.sc-store { font-size: 11px; color: #888; line-height: 1.6; margin-top: 10px; padding: 0 2px; }
+.sc-store button { background: none; border: none; color: #c62828; font-size: 11px; text-decoration: underline; cursor: pointer; padding: 0; font-family: inherit; }
+.sc-intro { background: #e8f5f4; border-left: 4px solid #2db4a8; border-radius: 8px; padding: 14px 18px; font-size: 13px; color: #333; line-height: 1.7; margin-bottom: 14px; }
+.sc-intro strong { color: #00796b; }
+.sc-progress { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+.sc-chip { font-size: 12px; padding: 5px 12px; border-radius: 16px; background: #eceff1; color: #607d8b; font-weight: 600; cursor: pointer; }
+.sc-chip.done { background: #e0f2f1; color: #00796b; }
+.sc-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 20px 22px; margin-bottom: 18px; scroll-margin-top: 20px; }
+.sc-card h3 { font-size: 17px; font-weight: 800; color: #222; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+.sc-card h3 .sc-step { background: #2db4a8; color: #fff; font-size: 11px; border-radius: 10px; padding: 2px 9px; }
+.sc-card .sc-desc { font-size: 12px; color: #888; margin-bottom: 14px; line-height: 1.6; }
+.sc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px 14px; }
+.sc-grid.three { grid-template-columns: repeat(3, 1fr); }
+.sc-field label { display: block; font-size: 12px; font-weight: 700; color: #455a64; margin-bottom: 5px; }
+.sc-field input, .sc-field select, .sc-table input, .sc-table select, .sc-search { width: 100%; padding: 8px 10px; border: 1px solid #cfd8dc; border-radius: 7px; font-size: 13px; font-family: inherit; background: #fff; box-sizing: border-box; }
+.sc-field input:focus, .sc-field select:focus, .sc-table input:focus { outline: none; border-color: #2db4a8; box-shadow: 0 0 0 3px rgba(45,180,168,0.15); }
+.sc-bad { border-color: #e53935 !important; background: #fff5f5 !important; }
+.sc-sub { font-size: 14px; font-weight: 800; color: #00796b; margin: 18px 0 10px; }
+.sc-univ-tools { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.sc-univ-tools .sc-search { max-width: 240px; }
+.sc-mini { padding: 6px 12px; border: 1px solid #2db4a8; border-radius: 16px; background: #fff; color: #00796b; font-size: 12px; font-weight: 600; cursor: pointer; font-family: inherit; }
+.sc-mini:hover { background: #2db4a8; color: #fff; }
+.sc-univs { display: flex; flex-wrap: wrap; gap: 6px; max-height: 190px; overflow-y: auto; padding: 2px; }
+.sc-univ { display: inline-flex; align-items: center; gap: 5px; padding: 5px 10px; border: 1px solid #dfe5e8; border-radius: 16px; font-size: 12px; cursor: pointer; background: #fff; user-select: none; }
+.sc-univ input { accent-color: #2db4a8; margin: 0; }
+.sc-univ.on { background: #e0f2f1; border-color: #2db4a8; color: #00695c; font-weight: 700; }
+.sc-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.sc-table th { background: #f5f7f8; padding: 9px 6px; font-size: 12px; font-weight: 700; color: #455a64; border-bottom: 1px solid #e0e0e0; text-align: center; }
+.sc-table td { padding: 6px; border-bottom: 1px solid #f0f0f0; text-align: center; }
+.sc-table td.sc-rowlabel { font-weight: 700; color: #37474f; white-space: nowrap; }
+.sc-table td.sc-avg { color: #00796b; font-weight: 800; }
+.sc-table tr.sc-off td { opacity: 0.45; }
+.sc-table input { text-align: center; padding: 6px 4px; }
+.sc-sum { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.sc-sum div { background: #f0faf9; border-radius: 8px; padding: 8px 14px; font-size: 12px; color: #455a64; }
+.sc-sum b { color: #00796b; font-size: 15px; margin-left: 4px; }
+.sc-hint { font-size: 12px; margin-top: 8px; padding: 8px 12px; border-radius: 6px; background: #f5f5f5; color: #555; line-height: 1.6; }
+.sc-hint.ok { background: #e8f5e9; color: #1b5e20; }
+.sc-hint.no { background: #ffebee; color: #b71c1c; }
+.sc-need { display: inline-block; background: #2db4a8; color: #fff; border-radius: 12px; padding: 2px 10px; font-size: 12px; font-weight: 700; margin: 2px 4px 2px 0; }
+.sc-need.opt { background: #fff; color: #00796b; border: 1px solid #2db4a8; }
+.sc-result-sum { display: flex; gap: 10px; margin-bottom: 14px; flex-wrap: wrap; }
+.sc-result-sum div { flex: 1; min-width: 120px; text-align: center; border-radius: 10px; padding: 12px; font-size: 12px; font-weight: 700; }
+.sc-result-sum b { display: block; font-size: 22px; margin-top: 2px; }
+.sc-r-ok { background: #e8f5e9; color: #2e7d32; }
+.sc-r-warn { background: #fff8e1; color: #ef6c00; }
+.sc-r-fail { background: #ffebee; color: #c62828; }
+.sc-res td { text-align: left; vertical-align: top; line-height: 1.5; }
+.sc-res td.sc-uname { font-weight: 800; color: #222; white-space: nowrap; }
+.sc-res td.sc-uname span { display: block; font-size: 11px; color: #999; font-weight: 500; font-family: 'Noto Sans SC', sans-serif; }
+.sc-st { display: inline-block; font-size: 11px; font-weight: 800; border-radius: 4px; padding: 1px 7px; margin-bottom: 3px; }
+.sc-st.ok { background: #e8f5e9; color: #2e7d32; }
+.sc-st.fail { background: #ffebee; color: #c62828; }
+.sc-st.warn, .sc-st.none, .sc-st.unknown { background: #fff8e1; color: #ef6c00; }
+.sc-st.na { background: #eceff1; color: #78909c; }
+.sc-res .sc-st { white-space: nowrap; }
+.sc-msg { font-size: 12px; color: #555; }
+.sc-empty { text-align: center; color: #999; padding: 26px; font-size: 13px; }
+.sc-notes { font-size: 12px; color: #888; line-height: 1.8; margin-top: 4px; }
+</style>
+
 <div class="info-overlay" id="gradeOverlay">
   <div class="info-topbar">
     <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
     <span class="bc-sep">›</span><a href="#">마이페이지</a>
     <span class="bc-sep">›</span><a href="#">성적관리</a>
-    <span class="bc-sep">›</span><span class="bc-cur">고교 성적 · HSK</span>
+    <span class="bc-sep">›</span><span class="bc-cur">성적 입력 · 요건 점검</span>
     <button class="info-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
   </div>
-  <div class="info-hero" data-cms-block="hero-gradeOverlay" data-cms-label="성적입력 · 페이지 제목"><h1>고교 성적 · CSCA · HSK 입력</h1></div>
+  <div class="info-hero" data-cms-block="hero-gradeOverlay" data-cms-label="성적입력 · 페이지 제목"><h1>성적 입력 · 대학별 요건 점검</h1><div class="hero-sub">HSK · CSCA · 고교 성적 · 국제공인성적을 입력하면 목표 대학의 지원 기준과 자동으로 비교합니다</div></div>
   <div class="info-body">
     <div class="info-filter">
-      <div style="border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:14px;background:#fff;">
-        <div style="font-size:14px;font-weight:600;margin-bottom:12px;">성적유형</div>
-        <button class="grade-input-btn primary">고교 내신</button>
-        <button class="grade-input-btn">CSCA 성적</button>
-        <button class="grade-input-btn">HSK · 어학성적</button>
-        <button class="grade-input-btn">수능 · SAT · IB</button>
-        <button class="grade-input-btn">분석 내역</button>
-      </div>
-      <div style="border:1px solid #e0e0e0;border-radius:8px;padding:16px;margin-bottom:14px;background:#fff;">
-        <div style="font-size:14px;font-weight:600;margin-bottom:12px;">성적입력</div>
-        <div style="font-size:13px;font-weight:600;margin-bottom:8px;">1학년</div>
-        <button class="grade-input-btn">1학년 1학기 입력</button>
-        <button class="grade-input-btn">1학년 2학기 입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">2학년</div>
-        <button class="grade-input-btn">2학년 1학기 입력</button>
-        <button class="grade-input-btn">2학년 2학기 입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">3학년</div>
-        <button class="grade-input-btn">3학년 1학기 입력</button>
-        <button class="grade-input-btn">3학년 2학기 입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">CSCA 성적</div>
-        <button class="grade-input-btn">입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">HSK · 어학성적</div>
-        <button class="grade-input-btn">입력</button>
-        <div style="font-size:13px;font-weight:600;margin:12px 0 8px;">성적증명서 업로드</div>
-        <button class="grade-input-btn">입력</button>
-      </div>
-      <button class="bookmark-btn" onclick="openPage('univGradeOverlay')">합격분석</button>
+      <div class="sc-nav" id="scoreNav"></div>
+      <button class="bookmark-btn" onclick="scrollToSection('sc-result')">대학별 요건 점검 보기</button>
+      <button class="filter-link-btn" data-link="modal:guide#3">성적 입력 가이드</button>
+      <div class="sc-store">입력한 내용은 이 브라우저에만 자동 저장됩니다. 공용 PC에서는 사용 후 지워 주세요.<br><button onclick="scoreReset()">입력 내용 모두 지우기</button></div>
     </div>
-    <div class="info-table-area" data-cms-block="grade-body" data-cms-label="성적입력 · 본문">
-      <div style="background:#e8f5f4;padding:14px 18px;border-radius:8px;margin-bottom:18px;font-size:13px;color:#333;">
-        <strong>오병수</strong>님 반갑습니다. 대학별 합격분석을 위해서는 <a href="#" style="color:#2db4a8;font-weight:600;">고교 성적 · CSCA · HSK 입력</a>이 필요합니다. (입력 가이드를 참고해주세요.) →
-        <button style="float:right;padding:6px 14px;border:1px solid #ccc;border-radius:20px;background:#fff;font-size:12px;cursor:pointer;font-family:'Noto Sans KR','Noto Sans SC',sans-serif;" onclick="openGuideModal()">성적 입력 가이드</button>
+    <div class="info-table-area">
+      <div data-cms-block="grade-intro" data-cms-label="성적입력 · 상단 안내">
+        <div class="sc-intro"><strong>중국 대학 지원 기준을 한 번에 점검하세요.</strong> 목표 대학을 고르고 HSK·CSCA·고교 성적을 입력하면, 대학정보(모집요강)에 등록된 <strong>어학·CSCA·연령 기준</strong>과 자동으로 비교합니다.
+          중국 대학은 내신 합격선을 공개하지 않는 곳이 많아, 고교 성적은 원서 제출용 요약으로 정리됩니다.</div>
       </div>
-      <div class="grade-tabs">
-        <span class="grade-tab active">주요교과 분석</span>
-        <span class="grade-tab">교과조합 분석</span>
-        <div style="margin-left:auto;" class="radio-group">
-          과목 가중치 <span style="color:#ccc">?</span>
-          <label><input type="radio" name="isu" checked> 반영</label>
-          <label><input type="radio" name="isu"> 미반영</label>
+      <div class="sc-progress" id="scoreProgress"></div>
+
+      <div class="sc-card" id="sc-basic">
+        <h3><span class="sc-step">1</span> 기본 정보 · 목표 대학</h3>
+        <div class="sc-desc">수업언어와 지원 계열에 따라 HSK·CSCA 기준이 달라집니다. 연령 제한이 있는 대학이 있어 생년월일도 함께 입력하세요.</div>
+        <div class="sc-grid">
+          <div class="sc-field"><label>학생 이름 (선택)</label><input data-score="basic.name" placeholder="홍길동"></div>
+          <div class="sc-field"><label>생년월일</label><input type="date" data-score="basic.birth"></div>
+          <div class="sc-field"><label>목표 입학</label><select data-score="basic.year"><option value="2027">2027년 9월</option><option value="2028">2028년 9월</option><option value="2029">2029년 9월</option></select></div>
+          <div class="sc-field"><label>원서 제출 예정일</label><input type="date" data-score="basic.submit"></div>
+          <div class="sc-field"><label>수업언어</label><select data-score="basic.lang"><option value="zh">중국어 授课</option><option value="en">영어 授课</option></select></div>
+          <div class="sc-field"><label>지원 계열</label><select data-score="basic.field"><option value="hum">인문·사회·상경·예술</option><option value="sci">이공·농학·의학</option><option value="chn">한어언(중국어) 계열</option></select></div>
+          <div class="sc-field"><label>국적 유형</label><select data-score="basic.nation"><option value="A">한국 출생 · 한국 국적</option><option value="B">중국 국적 → 외국 국적 취득</option><option value="C">부모 중 중국 공민 있음</option></select></div>
+          <div class="sc-field"><label>고교 졸업</label><select data-score="school.status"><option value="expected">졸업 예정</option><option value="graduated">졸업</option></select></div>
+        </div>
+        <div class="sc-sub">목표 대학 <span id="scoreTargetCount" style="font-size:12px;color:#888;font-weight:600;"></span></div>
+        <div class="sc-univ-tools">
+          <input class="sc-search" id="scoreUnivSearch" placeholder="대학 찾기 (예: 북경대, 复旦)" oninput="renderScoreUnivs()">
+          <button class="sc-mini" onclick="scorePickTop()">명문대 4곳 선택</button>
+          <button class="sc-mini" onclick="scoreClearTargets()">선택 해제</button>
+        </div>
+        <div class="sc-univs" id="scoreUnivs"></div>
+      </div>
+
+      <div class="sc-card" id="sc-school">
+        <h3><span class="sc-step">2</span> 고교 성적</h3>
+        <div class="sc-desc">2024년 이전 입학생은 9등급, 2025년 입학생부터는 5등급(성취도 A~E 병기)입니다. 해외·국제학교는 100점 또는 GPA로 입력하세요. 졸업예정자는 3학년 1학기까지 입력합니다.</div>
+        <div class="sc-grid three" style="margin-bottom:12px;">
+          <div class="sc-field"><label>성적 체계</label><select data-score="school.scale"><option value="9">9등급 (1이 최상)</option><option value="5">5등급 (1이 최상)</option><option value="100">100점 만점</option><option value="gpa">GPA 4.0 만점</option></select></div>
+        </div>
+        <div id="scoreSchoolTable"></div>
+        <div class="sc-sum" id="scoreSchoolSum"></div>
+      </div>
+
+      <div class="sc-card" id="sc-lang">
+        <h3><span class="sc-step">3</span> HSK · 어학 성적</h3>
+        <div class="sc-desc">성적표의 급수·총점·영역별 점수와 응시일을 그대로 입력하세요. 대학 입학에는 보통 응시일로부터 2년 이내 성적만 인정됩니다.</div>
+        <div class="sc-grid">
+          <div class="sc-field"><label>HSK 체계</label><select data-score="hsk.sys"><option value="2.0">HSK 2.0 (1~6급)</option><option value="3.0">HSK 3.0 (1~9급, 2026.12~)</option></select></div>
+          <div class="sc-field"><label>HSK 급수</label><select data-score="hsk.level"><option value="">선택</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select></div>
+          <div class="sc-field"><label>총점</label><input type="number" min="0" max="300" data-score="hsk.total" placeholder="예: 210"></div>
+          <div class="sc-field"><label>응시일</label><input type="date" data-score="hsk.date"></div>
+          <div class="sc-field"><label>듣기</label><input type="number" min="0" max="100" data-score="hsk.listen"></div>
+          <div class="sc-field"><label>읽기</label><input type="number" min="0" max="100" data-score="hsk.read"></div>
+          <div class="sc-field"><label>쓰기</label><input type="number" min="0" max="100" data-score="hsk.write"></div>
+          <div class="sc-field"><label>HSKK (말하기)</label><select data-score="hskk.level"><option value="">없음</option><option value="초급">초급</option><option value="중급">중급</option><option value="고급">고급</option></select></div>
+        </div>
+        <div class="sc-hint" id="scoreHskHint"></div>
+        <div class="sc-sub">영어 성적 (영어 授课 지원 시)</div>
+        <div class="sc-grid">
+          <div class="sc-field"><label>IELTS Overall</label><input type="number" min="0" max="9" step="0.5" data-score="eng.ielts" placeholder="예: 6.5"></div>
+          <div class="sc-field"><label>IELTS 응시일</label><input type="date" data-score="eng.ieltsDate"></div>
+          <div class="sc-field"><label>TOEFL iBT</label><input type="number" min="0" max="120" data-score="eng.toefl" placeholder="예: 90"></div>
+          <div class="sc-field"><label>TOEFL 응시일</label><input type="date" data-score="eng.toeflDate"></div>
         </div>
       </div>
-      <div style="background:#fff8e1;padding:10px 14px;border-radius:6px;margin-bottom:18px;font-size:12px;color:#e65100;">
-        <i class="fas fa-exclamation-circle"></i> 입력이 안되거나 과목수가 충분하지 않은 경우 다른 성적을 참조하게 되므로 정확도가 떨어집니다.
+
+      <div class="sc-card" id="sc-csca">
+        <h3><span class="sc-step">4</span> CSCA 성적</h3>
+        <div class="sc-desc">csca.cn 성적표의 과목별 점수와 응시일을 입력하세요. 아직 응시 전이면 비워 두면 됩니다.</div>
+        <div class="sc-hint" id="scoreCscaNeed"></div>
+        <table class="sc-table" style="margin-top:12px;">
+          <thead><tr><th>과목</th><th>유형 · 시험 언어</th><th>점수</th><th>응시일</th></tr></thead>
+          <tbody>
+            <tr><td class="sc-rowlabel">수학</td><td><select data-score="csca.math.lang"><option value="zh">중문</option><option value="en">영문</option></select></td><td><input type="number" min="0" data-score="csca.math.score"></td><td><input type="date" data-score="csca.math.date"></td></tr>
+            <tr><td class="sc-rowlabel">전문 중국어</td><td><select data-score="csca.chn.type"><option value="hum">문과 중국어</option><option value="sci">이과 중국어</option></select></td><td><input type="number" min="0" data-score="csca.chn.score"></td><td><input type="date" data-score="csca.chn.date"></td></tr>
+            <tr><td class="sc-rowlabel">물리</td><td><select data-score="csca.phys.lang"><option value="zh">중문</option><option value="en">영문</option></select></td><td><input type="number" min="0" data-score="csca.phys.score"></td><td><input type="date" data-score="csca.phys.date"></td></tr>
+            <tr><td class="sc-rowlabel">화학</td><td><select data-score="csca.chem.lang"><option value="zh">중문</option><option value="en">영문</option></select></td><td><input type="number" min="0" data-score="csca.chem.score"></td><td><input type="date" data-score="csca.chem.date"></td></tr>
+          </tbody>
+        </table>
       </div>
-      <div style="text-align:right;margin-bottom:12px;" class="radio-group">
-        <label><input type="radio" name="view" checked> 등급 (1~9등급)</label>
-        <label><input type="radio" name="view"> 100점 환산</label>
+
+      <div class="sc-card" id="sc-intl">
+        <h3><span class="sc-step">5</span> 국제공인성적 · 수능</h3>
+        <div class="sc-desc">칭화대는 SAT·ACT·A-Level·AP·IB·CSCA 중 하나를, 베이징대 필기 면제 트랙은 국제·국가 대입시험 성적을 요구합니다. 가진 성적만 입력하세요.</div>
+        <div class="sc-grid three">
+          <div class="sc-field"><label>수능 (평균 등급 또는 과목별)</label><input data-score="intl.suneung" placeholder="예: 국1 수2 영1 탐2"></div>
+          <div class="sc-field"><label>SAT (400~1600)</label><input type="number" min="400" max="1600" data-score="intl.sat"></div>
+          <div class="sc-field"><label>ACT (1~36)</label><input type="number" min="1" max="36" data-score="intl.act"></div>
+          <div class="sc-field"><label>IB 총점 (45점 만점)</label><input type="number" min="0" max="45" data-score="intl.ib"></div>
+          <div class="sc-field"><label>AP (과목:점수)</label><input data-score="intl.ap" placeholder="예: Calculus BC 5, Physics C 4"></div>
+          <div class="sc-field"><label>A-Level</label><input data-score="intl.alevel" placeholder="예: Math A*, Physics A"></div>
+        </div>
       </div>
-      <table class="grade-table">
-        <thead><tr><th colspan="2">구분</th><th>국어(어문)</th><th>수학</th><th>영어</th><th>중국어</th><th>사회</th><th>과학</th></tr></thead>
-        <tbody>
-          <tr><td class="row-label" rowspan="3">1학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
-          <tr><td class="row-label" rowspan="3">2학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
-          <tr><td class="row-label" rowspan="3">3학년</td><td>1학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>2학기</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
-          <tr><td>평균</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td><td style="color:#2db4a8;">0</td></tr>
-        </tbody>
-      </table>
-      <br>
-      <table class="grade-table">
-        <thead><tr><th>어학 · 공인시험</th><th>급수 / 종류</th><th>점수</th><th>응시일</th><th>유효기간</th></tr></thead>
-        <tbody>
-          <tr><td class="row-label">CSCA 수학</td><td>중문 / 영문</td><td>-</td><td>-</td><td>성적 발표일로부터 2년 (공지 확인)</td></tr>
-          <tr><td class="row-label">CSCA 전문 중국어</td><td>문과 / 이과</td><td>-</td><td>-</td><td>성적 발표일로부터 2년 (공지 확인)</td></tr>
-          <tr><td class="row-label">CSCA 물리 · 화학</td><td>-</td><td>-</td><td>-</td><td>성적 발표일로부터 2년 (공지 확인)</td></tr>
-          <tr><td class="row-label">HSK</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
-          <tr><td class="row-label">HSKK (회화)</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
-          <tr><td class="row-label">영어 (IELTS·TOEFL)</td><td>-</td><td>-</td><td>-</td><td>응시일로부터 2년</td></tr>
-          <tr><td class="row-label">수능 · SAT · IB 등</td><td>-</td><td>-</td><td>-</td><td>대학별 상이</td></tr>
-        </tbody>
-      </table>
-      <div style="font-size:12px;color:#888;margin-top:10px;">※ 졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지의 성적을 기준으로 제공됩니다. 대부분의 중국 대학은 응시일로부터 2년 이내의 HSK 성적만 인정합니다. CSCA는 지원 대학·전공이 지정한 과목을 모두 입력해야 정확한 분석이 가능합니다. <a href="#" onclick="openPage('cscaOverlay');return false;" style="color:#2db4a8;font-weight:600;">내 CSCA 과목 확인 ›</a></div>
-      <h3 style="margin-top:30px;font-size:18px;font-weight:800;">학년별 교과추이</h3>
-      <div class="chart-placeholder"><i class="fas fa-chart-line" style="font-size:40px;margin-right:10px;"></i> 성적 입력 후 그래프가 표시됩니다</div>
-      <h3 style="font-size:18px;font-weight:800;">전학년 교과비교</h3>
-      <div class="chart-placeholder"><i class="fas fa-chart-bar" style="font-size:40px;margin-right:10px;"></i> 성적 입력 후 그래프가 표시됩니다</div>
+
+      <div class="sc-card" id="sc-result">
+        <h3><span class="sc-step">6</span> 대학별 요건 점검</h3>
+        <div class="sc-desc">대학정보(모집요강)에 등록된 기준과 비교한 결과입니다. 기준이 등록되지 않은 항목은 "모집요강 확인"으로 표시됩니다.</div>
+        <div id="scoreResult"></div>
+      </div>
+
+      <div data-cms-block="grade-notes" data-cms-label="성적입력 · 하단 안내">
+        <div class="sc-notes">※ 점검 결과는 2026년 9월 입학 모집요강을 바탕으로 한 참고용이며 합격을 보장하지 않습니다. 선발은 서류·면접 등을 종합해 결정됩니다.<br>
+        ※ HSK는 2026년 12월 13일 시험부터 HSK 3.0으로 바뀝니다. 3.0 성적의 인정 기준은 지원 대학 모집요강에서 확인하세요.<br>
+        ※ HSK·CSCA·IELTS·TOEFL 성적은 대부분 원서 제출 시점 기준 2년 이내만 인정됩니다.</div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+/* ====== 성적 입력 · 대학별 요건 점검 (입력 내용은 이 브라우저 localStorage 에 저장) ====== */
+const SCORE_KEY = 'score.v1';
+const SCORE_SUBJECTS = [['kor', '국어'], ['math', '수학'], ['eng', '영어'], ['chn', '중국어·제2외국어'], ['soc', '사회'], ['sci', '과학']];
+const SCORE_TERMS = ['1-1', '1-2', '2-1', '2-2', '3-1', '3-2'];
+const SCORE_SCALES = { '9': { min: 1, max: 9, step: 1, low: true, name: '등급' }, '5': { min: 1, max: 5, step: 1, low: true, name: '등급' },
+  '100': { min: 0, max: 100, step: 0.1, low: false, name: '점' }, 'gpa': { min: 0, max: 4.5, step: 0.01, low: false, name: '' } };
+const SCORE_TOP4 = ['北京大学', '清华大学', '复旦大学', '上海交通大学'];
+const SCORE_SECTIONS = [['sc-basic', '기본 정보 · 목표 대학'], ['sc-school', '고교 성적'], ['sc-lang', 'HSK · 어학'], ['sc-csca', 'CSCA'], ['sc-intl', '국제공인성적'], ['sc-result', '대학별 요건 점검']];
+
+function scoreDefaults() {
+  return { basic: { name: '', birth: '', year: '2027', submit: '2027-02-28', lang: 'zh', field: 'hum', nation: 'A', targets: [] },
+    school: { status: 'expected', scale: '9', grades: {} }, hsk: { sys: '2.0' }, hskk: {}, eng: {},
+    csca: { math: { lang: 'zh' }, chn: { type: 'hum' }, phys: { lang: 'zh' }, chem: { lang: 'zh' } }, intl: {} };
+}
+let SCORE = (function () {
+  const d = scoreDefaults();
+  try {
+    const s = JSON.parse(localStorage.getItem(SCORE_KEY) || 'null');
+    if (s) ['basic', 'school', 'hsk', 'hskk', 'eng', 'csca', 'intl'].forEach(k => { d[k] = Object.assign(d[k], s[k] || {}); });
+  } catch (e) { /* 저장본이 없거나 읽을 수 없으면 기본값 */ }
+  return d;
+})();
+function scoreSave() { try { localStorage.setItem(SCORE_KEY, JSON.stringify(SCORE)); } catch (e) { /* 저장 불가 브라우저 */ } }
+function scoreGet(path) { return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), SCORE); }
+function scoreSet(path, v) {
+  const ks = path.split('.'); let o = SCORE;
+  ks.slice(0, -1).forEach(k => { if (o[k] == null || typeof o[k] !== 'object') o[k] = {}; o = o[k]; });
+  o[ks[ks.length - 1]] = v;
+}
+const num = v => (v === '' || v == null || isNaN(+v) ? null : +v);
+const scoreUniv = cn => univList().find(u => u.cn === cn);
+
+/* 입력 → 저장 → 다시 계산 */
+document.addEventListener('input', scoreOnInput);
+document.addEventListener('change', scoreOnInput);
+function scoreOnInput(e) {
+  const el = e.target;
+  if (!el.dataset || !el.dataset.score || !el.closest('#gradeOverlay')) return;
+  scoreSet(el.dataset.score, el.type === 'checkbox' ? el.checked : el.value);
+  scoreSave();
+  if (el.dataset.score === 'school.scale' || el.dataset.score === 'school.status') renderScoreSchool();
+  scoreRecalc();
+}
+function fillScoreInputs() {
+  document.querySelectorAll('#gradeOverlay [data-score]').forEach(el => {
+    const v = scoreGet(el.dataset.score);
+    if (el.type === 'checkbox') el.checked = !!v; else el.value = v == null ? '' : v;
+  });
+}
+function renderScorePage() {
+  renderScoreSchool();
+  fillScoreInputs();
+  renderScoreUnivs();
+  scoreRecalc();
+}
+
+/* 목표 대학 */
+function renderScoreUnivs() {
+  const box = document.getElementById('scoreUnivs');
+  if (!box) return;
+  const kw = univKeyword('scoreUnivSearch');
+  const on = new Set(SCORE.basic.targets);
+  box.innerHTML = univList().filter(u => !kw || (u.ko + u.cn + u.region).toLowerCase().includes(kw) || on.has(u.cn)).map(u =>
+    `<label class="sc-univ${on.has(u.cn) ? ' on' : ''}"><input type="checkbox" ${on.has(u.cn) ? 'checked' : ''} onchange="scoreToggleTarget('${esc(u.cn)}', this.checked)"> ${esc(u.ko)}</label>`).join('');
+  document.getElementById('scoreTargetCount').textContent = `${on.size}곳 선택`;
+}
+function scoreToggleTarget(cn, onOff) {
+  const t = SCORE.basic.targets.filter(x => x !== cn);
+  if (onOff) t.push(cn);
+  SCORE.basic.targets = t; scoreSave(); renderScoreUnivs(); scoreRecalc();
+}
+function scorePickTop() { SCORE.basic.targets = [...new Set([...SCORE.basic.targets, ...SCORE_TOP4.filter(scoreUniv)])]; scoreSave(); renderScoreUnivs(); scoreRecalc(); }
+function scoreClearTargets() { SCORE.basic.targets = []; scoreSave(); renderScoreUnivs(); scoreRecalc(); }
+function scoreReset() {
+  if (!confirm('이 브라우저에 저장된 성적 입력 내용을 모두 지울까요?')) return;
+  SCORE = scoreDefaults(); scoreSave(); renderScorePage();
+}
+
+/* 고교 성적 표 */
+function renderScoreSchool() {
+  const sc = SCORE_SCALES[SCORE.school.scale] || SCORE_SCALES['9'];
+  const off = SCORE.school.status === 'expected';
+  document.getElementById('scoreSchoolTable').innerHTML = `<table class="sc-table"><thead><tr><th>학기</th>${SCORE_SUBJECTS.map(([, n]) => `<th>${n}</th>`).join('')}<th>평균</th></tr></thead><tbody>`
+    + SCORE_TERMS.map(t => `<tr class="${off && t === '3-2' ? 'sc-off' : ''}"><td class="sc-rowlabel">${t.replace('-', '학년 ')}학기</td>`
+      + SCORE_SUBJECTS.map(([k]) => `<td><input type="number" min="${sc.min}" max="${sc.max}" step="${sc.step}" data-score="school.grades.${t}.${k}"${off && t === '3-2' ? ' disabled' : ''}></td>`).join('')
+      + `<td class="sc-avg" id="scAvg${t}">-</td></tr>`).join('')
+    + `<tr><td class="sc-rowlabel">과목 평균</td>${SCORE_SUBJECTS.map(([k]) => `<td class="sc-avg" id="scAvgS${k}">-</td>`).join('')}<td class="sc-avg" id="scAvgAll">-</td></tr></tbody></table>`;
+  fillScoreInputs();
+}
+function scoreSchoolStats() {
+  const sc = SCORE_SCALES[SCORE.school.scale] || SCORE_SCALES['9'];
+  const terms = SCORE_TERMS.filter(t => !(SCORE.school.status === 'expected' && t === '3-2'));
+  const g = SCORE.school.grades || {};
+  const avg = a => (a.length ? a.reduce((x, y) => x + y, 0) / a.length : null);
+  const valid = v => v != null && v >= sc.min && v <= sc.max;
+  const byTerm = {}, bySubj = {}, all = [], main = [];
+  terms.forEach(t => { byTerm[t] = avg(SCORE_SUBJECTS.map(([k]) => num((g[t] || {})[k])).filter(valid)); });
+  SCORE_SUBJECTS.forEach(([k]) => {
+    const vals = terms.map(t => num((g[t] || {})[k])).filter(valid);
+    bySubj[k] = avg(vals); all.push(...vals);
+    if (['kor', 'math', 'eng', 'sci'].includes(k)) main.push(...vals);
+  });
+  return { sc, byTerm, bySubj, all: avg(all), main: avg(main), count: all.length };
+}
+
+/* CSCA 필요 과목 (CSCA 과목 찾기와 같은 규칙) */
+function scoreCscaNeeds() {
+  const { lang, field } = SCORE.basic;
+  const hsk4 = SCORE.hsk.sys === '2.0' && num(SCORE.hsk.level) >= 4 && num(SCORE.hsk.total) >= 180;
+  const needs = [{ key: 'math', name: '수학' }];
+  if (lang === 'zh' && !(field === 'chn' && hsk4)) needs.push({ key: 'chn', name: field === 'sci' ? '전문 중국어(이과)' : '전문 중국어(문과)' });
+  if (field === 'sci') needs.push({ key: 'physchem', name: '물리 또는 화학' });
+  return needs;
+}
+function scoreCscaHas(key) {
+  const c = SCORE.csca;
+  if (key === 'physchem') return num(c.phys && c.phys.score) != null || num(c.chem && c.chem.score) != null;
+  return num(c[key] && c[key].score) != null;
+}
+
+/* 규칙 해석 */
+function parseHskRule(str) {
+  return String(str || '').split('|').map(x => x.trim()).filter(Boolean).map(x => {
+    const [l, t, w] = x.split(':').map(Number);
+    return { level: l, total: t || 180, writing: w || 0 };
+  }).filter(r => r.level);
+}
+const hskRuleText = rules => rules.map(r => `${r.level}급 ${r.total}점${r.writing ? `(쓰기 ${r.writing})` : ''}`).join(' 또는 ');
+function addYears(dateStr, y) { const d = new Date(dateStr); d.setFullYear(d.getFullYear() + y); return d; }
+const fmtDate = d => `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+function validUntilOk(dateStr) {
+  if (!dateStr || !SCORE.basic.submit) return true;
+  return addYears(dateStr, 2) >= new Date(SCORE.basic.submit);
+}
+
+function scoreCheckLang(u) {
+  const req = u.req || {};
+  if (SCORE.basic.lang === 'en') {
+    const rules = String(req.eng || '').split('|').map(x => x.trim()).filter(Boolean).map(x => { const [k, v] = x.split(':'); return { k: k.trim().toLowerCase(), v: +v, raw: String(v || '').trim() }; });
+    const ielts = num(SCORE.eng.ielts), toefl = num(SCORE.eng.toefl);
+    if (!rules.length) return { st: 'unknown', msg: ielts || toefl ? `영어 성적 입력됨 · 기준은 모집요강 확인` : '영어 授课 기준(IELTS·TOEFL) 모집요강 확인' };
+    const need = rules.map(r => `${r.k.toUpperCase()} ${r.raw}`).join(' 또는 ');
+    if (ielts == null && toefl == null) return { st: 'none', msg: `미입력 · 기준 ${need}` };
+    const ok = rules.some(r => (r.k === 'ielts' && ielts != null && ielts >= r.v) || (r.k === 'toefl' && toefl != null && toefl >= r.v));
+    const dateOk = (ielts == null || validUntilOk(SCORE.eng.ieltsDate)) && (toefl == null || validUntilOk(SCORE.eng.toeflDate));
+    if (ok && !dateOk) return { st: 'warn', msg: `점수는 충족 · 제출일 기준 2년이 지났을 수 있음` };
+    return { st: ok ? 'ok' : 'fail', msg: `기준 ${need}` };
+  }
+  const humLike = SCORE.basic.field === 'hum' || SCORE.basic.field === 'chn';
+  const rules = parseHskRule(humLike && req.hskHum ? req.hskHum : req.hsk);
+  const h = SCORE.hsk, lv = num(h.level), tot = num(h.total), wr = num(h.write);
+  if (!rules.length) return { st: 'unknown', msg: 'HSK 기준 모집요강 확인' };
+  const need = hskRuleText(rules);
+  if (lv == null || tot == null) return { st: 'none', msg: `HSK 미입력 · 기준 ${need}` };
+  if (h.sys === '3.0') return { st: 'unknown', msg: `HSK 3.0 성적 인정 기준 확인 · 현행 기준 ${need}` };
+  let st = 'fail';
+  rules.forEach(r => {
+    if (lv > r.level && tot >= 180) st = 'ok';
+    else if (lv === r.level && tot >= r.total) {
+      if (!r.writing || (wr != null && wr >= r.writing)) st = 'ok';
+      else if (wr == null && st !== 'ok') st = 'warn';
+    }
+  });
+  if (st === 'ok' && !validUntilOk(h.date)) return { st: 'warn', msg: `점수는 충족 · 응시일로부터 2년이 제출 예정일 전에 끝남` };
+  if (st === 'warn') return { st, msg: `쓰기 점수를 입력하세요 · 기준 ${need}` };
+  return { st, msg: `기준 ${need}` };
+}
+function scoreCheckCsca(u) {
+  const mode = (u.req || {}).csca || '';
+  const needs = scoreCscaNeeds();
+  const missing = needs.filter(n => !scoreCscaHas(n.key)).map(n => n.name);
+  const any = ['math', 'chn', 'phys', 'chem'].some(k => num(SCORE.csca[k] && SCORE.csca[k].score) != null);
+  const intl = ['sat', 'act', 'ib', 'ap', 'alevel'].some(k => String(SCORE.intl[k] || '').trim());
+  if (mode === 'intl') return any || intl ? { st: 'ok', msg: '국제공인성적 또는 CSCA 제출 가능' } : { st: 'warn', msg: 'SAT·ACT·A-Level·AP·IB·CSCA 중 하나 필요' };
+  if (!missing.length) return { st: 'ok', msg: `필요 과목 응시 완료 (${needs.map(n => n.name).join(', ')})` };
+  if (mode === 'alt') return { st: 'warn', msg: `자체 입학시험 또는 필기 면제(국제성적) 트랙 가능 · 장학생은 CSCA 필수` };
+  if (mode === 'required') return { st: any ? 'fail' : 'none', msg: `응시 필요: ${missing.join(', ')}` };
+  return { st: 'warn', msg: `요구 여부 모집요강 확인 (장학생 필수) · 필요 시 ${missing.join(', ')}` };
+}
+function scoreCheckAge(u) {
+  const m = String((u.req || {}).age || '').match(/^\s*(\d*)\s*-\s*(\d*)\s*$/);
+  if (!m) return { st: 'na', msg: '제한 정보 없음' };
+  if (!SCORE.basic.birth) return { st: 'none', msg: `생년월일 입력 필요 (${m[1] || ''}~${m[2] || ''}세)` };
+  const b = new Date(SCORE.basic.birth), ref = new Date(+SCORE.basic.year, 8, 1);
+  let age = ref.getFullYear() - b.getFullYear();
+  if (ref < new Date(ref.getFullYear(), b.getMonth(), b.getDate())) age--;
+  const ok = (!m[1] || age >= +m[1]) && (!m[2] || age <= +m[2]);
+  return { st: ok ? 'ok' : 'fail', msg: `입학 시 만 ${age}세 · 기준 ${m[1] || ''}~${m[2] || ''}세` };
+}
+const ST_LABEL = { ok: '충족', fail: '미달', warn: '확인', none: '미입력', unknown: '확인', na: '-' };
+function scoreOverall(parts) {
+  if (parts.some(p => p.st === 'fail')) return 'fail';
+  if (parts.some(p => ['warn', 'none', 'unknown'].includes(p.st))) return 'warn';
+  return 'ok';
+}
+
+function scoreRecalc() {
+  if (!document.getElementById('scoreResult')) return;
+  // 고교 성적 평균
+  const s = scoreSchoolStats();
+  const f = v => (v == null ? '-' : v.toFixed(2));
+  Object.entries(s.byTerm).forEach(([t, v]) => { const el = document.getElementById('scAvg' + t); if (el) el.textContent = f(v); });
+  SCORE_SUBJECTS.forEach(([k]) => { const el = document.getElementById('scAvgS' + k); if (el) el.textContent = f(s.bySubj[k]); });
+  document.getElementById('scAvgAll').textContent = f(s.all);
+  document.getElementById('scoreSchoolSum').innerHTML = s.count
+    ? `<div>전 과목 평균<b>${f(s.all)}${s.sc.name}</b></div><div>주요 교과(국·수·영·과) 평균<b>${f(s.main)}${s.sc.name}</b></div><div>입력 과목 수<b>${s.count}</b></div>`
+    : '';
+  document.querySelectorAll('#scoreSchoolTable input').forEach(el => {
+    const v = num(el.value); el.classList.toggle('sc-bad', v != null && (v < s.sc.min || v > s.sc.max));
+  });
+  // HSK 안내
+  const h = SCORE.hsk, hint = document.getElementById('scoreHskHint');
+  if (h.date) {
+    const until = addYears(h.date, 2), ok = validUntilOk(h.date);
+    hint.className = 'sc-hint ' + (ok ? 'ok' : 'no');
+    hint.textContent = `입학용 인정 기한: ${fmtDate(until)}까지 (응시일 + 2년) → 원서 제출 예정일 기준 ${ok ? '유효' : '만료 — 재응시가 필요합니다'}`;
+  } else { hint.className = 'sc-hint'; hint.textContent = '응시일을 입력하면 입학용 인정 기한(보통 2년)을 계산해 드립니다.'; }
+  // CSCA 필요 과목
+  const needs = scoreCscaNeeds();
+  document.getElementById('scoreCscaNeed').innerHTML = `내 수업언어·계열 기준 CSCA 과목: ${needs.map(n => `<span class="sc-need${scoreCscaHas(n.key) ? '' : ' opt'}">${n.name}${scoreCscaHas(n.key) ? ' ✓' : ''}</span>`).join('')}`
+    + ` <span style="font-size:11px;color:#888;">(최종 과목은 대학·전공별 CSCA 과목표 기준)</span>`;
+  // 대학별 점검
+  const targets = SCORE.basic.targets.map(scoreUniv).filter(Boolean);
+  const res = document.getElementById('scoreResult');
+  if (!targets.length) {
+    res.innerHTML = '<div class="sc-empty">1번 "목표 대학"에서 지원할 대학을 선택하면 여기에 점검 결과가 표시됩니다.</div>';
+  } else {
+    const rows = targets.map(u => { const L = scoreCheckLang(u), C = scoreCheckCsca(u), A = scoreCheckAge(u); return { u, L, C, A, all: scoreOverall([L, C, A]) }; });
+    const cnt = k => rows.filter(r => r.all === k).length;
+    const cell = p => `<span class="sc-st ${p.st}">${ST_LABEL[p.st]}</span><div class="sc-msg">${esc(p.msg)}</div>`;
+    const nationWarn = SCORE.basic.nation !== 'A'
+      ? `<div class="sc-hint no" style="margin-bottom:12px;">국적 유형상 <strong>외국 국적 4년 · 최근 4년 중 2년 해외 실거주</strong> 요건을 충족해야 합니다. <a href="#" data-link="modal:guide#1" style="color:#b71c1c;font-weight:700;text-decoration:underline;">거주요건 계산기로 확인 ›</a></div>` : '';
+    res.innerHTML = nationWarn + `<div class="sc-result-sum"><div class="sc-r-ok">기준 충족<b>${cnt('ok')}</b></div><div class="sc-r-warn">확인 필요<b>${cnt('warn')}</b></div><div class="sc-r-fail">기준 미달<b>${cnt('fail')}</b></div></div>`
+      + `<table class="sc-table sc-res"><thead><tr><th>대학</th><th>${SCORE.basic.lang === 'en' ? '영어' : 'HSK'}</th><th>CSCA</th><th>연령</th><th>종합</th><th></th></tr></thead><tbody>`
+      + rows.map(r => `<tr><td class="sc-uname">${esc(r.u.ko)}<span>${esc(r.u.cn)}</span></td><td>${cell(r.L)}</td><td>${cell(r.C)}</td><td>${cell(r.A)}</td>`
+        + `<td><span class="sc-st ${r.all}">${r.all === 'ok' ? '기준 충족' : r.all === 'fail' ? '기준 미달' : '확인 필요'}</span></td>`
+        + `<td><button class="adm-result-btn" data-link="univ:${esc(r.u.cn)}">모집요강</button></td></tr>`).join('') + '</tbody></table>';
+  }
+  // 진행 상태
+  const done = {
+    'sc-basic': !!(SCORE.basic.birth && SCORE.basic.targets.length),
+    'sc-school': s.count > 0,
+    'sc-lang': (num(h.level) != null && num(h.total) != null) || num(SCORE.eng.ielts) != null || num(SCORE.eng.toefl) != null,
+    'sc-csca': ['math', 'chn', 'phys', 'chem'].some(k => num(SCORE.csca[k] && SCORE.csca[k].score) != null),
+    'sc-intl': ['suneung', 'sat', 'act', 'ib', 'ap', 'alevel'].some(k => String(SCORE.intl[k] || '').trim()),
+    'sc-result': targets.length > 0,
+  };
+  document.getElementById('scoreNav').innerHTML = '<div class="sc-nav-title">입력 순서</div>' + SCORE_SECTIONS.map(([id, n], i) =>
+    `<a href="#" class="${done[id] ? 'done' : ''}" onclick="scrollToSection('${id}');return false;"><span class="sc-num">${done[id] ? '✓' : i + 1}</span>${n}</a>`).join('');
+  document.getElementById('scoreProgress').innerHTML = SCORE_SECTIONS.slice(0, 5).map(([id, n]) =>
+    `<span class="sc-chip${done[id] ? ' done' : ''}" onclick="scrollToSection('${id}')">${done[id] ? '✓ ' : ''}${n}</span>`).join('');
+}
+</script>
 
 <!-- ===== 유학자료실 페이지 ===== -->
 <div class="info-overlay" id="dataOverlay">
@@ -3949,9 +4297,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
       <div data-cms-block="guide-tab-3" data-cms-label="자격요건 가이드 · 고교 성적·HSK">
         <h2>고교 성적·HSK 입력 가이드</h2>
         <div class="guide-step"><span class="guide-step-num">01</span><span class="guide-step-text">고교 성적 입력</span>
-          <div class="guide-step-desc">학기별로 과목 성적을 입력합니다. 국내 고교는 등급(1~9등급), 해외 고교는 100점 환산을 선택하세요. 졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지 입력합니다.</div></div>
+          <div class="guide-step-desc">목표 대학을 먼저 고르고, 학기별 과목 성적을 입력합니다. 2024년 이전 입학생은 9등급, 2025년 입학생부터는 5등급, 해외·국제학교는 100점 또는 GPA를 선택하세요. 졸업예정자는 3학년 1학기까지, 졸업자는 3학년 2학기까지 입력합니다.</div></div>
         <div class="guide-step"><span class="guide-step-num">02</span><span class="guide-step-text">어학·공인시험 입력</span>
-          <div class="guide-step-desc">성적표에 적힌 급수·총점·영역별 점수와 응시일을 그대로 입력합니다.</div></div>
+          <div class="guide-step-desc">성적표에 적힌 급수·총점·영역별 점수와 응시일을 그대로 입력합니다. 입력하면 목표 대학의 HSK·CSCA·연령 기준과 자동으로 비교해 "충족 / 확인 필요 / 미달"로 보여 줍니다.</div></div>
         <table class="cg-table" style="margin:10px 0 18px;">
           <thead><tr><th>시험</th><th>입력 항목</th><th>유효기간 (입학 기준)</th></tr></thead>
           <tbody>
@@ -5618,6 +5966,7 @@ function renderSite() {
   if (document.getElementById('deptOverlay').classList.contains('open')) renderDeptTable(1);
   const customBody = document.getElementById('customBody');
   if (document.getElementById('customOverlay').classList.contains('open') && customBody.dataset.slug) openCustomPage(customBody.dataset.slug);
+  if (document.getElementById('gradeOverlay').classList.contains('open')) { renderScoreUnivs(); scoreRecalc(); }
   renderHskUnivTable();
   updatePreviewBar();
 }
@@ -5763,6 +6112,7 @@ function openPage(id) {
   if(id==='univOverlay') renderUnivTable(1);
   if(id==='deptOverlay') renderDeptTable(1);
   if(id==='cscaOverlay') updateCscaFinder();
+  if(id==='gradeOverlay') renderScorePage();
 }
 
 /* 페이지를 연 뒤 특정 섹션으로 이동 */

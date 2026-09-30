@@ -1,7 +1,7 @@
 /* 사이트 콘텐츠 데이터 — '메뉴편집'(CMS)에서 편집·게시하면 이 파일이 갱신됩니다. 직접 수정 시 JSON 형식을 유지하세요. */
 window.SITE_CONTENT = {
  "version": 1,
- "updatedAt": "2026-09-29T09:35:34.865Z",
+ "updatedAt": "2026-09-29T10:30:31.424Z",
  "settings": {
   "logoMain": "중국대학",
   "logoSub": "One Stop",
@@ -213,6 +213,13 @@ window.SITE_CONTENT = {
     "tuition": "이공계 30,000위안 / 인문사회 26,000위안 (연, 참고)",
     "age": "",
     "notes": "본과 모집 트랙(입학시험·필기 면제·博雅 해외인재) 중 하나만 지원할 수 있습니다.\n필기 면제 트랙 모집요강: isd.pku.edu.cn/cn/news/detail.php?id=801 · 성적 기준: isd.pku.edu.cn/cn/detail.php?id=798"
+   },
+   "req": {
+    "hsk": "6:210",
+    "hskHum": "",
+    "eng": "",
+    "csca": "alt",
+    "age": ""
    }
   },
   {
@@ -233,6 +240,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "2026.09.01 기준 만 18세 (미만은 관련 서류 제출)",
     "notes": "고교 성적과 졸업(예정)·대입자격 증명 제출. 전일제 대면 교육으로 취득한 학력만 인정."
+   },
+   "req": {
+    "hsk": "5:180:60",
+    "hskHum": "",
+    "eng": "",
+    "csca": "intl",
+    "age": ""
    }
   },
   {
@@ -253,6 +267,13 @@ window.SITE_CONTENT = {
     "tuition": "전공별 학비 기준표 참조 (iso.fudan.edu.cn/6f/52/c51269a749394/page.htm)",
     "age": "",
     "notes": "중문 授课 본과 모집요강은 2025.09.29 발표."
+   },
+   "req": {
+    "hsk": "5:210|6:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -273,6 +294,13 @@ window.SITE_CONTENT = {
     "tuition": "24,800위안/년 (미래기술학원 120,000위안/년)",
     "age": "",
     "notes": "졸업 요건: HSK 4급 이상."
+   },
+   "req": {
+    "hsk": "5:200:60|6:180:60",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -293,6 +321,13 @@ window.SITE_CONTENT = {
     "tuition": "중문 과정: 인문·역사·철학 19,800위안 / 이공·농·경제·관리·교육·법 24,000위안 (연)",
     "age": "",
     "notes": "학제 4~6년, 일부 전공(의학 등)은 영어 授课."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -313,6 +348,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "제출 서류는 중·영문, 그 외 언어는 공증 번역본 첨부."
+   },
+   "req": {
+    "hsk": "5:210:60",
+    "hskHum": "6:180",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -333,6 +375,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "18 ~ 30세",
     "notes": "4년제 중국어 授课. 입학 시 录取通知书·JW202로 X1 비자 발급."
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": "18-30"
    }
   },
   {
@@ -353,6 +402,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "18 ~ 30세 (입학년도 9월 1일 기준)",
     "notes": "학제 4~6년, 일부 영어 授课 전공."
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "toefl:80|ielts:6.0",
+    "csca": "",
+    "age": "18-30"
    }
   },
   {
@@ -373,6 +429,13 @@ window.SITE_CONTENT = {
     "tuition": "학교 교육비 공시 기준",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -393,6 +456,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "汉语国际教育 전공은 주하이 캠퍼스에서 운영."
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -413,6 +483,13 @@ window.SITE_CONTENT = {
     "tuition": "「2026년 국제학생 본과 모집전공 목록」 참조",
     "age": "자비생 18~35세 / 장학생 18~25세",
     "notes": ""
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": "18-35"
    }
   },
   {
@@ -433,6 +510,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "만 18세 이상",
     "notes": "1+3 书院制: 1학년은 국제교육학원에서 통합 교육 후 전공 배정. 보험료 800위안/년, 합격통지 2026년 7월부터."
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": "18-"
    }
   },
   {
@@ -453,6 +537,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "18 ~ 25세",
     "notes": "보험 800위안/년, 기숙사 1일 15~60위안 (캠퍼스·방 유형별)."
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "ielts:6.0|toefl:80",
+    "csca": "",
+    "age": "18-25"
    }
   },
   {
@@ -473,6 +564,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "2026년 본과 모집요강 2025.11.10 발표."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -493,6 +591,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "온라인 신청 (종이 서류 우편 제출 불필요)."
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "ielts:6.0|toefl:80",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -513,6 +618,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "국제학생 서비스 플랫폼에서 온라인 신청. 문의 iec@ouc.edu.cn"
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -533,6 +645,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -553,6 +672,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -573,6 +699,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "선전 캠퍼스 학비 30,000위안/년 (캠퍼스·전공별 상이)."
+   },
+   "req": {
+    "hsk": "4:210",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -593,6 +726,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "환경디자인 등 일부 전공은 포트폴리오 제출."
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "ielts:6.0|toefl:80",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -613,6 +753,13 @@ window.SITE_CONTENT = {
     "tuition": "학비 기준표 참조 (global.scu.edu.cn/oso/article/index/1095)",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "toefl:80|ielts:6.0",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -633,6 +780,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -653,6 +807,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "18 ~ 22세",
     "notes": ""
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "toefl:90|ielts:6.0",
+    "csca": "required",
+    "age": "18-22"
    }
   },
   {
@@ -673,6 +834,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -693,6 +861,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -713,6 +888,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -733,6 +915,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "문의 ices@sufe.edu.cn"
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -753,6 +942,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "5:210",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -773,6 +969,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "25세 이하",
     "notes": "합격 후 2주 내 1년 학비와 재정보증 서류 제출."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": "-25"
    }
   },
   {
@@ -793,6 +996,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": ""
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -813,6 +1023,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "재정보증: 은행잔고 3만 위안 이상 권장. 량샹 캠퍼스 교내 2인실 40위안/일."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -833,6 +1050,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "합격 통지와 입학허가서는 2026년 7월 이전 발송."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -853,6 +1077,13 @@ window.SITE_CONTENT = {
     "tuition": "일반 18,000 / 농학 22,000 / 체육·예술 26,000 / 의학 27,000위안 (연)",
     "age": "",
     "notes": "학비 기준: liuxue.ybu.edu.cn/zsxx/sfbz.htm · 문의 liuxue@ybu.edu.cn"
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "",
+    "age": ""
    }
   },
   {
@@ -873,6 +1104,13 @@ window.SITE_CONTENT = {
     "tuition": "华文学院 전 전공 22,000위안/년",
     "age": "",
     "notes": "개인 진술서·추천서·무범죄증명서 제출."
+   },
+   "req": {
+    "hsk": "5:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -893,6 +1131,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "만 18세 이상",
     "notes": "중의학·침구추나학 5년, 중약학 4년, 재활치료학 등."
+   },
+   "req": {
+    "hsk": "4:180",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   },
   {
@@ -913,6 +1158,13 @@ window.SITE_CONTENT = {
     "tuition": "",
     "age": "",
     "notes": "3월·9월 입학."
+   },
+   "req": {
+    "hsk": "",
+    "hskHum": "",
+    "eng": "",
+    "csca": "required",
+    "age": ""
    }
   }
  ],
