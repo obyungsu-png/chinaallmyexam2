@@ -1552,12 +1552,6 @@ window.SITE_CONTENT = {
  "navItems": [
   {
    "enabled": true,
-   "label": "직업정보",
-   "icon": "fa-briefcase",
-   "link": "page:jobOverlay"
-  },
-  {
-   "enabled": true,
    "label": "대학정보",
    "icon": "fa-university",
    "link": "page:univOverlay"
@@ -1751,32 +1745,6 @@ window.SITE_CONTENT = {
      "text": "서류·면접 상담",
      "link": "page:compOverlay",
      "wide": true
-    }
-   ]
-  },
-  {
-   "title": "진로정보",
-   "icon": "fa-route",
-   "links": [
-    {
-     "text": "직업정보",
-     "link": "page:jobOverlay",
-     "wide": false
-    },
-    {
-     "text": "전공별 진로안내",
-     "link": "page:deptOverlay",
-     "wide": false
-    },
-    {
-     "text": "중국 취업정보",
-     "link": "",
-     "wide": false
-    },
-    {
-     "text": "직업심리검사",
-     "link": "",
-     "wide": false
     }
    ]
   },

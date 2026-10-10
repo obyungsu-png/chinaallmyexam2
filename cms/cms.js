@@ -91,7 +91,7 @@
     ['page:admGuideOverlay#ag-lang', '어학 기준'], ['page:admGuideOverlay#ag-nation', '국적 심사'], ['page:admGuideOverlay#ag-sites', '공식 사이트 모음'],
     ['page:admGuideOverlay#ag-scholar', '장학금'], ['page:univOverlay', '대학정보'], ['page:deptOverlay', '학과정보'], ['page:admOverlay', '전형정보'],
     ['page:univGradeOverlay', '합격분석'], ['page:gradeOverlay', '성적입력'], ['page:dataOverlay', '유학자료실'], ['page:compOverlay', '서류·면접 상담'],
-    ['page:consultOverlay', '온라인 유학상담'], ['page:jobOverlay', '직업정보'], ['page:loginOverlay', '로그인'], ['page:admGuideOverlay#ag-top', '명문대 전형 비교'], ['home:', '홈'],
+    ['page:consultOverlay', '온라인 유학상담'], ['page:loginOverlay', '로그인'], ['page:admGuideOverlay#ag-top', '명문대 전형 비교'], ['home:', '홈'],
   ];
   const WIDGET_LINKS = [
     ['modal:csca', 'CSCA 가이드'], ['modal:csca#4', 'CSCA 가이드 · 내 과목 찾기'], ['modal:guide', '자격요건 가이드'], ['modal:guide#1', '자격요건 가이드 · 국적·거주 계산기'],
@@ -772,7 +772,7 @@
       const pane = el.closest('.w-pane');
       window.openWidget(modal.id, pane ? [...modal.querySelectorAll('.w-pane')].indexOf(pane) : 0);
     } else {
-      const page = el.closest('.info-overlay, .job-overlay');
+      const page = el.closest('.info-overlay');
       if (page) openPage(page.id); else showHome();
     }
     setTimeout(() => el.scrollIntoView({ block: 'center' }), 80);

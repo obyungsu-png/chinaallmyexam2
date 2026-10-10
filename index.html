@@ -1286,9 +1286,9 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
             <i class="fas fa-graduation-cap"></i>
             <span>관심대학</span>
           </div>
-          <div class="quick-item" onclick="openPage('jobOverlay')">
-            <i class="fas fa-search"></i>
-            <span>관심진로</span>
+          <div class="quick-item" onclick="openPage('deptOverlay')">
+            <i class="fas fa-book-open"></i>
+            <span>관심학과</span>
           </div>
           <div class="quick-item active" onclick="openPage('consultOverlay')">
             <i class="fas fa-headset"></i>
@@ -1484,97 +1484,17 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
 </div>
 
 
-<!-- 직업정보 모달 -->
+<!-- ===== 대학정보 / 학과정보 공통 스타일 ===== -->
 <style>
-.job-overlay {
+/* 공통 full-page 오버레이 */
+.info-overlay {
   display: none;
   background: #f4f7f9;
   padding-bottom: 40px;
 }
-.job-overlay.open { display: block; }
+.info-overlay.open { display: block; }
 
-.job-modal {
-  background: #f4f7f9;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.job-modal-topbar {
-  background: #e8f5f4;
-  padding: 14px 40px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: #888;
-  border-bottom: 1px solid #d0ecea;
-}
-.job-modal-topbar .breadcrumb-sep { color: #ccc; margin: 0 4px; }
-.job-modal-topbar a { color: #888; }
-.job-modal-topbar a:hover { color: #2db4a8; }
-.job-modal-close-btn {
-  margin-left: auto;
-  background: #fff;
-  border: 1px solid #2db4a8;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  color: #2db4a8;
-  cursor: pointer;
-  padding: 5px 14px;
-  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
-}
-.job-modal-close-btn:hover { background: #2db4a8; color: #fff; }
-
-.job-modal-hero {
-  background: #fff;
-  text-align: center;
-  padding: 30px 20px 26px;
-  border-bottom: 1px solid #eee;
-}
-.job-modal-hero h1 {
-  font-size: 26px;
-  font-weight: 800;
-  color: #222;
-}
-
-.job-modal-body {
-  display: flex;
-  gap: 24px;
-  padding: 28px 80px 28px 40px;
-}
-
-/* Left filter */
-.job-filter-panel {
-  width: 220px;
-  flex-shrink: 0;
-}
-.job-filter-panel .filter-search {
-  display: flex;
-  gap: 0;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  overflow: hidden;
-  background: #fff;
-}
-.job-filter-panel .filter-search input {
-  flex: 1;
-  padding: 10px 12px;
-  border: none;
-  outline: none;
-  font-size: 13px;
-  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
-}
-.job-filter-panel .filter-search button {
-  padding: 0 14px;
-  background: #333;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 15px;
-}
+/* 왼쪽 필터 상자 */
 .filter-box {
   background: #fff;
   border: 1px solid #e0e0e0;
@@ -1600,297 +1520,6 @@ a { text-decoration: none; color: inherit; cursor: pointer; }
   appearance: auto;
   background: #fafafa;
 }
-.filter-search-btn {
-  width: 100%;
-  padding: 12px;
-  background: #fff;
-  border: 1px solid #2db4a8;
-  border-radius: 8px;
-  color: #2db4a8;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'Noto Sans KR', 'Noto Sans SC', sans-serif;
-  margin-top: 4px;
-}
-.filter-search-btn:hover { background: #2db4a8; color: #fff; }
-
-/* Source note */
-.source-note {
-  text-align: right;
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 14px;
-}
-
-/* Accordion */
-.job-acc-list { flex: 1; }
-.job-acc-item {
-  background: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.job-acc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 22px;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 600;
-  color: #333;
-  user-select: none;
-}
-.job-acc-header:hover { background: #f5fffe; }
-.acc-icon {
-  font-size: 18px;
-  color: #aaa;
-  transition: transform 0.25s;
-}
-.job-acc-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  border-top: 0px solid #eee;
-}
-.job-acc-item.open .job-acc-body {
-  border-top: 1px solid #f0f0f0;
-}
-.job-tags {
-  padding: 16px 22px 18px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.job-tag {
-  padding: 6px 14px;
-  background: #f0faf9;
-  border: 1px solid #c8ebe8;
-  border-radius: 20px;
-  font-size: 13px;
-  color: #2db4a8;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-.job-tag:hover { background: #2db4a8; color: #fff; border-color: #2db4a8; }
-</style>
-
-<div class="job-overlay" id="jobOverlay">
-  <div class="job-modal">
-
-    <div class="job-modal-topbar">
-      <i class="fas fa-home" style="cursor:pointer;" onclick="showHome()"></i>
-      <span class="breadcrumb-sep">›</span>
-      <a href="#" onclick="showHome()">진로정보</a>
-      <span class="breadcrumb-sep">›</span>
-      <strong style="color:#333;">직업정보</strong>
-      <button class="job-modal-close-btn" onclick="showHome()"><i class="fas fa-home"></i> 홈으로</button>
-    </div>
-
-    <div class="job-modal-hero" data-cms-block="hero-jobOverlay" data-cms-label="직업정보 · 페이지 제목">
-      <h1>직업정보</h1>
-    </div>
-
-    <div class="job-modal-body">
-      <!-- 필터 패널 -->
-      <div class="job-filter-panel">
-        <div class="filter-search">
-          <input type="text" id="jobSearchInput" placeholder="직종명을 입력해주세요." onkeydown="if(event.key==='Enter')searchJobs()">
-          <button onclick="searchJobs()"><i class="fas fa-search"></i></button>
-        </div>
-        <div class="filter-box">
-          <label>평균연봉</label>
-          <select id="salaryFilter">
-            <option value="">선택안함</option>
-            <option>2천만원 이하</option>
-            <option>2천~3천만원</option>
-            <option>3천~4천만원</option>
-            <option>4천~5천만원</option>
-            <option>5천만원 이상</option>
-          </select>
-        </div>
-        <div class="filter-box">
-          <label>직업전망</label>
-          <select id="outlookFilter">
-            <option value="">선택안함</option>
-            <option>매우 밝음</option>
-            <option>밝음</option>
-            <option>보통</option>
-            <option>다소 어두움</option>
-          </select>
-        </div>
-        <button class="filter-search-btn" onclick="searchJobs()">검색</button>
-      </div>
-
-      <!-- 아코디언 목록 -->
-      <div class="job-acc-list" data-cms-block="job-list" data-cms-label="직업정보 · 직업 목록">
-        <div class="source-note">[ 정보제공 : 한국고용정보원 고용24(구 워크넷) ]</div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            중국어·한중 교류 특화 직업
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">한중 통번역사</span><span class="job-tag">국제중국어교사</span><span class="job-tag">중국 전문 무역인</span>
-              <span class="job-tag">해외영업(중국)</span><span class="job-tag">중국 현지법인 주재원</span><span class="job-tag">중국시장 애널리스트</span>
-              <span class="job-tag">크로스보더 이커머스 MD</span><span class="job-tag">외교관·국제기구 직원</span><span class="job-tag">한중 관광·문화 기획자</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            경영·사무·금융·보험직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">경영관리자</span><span class="job-tag">회계사</span><span class="job-tag">세무사</span>
-              <span class="job-tag">금융분석가</span><span class="job-tag">보험계리사</span><span class="job-tag">인사담당자</span>
-              <span class="job-tag">마케터</span><span class="job-tag">무역전문가</span><span class="job-tag">컨설턴트</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            연구직 및 공학 기술직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">소프트웨어개발자</span><span class="job-tag">AI엔지니어</span><span class="job-tag">데이터사이언티스트</span>
-              <span class="job-tag">반도체연구원</span><span class="job-tag">전기전자엔지니어</span><span class="job-tag">기계공학자</span>
-              <span class="job-tag">화학연구원</span><span class="job-tag">바이오엔지니어</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            교육·법률·사회복지·경찰·소방직 및 군인
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">교사</span><span class="job-tag">교수</span><span class="job-tag">변호사</span>
-              <span class="job-tag">판사</span><span class="job-tag">검사</span><span class="job-tag">사회복지사</span>
-              <span class="job-tag">상담사</span><span class="job-tag">경찰관</span><span class="job-tag">소방관</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            보건·의료직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">의사</span><span class="job-tag">치과의사</span><span class="job-tag">한의사</span>
-              <span class="job-tag">간호사</span><span class="job-tag">약사</span><span class="job-tag">물리치료사</span>
-              <span class="job-tag">임상병리사</span><span class="job-tag">영양사</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            예술·디자인·방송·스포츠직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">UX디자이너</span><span class="job-tag">영상편집자</span><span class="job-tag">작가</span>
-              <span class="job-tag">방송PD</span><span class="job-tag">스포츠트레이너</span><span class="job-tag">게임디자이너</span>
-              <span class="job-tag">패션디자이너</span><span class="job-tag">사진작가</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            미용·여행·숙박·음식·경비·청소직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">여행플래너</span><span class="job-tag">호텔리어</span><span class="job-tag">셰프</span>
-              <span class="job-tag">바리스타</span><span class="job-tag">헤어디자이너</span><span class="job-tag">메이크업아티스트</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            영업·판매·운전·운송직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">영업관리자</span><span class="job-tag">해외영업</span><span class="job-tag">물류관리사</span>
-              <span class="job-tag">유통관리사</span><span class="job-tag">항공기조종사</span><span class="job-tag">선박항해사</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            건설·채굴직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">건축가</span><span class="job-tag">토목기사</span><span class="job-tag">인테리어디자이너</span>
-              <span class="job-tag">도시계획가</span><span class="job-tag">측량기사</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            설치·정비·생산직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">자동화시스템엔지니어</span><span class="job-tag">전기기사</span><span class="job-tag">로봇공학자</span>
-              <span class="job-tag">품질관리사</span><span class="job-tag">생산관리자</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="job-acc-item">
-          <div class="job-acc-header" onclick="toggleAccordion(this)">
-            농림어업직
-            <i class="fas fa-chevron-down acc-icon"></i>
-          </div>
-          <div class="job-acc-body">
-            <div class="job-tags">
-              <span class="job-tag">스마트팜전문가</span><span class="job-tag">농업연구원</span><span class="job-tag">수산양식기사</span>
-              <span class="job-tag">원예치료사</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== 대학정보 / 학과정보 공통 스타일 ===== -->
-<style>
-/* 공통 full-page 오버레이 */
-.info-overlay {
-  display: none;
-  background: #f4f7f9;
-  padding-bottom: 40px;
-}
-.info-overlay.open { display: block; }
 
 /* 상단 topbar */
 .info-topbar {
@@ -4608,7 +4237,7 @@ function switchGuideTab(btn, idx) { switchWidgetTab('guideModalOverlay', idx); }
       <div class="novice-detail-title"><span class="magnifier"><i class="fas fa-user-plus"></i></span>회원가입 및 로그인</div>
       <div class="novice-detail-list">
         <div class="novice-detail-item"><span class="novice-detail-tag">가입 방법</span><div class="novice-detail-desc">아이디 가입 또는 네이버·카카오·위챗 간편 로그인으로 가입할 수 있습니다. 학생·학부모 모두 가입할 수 있습니다.</div></div>
-        <div class="novice-detail-item"><span class="novice-detail-tag">로그인 후</span><div class="novice-detail-desc">오른쪽 메뉴에서 관심전형·관심대학·관심진로·상담내역·신청/접수·나의일정을 한 번에 관리합니다.</div></div>
+        <div class="novice-detail-item"><span class="novice-detail-tag">로그인 후</span><div class="novice-detail-desc">오른쪽 메뉴에서 관심전형·관심대학·관심학과·상담내역·신청/접수·나의일정을 한 번에 관리합니다.</div></div>
         <div class="novice-detail-item"><span class="novice-detail-tag">개인정보</span><div class="novice-detail-desc">여권 번호, 주민등록번호 등 민감한 정보는 상담 글에 적지 말고, 서류는 주민등록번호 뒷자리를 가린 파일로 올리세요.</div></div>
       </div>
     </div>
@@ -5638,52 +5267,6 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') { closeMenu(); }
 });
 
-/* 아코디언 토글 */
-function toggleAccordion(el) {
-  const item = el.closest('.job-acc-item');
-  const body = item.querySelector('.job-acc-body');
-  const icon = item.querySelector('.acc-icon');
-  const isOpen = item.classList.contains('open');
-  // 모두 닫기
-  document.querySelectorAll('.job-acc-item.open').forEach(i => {
-    i.classList.remove('open');
-    i.querySelector('.job-acc-body').style.maxHeight = '0';
-    i.querySelector('.acc-icon').style.transform = '';
-  });
-  if (!isOpen) {
-    item.classList.add('open');
-    body.style.maxHeight = body.scrollHeight + 'px';
-    icon.style.transform = 'rotate(180deg)';
-  }
-}
-
-/* 검색 필터 */
-function searchJobs() {
-  const keyword = document.getElementById('jobSearchInput').value.trim().toLowerCase();
-  const salary = document.getElementById('salaryFilter').value;
-  const outlook = document.getElementById('outlookFilter').value;
-
-  document.querySelectorAll('.job-acc-item').forEach(item => {
-    const jobs = item.querySelectorAll('.job-tag');
-    let catVisible = false;
-    jobs.forEach(tag => {
-      const name = tag.textContent.toLowerCase();
-      const matchKw = !keyword || name.includes(keyword);
-      const matchSal = !salary; // 간단 구현: 선택값 있으면 모두 표시
-      const matchOut = !outlook;
-      if (matchKw && matchSal && matchOut) {
-        tag.style.display = '';
-        catVisible = true;
-      } else if (keyword) {
-        tag.style.display = 'none';
-      } else {
-        tag.style.display = '';
-        catVisible = true;
-      }
-    });
-    item.style.display = catVisible ? '' : 'none';
-  });
-}
 </script>
 
 
@@ -6088,7 +5671,7 @@ function renderPagination(containerId, current, total, callback) {
 }
 
 /* ====== 페이지 전환 헬퍼 ====== */
-const ALL_PAGES = ['univOverlay','deptOverlay','jobOverlay','admOverlay','gradeOverlay','dataOverlay','compOverlay','consultOverlay','univGradeOverlay','loginOverlay','cscaOverlay','admGuideOverlay','customOverlay'];
+const ALL_PAGES = ['univOverlay','deptOverlay','admOverlay','gradeOverlay','dataOverlay','compOverlay','consultOverlay','univGradeOverlay','loginOverlay','cscaOverlay','admGuideOverlay','customOverlay'];
 
 function showPage(id) {
   document.getElementById('mainWrap').style.display = 'none';
@@ -6106,7 +5689,7 @@ function showHome() {
   window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
-/* ====== 대학정보 / 학과정보 / 직업정보 ====== */
+/* ====== 대학정보 / 학과정보 ====== */
 function openPage(id) {
   showPage(id);
   if(id==='univOverlay') renderUnivTable(1);
@@ -6187,7 +5770,6 @@ function closeUnivModal() { showHome(); }
 function openDeptModal() { openPage('deptOverlay'); }
 function closeDeptModal() { showHome(); }
 
-function openJobModal() { showPage('jobOverlay'); }
 function closeJobModal() { showHome(); }
 
 /* ESC → 모집요강 창 닫기, 그 외에는 홈으로 (CMS 편집 중에는 무시) */
